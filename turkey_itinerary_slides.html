@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>2026 土耳其 11 日行程 · 每日投影片</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --iznik-deep:#0d3b66;
+  --iznik-blue:#1b4b8f;
+  --iznik-mid:#2a6db0;
+  --turq:#1b9aaa;
+  --turq-bright:#34b8c4;
+  --terra:#c14a35;
+  --terra-soft:#d1654d;
+  --gold:#c8a04d;
+  --gold-bright:#e3bd6a;
+  --cream:#f6efdc;
+  --cream-deep:#efe4c6;
+  --ink:#16243a;
+  --paper:#fbf6e9;
+  --shadow:rgba(13,59,102,.18);
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px);
+  --safe-r:env(safe-area-inset-right,0px);
+  --appH:100vh; /* JS overrides with real window.innerHeight */
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{
+  margin:0;padding:0;
+  width:100%;
+  overscroll-behavior:none;
+  -webkit-text-size-adjust:100%;
+  background:var(--iznik-deep);
+}
+body{
+  font-family:"Noto Serif TC","Cormorant Garamond",serif;
+  color:var(--ink);
+}
+.backdrop{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(52,184,196,.20),transparent 40%),
+    radial-gradient(circle at 85% 85%,rgba(193,74,53,.18),transparent 45%),
+    linear-gradient(155deg,#0a2f53 0%,#0d3b66 45%,#123f6e 100%);
+}
+.backdrop::after{
+  content:"";position:absolute;inset:0;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23e3bd6a' stroke-width='1.1'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 14 L66 40 L40 66 L14 40 Z'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Cpath d='M0 0 L14 14 M80 0 L66 14 M0 80 L14 66 M80 80 L66 66'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* ---------- app shell : uses JS-measured height ---------- */
+.app{
+  position:relative;z-index:1;
+  height:var(--appH);
+  min-height:var(--appH);
+  display:flex;flex-direction:column;
+  padding-top:var(--safe-t);
+  padding-bottom:var(--safe-b);
+  padding-left:var(--safe-l);
+  padding-right:var(--safe-r);
+}
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(8px,2vw,16px) clamp(14px,3vw,28px) 4px;
+}
+.brand{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.72);font-size:clamp(11px,2.6vw,15px);letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.counter{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.85);font-size:clamp(13px,3vw,19px);letter-spacing:.05em;flex-shrink:0}
+.counter b{font-family:"Marcellus",serif;color:var(--gold-bright);font-style:normal}
+.stage{flex:1 1 auto;position:relative;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,28px)}
+.deck{position:relative;width:min(1080px,100%);height:100%;max-height:760px}
+.slide{
+  position:absolute;inset:0;
+  background:linear-gradient(168deg,var(--paper) 0%,var(--cream) 60%,var(--cream-deep) 100%);
+  border-radius:20px;
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.55),0 0 0 1px rgba(200,160,77,.4);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  opacity:0;transform:translateX(36px) scale(.97);
+  pointer-events:none;
+  transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1);
+}
+.slide.active{opacity:1;transform:none;pointer-events:auto}
+.slide.exit-left{opacity:0;transform:translateX(-36px) scale(.97)}
+.slide::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:7px;z-index:4;
+  background:repeating-linear-gradient(90deg,var(--iznik-blue) 0 22px,var(--turq) 22px 44px,var(--terra) 44px 66px,var(--gold) 66px 88px);
+}
+.slide::after{
+  content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;opacity:.07;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%230d3b66' stroke-width='1.4'%3E%3Ccircle cx='50' cy='50' r='48'/%3E%3Cpath d='M50 2 L50 98 M2 50 L98 50 M15 15 L85 85 M85 15 L15 85'/%3E%3Cpath d='M50 12 L74 50 L50 88 L26 50 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;
+}
+.s-head{
+  position:relative;z-index:2;
+  padding:clamp(16px,3vw,30px) clamp(18px,4vw,46px) clamp(10px,1.6vw,16px);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+  border-bottom:1.5px dashed rgba(27,75,143,.28);
+}
+.s-daynum{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(12px,3vw,15px);letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.s-date{font-family:"Marcellus",serif;font-size:clamp(28px,8vw,46px);line-height:1.02;color:var(--iznik-deep);margin-top:2px}
+.s-week{font-family:"Noto Sans TC";font-size:clamp(12px,2.8vw,15px);color:var(--turq);font-weight:700;letter-spacing:.05em;margin-top:4px}
+.s-route{font-family:"Noto Serif TC";font-weight:700;font-size:clamp(15px,4vw,22px);color:var(--iznik-blue);margin-top:10px;line-height:1.35;max-width:62%}
+.s-badge{flex-shrink:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.chip{display:inline-block;font-family:"Noto Sans TC";font-weight:700;font-size:clamp(10px,2.5vw,12px);letter-spacing:.04em;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.chip.city{background:var(--iznik-blue);color:var(--paper)}
+.chip.stat-high{background:var(--turq);color:#06303a}
+.chip.stat-mid{background:var(--gold);color:#4a3208}
+.chip.stat-low{background:var(--terra-soft);color:#fff}
+.chip.stat-fly{background:#2a3d57;color:var(--cream)}
+.s-hotel{font-family:"Noto Sans TC";font-size:clamp(10px,2.4vw,12.5px);color:#5a4a2c;font-weight:500;max-width:160px}
+.s-hotel b{color:var(--terra);font-weight:700}
+.s-body{
+  position:relative;z-index:2;flex:1;min-height:0;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  padding:clamp(12px,2vw,22px) clamp(18px,4vw,46px) clamp(64px,9vw,76px);
+}
+.s-body::-webkit-scrollbar{width:6px}
+.s-body::-webkit-scrollbar-thumb{background:rgba(27,75,143,.3);border-radius:8px}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-row{
+  display:grid;grid-template-columns:clamp(78px,22vw,128px) 1fr;
+  gap:clamp(10px,2.5vw,22px);
+  padding:clamp(9px,1.6vw,13px) 0;
+  border-bottom:1px solid rgba(27,75,143,.13);
+  animation:rowIn .5s both;
+}
+.tl-time{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(13px,3.4vw,19px);color:var(--terra);text-align:right;line-height:1.25;letter-spacing:.01em;position:relative}
+.tl-time::after{content:"";position:absolute;right:-11px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(200,160,77,.25)}
+.tl-main{padding-left:6px;min-width:0}
+.tl-act{font-family:"Noto Serif TC";font-weight:600;font-size:clamp(14px,3.6vw,18px);color:var(--ink);line-height:1.4}
+.tl-act .pin{color:var(--turq);font-weight:700}
+.tl-note{font-family:"Noto Sans TC";font-size:clamp(11px,2.9vw,13.5px);color:#6a5b3e;margin-top:4px;line-height:1.55}
+.tl-note .stay{color:var(--iznik-blue);font-weight:700}
+.tl-tag{display:inline-block;font-family:"Noto Sans TC";font-size:clamp(9px,2.4vw,11px);font-weight:700;padding:2px 8px;border-radius:5px;margin-right:6px;margin-top:5px;vertical-align:middle}
+.tag-move{background:rgba(27,154,170,.15);color:var(--turq)}
+.tag-bag{background:rgba(193,74,53,.13);color:var(--terra)}
+.tag-food{background:rgba(200,160,77,.2);color:#8a6a18}
+@keyframes rowIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.s-foot{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px clamp(18px,4vw,46px);
+  background:linear-gradient(0deg,rgba(246,239,220,.98),rgba(246,239,220,.7) 70%,transparent);
+  font-family:"Noto Sans TC";font-size:clamp(10px,2.6vw,12.5px);
+}
+.s-foot .luggage{color:#5a4a2c;line-height:1.35}
+.s-foot .luggage b{color:var(--terra)}
+.s-foot a.maps{flex-shrink:0;text-decoration:none;font-weight:700;color:var(--paper);background:var(--iznik-blue);padding:7px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;transition:background .25s,transform .2s}
+.s-foot a.maps:active{background:var(--turq);transform:scale(.96)}
+.cover{justify-content:center;align-items:center;text-align:center;padding:clamp(26px,7vw,60px)}
+.cover .ov-pre{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(15px,4.5vw,26px);color:var(--terra);letter-spacing:.1em}
+.cover h1{font-family:"Marcellus",serif;font-size:clamp(44px,15vw,104px);line-height:.96;color:var(--iznik-deep);margin:6px 0 4px;letter-spacing:.01em}
+.cover .ov-zh{font-family:"Noto Serif TC";font-weight:900;font-size:clamp(20px,6vw,38px);color:var(--turq);letter-spacing:.06em}
+.cover .ov-dates{font-family:"Noto Sans TC";font-weight:500;font-size:clamp(12px,3.3vw,19px);color:#5a4a2c;margin-top:16px;letter-spacing:.02em}
+.cover .ov-cities{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:22px}
+.cover .ov-cities span{font-family:"Noto Sans TC";font-weight:700;font-size:clamp(11px,3vw,15px);padding:7px 14px;border-radius:999px;border:1.5px solid var(--gold);color:var(--iznik-blue)}
+.cover .ov-hint{margin-top:30px;font-family:"Noto Sans TC";font-size:clamp(11px,2.8vw,13px);color:#8a7a54;line-height:1.6}
+.cover .ov-orn{font-size:clamp(26px,7vw,46px);color:var(--gold);letter-spacing:.3em;margin-bottom:6px}
+.nav{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,18px);
+  padding:clamp(8px,2vw,16px) 0 clamp(10px,2.5vw,22px);
+}
+.nav button.arrow{
+  width:clamp(46px,12vw,52px);height:clamp(46px,12vw,52px);border-radius:50%;border:none;cursor:pointer;
+  background:rgba(246,239,220,.94);color:var(--iznik-deep);font-size:clamp(20px,5vw,24px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.5);transition:transform .2s,background .25s;
+}
+.nav button.arrow:active{transform:scale(.92);background:var(--gold-bright)}
+.nav button.arrow:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:6px;align-items:center;background:rgba(13,59,102,.45);padding:8px 12px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);max-width:60vw;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dots::-webkit-scrollbar{display:none}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(246,239,220,.45);cursor:pointer;transition:all .25s;padding:0;border:none;flex-shrink:0}
+.dot.active{background:var(--gold-bright);width:22px;border-radius:6px}
+.pbar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--turq),var(--gold-bright));z-index:6;transition:width .45s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px rgba(227,189,106,.6)}
+@media(max-width:680px){
+  .s-route{max-width:100%}
+  .s-head{flex-direction:column;gap:10px}
+  .s-badge{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:left}
+  .s-hotel{max-width:100%}
+  .tl-time::after{display:none}
+  .brand{display:none}
+}
+</style>
+</head>
+<body>
+<div class="backdrop"></div>
+<div class="pbar" id="pbar"></div>
+
+<div class="app" id="app">
+  <div class="topbar">
+    <div class="brand">İSTANBUL · CAPPADOCIA · 2026</div>
+    <div class="counter"><b id="cur">1</b> / <span id="total">12</span></div>
+  </div>
+
+  <div class="stage"><div class="deck" id="deck"></div></div>
+
+  <div class="nav">
+    <button class="arrow" id="prev" aria-label="上一頁">‹</button>
+    <div class="dots" id="dots"></div>
+    <button class="arrow" id="next" aria-label="下一頁">›</button>
+  </div>
+</div>
+
+<script>
+/* ---- iOS-safe viewport height: measure with JS, never rely on vh/dvh alone ---- */
+function setH(){
+  var h=window.innerHeight||document.documentElement.clientHeight;
+  document.documentElement.style.setProperty('--appH',h+'px');
+}
+setH();
+window.addEventListener('resize',setH);
+window.addEventListener('orientationchange',function(){setTimeout(setH,200);});
+if(window.visualViewport)window.visualViewport.addEventListener('resize',setH);
+// a few delayed re-measures to catch in-app webview / Safari toolbar settling
+[60,250,600,1200].forEach(function(t){setTimeout(setH,t);});
+
+const DATA = [
+  {cover:true},
+  {
+    day:"DAY 01", date:"10 / 30", week:"星期五", route:"飛行日 · 各自啟程飛往伊斯坦堡",
+    city:"在空中", stat:"fly", statText:"飛行日",
+    hotel:"住宿：機上",
+    luggage:"行李：安安、豬豬<b>各自託運</b>一個大行李箱（26 / 28 吋）",
+    rows:[
+      {time:"22:00", act:'<span class="pin">✈</span> 安安 TK025 出發', note:'桃園機場 T2 → 伊斯坦堡機場，夜班機<span class="tl-tag tag-move">國際線</span>'},
+      {time:"23:15", act:'<span class="pin">✈</span> 豬豬 TK055 出發', note:'新加坡樟宜機場 T1 → 伊斯坦堡機場<span class="tl-tag tag-move">國際線</span>'},
+      {time:"機上", act:'休息、調整時差', note:'抵達後需入境、領行李、換 eSIM / 網卡，並接 10:00 國內線'},
+    ]
+  },
+  {
+    day:"DAY 02", date:"10 / 31", week:"星期六", route:"IST → İzmir → 以弗所 Ephesus",
+    city:"以弗所", stat:"high", statText:"已成形",
+    hotel:"住宿：<b>Pikan Ephesus</b>（Selçuk）",
+    luggage:"行李：國際轉國內線；ADB 取車後放<b>後車廂不外露</b>，或先寄飯店",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Selcuk+Town+Centre+Turkey%7CEphesus+Ancient+City&travelmode=driving",
+    rows:[
+      {time:"05:50–08:00", act:'抵達 IST、入境、領行李、集合', note:'兩人皆 05:50 左右抵達，建議 07:30–08:30 入境後公共區會合'},
+      {time:"08:00–09:20", act:'重新托運、國內線安檢候機', note:'確認土航國內線行李額度，避免 26 / 28 吋超重<span class="tl-tag tag-bag">行李</span>'},
+      {time:"10:00–11:10", act:'<span class="pin">✈</span> 土航 IST → ADB', note:'飛行約 1 小時 10 分；國際/國內非同票延誤需自行承擔'},
+      {time:"11:10–13:00", act:'ADB 取車 → Selçuk', note:'取車後檢查滿油、保險、車況拍照；可先寄大行李<span class="tl-tag tag-move">自駕</span>'},
+      {time:"13:00–14:00", act:'午餐', note:'Selçuk 鎮中心餐廳多，下午去以弗所最順<span class="tl-tag tag-food">用餐</span>'},
+      {time:"14:00–17:30", act:'<span class="pin">📍</span> 以弗所古城核心', note:'上入口 → 克里特斯街 → 哈德良神廟 → 塞爾蘇斯圖書館 → 大劇院 → 港口大道'},
+      {time:"晚上", act:'Selçuk 晚餐 → 回 Pikan Ephesus', note:'<span class="stay">夜班機接國內線，今晚早休息</span>，不再排 Şirince'},
+    ]
+  },
+  {
+    day:"DAY 03", date:"11 / 01", week:"星期日", route:"以弗所 → 棉堡 Pamukkale → 卡帕多奇亞",
+    city:"棉堡 → 卡帕", stat:"high", statText:"已成形",
+    hotel:"住宿：<b>Grand Elite Cave Suites</b>（Göreme）",
+    luggage:"行李：長距離自駕日；ADB 還車後飛 ASR，深夜取車進 Göreme",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&destination=Izmir+Adnan+Menderes+Airport&waypoints=Pamukkale+Travertines%7CHierapolis+Ancient+City&travelmode=driving",
+    rows:[
+      {time:"08:30–09:00", act:'Pikan Ephesus 退房、檢查車況', note:'行李放後車廂不外露；護照、錢、手機、相機隨身'},
+      {time:"09:00–12:30", act:'<span class="pin">🚗</span> Selçuk → 棉堡 / Denizli', note:'車程約 3–3.5 小時；休息站不開後車廂整理行李<span class="tl-tag tag-move">自駕</span>'},
+      {time:"12:30–13:30", act:'午餐', note:'Pamukkale 村簡單吃，不為午餐繞遠<span class="tl-tag tag-food">用餐</span>'},
+      {time:"13:30–16:30", act:'<span class="pin">📍</span> 棉堡石灰棚 + Hierapolis', note:'穿防滑可碰水鞋；部分區域依現場規定赤腳'},
+      {time:"16:30–19:00", act:'棉堡 → ADB 加油、還車', note:'租期可到 20:00，實際建議 18:30–19:00 完成還車'},
+      {time:"21:00–22:35", act:'<span class="pin">✈</span> SunExpress ADB → ASR', note:'直飛 1 小時 35 分；訂位代號 D438G7'},
+      {time:"22:35–23:30", act:'ASR 領行李、Kayseri 機場取車', note:'深夜取車需確認櫃台營業、航班延誤處理<span class="tl-tag tag-bag">行李</span>'},
+      {time:"23:30–00:30", act:'<span class="pin">🚗</span> 自駕入住 Grand Elite', note:'<span class="stay">抵達很晚只做入住與睡覺</span>，注意夜路與駕駛疲勞'},
+    ]
+  },
+  {
+    day:"DAY 04", date:"11 / 02", week:"星期一", route:"卡帕多奇亞 · 熱氣球① + green 線自駕",
+    city:"卡帕多奇亞", stat:"high", statText:"已成形",
+    hotel:"住宿：<b>Grand Elite Cave Suites</b>（Göreme）",
+    luggage:"行李：<b>全日放 Grand Elite 房間</b>，不帶大行李跑景點",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City%7CDerinkuyu+Underground+City&travelmode=driving",
+    rows:[
+      {time:"04:00–08:30", act:'<span class="pin">🎈</span> 格雷梅日出熱氣球', note:'Cappadocia Discovery Balloons；票面 06:00，接送時間活動前 1–2 天通知；只帶小包、保暖外套、相機'},
+      {time:"08:30–11:00", act:'回飯店早餐、補眠休息', note:'前一晚很晚到，這段不要省'},
+      {time:"11:00–17:30", act:'<span class="pin">🚗</span> 自駕 green 線', note:'Uçhisar Castle → Pigeon Valley → 地下城（Kaymaklı / Derinkuyu 二選一）→ 體力夠再延伸 Ihlara / Selime'},
+      {time:"17:30–18:30", act:'回 Grand Elite 休息、晚餐前整理', note:'晚上仍住 Grand Elite'},
+      {time:"晚上", act:'Göreme / Uçhisar 晚餐、早睡', note:'<span class="stay">11/03 還有第 2 次熱氣球機會</span>'},
+    ]
+  },
+  {
+    day:"DAY 05", date:"11 / 03", week:"星期二", route:"卡帕多奇亞 · 熱氣球② + red 線 + 換飯店",
+    city:"卡帕多奇亞", stat:"high", statText:"已成形",
+    hotel:"住宿：<b>Gamirasu Cave Hotel</b>（Ayvalı / Ürgüp）",
+    luggage:"行李：早上<b>寄放 Grand Elite</b>，傍晚拿了再開去 Gamirasu",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CDevrent+Valley+Cappadocia%7CAvanos+Cappadocia%7CLove+Valley+Cappadocia%7CGoreme+Panorama+Esentepe+Viewpoint&travelmode=driving",
+    rows:[
+      {time:"04:00–08:30", act:'<span class="pin">🎈</span> 熱氣球第 2 次機會 / 露台觀球', note:'若 11/02 已搭過，可只在飯店露台拍熱氣球'},
+      {time:"08:30–10:30", act:'早餐、退房、寄放行李', note:'Grand Elite 11:00 前退房；大行李寄飯店，貴重物品隨身<span class="tl-tag tag-bag">行李</span>'},
+      {time:"10:30–13:00", act:'<span class="pin">🚗</span> red 線前半', note:'Göreme Open Air Museum → Pasabağ → Devrent；只帶小包'},
+      {time:"13:00–14:30", act:'Avanos / Göreme 午餐', note:'依當天路線選最近的<span class="tl-tag tag-food">用餐</span>'},
+      {time:"14:30–17:30", act:'<span class="pin">📍</span> red 線後半', note:'Avanos 陶藝小鎮 → Love Valley → Göreme Panorama'},
+      {time:"17:30–18:30", act:'回 Grand Elite 拿行李', note:'檢查行李、充電器、證件；不在路邊整理大行李'},
+      {time:"18:30–19:30", act:'<span class="pin">🚗</span> 入住 Gamirasu', note:'<span class="stay">Gamirasu 14:00 後可入住，晚上不再排太硬</span>'},
+    ]
+  },
+  {
+    day:"DAY 06", date:"11 / 04", week:"星期三", route:"卡帕多奇亞 → 伊斯坦堡（熱氣球③備援）",
+    city:"卡帕 → 伊斯坦堡", stat:"mid", statText:"半成形",
+    hotel:"住宿：伊斯坦堡（航班待訂）",
+    luggage:"行李：退房後自駕回 ASR 還車；還車時間配合回程班機",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&travelmode=driving",
+    rows:[
+      {time:"清晨", act:'<span class="pin">🎈</span> 熱氣球第 3 次機會 / 露台觀球', note:'本版主要熱氣球扣打的最後一天'},
+      {time:"08:30–10:30", act:'洞穴飯店早餐、露台看 view', note:'天氣好時價值最高；陰雨時房型、早餐、空間仍值得'},
+      {time:"10:30–12:30", act:'Gamirasu 拍照、退房、整理行李', note:'Gamirasu 12:30 退房'},
+      {time:"中午–下午", act:'<span class="pin">🚗✈</span> ASR 還車、飛伊斯坦堡', note:'優先找中午 / 下午班機，晚班機作備案<span class="tl-tag tag-move">待訂</span>'},
+      {time:"晚上", act:'伊斯坦堡入住、飯店附近晚餐', note:'<span class="stay">若下午已抵達，晚上可輕鬆散步</span>'},
+    ]
+  },
+  {
+    day:"DAY 07", date:"11 / 05", week:"星期四", route:"伊斯坦堡收尾 · 第 1 天（彈性）",
+    city:"伊斯坦堡", stat:"low", statText:"骨架",
+    hotel:"住宿：伊斯坦堡（待訂）",
+    luggage:"行李：若今天才從卡帕飛回，抵達後先到飯店放行李",
+    map:"https://www.google.com/maps/search/?api=1&query=Karakoy+Istanbul",
+    rows:[
+      {time:"上午", act:'卡帕 → 伊斯坦堡，或飯店早餐休息', note:'依 11/04 / 11/05 實際航班決定'},
+      {time:"13:00–15:00", act:'<span class="pin">📍</span> Karaköy / Galata 午餐散步', note:'輕量，不拉太遠<span class="tl-tag tag-food">用餐</span>'},
+      {time:"15:00–17:30", act:'Galata Bridge、Spice Bazaar 或海峽短散步', note:'依住宿區選近的，不追求全部'},
+      {time:"晚上", act:'Karaköy / Galata / 住宿附近晚餐', note:'<span class="stay">飛行日不排夜間巡遊</span>'},
+    ]
+  },
+  {
+    day:"DAY 08", date:"11 / 06", week:"星期五", route:"伊斯坦堡舊城區 · 經典大景點",
+    city:"伊斯坦堡", stat:"mid", statText:"日程草稿",
+    hotel:"住宿：伊斯坦堡",
+    luggage:"行李：放飯店；舊城以步行與電車為主，注意扒手",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Sultanahmet+Square&destination=Grand+Bazaar+Istanbul&waypoints=Blue+Mosque+Istanbul%7CHagia+Sophia+Istanbul%7CBasilica+Cistern+Istanbul&travelmode=walking",
+    rows:[
+      {time:"09:00–09:45", act:'<span class="pin">📍</span> Sultanahmet 廣場 + 藍色清真寺', note:'舊城起點，行李放飯店'},
+      {time:"10:00–11:30", act:'<span class="pin">📍</span> 聖索菲亞 Hagia Sophia', note:'確認當時參觀規則、票券、服裝要求'},
+      {time:"11:45–12:45", act:'<span class="pin">📍</span> 地下水宮殿 Basilica Cistern', note:'與聖索菲亞距離近，適合同區安排'},
+      {time:"13:00–14:30", act:'午餐', note:'可走到 Sirkeci / Eminönü，選擇較多<span class="tl-tag tag-food">用餐</span>'},
+      {time:"15:00–17:00", act:'大巴札 或 香料市集（擇一）', note:'不建議兩個都硬排；注意扒手與隨身包'},
+      {time:"傍晚–晚上", act:'Galata Bridge / Karaköy 晚餐散步', note:'<span class="stay">晚上不帶護照與大量現金</span>'},
+    ]
+  },
+  {
+    day:"DAY 09", date:"11 / 07", week:"星期六", route:"伊斯坦堡 · 儀式感 + 日常街區",
+    city:"伊斯坦堡", stat:"mid", statText:"骨架",
+    hotel:"住宿：伊斯坦堡",
+    luggage:"行李：放飯店；這天不再塞大量博物館",
+    map:"https://www.google.com/maps/search/?api=1&query=Turkish+bath+Istanbul",
+    rows:[
+      {time:"09:30–11:00", act:'<span class="pin">🍳</span> 土耳其式早餐', note:'可選 Karaköy / Cihangir / Kadıköy，依住宿區決定'},
+      {time:"11:30–13:30", act:'<span class="pin">♨</span> 土耳其浴 Hammam', note:'建議預約觀光型高級 hammam；不要壓太晚<span class="tl-tag tag-move">待訂</span>'},
+      {time:"14:00–17:30", act:'<span class="pin">📍</span> 日常街區擇一：Kadıköy 或 Balat', note:'Kadıköy 需搭船；Balat 建議叫車或公車'},
+      {time:"傍晚–晚上", act:'海峽夕陽、Galata / Karaköy 夜散步', note:'<span class="stay">晚上不帶護照與大量現金</span>'},
+    ]
+  },
+  {
+    day:"DAY 10", date:"11 / 08", week:"星期日", route:"伊斯坦堡 → 回程",
+    city:"伊斯坦堡 → 回程", stat:"high", statText:"已成形",
+    hotel:"住宿：機上",
+    luggage:"行李：護照、錢、信用卡、手機、藥品隨身；飯店寄放後直接去機場",
+    map:"https://www.google.com/maps/search/?api=1&query=Istanbul+Airport",
+    rows:[
+      {time:"09:00–10:30", act:'早午餐或飯店早餐', note:'不安排跨區名店，選住宿附近<span class="tl-tag tag-food">用餐</span>'},
+      {time:"10:30–11:30", act:'退房、寄放行李、最後整理', note:'貴重物品隨身<span class="tl-tag tag-bag">行李</span>'},
+      {time:"11:30–12:30", act:'住宿附近最後散步或採買', note:'只買好帶、好收的東西'},
+      {time:"12:30–14:15", act:'<span class="pin">🚕</span> 前往 Istanbul Airport', note:'建議叫車或飯店接送，不要把時間抓太緊'},
+      {time:"14:15 後", act:'<span class="pin">✈</span> 報到、退稅、安檢、登機', note:'安安 TK124 17:15 → 桃園；豬豬 TK208 18:30 → 新加坡'},
+    ]
+  },
+  {
+    day:"DAY 11", date:"11 / 09", week:"星期一", route:"抵達 · 各自返家",
+    city:"返家", stat:"fly", statText:"飛行日",
+    hotel:"住宿：—",
+    luggage:"行李：核對所有托運與隨身行李，確認沒有遺漏",
+    rows:[
+      {time:"08:45", act:'<span class="pin">🛬</span> 安安抵達桃園 T2', note:'TK124 抵達'},
+      {time:"10:00", act:'<span class="pin">🛬</span> 豬豬抵達新加坡樟宜 T1', note:'TK208 抵達'},
+      {time:"行程結束", act:'土耳其 11 日圓滿落幕 ✦', note:'回家整理照片與紀念品'},
+    ]
+  },
+];
+
+const deck=document.getElementById('deck');
+const dotsWrap=document.getElementById('dots');
+let idx=0;
+const total=DATA.length;
+document.getElementById('total').textContent=total;
+
+function buildSlide(d,i){
+  const s=document.createElement('section');
+  s.className='slide'+(d.cover?' cover':'');
+  if(d.cover){
+    s.innerHTML=`
+      <div class="ov-orn">✦ ❋ ✦</div>
+      <div class="ov-pre">A Journey Through</div>
+      <h1>TÜRKİYE</h1>
+      <div class="ov-zh">2026 土耳其 11 日</div>
+      <div class="ov-dates">2026 / 10 / 30 — 2026 / 11 / 09 · 安安 × 豬豬</div>
+      <div class="ov-cities">
+        <span>伊斯坦堡 İstanbul</span><span>以弗所 Ephesus</span>
+        <span>棉堡 Pamukkale</span><span>卡帕多奇亞 Cappadocia</span>
+      </div>
+      <div class="ov-hint">手機左右滑動翻頁 ·  點下方圓點跳頁<br>電腦可用 ← → 方向鍵</div>`;
+  }else{
+    const rows=d.rows.map(r=>`
+      <div class="tl-row">
+        <div class="tl-time">${r.time}</div>
+        <div class="tl-main">
+          <div class="tl-act">${r.act}</div>
+          ${r.note?`<div class="tl-note">${r.note}</div>`:''}
+        </div>
+      </div>`).join('');
+    s.innerHTML=`
+      <div class="s-head">
+        <div>
+          <div class="s-daynum">${d.day}</div>
+          <div class="s-date">${d.date}</div>
+          <div class="s-week">${d.week}</div>
+          <div class="s-route">${d.route}</div>
+        </div>
+        <div class="s-badge">
+          <span class="chip city">${d.city}</span>
+          <span class="chip stat-${d.stat}">${d.statText}</span>
+          <span class="s-hotel">${d.hotel}</span>
+        </div>
+      </div>
+      <div class="s-body"><div class="timeline">${rows}</div></div>
+      <div class="s-foot">
+        <span class="luggage">${d.luggage}</span>
+        ${d.map?`<a class="maps" href="${d.map}" target="_blank" rel="noopener">🗺 當日路線</a>`:''}
+      </div>`;
+  }
+  deck.appendChild(s);
+  const dot=document.createElement('button');
+  dot.className='dot';dot.setAttribute('aria-label','第'+(i+1)+'頁');
+  dot.onclick=()=>go(i);
+  dotsWrap.appendChild(dot);
+}
+DATA.forEach(buildSlide);
+
+const slides=[...document.querySelectorAll('.slide')];
+const dots=[...document.querySelectorAll('.dot')];
+const prevBtn=document.getElementById('prev');
+const nextBtn=document.getElementById('next');
+const curEl=document.getElementById('cur');
+const pbar=document.getElementById('pbar');
+
+function render(prevIdx){
+  slides.forEach((sl,i)=>{
+    sl.classList.remove('active','exit-left');
+    if(i===idx)sl.classList.add('active');
+    else if(prevIdx!=null && i===prevIdx && i<idx)sl.classList.add('exit-left');
+  });
+  if(!DATA[idx].cover){
+    const rows=slides[idx].querySelectorAll('.tl-row');
+    rows.forEach((r,k)=>{r.style.animation='none';r.offsetHeight;r.style.animation=`rowIn .5s ${k*0.06}s both`;});
+    slides[idx].querySelector('.s-body').scrollTop=0;
+  }
+  dots.forEach((dt,i)=>dt.classList.toggle('active',i===idx));
+  const adot=dots[idx];if(adot&&adot.scrollIntoView)adot.scrollIntoView({inline:'center',block:'nearest'});
+  curEl.textContent=idx+1;
+  prevBtn.disabled=idx===0;
+  nextBtn.disabled=idx===total-1;
+  pbar.style.width=((idx)/(total-1)*100)+'%';
+}
+function go(n){const p=idx;idx=Math.max(0,Math.min(total-1,n));render(p);}
+function next(){go(idx+1);}
+function prev(){go(idx-1);}
+nextBtn.onclick=next;prevBtn.onclick=prev;
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')next();
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')prev();
+  else if(e.key==='Home')go(0);
+  else if(e.key==='End')go(total-1);
+});
+let tx=0,ty=0;
+const stage=document.querySelector('.stage');
+stage.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+stage.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.4){dx<0?next():prev();}
+},{passive:true});
+
+render(null);
+</script>
+</body>
+</html>
