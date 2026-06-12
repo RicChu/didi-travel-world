@@ -8,7 +8,7 @@
 
 ## 目前行程計劃進度
 
-目前大方向已成立：城市順序、主要跨城交通、11/02 格雷梅日出熱氣球、以弗所 / 棉堡自駕、卡帕多奇亞兩段住宿與兩段租車都已排進主線。接下來的重點不是重新設計路線，而是補齊剩餘航班、保險 / 行李條款與伊斯坦堡段住宿，並把每天的時分級安排整理到可直接執行。
+目前大方向已成立：城市順序、主要跨城交通、11/02 格雷梅日出熱氣球、以弗所 / 棉堡自駕、卡帕多奇亞兩段住宿與兩段租車都已排進主線。接下來的重點不是重新設計路線，而是補齊伊斯坦堡住宿、旅平險、租車執行細節、離線備份與伊斯坦堡段每日動線，讓現場可以直接照表執行。
 
 ### 完整度判斷方式
 
@@ -16,22 +16,22 @@
 
 | 層級 | 完整度定義 | 目前狀態 |
 |------|------------|----------|
-| 路線骨架 | 城市順序、住宿城市、跨城方向已確定 | 約 90%，大行程已穩定 |
-| 預定錨點 | 航班、住宿、租車、熱氣球等不可隨意漂移的項目 | 約 80%，國際線、ADB → ASR、以弗所住宿、卡帕多奇亞住宿、兩段租車、11/02 熱氣球已完成；IST → ADB、回伊斯坦堡航班、伊斯坦堡住宿仍待處理 |
-| 時分級動線 | 每天有起訖時間、移動時間、景點停留、用餐與行李安排 | 約 60%，跨城日與卡帕多奇亞已較細；伊斯坦堡後段仍偏區塊式 |
-| 現場可執行度 | 有 Plan B、取消條款、聯絡方式、地址、截圖與離線備份 | 約 65%，熱氣球票券、天候退款規則與租車確認信已補；尚需補保險條款、租車細項條款、住宿寄放行李與地圖收藏 |
+| 路線骨架 | 城市順序、住宿城市、跨城方向已確定 | 約 95%，跨城方向已鎖定為伊斯坦堡抵達 → 以弗所 / 棉堡 → 卡帕多奇亞 → 伊斯坦堡收尾；剩餘變數主要是伊斯坦堡住宿區會影響 11/05～11/08 市區動線 |
+| 預定錨點 | 航班、住宿、租車、熱氣球等不可隨意漂移的項目 | 約 92%，國際線、TK2320 IST → ADB、ADB → ASR、TK2017 ASR → IST、以弗所住宿、卡帕多奇亞住宿、兩段租車、11/02 熱氣球已完成；尚待伊斯坦堡住宿、11/08 機場交通與旅平險 |
+| 時分級動線 | 每天有起訖時間、移動時間、景點停留、用餐與行李安排 | 約 70%，10/31～11/04 已可按時段執行，紅線 / 綠線與熱氣球備援邏輯已成形；11/05～11/08 仍需依伊斯坦堡住宿區補成細版 |
+| 現場可執行度 | 有 Plan B、取消條款、聯絡方式、地址、截圖與離線備份 | 約 75%，熱氣球票券、天候退款規則、土航國內線電子機票、行李額度與租車確認信已補；尚需補旅平險、土耳其 e-Visa、AVEC 提早還車 / 保險細項、住宿寄放行李、離線地圖與出發前一週救急版 |
 
 ### 每日進度概覽
 
 | 日期 | 目前進度 | 時分級完整度 | 已鎖定內容 | 主要缺口 |
 |------|----------|--------------|------------|----------|
 | 10/30（五） | 已成形 | 高 | 國際線出發時間、兩人出發地 | 豬豬 TK055 實際日期截圖仍需確認 |
-| 10/31（六） | 已成形但有關鍵待訂 | 中高 | 抵達 IST、10:00 IST → ADB 目標、ADB 租車 11:30 取車、Pikan Ephesus 住宿、以弗所下午路線 | IST → ADB 尚待訂；需確認國內線行李額度與國際線延誤備案 |
+| 10/31（六） | 已成形 | 高 | 抵達 IST、已訂 TK2320 11:00 IST → 12:10 ADB、ADB 租車 11:30 預約取車、Pikan Ephesus 住宿、以弗所下午精簡路線 | 非同張票銜接，需保留國際線延誤備案；需確認 ADB 租車晚取車規則 |
 | 11/01（日） | 已成形 | 高 | 棉堡日程、ADB 租車 20:00 還車、21:00 ADB → 22:35 ASR、ASR 租車 23:00 取車、Grand Elite 晚到入住 | 需確認兩段租車保險、滿油規則、取車信用卡與夜間取車處理 |
 | 11/02（一） | 已成形 | 中高 | Cappadocia Discovery Balloons 格雷梅日出熱氣球、Grand Elite 住宿、條件式 red / green 線 | 若熱氣球飛成，白天走 red 線；若熱氣球取消，白天走 green 線 |
 | 11/03（二） | 已成形 | 中高 | 熱氣球天候備援日、條件式 red / green 線、Grand Elite 寄放行李、Gamirasu 入住 | 若 11/02 已走 red，11/03 走 green；若 11/02 已走 green，11/03 走 red |
-| 11/04（三） | 半成形 | 中 | 熱氣球最後備援日、Gamirasu 早餐 / 退房、ASR 19:00 還車 | 卡帕多奇亞 → 伊斯坦堡航班未訂；若想早還車需向 AVEC 確認 |
-| 11/05（四） | 骨架 | 低中 | 伊斯坦堡收尾起始日概念 | 實際抵達時間、伊斯坦堡住宿區、當天活動需依 11/04 / 11/05 航班決定 |
+| 11/04（三） | 已成形 | 中高 | 熱氣球最後備援日、Gamirasu 早餐 / 退房、Mustafapaşa / Ürgüp / Ortahisar 輕量收尾、已訂 TK2017 18:40 ASR → 20:20 IST | 18:40 起飛需向 AVEC 確認可否 16:30～17:00 提早還車 |
+| 11/05（四） | 骨架 | 低中 | 伊斯坦堡收尾起始日概念 | 伊斯坦堡住宿區、當天活動需依 11/04 晚抵達後狀態調整 |
 | 11/06（五） | 已有日程草稿 | 中 | 舊城區、聖索菲亞、藍色清真寺、地下水宮殿、市集 | 票券、開放時間、住宿區與交通仍需確認 |
 | 11/07（六） | 骨架 | 低中 | 土耳其早餐、土耳其浴、生活街區候選 | Hammam 預約、Kadikoy / Balat / Galata 實際選線未定 |
 | 11/08（日） | 已成形 | 中 | 國際線回程、14:15 前到 IST、退房 / 寄放行李概念 | 伊斯坦堡住宿地點與機場交通方式待確認 |
@@ -40,8 +40,8 @@
 
 ### 下一步優先順序
 
-1. 先處理會影響整段行程成立的剩餘項目：`10/31 IST → ADB`、`11/04 或 11/05 卡帕多奇亞 → 伊斯坦堡`、伊斯坦堡住宿。
-2. 再確認已訂項目的執行細節：兩段 Rentalcars / AVEC 租車保險與滿油規則、取車信用卡、11/01 Kayseri 深夜取車、11/04 是否可提早還車、熱氣球實際接送時間與 11/03 / 11/04 改期座位。
+1. 先處理會影響後段體驗的剩餘項目：伊斯坦堡住宿、旅平險、11/08 機場交通。
+2. 再確認已訂項目的執行細節：兩段 Rentalcars / AVEC 租車保險與滿油規則、取車信用卡、11/01 Kayseri 深夜取車、11/04 因 TK2017 18:40 起飛需提早還車、熱氣球實際接送時間與 11/03 / 11/04 改期座位。
 3. 最後細化伊斯坦堡：土耳其浴、舊城票券、每日晚餐與夜間散步範圍。
 
 時間顆粒度建議：跨城日抓到 15～30 分鐘區間；景點日抓到 30～60 分鐘區間；伊斯坦堡生活街區和晚餐保留 1～2 小時彈性，不需要每個小店都鎖死。
@@ -64,7 +64,7 @@
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 這段靠航班，不用 Google Maps 車程判斷 |
+| 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
 | ADB 取車後自駕 | [ADB → Pikan Ephesus → Selçuk 鎮中心 → Ephesus Ancient City → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920%7CSelcuk+Town+Centre+Turkey%7CEphesus+Ancient+City&travelmode=driving) | ADB、Pikan Ephesus、Selçuk 鎮中心、以弗所古城 | 飯店在 Selçuk，位於 ADB 與以弗所之間，下午去以弗所順路 |
 | 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Harbour Street](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Upper+Gate&destination=Harbour+Street+Ephesus&waypoints=Curetes+Street+Ephesus%7CTemple+of+Hadrian+Ephesus%7CLibrary+of+Celsus+Ephesus%7CGreat+Theatre+Ephesus&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大理石街（圖書館到大劇院之間）、大劇院、港口大道 | 這段是古城內步行，和車行路線分開看；Google Maps 找不到 Marble Street 時，用 Library of Celsus → Great Theatre 這段涵蓋 |
 
@@ -93,15 +93,16 @@
 | 若 11/02 已走 green 或 11/03 補飛成功：red 線與換飯店 | [Grand Elite → Göreme Open Air Museum → Pasabag → Devrent → Avanos → Love Valley → Göreme Panorama → Grand Elite → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CDevrent+Valley+Cappadocia%7CAvanos+Cappadocia%7CLove+Valley+Cappadocia%7CGoreme+Panorama+Esentepe+Viewpoint%7CGrand+Elite+Cave+Suites+Goreme&travelmode=driving) | Grand Elite、Göreme Open Air Museum、Pasabag、Devrent、Avanos、Love Valley、Göreme Panorama、回 Grand Elite 拿行李、Gamirasu | 11/02 若沒飛而走 green，11/03 就用 red 線銜接換飯店；若 11/03 補飛成功，也優先走 red 線 |
 | 若 11/02 已飛成且已走 red：green 線與換飯店 | [Grand Elite → Uçhisar Castle → Pigeon Valley → Kaymakli / Derinkuyu → Ihlara Valley → Selime → Grand Elite → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City%7CDerinkuyu+Underground+City%7CIhlara+Valley+Cappadocia%7CSelime+Monastery+Cappadocia%7CGrand+Elite+Cave+Suites+Goreme&travelmode=driving) | Grand Elite、Uçhisar、Pigeon Valley、地下城、Ihlara / Selime、回 Grand Elite 拿行李、Gamirasu | 這條較硬；若要保旅遊品質，地下城二選一，Ihlara / Selime 可擇一或刪減 |
 
-### 11/04（三）Gamirasu → ASR → Istanbul
+### 11/04（三）Gamirasu → Mustafapaşa / Ürgüp / Ortahisar → ASR → Istanbul
 
-> 目前狀態：半成形。以下只作為候選端點與暫定還車方向，等卡帕多奇亞 → 伊斯坦堡航班確定後，再升級成完整路線圖。
+> 目前狀態：已成形。白天採輕量收尾，不再排完整紅線 / 綠線。航班 TK2017 ASR → IST 已開票，仍需確認 AVEC 提早還車。
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 熱氣球接送參考 | [Gamirasu → Cappadocia Hot Air Balloon → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Cappadocia+Hot+Air+Balloon&travelmode=driving) | Gamirasu、熱氣球集合 / 起飛區參考點 | Gamirasu 不在 Göreme 核心，實際熱氣球接送時間要特別確認 |
-| 退房後還車 | [Gamirasu Cave Hotel → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&travelmode=driving) | Gamirasu、ASR Kayseri Airport | 訂單還車時間 11/04 19:00；若想搭較早航班，需先確認 AVEC 是否可提早還車 |
-| 飛機端點候選 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [Sabiha Gokcen Airport SAW](https://www.google.com/maps/search/?api=1&query=Sabiha+Gokcen+Airport) | ASR、IST、SAW | 回伊斯坦堡航班未訂；若飛 SAW，後段住宿區與進城動線要一起重看 |
+| 輕量收尾路線 | [Gamirasu → Mustafapaşa → Ürgüp → Ortahisar Castle → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Mustafapasa+Cappadocia%7CUrgup+Cappadocia%7COrtahisar+Castle+Cappadocia&travelmode=driving) | Gamirasu、Mustafapaşa、Ürgüp、Ortahisar Castle、ASR | 行李跟車，採低風險短停；若車上行李無法完全遮蔽，刪 Ortahisar，只保留 Mustafapaşa / Ürgüp |
+| 保守不繞版 | [Gamirasu → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Mustafapasa+Cappadocia%7CUrgup+Cappadocia&travelmode=driving) | Gamirasu、Mustafapaşa、Ürgüp、ASR | 若 11/04 有補飛熱氣球、太累、天氣差，或擔心車上行李風險，採這版 |
+| 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；建議 16:30～17:00 完成還車 / 抵達航廈 |
 
 ### 11/08（日）伊斯坦堡 → Istanbul Airport 回程
 
@@ -138,8 +139,8 @@
 | 11/01（日） | ADB → ASR 約 1 小時 35 分 | Pikan → Pamukkale → ADB 約 6～7 小時；ASR → Grand Elite 約 1～1.25 小時 | ADB 還車 / ASR 取車約 1.5～2 小時 | 約 10～12 小時 | 全行程最硬交通日，棉堡是最容易被壓縮的點 |
 | 11/02（一） | 0 | 若熱氣球飛成：接送約 0.5～1 小時 + red 線約 2～2.5 小時；若熱氣球取消：green 完整版約 4～5 小時，精簡版約 2～2.5 小時 | - | 飛成 + red 約 2.5～3.5 小時；取消 + green 完整版約 4～5 小時，精簡版約 2～2.5 小時 | 11/02 的核心判斷是熱氣球有沒有飛成 |
 | 11/03（二） | 0 | 若 11/02 已走 green 或 11/03 補飛成功：red 線 + 換飯店約 2～3 小時；若 11/02 已走 red：green 線 + 換飯店約 4～6 小時 | - | red 日約 2～3 小時；green 日約 4～6 小時 | 11/03 要同時考慮是否補飛與換飯店 |
-| 11/04（三） | ASR → Istanbul 約 1 小時 15～30 分，待訂 | Gamirasu → ASR 約 1～1.25 小時；若補飛熱氣球再加接送約 1～1.5 小時 | Istanbul 機場 → 飯店約 45～90 分，依住宿區 | 約 3～5.5 小時 | 航班未定；若 11/04 補飛，下午 / 晚上飛較穩 |
-| 11/05（四） | 若 11/04 已回伊斯坦堡則 0；若 11/05 才飛，約 1 小時 15～30 分 | 市區交通約 0.5～1.5 小時；若 11/05 才飛另加機場接送 | 可能含電車 / 地鐵 | 約 0.5～1.5 小時；若當天飛則約 3～5 小時 | 取決於 11/04 是否已回伊斯坦堡 |
+| 11/04（三） | 已訂 TK2017 ASR → IST 18:40～20:20，約 1 小時 40 分 | Gamirasu → Mustafapaşa / Ürgüp / Ortahisar → ASR 約 1.5～2.5 小時；若補飛熱氣球再加接送約 1～1.5 小時 | Istanbul 機場 → 飯店約 45～90 分，依住宿區 | 約 4～6 小時 | 18:40 起飛需確認 AVEC 可提早還車；當天只排輕量收尾 |
+| 11/05（四） | 0 | 市區交通約 0.5～1.5 小時 | 可能含電車 / 地鐵 | 約 0.5～1.5 小時 | 若 11/04 晚上已抵達伊斯坦堡，11/05 可作完整城市日 |
 | 11/06（五） | 0 | 市區交通約 0.5～1.5 小時，依住宿區與舊城動線 | 可能含電車 / 地鐵 | 約 0.5～1.5 小時 | 伊斯坦堡景點日，主要靠步行與短程大眾運輸 |
 | 11/07（六） | 0 | 市區交通約 1～2 小時，若跨去 Kadikoy / Balat 會較高 | 可能含渡輪 / 電車 / 地鐵 | 約 1～2 小時 | 生活街區日，移動可彈性縮短 |
 | 11/08（日） | 安安 TK124 約 10 小時 30 分；豬豬 TK208 約 10 小時 30 分 | 飯店 → IST 約 45～90 分 | - | 約 11.25～12 小時 | 回程日，建議 14:15 前抵達 IST |
@@ -214,7 +215,7 @@
 
 ### 國際線行李額度
 
-安安與豬豬的國際線去程 / 回程行李額度目前皆按同一規格整理。此處只適用國際線，土耳其國內線仍需另查各段票種。
+安安與豬豬的國際線去程 / 回程行李額度目前皆按同一規格整理。此處只適用國際線；土耳其國內線已於下方依 EcoFly 票種另列。
 
 | 類型 | 額度 | 尺寸限制 | 備註 |
 |------|------|----------|------|
@@ -230,6 +231,19 @@
 | 2026/11/08 14:15 前 | 抵達伊斯坦堡機場 | 安安航班 17:15 起飛，建議一起提早到機場 |
 | 2026/11/08 17:15 | 安安航班起飛 | TK124 回台灣 |
 | 2026/11/08 18:30 | 豬豬航班起飛 | TK208 回新加坡 |
+
+### 土耳其國內線已訂航班
+
+| 日期 | 航班 | 時間 | 航線 | 狀態 / 備註 |
+|------|------|------|------|-------------|
+| 2026/10/31（六） | TK2320 | 11:00 → 12:10 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | 已開票；訂位代號 **TB5RZM**；與國際線非同張票，需入境、領行李、重新托運；比 10:00 班更安全；EcoFly 托運 1 件 15kg、登機 1 件 8kg |
+| 2026/11/04（三） | TK2017 | 18:40 → 20:20 | [Kayseri Airport ASR](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) → [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | 已開票；訂位代號 **TB5RZM**；需確認 AVEC 可在 16:30～17:00 左右提早還車；EcoFly 托運 1 件 15kg、登機 1 件 8kg |
+
+土航官網已開票，訂位代號 **TB5RZM**，交易日期 **2026-06-12 17:16 Istanbul Local Time**，2 位乘客合計 **TRY 19,872.04**。票價類型為 Economy EcoFly，兩段國內線票規畫面一致：
+
+- 行李額度：托運行李 **1 件 15kg**、登機行李 **1 件 8kg**。26 / 28 吋行李箱容易超過 15kg，出發前需控重或準備加買 / 付超重費；可另備一個可登機行李袋，把衣物、外套、非液體日用品等從托運箱分到手提行李，讓托運箱壓在 15kg 內。
+- 重新訂票 / 改票：畫面顯示可改票但需付改票費，常見金額為 **TRY 1,100 / TRY 1,350**；越接近起飛限制越多，起飛前很短時間內或 no-show 可能禁止。
+- 退款 / 取消：畫面顯示可折抵 **TRY 1,450**，但起飛前 12 小時內、起飛前 1 小時內或 no-show 可能禁止；同時有 **24 小時內全額退款**規則，實際以付款頁與確認信為準。
 
 ### 活動 / 體驗訂位
 
@@ -252,10 +266,10 @@
 
 | 情境 | 優先選擇 | 原因 |
 |------|----------|------|
-| 抵達伊斯坦堡 → Izmir / 以弗所周邊 | 土耳其航空 10:00 IST → 11:10 ADB | 抵達後直接接國內線往以弗所，避免後段再回頭；但需預留入境、領行李與重新托運時間 |
+| 抵達伊斯坦堡 → Izmir / 以弗所周邊 | 土耳其航空 TK2320 11:00 IST → 12:10 ADB | 抵達後直接接國內線往以弗所，避免後段再回頭；11:00 班比 10:00 班更適合非同張票、大行李、兩人集合情境 |
 | 以弗所 → 棉堡 → Izmir 機場 | ADB 機場租車自駕 | 已由豬豬下訂 Rentalcars / AVEC，確認號 **670245222**；10/31 11:30 ADB 取車，11/01 20:00 ADB 還車；Toyota Corolla 或相似車款 |
 | Izmir / 以弗所周邊 → 卡帕多奇亞 | SunExpress 21:00 ADB → 22:35 ASR | 這班直飛比 06:15 早班機友善，讓 11/01 白天可完整安排棉堡 |
-| 卡帕多奇亞 → 伊斯坦堡 | 11/04 晚上或 11/05 白天飛機 | 11/02～11/04 保留三個熱氣球清晨；Kayseri 租車已訂 11/04 19:00 ASR 還車，若想搭較早航班需先確認可否提早還車 |
+| 卡帕多奇亞 → 伊斯坦堡 | 已訂土耳其航空 TK2017 18:40 ASR → 20:20 IST | 11/02～11/04 保留三個熱氣球清晨；Kayseri 租車訂單原為 11/04 19:00 ASR 還車，需確認 AVEC 可在 16:30～17:00 左右提早還車 |
 | 夜間火車 | 只在確認「臥鋪 + 可洗澡 + 行李可安全放置」後採用 | 若只能座位、無淋浴、需半夜轉車，則不符合這趟行李與舒適需求 |
 
 ### 夜間火車判斷
@@ -315,17 +329,17 @@
 
 ## 推薦行程草稿
 
-這版改成「抵達後直接以弗所 → 棉堡 → 卡帕多奇亞 → 伊斯坦堡收尾」的方向規劃。核心取捨是利用 10/31 10:00 IST → 11:10 ADB 先去以弗所，11/01 晚上搭 21:00 ADB → 22:35 ASR 直飛卡帕多奇亞，讓 11/02、11/03、11/04 保留三個熱氣球清晨，最後 11/05～11/08 放回伊斯坦堡。
+這版改成「抵達後直接以弗所 → 棉堡 → 卡帕多奇亞 → 伊斯坦堡收尾」的方向規劃。核心取捨是利用 10/31 TK2320 11:00 IST → 12:10 ADB 先去以弗所，11/01 晚上搭 21:00 ADB → 22:35 ASR 直飛卡帕多奇亞，11/04 TK2017 18:40 ASR → 20:20 IST 回伊斯坦堡，最後 11/05～11/08 放回伊斯坦堡。
 
 | 日期 | 城市 / 區域 | 建議行程 | 住宿建議 | 行李策略 |
 |------|-------------|----------|----------|----------|
 | 10/30（五） | 飛機上 | 安安從桃園出發；豬豬從新加坡出發 | 機上 | 各自託運大行李 |
-| 10/31（六） | 伊斯坦堡機場 → 以弗所周邊 | 05:50 抵達 IST；10:00 搭土耳其航空 IST → 11:10 ADB；11:30 ADB 取 Toyota Corolla 或相似車款；下午自駕前往以弗所古城核心 | Pikan Ephesus（Selçuk） | 國際線轉國內線，ADB 取車後全程自駕；行李放後車廂或先放飯店 |
+| 10/31（六） | 伊斯坦堡機場 → 以弗所周邊 | 05:50 抵達 IST；已訂 TK2320 11:00 IST → 12:10 ADB；ADB 租車預約 11:30 取車、實際約 12:30 後取車；下午自駕前往以弗所古城核心精簡路線 | Pikan Ephesus（Selçuk） | 非同張票轉國內線，需入境、領行李、重新托運；ADB 取車後全程自駕 |
 | 11/01（日） | 以弗所周邊 → 棉堡 → 卡帕多奇亞 | 自駕前往棉堡；下午 Pamukkale + Hierapolis；傍晚自駕回 ADB，20:00 ADB 還車；21:00 SunExpress ADB → 22:35 ASR；23:00 Kayseri Airport 取 Opel Crossland 或相似車款 | Grand Elite Cave Suites（Göreme） | ADB 還車後飛 ASR，抵達後改 Kayseri Airport 取車自駕進 Göreme；預估 23:30～00:30 抵達飯店 |
 | 11/02（一） | 卡帕多奇亞 | Cappadocia Discovery Balloons 格雷梅日出熱氣球；若熱氣球飛成，白天走 red 線；若熱氣球取消，白天走 green 線 | Grand Elite Cave Suites（Göreme） | 行李放 Grand Elite 房間；熱氣球後不硬跑完整 green 線 |
 | 11/03（二） | 卡帕多奇亞 | 若 11/02 已走 red，11/03 走 green；若 11/02 已走 green，11/03 走 red；若 11/03 才補飛成功，白天優先 red 線；傍晚回 Grand Elite 拿行李，再開去 Gamirasu | Gamirasu Cave Hotel（Ayvalı / Ürgüp） | 行李寄放 Grand Elite；red 線較適合熱氣球後與換飯店日，green 線需視體力精簡 |
-| 11/04（三） | 卡帕多奇亞 → 伊斯坦堡 | 若 11/02、11/03 因天候未飛成，作為最後熱氣球備援；Gamirasu 早餐 / 洞穴飯店空間 / 退房；19:00 ASR 還車後飛伊斯坦堡 | 伊斯坦堡或卡帕多奇亞 | Gamirasu 位置偏 Ayvalı / Ürgüp，退房後自駕回 Kayseri Airport 還車；若要搭較早航班，需先確認可否提早還車 |
-| 11/05（四） | 伊斯坦堡 | 伊斯坦堡舊城或生活街區，依 11/04 / 11/05 實際航班調整 | 伊斯坦堡 | 行李放飯店 |
+| 11/04（三） | 卡帕多奇亞 → 伊斯坦堡 | 若 11/02、11/03 因天候未飛成，作為最後熱氣球備援；Gamirasu 早餐 / 洞穴飯店空間 / 退房；Mustafapaşa / Ürgüp / Ortahisar 輕量收尾；已訂 TK2017 18:40 ASR → 20:20 IST | 伊斯坦堡 | 行李跟車，停車只做短停；16:30～17:00 左右需完成 ASR 還車 / 抵達航廈 |
+| 11/05（四） | 伊斯坦堡 | 伊斯坦堡舊城或生活街區，依 11/04 晚抵達狀態調整 | 伊斯坦堡 | 行李放飯店 |
 | 11/06（五） | 伊斯坦堡 | 聖索菲亞、藍色清真寺、地下水宮殿、市集或海峽 | 伊斯坦堡 | 行李放飯店；地下水宮殿列為舊城日必排 |
 | 11/07（六） | 伊斯坦堡 | 土耳其式早餐、土耳其浴、Kadikoy / Balat / Galata / Karakoy | 伊斯坦堡 | 行李放飯店 |
 | 11/08（日） | 伊斯坦堡 → 回程 | 退房、寄放行李、早午餐、前往機場 | 機上 | 飯店寄放後直接去機場 |
@@ -333,25 +347,26 @@
 
 ### 細版日程與點到點安排
 
-以下細版以「不拖大行李跑景點」為前提：跨城市日先處理機場、住宿、寄放或租車後車廂；景點日只帶小背包，護照、錢、信用卡、手機、相機、藥品永遠隨身。實際航班、景點開放時間與國內線行李額度仍需在訂票前確認。
+以下細版以「不拖大行李跑景點」為前提：跨城市日先處理機場、住宿、寄放或租車後車廂；景點日只帶小背包，護照、錢、信用卡、手機、相機、藥品永遠隨身。實際航班與景點開放時間仍需在訂票前確認；土航國內線 EcoFly 目前顯示托運 1 件 15kg、登機 1 件 8kg，26 / 28 吋行李需特別控重。建議另備一個可登機行李袋，把衣物、外套等可手提物品從托運箱分重；液體、刀具、剪刀等仍需遵守手提行李限制。
 
 #### 10/31（六）伊斯坦堡機場 → Izmir → 以弗所周邊
 
 | 時段 | 地點 / 活動 | 停留時間 | 移動與行李 |
 |------|-------------|----------|------------|
-| 05:50～08:00 | [Istanbul Airport 伊斯坦堡機場](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) 抵達、入境、領行李、集合 | 約 2 小時 | 兩人都需拿到托運行李後再集合；這天要接 10:00 國內線，時間要抓緊 |
-| 08:00～09:20 | 重新托運、國內線安檢、候機 | 約 1～1.5 小時 | 確認土耳其航空國內線托運行李額度，避免 26 / 28 吋行李超重 |
-| 10:00～11:10 | 土耳其航空：[IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | 飛行約 1 小時 10 分 | 國際線與國內線若非同張票，延誤風險需自行承擔 |
-| 11:10～13:00 | ADB 領行李、AVEC 取車 → [Pikan Ephesus](https://www.google.com/maps/search/?api=1&query=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920)（1045. Sokak 42 A, Selçuk） | 車程約 1～1.5 小時 | Rentalcars 確認號 **670245222**；11:30 ADB Arrivals Hall 取 Toyota Corolla 或相似車款；確認滿油、保險、HGS / ETC、車況拍照與後車廂遮蔽；若飯店可提早寄放，先把大行李放飯店 |
-| 13:00～14:00 | 午餐 | 約 1 小時 | Selcuk 鎮中心餐廳多，下午去以弗所最順 |
-| 14:00～17:30 | [Ephesus Ancient City](https://www.google.com/maps/search/?api=1&query=Ephesus+Ancient+City) 以弗所古城核心 | 約 3～3.5 小時 | 自駕停正式停車場；只帶小背包，行李放後車廂且不外露 |
+| 05:50～08:15 | [Istanbul Airport 伊斯坦堡機場](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) 抵達、入境、領行李、集合 | 約 2～2.5 小時 | 兩人都需拿到托運行李後再集合；11:00 國內線比 10:00 有更多緩衝 |
+| 08:15～09:30 | 重新托運、國內線安檢 | 約 1～1.25 小時 | 確認土耳其航空國內線托運行李額度，避免 26 / 28 吋行李超重 |
+| 09:30～10:30 | 早餐、廁所、整理小包、確認 eSIM / 網路 | 約 1 小時 | 若國際線準點，這段是休息緩衝；若延誤，這段可被壓縮 |
+| 11:00～12:10 | 土耳其航空 TK2320：[IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | 飛行約 1 小時 10 分 | 國際線與國內線非同張票，需入境、領行李、重新托運；延誤風險需自行承擔 |
+| 12:10～14:00 | ADB 領行李、AVEC 取車 → [Pikan Ephesus](https://www.google.com/maps/search/?api=1&query=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920)（1045. Sokak 42 A, Selçuk） | 車程約 1～1.5 小時 | Rentalcars 確認號 **670245222**；租車預約 11:30 ADB Arrivals Hall 取 Toyota Corolla 或相似車款，實際可能約 12:30 後取車；確認滿油、保險、HGS / ETC、車況拍照與後車廂遮蔽；若飯店可提早寄放，先把大行李放飯店 |
+| 14:00～14:45 | 午餐 | 約 45 分 | Selcuk 鎮中心簡單吃，不為午餐繞遠 |
+| 15:00～18:00 | [Ephesus Ancient City](https://www.google.com/maps/search/?api=1&query=Ephesus+Ancient+City) 以弗所古城核心精簡版 | 約 2.5～3 小時 | 自駕停正式停車場；只帶小背包，行李放後車廂且不外露；優先 Library of Celsus、Great Theatre、Curetes Street |
 | 晚上 | Selçuk 鎮中心晚餐、回 Pikan Ephesus 早點休息 | 約 1～1.5 小時 | 這天從夜班機接國內線，晚上不要再排 Sirince |
 
 餐食建議：
 
 - 午餐：Selcuk 鎮中心優先，不要在以弗所古城內期待很多選擇。
 - 晚餐：已訂 Selçuk 的 Pikan Ephesus，隔天自駕去棉堡比住 Kusadasi 單純；晚上選鎮中心附近即可。
-- 刪減規則：若 10:00 國內線延誤，以弗所只保留 Library of Celsus、The Great Theatre、Curetes Street。
+- 刪減規則：11:00 國內線若延誤或取車拖到 13:30 後，以弗所只保留 Library of Celsus、The Great Theatre、Curetes Street。
 
 以弗所古城核心走法：
 
@@ -483,21 +498,25 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 
 #### 11/04（三）卡帕多奇亞第 3 天，熱氣球第 3 次機會 + 慢節奏收尾
 
-今日目標：保留熱氣球第 3 次機會。若前兩天已順利搭到，這天主軸改成高級洞穴飯店早餐、view、露台與慢節奏收尾；建議中午或下午飛伊斯坦堡，晚上飛作備案。
+今日目標：保留熱氣球第 3 次機會。若前兩天已順利搭到，這天主軸改成高級洞穴飯店早餐、view、露台與慢節奏收尾；白天只跑 Gamirasu 周邊順路小鎮，不再排完整紅線 / 綠線。已訂 TK2017 18:40 ASR → 20:20 IST，需確認 AVEC 可提早還車。
 
 | 時段 | 地點 / 活動 | 停留時間 | 移動與行李 |
 |------|-------------|----------|------------|
-| 清晨 | 熱氣球第 3 次機會，或飯店露台看熱氣球 | 約 1～4.5 小時 | 這是本版主要熱氣球扣打的最後一天 |
+| 清晨 | 熱氣球第 3 次機會，或飯店露台看熱氣球 | 約 1～4.5 小時 | 這是本版主要熱氣球扣打的最後一天；若補飛成功，白天更要保守 |
 | 08:30～10:30 | 高級洞穴飯店早餐、露台看 view、休息 | 約 1.5～2 小時 | 天氣好時價值最高；若陰雨或霧大，view 會打折，但房型、早餐與空間仍是體驗 |
 | 10:30～12:30 | Gamirasu 飯店拍照、退房、整理行李 | 約 1.5～2 小時 | Gamirasu 12:30 退房；今天主軸是飯店早餐 / 退房 / ASR 還車 |
-| 下午～晚上 | 自駕前往 ASR，Kayseri Airport 還車，飛伊斯坦堡 | 依航班而定 | 卡帕多奇亞租車訂單為 11/04 19:00 ASR 還車；若想搭中午或下午班機，需先確認 AVEC 可否提早還車 |
-| 晚上 | 伊斯坦堡入住、飯店附近晚餐 | 約 1～1.5 小時 | 若下午已抵達伊斯坦堡，晚上可輕鬆散步 |
+| 12:30～13:15 | [Mustafapaşa](https://www.google.com/maps/search/?api=1&query=Mustafapasa+Cappadocia) 希臘老村短散步 | 約 45 分 | 離 Gamirasu 近，重複性低；行李在車上，停車前不要打開後車廂 |
+| 13:15～14:15 | [Ürgüp](https://www.google.com/maps/search/?api=1&query=Urgup+Cappadocia) 午餐 / 咖啡 | 約 1 小時 | 順路補餐食；若行李遮蔽不完整，只保留這站後直接去 ASR |
+| 14:15～15:00 | [Ortahisar Castle](https://www.google.com/maps/search/?api=1&query=Ortahisar+Castle+Cappadocia) 外觀 / viewpoint | 約 30～45 分 | 可刪減點；若擔心車上行李或當天太累，不繞 Ortahisar |
+| 15:00～16:30 | 前往 ASR、加油、AVEC 還車 | 約 1.5 小時 | TK2017 18:40 起飛，建議 16:30～17:00 完成還車 / 抵達航廈；需事先確認可提早還車 |
+| 18:40～20:20 | 土耳其航空 TK2017：[ASR](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) → [IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | 約 1 小時 40 分 | 已開票；訂位代號 **TB5RZM**；抵達後進伊斯坦堡市區 |
+| 晚上 | 伊斯坦堡入住、飯店附近晚餐 | 約 1～1.5 小時 | 抵達市區已偏晚，只做入住、簡單晚餐、休息 |
 
 卡帕多奇亞收尾選擇：
 
-- 若 11/02～11/03 已搭到熱氣球：11/04 建議放慢，保留高級洞穴飯店早餐、view、咖啡館、地毯店。
-- 若 11/02～11/03 都取消：11/04 清晨是關鍵補飛日，白天不要再排太硬。
-- 若 11/04 晚上飛伊斯坦堡：下午可加飯店 spa / hammam 或短程 viewpoint，但不建議再拉遠。
+- 若 11/02～11/03 已搭到熱氣球：11/04 建議放慢，保留高級洞穴飯店早餐、Mustafapaşa、Ürgüp、Ortahisar 輕量收尾。
+- 若 11/02～11/03 都取消：11/04 清晨是關鍵補飛日，白天只保留 Gamirasu 早餐、退房、Ürgüp 午餐、ASR。
+- 若車上行李無法完全遮蔽：刪 Ortahisar，不停觀光停車場，只做 Mustafapaşa / Ürgüp 短停。
 
 高級洞穴飯店判斷：
 
@@ -584,11 +603,6 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 - 想維持空間感與夕陽體驗：白天走 Uçhisar Castle、Pigeon Valley、Ortahisar Castle，傍晚視天氣安排 Göreme Sunset View Point、ATV sunset tour 或短程觀景散步。
 - 若下雨或很冷：安排 Kaymakli / Derinkuyu 地下城、Avanos 陶藝體驗、地毯店 / 咖啡館、洞穴飯店 spa / 土耳其浴，晚上早點休息，準備隔天補飛。
 
-### 番紅花城是否加入主行程
-
-番紅花城的特色是鄂圖曼老宅、老城街景與慢步調，若很喜歡歷史小鎮與傳統建築會值得。但以這趟只有 10/31 到 11/08 的天數來看，加入番紅花城會吃掉太多交通時間：從伊斯坦堡或卡帕多奇亞過去都偏長途，通常需要至少 1 晚才不會只是趕路。
-
-因此這版先不把番紅花城放進主行程。若 11/03 第一個清晨就搭到熱氣球，剩餘卡帕多奇亞時間仍建議留給山谷、洞穴飯店、夕陽與慢節奏體驗；後段則保留以弗所與棉堡，不再額外插入番紅花城，避免交通時間過度壓縮。
 
 ---
 
@@ -620,13 +634,13 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 |----------|------|------|----------|----------------|----------|
 | 1 | 已完成 | 10/31～11/01 ADB 租車 | Rentalcars 確認號：**670245222**；AVEC Rent A Car；Toyota Corolla 或相似車款；10/31 11:30 ADB Arrivals Hall 取車，11/01 20:00 ADB 還車；5 seats / 4 doors / 2 Large bag / 1 Small bag；自排、空調、里程無上限 | Rentalcars / Booking.com App / Email | 豬豬為主駕駛；車型適合兩件大行李，仍需取車時確認後車廂遮蔽、保險自負額、滿油規則、HGS / ETC、車況拍照與跨區行駛限制；實際還車仍建議 18:30～19:00 抵達 ADB |
 | 2 | 已完成 | 11/01 SunExpress ADB → ASR | 21:00 ADB → 22:35 ASR，直飛 1 小時 35 分；Booking number：**D438G7** | SunExpress 官網 / SunExpress App / Email | 已確認符合行程；需把行李額度與付款截圖補進文件 |
-| 3 | 待訂 | 10/31 土耳其航空 IST → ADB | 10:00 IST → 11:10 ADB | Turkish Airlines 官網 / Turkish Airlines App / Email | 確認與國際線抵達後入境、領行李、重新托運時間是否足夠 |
+| 3 | 已完成 | 10/31 土耳其航空 TK2320 IST → ADB | 11:00 IST → 12:10 ADB；訂位代號：**TB5RZM**；電子機票已開票；交易時間：2026-06-12 17:16 Istanbul Local Time | Turkish Airlines 官網 / Turkish Airlines App / Email | 與國際線非同張票，需入境、領行李、重新托運；比 10:00 班更安全，但以弗所下午改精簡版；EcoFly 托運 1 件 15kg、登機 1 件 8kg；退改限制同付款頁票規 |
 | 4 | 已完成 | 10/31 以弗所周邊住宿 | Agoda 訂單號：**1734845536**；Pikan Ephesus；2026/10/31～2026/11/01，1 晚 1 間；地址：1045. Sokak 42 A, Selçuk, Turkey 35920；入住 10/31 15:00，退房 11/01 11:00 | Agoda App / Email | 位置在 Selçuk，符合以弗所下午遊覽與隔天自駕去棉堡的動線；2026/10/30 前皆可免費取消；需補確認停車方式與是否可提早寄放行李 |
 | 5 | 已完成 | 11/01～11/04 卡帕多奇亞租車 / 自駕 | Rentalcars 確認號：**637534354**；AVEC Rent A Car；Opel Crossland 或相似車款；11/01 23:00 Kayseri Airport 取車，11/04 19:00 ASR 還車；5 seats / 4 doors / 2 Large bag；自排、空調、里程無上限 | Rentalcars / AVEC / Kayseri Airport 租車櫃台 / Email | 豬豬為主駕駛；深夜取車時間已對齊 22:35 抵達 ASR；仍需確認櫃台營業、航班延誤處理、滿油規則、保險自負額、後車廂遮蔽、是否可提早還車；11/02 行李放 Grand Elite 房間，11/03 行李寄放 Grand Elite 後再換飯店 |
 | 6 | 已完成 | 卡帕多奇亞普通飯店 | Grand Elite Cave Suites；2026/11/01～2026/11/03，住 2 晚；入住 11/01 14:00～00:00，退房 11/03 11:00 前；Approximate time of arrival：23:00～00:00 | Booking.com / Email | 位於 Göreme，適合熱氣球、紅線 / 綠線自駕與晚餐；有停車場；需保留訂單截圖，11/01 預計 ASR 取車後自駕抵達 |
 | 7 | 已完成 | 11/03 高級洞穴飯店 | Hotels.com 行程編號：**73467533073850**；Gamirasu Cave Hotel - Special Class；地址：Davutlu Ayvalı Köyü Yolu No:101, Ürgüp, Nevsehir, 50400 Turkey；入住 11/03 14:00，退房 11/04 12:30；入住時付款 | Hotels.com / Email | 這間偏 Ayvalı / Ürgüp，重點是安靜、洞穴房、早餐、泳池、Spa 與飯店氛圍，不是 Göreme 熱氣球景觀核心；需確認熱氣球接送、11/04 退房後行李與前往機場動線 |
 | 8 | 已完成 | 卡帕多奇亞熱氣球 | GetYourGuide 訂單號：**GYG7VKXLW35L**；Cappadocia Discovery Balloons；2026/11/02 06:00；格雷梅日出熱氣球飛行；2 位成人；總價 **USD 299.66**；接送地點 Grand Elite Cave Suites | GetYourGuide App / PDF 票券 / Email / WhatsApp | 供應商會在活動前 1～2 天通知實際接送時間；公開條款為天候 / 民航取消可全額退款，改 11/03 或 11/04 需視座位；10/31 06:00 前可免費取消 |
-| 9 | 待訂 | 11/04 晚上或 11/05 白天 卡帕多奇亞 → 伊斯坦堡 | Kayseri / Nevsehir → Istanbul | Turkish Airlines / Pegasus / AJet 官網或 App / Email | 11/02～11/04 保留三個熱氣球清晨後再離開；若租車 ASR 還車，優先看 Kayseri 出發航班 |
+| 9 | 已完成 | 11/04 土耳其航空 TK2017 ASR → IST | 18:40 ASR → 20:20 IST；訂位代號：**TB5RZM**；電子機票已開票；交易時間：2026-06-12 17:16 Istanbul Local Time | Turkish Airlines 官網 / Turkish Airlines App / Email | 需確認 AVEC 可在 16:30～17:00 左右提早還車；抵達 IST 後再進市區入住；EcoFly 托運 1 件 15kg、登機 1 件 8kg；退改限制同付款頁票規 |
 | 10 | 待訂 | 11/05～11/08 伊斯坦堡住宿 | 伊斯坦堡住 3 晚左右，依回伊斯坦堡航班微調 | Booking.com / Agoda / 飯店官網 / Email | 建議交通方便、可寄放行李；土耳其浴與舊城 / Karakoy / Galata 動線要順 |
 | 11 | 待訂 | 伊斯坦堡機場接送 / 進城交通 | 10/31 不進市區；11/08 飯店 → IST | 飯店訊息 / Uber / BiTaksi / Booking.com Taxi / Email | 11/08 建議飯店接送或可靠叫車，14:15 前到 IST |
 | 12 | 待訂 | 伊斯坦堡土耳其浴 | 建議排 11/07 | Hammam 官網 / Klook / KKday / GetYourGuide / Email | 確認傳統公共浴場 / 觀光型高級 hammam、男女分開或可一起、是否需預約 |
@@ -638,16 +652,14 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 
 ### 必須先確認
 
-- [ ] 豬豬去程 TK055 的實際日期，截圖上方日期被切掉，目前先推定為 10/30 → 10/31。
-- [ ] 兩人護照效期與土耳其入境 / 簽證需求。
 - [x] 國際線行李額度已確認：個人物品 1 件 4 公斤、手提行李 1 件 8 公斤、托運行李 23 公斤，安安與豬豬去程 / 回程皆同。
-- [ ] 土耳其國內線可接受的行李額度，尤其 26 / 28 吋大行李箱重量。
-- [ ] 10/31 土耳其航空 IST 10:00 → ADB 11:10 是否與國際線抵達、入境、領行李、重新托運時間銜接得上。
+- [x] 土航國內線 EcoFly 行李額度已確認：托運行李 1 件 15kg、登機行李 1 件 8kg；26 / 28 吋大行李箱需特別控重，超過 15kg 可能需加買或現場付超重費；預計另備一個可登機行李袋，把部分托運重量移到手提行李。
+- [x] 10/31 土耳其航空 TK2320 IST 11:00 → ADB 12:10 已下訂並開票；訂位代號：**TB5RZM**；此段與國際線非同張票，需入境、領行李、重新托運，若國際線延誤需啟動備案。
 - [x] 10/31 以弗所周邊住宿已預定；Agoda 訂單號：**1734845536**；Pikan Ephesus，地址：1045. Sokak 42 A, Selçuk, Turkey 35920；入住 10/31 15:00，退房 11/01 11:00；2026/10/30 前皆可免費取消。
 - [x] 11/01 SunExpress ADB 21:00 → ASR 22:35 的日期、航線、時間與直飛已確認符合行程；Booking number：**D438G7**；需補行李額度截圖。
 - [x] 11/01～11/03 卡帕多奇亞普通飯店已預定；Grand Elite Cave Suites；入住 11/01 14:00～00:00，退房 11/03 11:00 前；已填寫預估抵達 23:00～00:00。
 - [x] 11/01～11/04 卡帕多奇亞租車已預定；Rentalcars 確認號：**637534354**；AVEC Rent A Car；Opel Crossland 或相似車款；11/01 23:00 Kayseri Airport 取車，11/04 19:00 ASR 還車；仍需取車時確認保險、滿油規則、行李容量與可否提早還車。
-- [ ] 11/04 晚上或 11/05 白天卡帕多奇亞 → 伊斯坦堡是否有合適班機。
+- [x] 11/04 土耳其航空 TK2017 ASR 18:40 → IST 20:20 已下訂並開票；訂位代號：**TB5RZM**；仍需同步確認 AVEC 可否提早還車。
 - [x] 熱氣球已預定；GetYourGuide 訂單號：**GYG7VKXLW35L**；Cappadocia Discovery Balloons；2026/11/02 06:00；格雷梅日出熱氣球飛行；天候 / 民航取消可全額退款，11/03 / 11/04 改期需視座位。
 - [x] 11/03 高級洞穴飯店已預定；Hotels.com 行程編號：**73467533073850**；Gamirasu Cave Hotel - Special Class；入住 11/03 14:00，退房 11/04 12:30；入住時付款。
 - [x] 10/31～11/01 ADB 機場租車已預定；Rentalcars 確認號：**670245222**；AVEC Rent A Car；Toyota Corolla 或相似車款；10/31 11:30 ADB 取車，11/01 20:00 ADB 還車；仍需取車時確認後車廂容量、保險、滿油規則與 HGS / ETC。
@@ -681,8 +693,9 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 
 - [ ] 護照效期確認
 - [ ] 土耳其入境需求確認
+- [ ] 出發前一個月辦理土耳其 e-Visa：官方網站 `https://www.evisa.gov.tr`；完成後下載 PDF，手機離線備份並印一份紙本。
 - [ ] 機票訂位與電子機票截圖
-- [ ] 土耳其國內線機票
+- [x] 土耳其國內線機票：土航訂位代號 **TB5RZM**，TK2320 / TK2017 電子機票已開票
 - [ ] 住宿確認信
 - [ ] GetYourGuide 熱氣球票券 / PDF 離線備份
 - [ ] 旅平險
@@ -690,6 +703,7 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 
 ### 手機與交通
 
+- [ ] 出發前約一週產出 `土耳其旅途中救急版.md`，整理成手機可讀、AI 可讀、離線可備份的短版行程；完成後備份到手機 Files / 雲端離線 / 筆記 App。
 - [ ] eSIM / 漫遊方案
 - [ ] Google Maps 離線地圖
 - [ ] Google Translate 土耳其文下載
