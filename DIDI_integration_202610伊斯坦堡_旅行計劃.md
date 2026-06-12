@@ -8,7 +8,7 @@
 
 ## 目前行程計劃進度
 
-目前大方向已成立：城市順序、主要跨城交通、11/02 格雷梅日出熱氣球、以弗所 / 棉堡自駕、卡帕多奇亞兩段住宿都已排進主線。接下來的重點不是重新設計路線，而是把「待訂交通」補齊，並把每天的時分級安排整理到可直接執行。
+目前大方向已成立：城市順序、主要跨城交通、11/02 格雷梅日出熱氣球、以弗所 / 棉堡自駕、卡帕多奇亞兩段住宿與兩段租車都已排進主線。接下來的重點不是重新設計路線，而是補齊剩餘航班、保險 / 行李條款與伊斯坦堡段住宿，並把每天的時分級安排整理到可直接執行。
 
 ### 完整度判斷方式
 
@@ -17,20 +17,20 @@
 | 層級 | 完整度定義 | 目前狀態 |
 |------|------------|----------|
 | 路線骨架 | 城市順序、住宿城市、跨城方向已確定 | 約 90%，大行程已穩定 |
-| 預定錨點 | 航班、住宿、租車、熱氣球等不可隨意漂移的項目 | 約 65%，國際線、ADB → ASR、以弗所住宿、卡帕多奇亞住宿、11/02 熱氣球已完成；ADB 租車、卡帕多奇亞租車、回伊斯坦堡航班仍待處理 |
+| 預定錨點 | 航班、住宿、租車、熱氣球等不可隨意漂移的項目 | 約 80%，國際線、ADB → ASR、以弗所住宿、卡帕多奇亞住宿、兩段租車、11/02 熱氣球已完成；IST → ADB、回伊斯坦堡航班、伊斯坦堡住宿仍待處理 |
 | 時分級動線 | 每天有起訖時間、移動時間、景點停留、用餐與行李安排 | 約 60%，跨城日與卡帕多奇亞已較細；伊斯坦堡後段仍偏區塊式 |
-| 現場可執行度 | 有 Plan B、取消條款、聯絡方式、地址、截圖與離線備份 | 約 55%，熱氣球票券與天候退款規則已補；尚需補保險、租車細節、住宿寄放行李與地圖收藏 |
+| 現場可執行度 | 有 Plan B、取消條款、聯絡方式、地址、截圖與離線備份 | 約 65%，熱氣球票券、天候退款規則與租車確認信已補；尚需補保險條款、租車細項條款、住宿寄放行李與地圖收藏 |
 
 ### 每日進度概覽
 
 | 日期 | 目前進度 | 時分級完整度 | 已鎖定內容 | 主要缺口 |
 |------|----------|--------------|------------|----------|
 | 10/30（五） | 已成形 | 高 | 國際線出發時間、兩人出發地 | 豬豬 TK055 實際日期截圖仍需確認 |
-| 10/31（六） | 已成形但有關鍵待訂 | 中高 | 抵達 IST、10:00 IST → ADB 目標、Pikan Ephesus 住宿、以弗所下午路線 | IST → ADB 尚待訂；ADB 租車原訂單已取消，需請豬豬協助重訂 |
-| 11/01（日） | 已成形但有關鍵待訂 | 中高 | 棉堡日程、21:00 ADB → 22:35 ASR、Grand Elite 晚到入住 | ADB 租車重訂、Kayseri Airport 深夜取車仍待請豬豬確認 |
+| 10/31（六） | 已成形但有關鍵待訂 | 中高 | 抵達 IST、10:00 IST → ADB 目標、ADB 租車 11:30 取車、Pikan Ephesus 住宿、以弗所下午路線 | IST → ADB 尚待訂；需確認國內線行李額度與國際線延誤備案 |
+| 11/01（日） | 已成形 | 高 | 棉堡日程、ADB 租車 20:00 還車、21:00 ADB → 22:35 ASR、ASR 租車 23:00 取車、Grand Elite 晚到入住 | 需確認兩段租車保險、滿油規則、取車信用卡與夜間取車處理 |
 | 11/02（一） | 已成形 | 中高 | Cappadocia Discovery Balloons 格雷梅日出熱氣球、Grand Elite 住宿、條件式 red / green 線 | 若熱氣球飛成，白天走 red 線；若熱氣球取消，白天走 green 線 |
-| 11/03（二） | 已成形 | 中高 | 熱氣球天候備援日、條件式 red / green 線、Grand Elite 寄放行李、Gamirasu 入住 | 若 11/02 已走 red，11/03 走 green；若 11/02 已走 green，11/03 走 red；卡帕多奇亞租車未訂 |
-| 11/04（三） | 半成形 | 中 | 熱氣球最後備援日、Gamirasu 早餐 / 退房、ASR 還車概念 | 卡帕多奇亞 → 伊斯坦堡航班未訂；還車時間需配合航班 |
+| 11/03（二） | 已成形 | 中高 | 熱氣球天候備援日、條件式 red / green 線、Grand Elite 寄放行李、Gamirasu 入住 | 若 11/02 已走 red，11/03 走 green；若 11/02 已走 green，11/03 走 red |
+| 11/04（三） | 半成形 | 中 | 熱氣球最後備援日、Gamirasu 早餐 / 退房、ASR 19:00 還車 | 卡帕多奇亞 → 伊斯坦堡航班未訂；若想早還車需向 AVEC 確認 |
 | 11/05（四） | 骨架 | 低中 | 伊斯坦堡收尾起始日概念 | 實際抵達時間、伊斯坦堡住宿區、當天活動需依 11/04 / 11/05 航班決定 |
 | 11/06（五） | 已有日程草稿 | 中 | 舊城區、聖索菲亞、藍色清真寺、地下水宮殿、市集 | 票券、開放時間、住宿區與交通仍需確認 |
 | 11/07（六） | 骨架 | 低中 | 土耳其早餐、土耳其浴、生活街區候選 | Hammam 預約、Kadikoy / Balat / Galata 實際選線未定 |
@@ -40,9 +40,9 @@
 
 ### 下一步優先順序
 
-1. 先處理會影響整段行程成立的項目：`10/31 IST → ADB`、`10/31～11/01 ADB 租車`、`11/01～11/04 卡帕多奇亞租車`、`11/04 或 11/05 卡帕多奇亞 → 伊斯坦堡`。租車項目需請豬豬協助預訂，因為實際駕駛會是豬豬。
-2. 再確認熱氣球執行細節：11/01 前供應商通知的實際接送時間、天候取消時 11/03 / 11/04 改期座位、GetYourGuide 票券離線備份。
-3. 最後細化伊斯坦堡：住宿區、土耳其浴、舊城票券、每日晚餐與夜間散步範圍。
+1. 先處理會影響整段行程成立的剩餘項目：`10/31 IST → ADB`、`11/04 或 11/05 卡帕多奇亞 → 伊斯坦堡`、伊斯坦堡住宿。
+2. 再確認已訂項目的執行細節：兩段 Rentalcars / AVEC 租車保險與滿油規則、取車信用卡、11/01 Kayseri 深夜取車、11/04 是否可提早還車、熱氣球實際接送時間與 11/03 / 11/04 改期座位。
+3. 最後細化伊斯坦堡：土耳其浴、舊城票券、每日晚餐與夜間散步範圍。
 
 時間顆粒度建議：跨城日抓到 15～30 分鐘區間；景點日抓到 30～60 分鐘區間；伊斯坦堡生活街區和晚餐保留 1～2 小時彈性，不需要每個小店都鎖死。
 
@@ -100,7 +100,7 @@
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 熱氣球接送參考 | [Gamirasu → Cappadocia Hot Air Balloon → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Cappadocia+Hot+Air+Balloon&travelmode=driving) | Gamirasu、熱氣球集合 / 起飛區參考點 | Gamirasu 不在 Göreme 核心，實際熱氣球接送時間要特別確認 |
-| 退房後還車 | [Gamirasu Cave Hotel → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&travelmode=driving) | Gamirasu、ASR Kayseri Airport | 12:30 前退房後慢慢開回 ASR，還車時間要配合回伊斯坦堡班機 |
+| 退房後還車 | [Gamirasu Cave Hotel → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&travelmode=driving) | Gamirasu、ASR Kayseri Airport | 訂單還車時間 11/04 19:00；若想搭較早航班，需先確認 AVEC 是否可提早還車 |
 | 飛機端點候選 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [Sabiha Gokcen Airport SAW](https://www.google.com/maps/search/?api=1&query=Sabiha+Gokcen+Airport) | ASR、IST、SAW | 回伊斯坦堡航班未訂；若飛 SAW，後段住宿區與進城動線要一起重看 |
 
 ### 11/08（日）伊斯坦堡 → Istanbul Airport 回程
@@ -184,7 +184,7 @@
 | 體驗 | Cappadocia Hot Air Balloon 熱氣球 | [地圖](https://www.google.com/maps/search/?api=1&query=Cappadocia+hot+air+balloon) | 建議排在卡帕多奇亞第一個清晨，若取消還有隔天機會 |
 | 景點 | Pasabag / Monks Valley 蘑菇谷 | [地圖](https://www.google.com/maps/search/?api=1&query=Pasabag+Monks+Valley+Cappadocia) | 可搭配 Red Tour 或包車 |
 | 景點 | Pamukkale 棉堡 | [地圖](https://www.google.com/maps/search/?api=1&query=Pamukkale+Turkey) | 可與 Hierapolis 同日 |
-| 景點 | Ephesus 以弗所 | [地圖](https://www.google.com/maps/search/?api=1&query=Ephesus+Turkey) | 本版仍採 ADB 機場租車自駕銜接以弗所與棉堡；原 AVEC 訂單已取消，需重訂 |
+| 景點 | Ephesus 以弗所 | [地圖](https://www.google.com/maps/search/?api=1&query=Ephesus+Turkey) | 本版採 ADB 機場 Rentalcars / AVEC 租車自駕銜接以弗所與棉堡 |
 | 美食 | Turkish Breakfast 土耳其式早餐 | [地圖](https://www.google.com/maps/search/?api=1&query=Turkish+breakfast+Istanbul) | 伊斯坦堡或卡帕多奇亞都可排 |
 | 美食 | 晚餐吃 Ocakbasi / Meze 類型料理 | - | 不預先指定店，到當地再依當天區域與狀態找合適餐廳 |
 | 體驗 | Turkish Bath 土耳其浴 Hammam | [地圖](https://www.google.com/maps/search/?api=1&query=Turkish+bath+Istanbul) | 建議排在伊斯坦堡最後 1～2 天，放鬆但不要壓到班機日 |
@@ -237,6 +237,13 @@
 |------|------|---------------|----------|----------|
 | 2026/11/02（一）06:00 | 卡帕多奇亞：格雷梅日出熱氣球飛行 | Cappadocia Discovery Balloons / GetYourGuide | 訂單號：**GYG7VKXLW35L**；2 位成人；總價 **USD 299.66**；接送地點為 Grand Elite Cave Suites；票券可在 GetYourGuide App 與 PDF 查看 | 供應商會在活動前 1～2 天通知實際接送時間；若因天候 / 民航取消，公開條款為全額退款，改 11/03 或 11/04 需視座位；10/31 06:00 前可免費取消 |
 
+### 租車訂位
+
+| 日期 | 區域 | 平台 / 供應商 | 訂位資訊 | 注意事項 |
+|------|------|---------------|----------|----------|
+| 2026/10/31（六）11:30 → 2026/11/01（日）20:00 | Izmir / ADB / 以弗所 / 棉堡 | Rentalcars.com / AVEC Rent A Car | 確認號：**670245222**；Toyota Corolla 或相似車款；Intermediate；5 seats / 4 doors / 2 Large bag / 1 Small bag；自排、空調、里程無上限；取還車地點：Adnan Menderes Airport Arrivals Hall, Izmir, Turkey, 35425；電話：**902325312832** | 豬豬為主駕駛；車型適合兩件大行李，仍需取車時確認後車廂遮蔽、保險自負額、滿油規則、HGS / ETC 與跨區行駛限制 |
+| 2026/11/01（日）23:00 → 2026/11/04（三）19:00 | Kayseri / Cappadocia | Rentalcars.com / AVEC Rent A Car | 確認號：**637534354**；Opel Crossland 或相似車款；Compact；5 seats / 4 doors / 2 Large bag；自排、空調、里程無上限；取車地點：Yeşil Mahalle Mustafa Kemal Paşa Bulvarı Havalimanı Gelen Yolcu Terminali No: 356/Z26, Kocasinan Kayseri, Kayseri, Turkey, 38090；電話：**903523533800** | 豬豬為主駕駛；深夜 23:00 取車已對齊 ADB → ASR 抵達時間；11/04 訂單還車為 19:00，若想提早還車需向 AVEC 確認櫃台收車與費用 |
+
 ---
 
 ## 跨城市交通策略
@@ -246,9 +253,9 @@
 | 情境 | 優先選擇 | 原因 |
 |------|----------|------|
 | 抵達伊斯坦堡 → Izmir / 以弗所周邊 | 土耳其航空 10:00 IST → 11:10 ADB | 抵達後直接接國內線往以弗所，避免後段再回頭；但需預留入境、領行李與重新托運時間 |
-| 以弗所 → 棉堡 → Izmir 機場 | ADB 機場租車自駕 | 10/31～11/01 全程自駕，不包車、不叫車；原 Rentalcars / AVEC 訂單 **692623717** 已取消，需請豬豬協助重訂；租車時間仍建議抓 10/31 11:00～11/01 20:00；主駕駛、駕照與取車信用卡資料需以豬豬為準 |
+| 以弗所 → 棉堡 → Izmir 機場 | ADB 機場租車自駕 | 已由豬豬下訂 Rentalcars / AVEC，確認號 **670245222**；10/31 11:30 ADB 取車，11/01 20:00 ADB 還車；Toyota Corolla 或相似車款 |
 | Izmir / 以弗所周邊 → 卡帕多奇亞 | SunExpress 21:00 ADB → 22:35 ASR | 這班直飛比 06:15 早班機友善，讓 11/01 白天可完整安排棉堡 |
-| 卡帕多奇亞 → 伊斯坦堡 | 11/04 晚上或 11/05 白天飛機 | 11/02～11/04 保留三個熱氣球清晨；若 11/04 晚班機合適，可提早回伊斯坦堡 |
+| 卡帕多奇亞 → 伊斯坦堡 | 11/04 晚上或 11/05 白天飛機 | 11/02～11/04 保留三個熱氣球清晨；Kayseri 租車已訂 11/04 19:00 ASR 還車，若想搭較早航班需先確認可否提早還車 |
 | 夜間火車 | 只在確認「臥鋪 + 可洗澡 + 行李可安全放置」後採用 | 若只能座位、無淋浴、需半夜轉車，則不符合這趟行李與舒適需求 |
 
 ### 夜間火車判斷
@@ -262,7 +269,7 @@
 
 ### 租車下訂責任
 
-本行程所有租車項目請豬豬協助預訂，因為實際駕駛會是豬豬。下訂時主駕駛姓名、駕照、國際駕照、取車信用卡與保險責任都要以豬豬資料為準；安安可協助比價、整理車型與保險條款，但不要用安安資料作為主駕駛下訂。
+本行程兩段租車已由豬豬協助預訂，因為實際駕駛會是豬豬。下訂時主駕駛姓名、駕照、國際駕照、取車信用卡與保險責任都要以豬豬資料為準；安安可協助整理車型、保險條款與取還車提醒，但不要用安安資料作為主駕駛下訂。
 
 ---
 
@@ -313,11 +320,11 @@
 | 日期 | 城市 / 區域 | 建議行程 | 住宿建議 | 行李策略 |
 |------|-------------|----------|----------|----------|
 | 10/30（五） | 飛機上 | 安安從桃園出發；豬豬從新加坡出發 | 機上 | 各自託運大行李 |
-| 10/31（六） | 伊斯坦堡機場 → 以弗所周邊 | 05:50 抵達 IST；10:00 搭土耳其航空 IST → 11:10 ADB；ADB 機場租車待重訂，建議 11:00 起；下午自駕前往以弗所古城核心 | Pikan Ephesus（Selçuk） | 國際線轉國內線，ADB 取車後全程自駕；行李放後車廂或先放飯店 |
-| 11/01（日） | 以弗所周邊 → 棉堡 → 卡帕多奇亞 | 自駕前往棉堡；下午 Pamukkale + Hierapolis；傍晚自駕回 ADB，租車建議抓 20:00 還車；21:00 SunExpress ADB → 22:35 ASR；23:30 左右 Kayseri Airport 取車 | Grand Elite Cave Suites（Göreme） | ADB 還車後飛 ASR，抵達後改 Kayseri Airport 取車自駕進 Göreme；預估 23:00～00:00 抵達飯店 |
+| 10/31（六） | 伊斯坦堡機場 → 以弗所周邊 | 05:50 抵達 IST；10:00 搭土耳其航空 IST → 11:10 ADB；11:30 ADB 取 Toyota Corolla 或相似車款；下午自駕前往以弗所古城核心 | Pikan Ephesus（Selçuk） | 國際線轉國內線，ADB 取車後全程自駕；行李放後車廂或先放飯店 |
+| 11/01（日） | 以弗所周邊 → 棉堡 → 卡帕多奇亞 | 自駕前往棉堡；下午 Pamukkale + Hierapolis；傍晚自駕回 ADB，20:00 ADB 還車；21:00 SunExpress ADB → 22:35 ASR；23:00 Kayseri Airport 取 Opel Crossland 或相似車款 | Grand Elite Cave Suites（Göreme） | ADB 還車後飛 ASR，抵達後改 Kayseri Airport 取車自駕進 Göreme；預估 23:30～00:30 抵達飯店 |
 | 11/02（一） | 卡帕多奇亞 | Cappadocia Discovery Balloons 格雷梅日出熱氣球；若熱氣球飛成，白天走 red 線；若熱氣球取消，白天走 green 線 | Grand Elite Cave Suites（Göreme） | 行李放 Grand Elite 房間；熱氣球後不硬跑完整 green 線 |
 | 11/03（二） | 卡帕多奇亞 | 若 11/02 已走 red，11/03 走 green；若 11/02 已走 green，11/03 走 red；若 11/03 才補飛成功，白天優先 red 線；傍晚回 Grand Elite 拿行李，再開去 Gamirasu | Gamirasu Cave Hotel（Ayvalı / Ürgüp） | 行李寄放 Grand Elite；red 線較適合熱氣球後與換飯店日，green 線需視體力精簡 |
-| 11/04（三） | 卡帕多奇亞 → 伊斯坦堡 | 若 11/02、11/03 因天候未飛成，作為最後熱氣球備援；Gamirasu 早餐 / 洞穴飯店空間 / 退房；ASR 還車後飛伊斯坦堡 | 伊斯坦堡或卡帕多奇亞 | Gamirasu 位置偏 Ayvalı / Ürgüp，退房後自駕回 Kayseri Airport 還車；11/04 補飛需確認 Gamirasu 是否在接送範圍 |
+| 11/04（三） | 卡帕多奇亞 → 伊斯坦堡 | 若 11/02、11/03 因天候未飛成，作為最後熱氣球備援；Gamirasu 早餐 / 洞穴飯店空間 / 退房；19:00 ASR 還車後飛伊斯坦堡 | 伊斯坦堡或卡帕多奇亞 | Gamirasu 位置偏 Ayvalı / Ürgüp，退房後自駕回 Kayseri Airport 還車；若要搭較早航班，需先確認可否提早還車 |
 | 11/05（四） | 伊斯坦堡 | 伊斯坦堡舊城或生活街區，依 11/04 / 11/05 實際航班調整 | 伊斯坦堡 | 行李放飯店 |
 | 11/06（五） | 伊斯坦堡 | 聖索菲亞、藍色清真寺、地下水宮殿、市集或海峽 | 伊斯坦堡 | 行李放飯店；地下水宮殿列為舊城日必排 |
 | 11/07（六） | 伊斯坦堡 | 土耳其式早餐、土耳其浴、Kadikoy / Balat / Galata / Karakoy | 伊斯坦堡 | 行李放飯店 |
@@ -335,7 +342,7 @@
 | 05:50～08:00 | [Istanbul Airport 伊斯坦堡機場](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) 抵達、入境、領行李、集合 | 約 2 小時 | 兩人都需拿到托運行李後再集合；這天要接 10:00 國內線，時間要抓緊 |
 | 08:00～09:20 | 重新托運、國內線安檢、候機 | 約 1～1.5 小時 | 確認土耳其航空國內線托運行李額度，避免 26 / 28 吋行李超重 |
 | 10:00～11:10 | 土耳其航空：[IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | 飛行約 1 小時 10 分 | 國際線與國內線若非同張票，延誤風險需自行承擔 |
-| 11:10～13:00 | ADB 領行李、租車取車 → [Pikan Ephesus](https://www.google.com/maps/search/?api=1&query=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920)（1045. Sokak 42 A, Selçuk） | 車程約 1～1.5 小時 | ADB 租車待重訂，建議抓 11:00 起；實際取車約落地領行李後；確認滿油、保險、ETC / HGS、車況拍照；若飯店可提早寄放，先把大行李放飯店 |
+| 11:10～13:00 | ADB 領行李、AVEC 取車 → [Pikan Ephesus](https://www.google.com/maps/search/?api=1&query=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920)（1045. Sokak 42 A, Selçuk） | 車程約 1～1.5 小時 | Rentalcars 確認號 **670245222**；11:30 ADB Arrivals Hall 取 Toyota Corolla 或相似車款；確認滿油、保險、HGS / ETC、車況拍照與後車廂遮蔽；若飯店可提早寄放，先把大行李放飯店 |
 | 13:00～14:00 | 午餐 | 約 1 小時 | Selcuk 鎮中心餐廳多，下午去以弗所最順 |
 | 14:00～17:30 | [Ephesus Ancient City](https://www.google.com/maps/search/?api=1&query=Ephesus+Ancient+City) 以弗所古城核心 | 約 3～3.5 小時 | 自駕停正式停車場；只帶小背包，行李放後車廂且不外露 |
 | 晚上 | Selçuk 鎮中心晚餐、回 Pikan Ephesus 早點休息 | 約 1～1.5 小時 | 這天從夜班機接國內線，晚上不要再排 Sirince |
@@ -366,10 +373,10 @@
 | 09:00～12:30 | Selçuk → [Pamukkale](https://www.google.com/maps/search/?api=1&query=Pamukkale+Turkey) / Denizli | 車程約 3～3.5 小時 | 全程自駕；中途可短暫休息，但不要在休息站打開後車廂整理行李 |
 | 12:30～13:30 | 午餐 | 約 1 小時 | Pamukkale 村可簡單吃；不為午餐特別繞遠 |
 | 13:30～16:30 | [Pamukkale Travertines 棉堡石灰棚](https://www.google.com/maps/search/?api=1&query=Pamukkale+Travertines) + [Hierapolis Ancient City](https://www.google.com/maps/search/?api=1&query=Hierapolis+Ancient+City) | 約 3 小時 | 穿好走、防滑、可碰水的鞋；石灰棚部分區域依現場規定赤腳 |
-| 16:30～19:00 | 棉堡 → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport)，加油、租車還車 | 車程約 3～3.5 小時 | 租車建議抓 20:00 還車避免超時；實際建議 18:30～19:00 完成還車 |
+| 16:30～19:00 | 棉堡 → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport)，加油、AVEC 還車 | 車程約 3～3.5 小時 | 訂單還車時間 20:00；實際建議 18:30～19:00 抵達 ADB，保留加油、驗車、還車、托運與安檢時間 |
 | 21:00～22:35 | 土耳其 SunExpress：ADB → [Kayseri Airport ASR](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport)，直飛 1 小時 35 分 | 飛行約 1 小時 35 分 | 需確認托運行李額度；還車後辦理托運與安檢 |
-| 22:35～23:30 | ASR 領行李、Kayseri Airport 取車 | 約 45～60 分 | 卡帕多奇亞租車預計 Kayseri Airport 取還車；深夜取車需確認櫃台營業或航班延誤處理 |
-| 23:30～00:30 | 自駕前往 [Grand Elite Cave Suites](https://www.google.com/maps/search/?api=1&query=Grand+Elite+Cave+Suites+Goreme)（Göreme）入住 | 車程約 60～75 分 | 抵達很晚，只做入住與睡覺；駕駛需評估夜路、疲勞與導航 |
+| 22:35～23:15 | ASR 領行李、Kayseri Airport AVEC 取車 | 約 40～60 分 | Rentalcars 確認號 **637534354**；23:00 取 Opel Crossland 或相似車款；深夜取車需確認櫃台、航班延誤處理、滿油規則與車況拍照 |
+| 23:15～00:30 | 自駕前往 [Grand Elite Cave Suites](https://www.google.com/maps/search/?api=1&query=Grand+Elite+Cave+Suites+Goreme)（Göreme）入住 | 車程約 60～75 分 | 抵達很晚，只做入住與睡覺；駕駛需評估夜路、疲勞與導航 |
 
 餐食與節奏：
 
@@ -483,7 +490,7 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 | 清晨 | 熱氣球第 3 次機會，或飯店露台看熱氣球 | 約 1～4.5 小時 | 這是本版主要熱氣球扣打的最後一天 |
 | 08:30～10:30 | 高級洞穴飯店早餐、露台看 view、休息 | 約 1.5～2 小時 | 天氣好時價值最高；若陰雨或霧大，view 會打折，但房型、早餐與空間仍是體驗 |
 | 10:30～12:30 | Gamirasu 飯店拍照、退房、整理行李 | 約 1.5～2 小時 | Gamirasu 12:30 退房；今天主軸是飯店早餐 / 退房 / ASR 還車 |
-| 中午～下午 | 自駕前往 ASR，Kayseri Airport 還車，飛伊斯坦堡 | 依航班而定 | 卡帕多奇亞租車預計 11/04 中午左右 ASR 還車；建議優先找中午或下午班機，晚上飛作備案 |
+| 下午～晚上 | 自駕前往 ASR，Kayseri Airport 還車，飛伊斯坦堡 | 依航班而定 | 卡帕多奇亞租車訂單為 11/04 19:00 ASR 還車；若想搭中午或下午班機，需先確認 AVEC 可否提早還車 |
 | 晚上 | 伊斯坦堡入住、飯店附近晚餐 | 約 1～1.5 小時 | 若下午已抵達伊斯坦堡，晚上可輕鬆散步 |
 
 卡帕多奇亞收尾選擇：
@@ -611,11 +618,11 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 
 | 優先順序 | 狀態 | 項目 | 預定內容 | 查看平台 / App | 注意事項 |
 |----------|------|------|----------|----------------|----------|
-| 1 | 已取消 / 待重訂 | 10/31～11/01 ADB 租車 | 原 Rentalcars 訂單號：**692623717** 已取消；需請豬豬協助重訂 ADB 機場取還車；建議 10/31 11:00 取車、11/01 20:00 還車；需可放 26 吋 + 28 吋行李箱 | Rentalcars / Booking.com App / AVEC 或其他租車平台 / Email | 因實際駕駛是豬豬，主駕駛、駕照、國際駕照與取車信用卡資料需以豬豬為準；原 Toyota Corolla 或同級轎車訂單已取消；重訂時優先選封閉後車廂或可遮蔽行李車型；實際還車仍建議 18:30～19:00 完成 |
+| 1 | 已完成 | 10/31～11/01 ADB 租車 | Rentalcars 確認號：**670245222**；AVEC Rent A Car；Toyota Corolla 或相似車款；10/31 11:30 ADB Arrivals Hall 取車，11/01 20:00 ADB 還車；5 seats / 4 doors / 2 Large bag / 1 Small bag；自排、空調、里程無上限 | Rentalcars / Booking.com App / Email | 豬豬為主駕駛；車型適合兩件大行李，仍需取車時確認後車廂遮蔽、保險自負額、滿油規則、HGS / ETC、車況拍照與跨區行駛限制；實際還車仍建議 18:30～19:00 抵達 ADB |
 | 2 | 已完成 | 11/01 SunExpress ADB → ASR | 21:00 ADB → 22:35 ASR，直飛 1 小時 35 分；Booking number：**D438G7** | SunExpress 官網 / SunExpress App / Email | 已確認符合行程；需把行李額度與付款截圖補進文件 |
 | 3 | 待訂 | 10/31 土耳其航空 IST → ADB | 10:00 IST → 11:10 ADB | Turkish Airlines 官網 / Turkish Airlines App / Email | 確認與國際線抵達後入境、領行李、重新托運時間是否足夠 |
 | 4 | 已完成 | 10/31 以弗所周邊住宿 | Agoda 訂單號：**1734845536**；Pikan Ephesus；2026/10/31～2026/11/01，1 晚 1 間；地址：1045. Sokak 42 A, Selçuk, Turkey 35920；入住 10/31 15:00，退房 11/01 11:00 | Agoda App / Email | 位置在 Selçuk，符合以弗所下午遊覽與隔天自駕去棉堡的動線；2026/10/30 前皆可免費取消；需補確認停車方式與是否可提早寄放行李 |
-| 5 | 待訂 | 11/01～11/04 卡帕多奇亞租車 / 自駕 | 請豬豬協助預訂；Kayseri Airport 取還車；預計 11/01 23:30 取車、11/04 中午左右還車；11/02、11/03 依熱氣球結果條件式安排 red / green 線；11/03 Grand Elite → Gamirasu 換飯店 | Rentalcars / AVEC / Kayseri Airport 租車櫃台 / Email | 因實際駕駛是豬豬，主駕駛、駕照、國際駕照與取車信用卡資料需以豬豬為準；深夜取車需確認櫃台營業、航班延誤處理、滿油規則、保險、自負額、是否可放 26 + 28 吋行李；11/02 行李放 Grand Elite 房間，11/03 行李寄放 Grand Elite 後再換飯店 |
+| 5 | 已完成 | 11/01～11/04 卡帕多奇亞租車 / 自駕 | Rentalcars 確認號：**637534354**；AVEC Rent A Car；Opel Crossland 或相似車款；11/01 23:00 Kayseri Airport 取車，11/04 19:00 ASR 還車；5 seats / 4 doors / 2 Large bag；自排、空調、里程無上限 | Rentalcars / AVEC / Kayseri Airport 租車櫃台 / Email | 豬豬為主駕駛；深夜取車時間已對齊 22:35 抵達 ASR；仍需確認櫃台營業、航班延誤處理、滿油規則、保險自負額、後車廂遮蔽、是否可提早還車；11/02 行李放 Grand Elite 房間，11/03 行李寄放 Grand Elite 後再換飯店 |
 | 6 | 已完成 | 卡帕多奇亞普通飯店 | Grand Elite Cave Suites；2026/11/01～2026/11/03，住 2 晚；入住 11/01 14:00～00:00，退房 11/03 11:00 前；Approximate time of arrival：23:00～00:00 | Booking.com / Email | 位於 Göreme，適合熱氣球、紅線 / 綠線自駕與晚餐；有停車場；需保留訂單截圖，11/01 預計 ASR 取車後自駕抵達 |
 | 7 | 已完成 | 11/03 高級洞穴飯店 | Hotels.com 行程編號：**73467533073850**；Gamirasu Cave Hotel - Special Class；地址：Davutlu Ayvalı Köyü Yolu No:101, Ürgüp, Nevsehir, 50400 Turkey；入住 11/03 14:00，退房 11/04 12:30；入住時付款 | Hotels.com / Email | 這間偏 Ayvalı / Ürgüp，重點是安靜、洞穴房、早餐、泳池、Spa 與飯店氛圍，不是 Göreme 熱氣球景觀核心；需確認熱氣球接送、11/04 退房後行李與前往機場動線 |
 | 8 | 已完成 | 卡帕多奇亞熱氣球 | GetYourGuide 訂單號：**GYG7VKXLW35L**；Cappadocia Discovery Balloons；2026/11/02 06:00；格雷梅日出熱氣球飛行；2 位成人；總價 **USD 299.66**；接送地點 Grand Elite Cave Suites | GetYourGuide App / PDF 票券 / Email / WhatsApp | 供應商會在活動前 1～2 天通知實際接送時間；公開條款為天候 / 民航取消可全額退款，改 11/03 或 11/04 需視座位；10/31 06:00 前可免費取消 |
@@ -639,11 +646,11 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 - [x] 10/31 以弗所周邊住宿已預定；Agoda 訂單號：**1734845536**；Pikan Ephesus，地址：1045. Sokak 42 A, Selçuk, Turkey 35920；入住 10/31 15:00，退房 11/01 11:00；2026/10/30 前皆可免費取消。
 - [x] 11/01 SunExpress ADB 21:00 → ASR 22:35 的日期、航線、時間與直飛已確認符合行程；Booking number：**D438G7**；需補行李額度截圖。
 - [x] 11/01～11/03 卡帕多奇亞普通飯店已預定；Grand Elite Cave Suites；入住 11/01 14:00～00:00，退房 11/03 11:00 前；已填寫預估抵達 23:00～00:00。
-- [ ] 請豬豬協助預訂 11/01～11/04 卡帕多奇亞租車；確認是否能 Kayseri Airport 深夜 23:30 取車、11/04 中午還車，並確認保險、滿油規則與行李容量。
+- [x] 11/01～11/04 卡帕多奇亞租車已預定；Rentalcars 確認號：**637534354**；AVEC Rent A Car；Opel Crossland 或相似車款；11/01 23:00 Kayseri Airport 取車，11/04 19:00 ASR 還車；仍需取車時確認保險、滿油規則、行李容量與可否提早還車。
 - [ ] 11/04 晚上或 11/05 白天卡帕多奇亞 → 伊斯坦堡是否有合適班機。
 - [x] 熱氣球已預定；GetYourGuide 訂單號：**GYG7VKXLW35L**；Cappadocia Discovery Balloons；2026/11/02 06:00；格雷梅日出熱氣球飛行；天候 / 民航取消可全額退款，11/03 / 11/04 改期需視座位。
 - [x] 11/03 高級洞穴飯店已預定；Hotels.com 行程編號：**73467533073850**；Gamirasu Cave Hotel - Special Class；入住 11/03 14:00，退房 11/04 12:30；入住時付款。
-- [ ] 請豬豬協助重訂 10/31～11/01 ADB 機場租車；原 Rentalcars / AVEC 訂單號 **692623717** 已取消；仍需確認車型、後車廂容量、保險、滿油規則與取還車時間。
+- [x] 10/31～11/01 ADB 機場租車已預定；Rentalcars 確認號：**670245222**；AVEC Rent A Car；Toyota Corolla 或相似車款；10/31 11:30 ADB 取車，11/01 20:00 ADB 還車；仍需取車時確認後車廂容量、保險、滿油規則與 HGS / ETC。
 
 ### 會影響體驗的偏好
 
@@ -688,7 +695,7 @@ red 線建議點位，適用於熱氣球飛成的當天或 11/03 換飯店日：
 - [ ] Google Translate 土耳其文下載
 - [ ] 住宿與機場地圖先收藏
 - [ ] 計程車 / 叫車 App 研究
-- [ ] 豬豬協助預訂的 ADB / Kayseri 租車確認信、取還車地點、緊急聯絡方式與車牌
+- [ ] Rentalcars / AVEC 兩段租車確認信離線備份：ADB **670245222**、Kayseri **637534354**；取還車地點、緊急聯絡電話、保險條款、滿油規則、取車信用卡與車牌
 
 ### 行李
 
