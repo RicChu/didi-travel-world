@@ -121,7 +121,7 @@ body{font-family:"Noto Serif TC","Cormorant Garamond",serif;color:var(--ink);}
 .s-body{
   position:relative;z-index:2;flex:1;min-height:0;
   overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
-  padding:clamp(10px,1.8vw,18px) clamp(18px,4vw,46px) 0;
+  padding:clamp(10px,1.8vw,18px) clamp(18px,4vw,46px) clamp(10px,1.8vw,16px);
 }
 .s-body::-webkit-scrollbar{width:5px}
 .s-body::-webkit-scrollbar-thumb{background:rgba(27,75,143,.3);border-radius:8px}
@@ -384,7 +384,7 @@ const DATA = [
     ],
     meals:[
       {type:"🌅 早餐", name:"Grand Elite 飯店早餐", desc:"熱氣球後回飯店補充能量，不要省", highlight:false},
-      {type:"🍽 午餐", name:"Avanos 或 Göreme 餐廳", note:"Red 線選 Avanos；Green 線依位置就近解決", highlight:false},
+      {type:"🍽 午餐", name:"Avanos 或 Göreme 餐廳", desc:"Red 線選 Avanos；Green 線依位置就近解決", highlight:false},
       {type:"🌙 晚餐", name:"Göreme 當地餐廳", desc:"就近，早睡準備隔天熱氣球備援", highlight:false},
     ]
   },
@@ -446,7 +446,7 @@ const DATA = [
     luggage:"行李：放 Basilissis Hotel；<b>Boris'in Yeri 只收現金，出門前準備里拉現鈔</b>",
     map:"https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Eminonu+Istanbul&waypoints=Boris%27in+Yeri+Istanbul%7CGalata+Tower+Istanbul%7CSokak+Lezzeti+Tarihi+Balik+Durumcu+Mehmet+Usta+Istanbul%7CGalata+Bridge+Istanbul&travelmode=transit",
     rows:[
-      {time:"上午", act:'飯店整理、出門前備現金', note:'前一晚抵達偏晚，上午不用太早出門；準備 Boris'in Yeri 現鈔'},
+      {time:"上午", act:"飯店整理、出門前備現金", note:"前一晚抵達偏晚，上午不用太早出門；準備 Boris'in Yeri 現鈔"},
       {time:"10:30–12:15", act:'<span class="pin">🍳</span> Boris\'in Yeri 土耳其式早餐', note:'重點：蜂蜜牛奶、kaymak、土耳其咖啡、sucuk 臘腸、menemen 番茄炒蛋；只收現金；好拍好吃<span class="tl-tag tag-food">用餐</span><span class="tl-tag tag-star">必排</span>'},
       {time:"12:15–12:45", act:'Boris\'in Yeri → Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘'},
       {time:"12:45–13:45", act:'<span class="pin">📍</span> Galata / Karaköy 散步', note:'港口、坡道、咖啡館；上坡太累只走 Karaköy 平地',
