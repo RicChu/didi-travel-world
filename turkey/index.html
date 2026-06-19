@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>2026 土耳其 11 日行程 · 每日投影片</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --iznik-deep:#0d3b66;
+  --iznik-blue:#1b4b8f;
+  --iznik-mid:#2a6db0;
+  --turq:#1b9aaa;
+  --turq-bright:#34b8c4;
+  --terra:#c14a35;
+  --terra-soft:#d1654d;
+  --gold:#c8a04d;
+  --gold-bright:#e3bd6a;
+  --cream:#f6efdc;
+  --cream-deep:#efe4c6;
+  --ink:#16243a;
+  --paper:#fbf6e9;
+  --shadow:rgba(13,59,102,.18);
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px);
+  --safe-r:env(safe-area-inset-right,0px);
+  --appH:100vh;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;width:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:var(--iznik-deep);}
+body{font-family:"Noto Serif TC","Cormorant Garamond",serif;color:var(--ink);}
+.backdrop{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(52,184,196,.20),transparent 40%),
+    radial-gradient(circle at 85% 85%,rgba(193,74,53,.18),transparent 45%),
+    linear-gradient(155deg,#0a2f53 0%,#0d3b66 45%,#123f6e 100%);
+}
+.backdrop::after{
+  content:"";position:absolute;inset:0;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23e3bd6a' stroke-width='1.1'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 14 L66 40 L40 66 L14 40 Z'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Cpath d='M0 0 L14 14 M80 0 L66 14 M0 80 L14 66 M80 80 L66 66'/%3E%3C/g%3E%3C/svg%3E");
+}
+.app{
+  position:relative;z-index:1;
+  height:var(--appH);min-height:var(--appH);
+  display:flex;flex-direction:column;
+  padding-top:var(--safe-t);padding-bottom:var(--safe-b);
+  padding-left:var(--safe-l);padding-right:var(--safe-r);
+}
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(8px,2vw,16px) clamp(14px,3vw,28px) 4px;
+}
+.brand{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.72);font-size:clamp(11px,2.6vw,15px);letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.counter{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.85);font-size:clamp(13px,3vw,19px);letter-spacing:.05em;flex-shrink:0}
+.counter b{font-family:"Marcellus",serif;color:var(--gold-bright);font-style:normal}
+.stage{flex:1 1 auto;position:relative;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,28px)}
+.deck{position:relative;width:min(1080px,100%);height:100%;max-height:760px}
+.slide{
+  position:absolute;inset:0;
+  background:linear-gradient(168deg,var(--paper) 0%,var(--cream) 60%,var(--cream-deep) 100%);
+  border-radius:20px;
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.55),0 0 0 1px rgba(200,160,77,.4);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  opacity:0;transform:translateX(36px) scale(.97);
+  pointer-events:none;
+  transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1);
+}
+.slide.active{opacity:1;transform:none;pointer-events:auto}
+.slide.exit-left{opacity:0;transform:translateX(-36px) scale(.97)}
+.slide::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:7px;z-index:4;
+  background:repeating-linear-gradient(90deg,var(--iznik-blue) 0 22px,var(--turq) 22px 44px,var(--terra) 44px 66px,var(--gold) 66px 88px);
+}
+.slide::after{
+  content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;opacity:.07;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%230d3b66' stroke-width='1.4'%3E%3Ccircle cx='50' cy='50' r='48'/%3E%3Cpath d='M50 2 L50 98 M2 50 L98 50 M15 15 L85 85 M85 15 L15 85'/%3E%3Cpath d='M50 12 L74 50 L50 88 L26 50 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;
+}
+
+/* ===== Header ===== */
+.s-head{
+  position:relative;z-index:2;
+  padding:clamp(14px,2.5vw,26px) clamp(18px,4vw,46px) clamp(8px,1.4vw,14px);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  border-bottom:1.5px dashed rgba(27,75,143,.28);
+  flex-shrink:0;
+}
+.s-daynum{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(11px,2.8vw,14px);letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.s-date{font-family:"Marcellus",serif;font-size:clamp(22px,6.5vw,42px);line-height:1.02;color:var(--iznik-deep);margin-top:2px}
+.s-week{font-family:"Noto Sans TC";font-size:clamp(11px,2.6vw,14px);color:var(--turq);font-weight:700;letter-spacing:.05em;margin-top:3px}
+.s-route{font-family:"Noto Serif TC";font-weight:700;font-size:clamp(13px,3.5vw,20px);color:var(--iznik-blue);margin-top:8px;line-height:1.35;max-width:62%}
+.s-badge{flex-shrink:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.chip{display:inline-block;font-family:"Noto Sans TC";font-weight:700;font-size:clamp(9px,2.2vw,11px);letter-spacing:.04em;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.chip.city{background:var(--iznik-blue);color:var(--paper)}
+.chip.stat-high{background:var(--turq);color:#06303a}
+.chip.stat-mid{background:var(--gold);color:#4a3208}
+.chip.stat-low{background:var(--terra-soft);color:#fff}
+.chip.stat-fly{background:#2a3d57;color:var(--cream)}
+.s-hotel{font-family:"Noto Sans TC";font-size:clamp(9px,2.2vw,11.5px);color:#5a4a2c;font-weight:500;max-width:160px;text-align:right}
+.s-hotel b{color:var(--terra);font-weight:700}
+
+/* ===== Fatigue stars ===== */
+.fatigue-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.fatigue-label{font-family:"Noto Sans TC";font-size:clamp(9px,2vw,10.5px);color:#8a7a54;letter-spacing:.04em}
+.stars{font-size:clamp(11px,2.8vw,15px);letter-spacing:.05em;line-height:1}
+.stars.f1{color:#7cb87c}
+.stars.f2{color:#b8c87c}
+.stars.f3{color:#e3bd6a}
+.stars.f4{color:#d1654d}
+.stars.f5{color:#c14a35}
+
+/* ===== Body / timeline ===== */
+.s-body{
+  position:relative;z-index:2;flex:1;min-height:0;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  padding:clamp(10px,1.8vw,18px) clamp(18px,4vw,46px) clamp(10px,1.8vw,16px);
+}
+.s-body::-webkit-scrollbar{width:5px}
+.s-body::-webkit-scrollbar-thumb{background:rgba(27,75,143,.3);border-radius:8px}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-row{
+  display:grid;grid-template-columns:clamp(72px,20vw,120px) 1fr;
+  gap:clamp(8px,2vw,20px);
+  padding:clamp(7px,1.4vw,11px) 0;
+  border-bottom:1px solid rgba(27,75,143,.13);
+  animation:rowIn .5s both;
+}
+.tl-row.has-img{grid-template-columns:clamp(72px,20vw,120px) 1fr auto}
+.tl-time{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(12px,3vw,17px);color:var(--terra);text-align:right;line-height:1.25;letter-spacing:.01em;position:relative}
+.tl-time::after{content:"";position:absolute;right:-10px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(200,160,77,.25)}
+.tl-main{padding-left:6px;min-width:0}
+.tl-act{font-family:"Noto Serif TC";font-weight:600;font-size:clamp(12px,3.2vw,16px);color:var(--ink);line-height:1.4}
+.tl-act .pin{color:var(--turq);font-weight:700}
+.tl-note{font-family:"Noto Sans TC";font-size:clamp(10px,2.5vw,12.5px);color:#6a5b3e;margin-top:3px;line-height:1.5}
+.tl-note .stay{color:var(--iznik-blue);font-weight:700}
+.tl-tag{display:inline-block;font-family:"Noto Sans TC";font-size:clamp(8px,2vw,10px);font-weight:700;padding:2px 7px;border-radius:5px;margin-right:5px;margin-top:4px;vertical-align:middle}
+.tag-move{background:rgba(27,154,170,.15);color:var(--turq)}
+.tag-bag{background:rgba(193,74,53,.13);color:var(--terra)}
+.tag-food{background:rgba(200,160,77,.2);color:#8a6a18}
+.tag-star{background:rgba(193,74,53,.12);color:var(--terra)}
+.tl-img{
+  width:clamp(70px,14vw,100px);height:clamp(52px,10vw,72px);
+  object-fit:cover;border-radius:8px;flex-shrink:0;align-self:flex-start;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+  margin-top:2px;
+}
+@keyframes rowIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ===== Meal strip ===== */
+.meal-strip{
+  position:relative;z-index:3;flex-shrink:0;
+  display:flex;gap:clamp(6px,1.5vw,12px);align-items:stretch;
+  padding:clamp(6px,1.2vw,10px) clamp(18px,4vw,46px);
+  background:linear-gradient(0deg,rgba(239,228,198,.98) 0%,rgba(246,239,220,.85) 100%);
+  border-top:1px solid rgba(200,160,77,.3);
+}
+.meal-card{
+  flex:1;min-width:0;
+  background:rgba(255,255,255,.6);border:1px solid rgba(200,160,77,.35);
+  border-radius:9px;padding:clamp(4px,1vw,8px) clamp(7px,1.5vw,11px);
+}
+.meal-type{font-family:"Noto Sans TC";font-size:clamp(8px,1.8vw,10px);font-weight:700;color:var(--terra);letter-spacing:.06em;margin-bottom:2px}
+.meal-name{font-family:"Noto Serif TC";font-size:clamp(10px,2.4vw,13px);font-weight:700;color:var(--iznik-deep);line-height:1.3}
+.meal-desc{font-family:"Noto Sans TC";font-size:clamp(9px,2vw,11px);color:#6a5b3e;margin-top:2px;line-height:1.4}
+.meal-card.highlight{background:rgba(200,160,77,.15);border-color:rgba(200,160,77,.6)}
+.meal-card.highlight .meal-type{color:var(--gold)}
+.meal-card.highlight .meal-name{color:var(--terra)}
+
+/* ===== Footer ===== */
+.s-foot{
+  position:relative;z-index:3;flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:clamp(7px,1.4vw,11px) clamp(18px,4vw,46px);
+  background:linear-gradient(0deg,rgba(246,239,220,.99),rgba(246,239,220,.7) 70%,transparent);
+  font-family:"Noto Sans TC";font-size:clamp(9px,2.2vw,11.5px);
+}
+.s-foot .luggage{color:#5a4a2c;line-height:1.35}
+.s-foot .luggage b{color:var(--terra)}
+.s-foot a.maps{
+  flex-shrink:0;text-decoration:none;font-weight:700;color:var(--paper);
+  background:var(--iznik-blue);padding:6px 13px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:5px;
+  transition:background .25s,transform .2s;font-size:clamp(9px,2.2vw,11.5px);
+}
+.s-foot a.maps:active{background:var(--turq);transform:scale(.96)}
+
+/* ===== Cover slide ===== */
+.cover{justify-content:center;align-items:center;text-align:center;padding:clamp(18px,5vw,48px)}
+.cover .ov-pre{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(14px,4vw,24px);color:var(--terra);letter-spacing:.1em}
+.cover h1{font-family:"Marcellus",serif;font-size:clamp(40px,13vw,96px);line-height:.96;color:var(--iznik-deep);margin:6px 0 4px;letter-spacing:.01em}
+.cover .ov-zh{font-family:"Noto Serif TC";font-weight:900;font-size:clamp(18px,5.5vw,34px);color:var(--turq);letter-spacing:.06em}
+.cover .ov-dates{font-family:"Noto Sans TC";font-weight:500;font-size:clamp(11px,3vw,17px);color:#5a4a2c;margin-top:14px;letter-spacing:.02em}
+.cover .ov-cities{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.cover .ov-cities span{font-family:"Noto Sans TC";font-weight:700;font-size:clamp(10px,2.6vw,14px);padding:6px 13px;border-radius:999px;border:1.5px solid var(--gold);color:var(--iznik-blue)}
+.cover .ov-hint{margin-top:24px;font-family:"Noto Sans TC";font-size:clamp(10px,2.5vw,12px);color:#8a7a54;line-height:1.6}
+.cover .ov-orn{font-size:clamp(22px,6vw,40px);color:var(--gold);letter-spacing:.3em;margin-bottom:6px}
+
+/* ===== Summary slide ===== */
+.summary-slide{padding:clamp(14px,2.5vw,26px) clamp(18px,4vw,46px) clamp(10px,2vw,20px);overflow-y:auto;flex:1}
+.sum-title{font-family:"Marcellus",serif;font-size:clamp(16px,4.5vw,28px);color:var(--iznik-deep);margin-bottom:clamp(8px,1.5vw,16px);border-bottom:2px solid var(--gold);padding-bottom:8px}
+.sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2vw,18px)}
+.sum-block{background:rgba(255,255,255,.5);border:1px solid rgba(200,160,77,.3);border-radius:12px;padding:clamp(10px,2vw,16px)}
+.sum-block h3{font-family:"Noto Serif TC";font-weight:700;font-size:clamp(12px,3vw,15px);color:var(--terra);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sum-block ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sum-block li{font-family:"Noto Sans TC";font-size:clamp(10px,2.4vw,12.5px);color:#3a2e1e;line-height:1.5;display:flex;align-items:flex-start;gap:6px}
+.sum-block li::before{content:"✦";color:var(--gold);flex-shrink:0;font-size:10px;margin-top:2px}
+.sum-route{grid-column:1/-1}
+.route-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px}
+.route-city{font-family:"Noto Serif TC";font-weight:700;font-size:clamp(11px,2.8vw,14px);color:var(--iznik-deep);padding:5px 12px;background:rgba(27,75,143,.1);border-radius:999px;border:1px solid rgba(27,75,143,.25)}
+.route-arrow{color:var(--gold);font-size:clamp(12px,3vw,16px);font-weight:900}
+.fatigue-table{grid-column:1/-1;overflow-x:auto}
+.fatigue-table table{width:100%;border-collapse:collapse;font-family:"Noto Sans TC";font-size:clamp(9px,2.1vw,11.5px)}
+.fatigue-table th{color:var(--terra);font-weight:700;padding:4px 8px;text-align:left;border-bottom:1.5px solid rgba(193,74,53,.3);white-space:nowrap}
+.fatigue-table td{padding:5px 8px;border-bottom:1px solid rgba(27,75,143,.1);color:#3a2e1e;vertical-align:middle}
+.fatigue-table tr:last-child td{border-bottom:none}
+
+/* ===== Nav ===== */
+.nav{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;gap:clamp(10px,2.5vw,16px);
+  padding:clamp(6px,1.5vw,14px) 0 clamp(8px,2vw,20px);
+}
+.nav button.arrow{
+  width:clamp(44px,11vw,50px);height:clamp(44px,11vw,50px);border-radius:50%;border:none;cursor:pointer;
+  background:rgba(246,239,220,.94);color:var(--iznik-deep);font-size:clamp(18px,4.5vw,22px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.5);transition:transform .2s,background .25s;
+}
+.nav button.arrow:active{transform:scale(.92);background:var(--gold-bright)}
+.nav button.arrow:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:5px;align-items:center;background:rgba(13,59,102,.45);padding:7px 11px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);max-width:58vw;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dots::-webkit-scrollbar{display:none}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(246,239,220,.45);cursor:pointer;transition:all .25s;padding:0;border:none;flex-shrink:0}
+.dot.active{background:var(--gold-bright);width:20px;border-radius:6px}
+.pbar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--turq),var(--gold-bright));z-index:6;transition:width .45s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px rgba(227,189,106,.6)}
+
+@media(max-width:680px){
+  .s-route{max-width:100%}
+  .s-head{flex-direction:column;gap:8px}
+  .s-badge{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:left}
+  .fatigue-wrap{align-items:flex-start}
+  .s-hotel{max-width:100%;text-align:left}
+  .tl-time::after{display:none}
+  .brand{display:none}
+  .tl-row.has-img{grid-template-columns:clamp(64px,18vw,100px) 1fr auto}
+  .tl-img{width:clamp(56px,12vw,80px);height:clamp(42px,9vw,60px)}
+  .sum-grid{grid-template-columns:1fr}
+  .sum-route{grid-column:1}
+  .fatigue-table{grid-column:1}
+  .meal-strip{flex-wrap:wrap}
+  .meal-card{min-width:calc(50% - 8px)}
+}
+</style>
+</head>
+<body>
+<div class="backdrop"></div>
+<div class="pbar" id="pbar"></div>
+
+<div class="app" id="app">
+  <div class="topbar">
+    <div class="brand">İSTANBUL · CAPPADOCIA · EPHESUS · PAMUKKALE · 2026</div>
+    <div class="counter"><b id="cur">1</b> / <span id="total">13</span></div>
+  </div>
+  <div class="stage"><div class="deck" id="deck"></div></div>
+  <div class="nav">
+    <button class="arrow" id="prev" aria-label="上一頁">‹</button>
+    <div class="dots" id="dots"></div>
+    <button class="arrow" id="next" aria-label="下一頁">›</button>
+  </div>
+</div>
+
+<script>
+function setH(){
+  var h=window.innerHeight||document.documentElement.clientHeight;
+  document.documentElement.style.setProperty('--appH',h+'px');
+}
+setH();
+window.addEventListener('resize',setH);
+window.addEventListener('orientationchange',function(){setTimeout(setH,200);});
+if(window.visualViewport)window.visualViewport.addEventListener('resize',setH);
+[60,250,600,1200].forEach(function(t){setTimeout(setH,t);});
+
+function starsHtml(n){
+  var cls=['','f1','f2','f3','f4','f5'][n]||'f3';
+  return '<span class="stars '+cls+'">'+'★'.repeat(n)+'☆'.repeat(5-n)+'</span>';
+}
+
+const DATA = [
+  // 0: Cover
+  { cover: true },
+
+  // 1: Summary / Overview
+  { summary: true },
+
+  // 2: DAY 01 — 10/30 Fri
+  {
+    day:"DAY 01", date:"10 / 30", week:"星期五", route:"飛行日 · 各自啟程飛往伊斯坦堡",
+    city:"空中", stat:"fly", statText:"飛行日", fatigue:4,
+    hotel:"住宿：機上",
+    luggage:"行李：安安、豬豬<b>各自託運</b>大行李箱；護照、信用卡、eSIM 隨身",
+    rows:[
+      {time:"22:00", act:'<span class="pin">✈</span> 安安 TK025 出發', note:'桃園機場 T2 → 伊斯坦堡機場，飛行約 12h 40min<span class="tl-tag tag-move">國際線</span>'},
+      {time:"23:15", act:'<span class="pin">✈</span> 豬豬 TK055 出發', note:'新加坡樟宜機場 T1 → 伊斯坦堡機場，飛行約 11h 35min<span class="tl-tag tag-move">國際線</span>'},
+      {time:"機上", act:'休息、調整時差', note:'<span class="stay">預備下機後一連串行程：入境、領行李、轉國內線</span>；到達前確認 eSIM 已設定好'},
+    ],
+    meals:[
+      {type:"✈ 機上餐", name:"土航機上餐", desc:"長途飛行補眠為主，餐點不挑剔", highlight:false},
+    ]
+  },
+
+  // 3: DAY 02 — 10/31 Sat
+  {
+    day:"DAY 02", date:"10 / 31", week:"星期六", route:"IST → İzmir ADB → 以弗所 Ephesus",
+    city:"以弗所", stat:"high", statText:"疲勞高", fatigue:4,
+    hotel:"住宿：<b>Pikan Ephesus</b>（Selçuk）",
+    luggage:"行李：非同票轉機需重新托運；ADB 取車後放<b>後車廂不外露</b>，或先寄飯店",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Selcuk+Town+Centre+Turkey%7CEphesus+Ancient+City&travelmode=driving",
+    rows:[
+      {time:"05:50–08:00", act:'抵達 IST、入境、領行李、集合', note:'建議 07:30–08:30 在入境後公共區集合；行李領好才合'},
+      {time:"08:00–09:20", act:'重新托運、國內線安檢', note:'確認土航國內線 EcoFly 額度：托運 1 件 15kg、登機 1 件 8kg<span class="tl-tag tag-bag">行李</span>'},
+      {time:"11:00–12:10", act:'<span class="pin">✈</span> TK2320 IST → ADB', note:'飛行 1h 10min；訂位代號 TB5RZM；非同票延誤需自行承擔<span class="tl-tag tag-move">國內線</span>'},
+      {time:"12:10–14:00", act:'ADB 取車 → Selçuk / Pikan Ephesus', note:'確認號 670245222；Toyota Corolla 或相似；取車時：滿油規則、保險、後車廂遮蔽<span class="tl-tag tag-move">自駕</span>',
+        img:'https://images.unsplash.com/photo-1529676468696-d3b1e0301d2b?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Selçuk Turkey'},
+      {time:"14:00–14:45", act:'午餐', note:'Selçuk 鎮中心；下午去以弗所最順<span class="tl-tag tag-food">用餐</span>'},
+      {time:"15:00–18:00", act:'<span class="pin">📍</span> 以弗所古城核心精簡版', note:'上入口 → 克里特斯街 → 哈德良神廟 → 塞爾蘇斯圖書館 → 大劇院 → 港口大道',
+        img:'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Library of Celsus Ephesus'},
+      {time:"晚上", act:'Selçuk 晚餐 → 回 Pikan Ephesus 早休', note:'<span class="stay">夜班機接國內線，今晚不排 Şirince，護照早點休息</span>'},
+    ],
+    meals:[
+      {type:"🍽 午餐", name:"Selçuk 鎮中心餐廳", desc:"抵達後補餐，不為午餐繞遠，預算輕鬆", highlight:false},
+      {type:"🌙 晚餐", name:"Selçuk 鎮中心", desc:"飯店附近即可，今晚以休息為優先", highlight:false},
+    ]
+  },
+
+  // 4: DAY 03 — 11/01 Sun
+  {
+    day:"DAY 03", date:"11 / 01", week:"星期日", route:"以弗所 → 棉堡 Pamukkale → 卡帕多奇亞",
+    city:"棉堡 → 卡帕", stat:"high", statText:"疲勞最高", fatigue:5,
+    hotel:"住宿：<b>Grand Elite Cave Suites</b>（Göreme）",
+    luggage:"行李：長距離自駕；ADB 還車後飛 ASR，深夜取車進 Göreme",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&destination=Izmir+Adnan+Menderes+Airport&waypoints=Pamukkale+Travertines%7CHierapolis+Ancient+City&travelmode=driving",
+    rows:[
+      {time:"08:30–09:00", act:'退房、自駕往棉堡', note:'行李放後車廂；護照、錢、手機、相機隨身'},
+      {time:"09:00–12:30", act:'<span class="pin">🚗</span> Selçuk → Pamukkale（約 3~3.5h）', note:'休息站不開後車廂整理行李；以 16:30 離開棉堡為目標<span class="tl-tag tag-move">自駕</span>'},
+      {time:"12:30–13:30", act:'午餐', note:'Pamukkale 村簡單吃，不為午餐繞遠<span class="tl-tag tag-food">用餐</span>'},
+      {time:"13:30–16:30", act:'<span class="pin">📍</span> 棉堡石灰棚 + Hierapolis 古城',
+        note:'穿防滑可碰水鞋；石灰棚部分赤腳；優先石灰棚 + Hierapolis Theatre，可刪古董池',
+        img:'https://images.unsplash.com/photo-1574684891174-df6b02ab38d7?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Pamukkale Travertines'},
+      {time:"16:30–19:00", act:'棉堡 → ADB 加油、AVEC 還車', note:'訂單 20:00 還車；實際 18:30–19:00 抵達以預留手續時間'},
+      {time:"21:00–22:35", act:'<span class="pin">✈</span> SunExpress ADB → ASR', note:'直飛 1h 35min；訂位代號 D438G7<span class="tl-tag tag-move">國內線</span>'},
+      {time:"22:35–23:15", act:'ASR 領行李、Kayseri 機場取車', note:'確認號 637534354；Opel Crossland 或相似；深夜確認櫃台營業<span class="tl-tag tag-bag">行李</span>'},
+      {time:"23:15–00:30", act:'<span class="pin">🚗</span> 夜路自駕入住 Grand Elite', note:'<span class="stay">抵達很晚只做入住睡覺，注意夜路與駕駛疲勞</span>'},
+    ],
+    meals:[
+      {type:"🍽 午餐", name:"Pamukkale 村餐廳", desc:"觀光區，準時較重要，簡單解決即可", highlight:false},
+      {type:"✈ 晚餐", name:"ADB 機場簡餐", desc:"還車後在機場補食，抵達卡帕已很晚", highlight:false},
+    ]
+  },
+
+  // 5: DAY 04 — 11/02 Mon
+  {
+    day:"DAY 04", date:"11 / 02", week:"星期一", route:"卡帕多奇亞 · 熱氣球①＋Red/Green 線",
+    city:"卡帕多奇亞", stat:"high", statText:"疲勞中高", fatigue:4,
+    hotel:"住宿：<b>Grand Elite Cave Suites</b>（Göreme）",
+    luggage:"行李：<b>全日放 Grand Elite 房間</b>，不帶大行李跑景點",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City&travelmode=driving",
+    rows:[
+      {time:"04:00–08:30", act:'<span class="pin">🎈</span> 格雷梅日出熱氣球 ①',
+        note:'Cappadocia Discovery Balloons；票面 06:00；接送時間活動前 1–2 天通知；帶小包、保暖外套、相機',
+        img:'https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Cappadocia hot air balloons at sunrise'},
+      {time:"08:30–10:30", act:'回飯店早餐、補眠休息', note:'前一晚深夜到，這段不省；若熱氣球取消，可提早開始白天行程'},
+      {time:"10:30–17:30", act:'<span class="pin">🚗</span> 條件式白天主線',
+        note:'<b>熱氣球飛成 → Red 線：</b>Göreme 全景→ Open Air Museum → Pasabağ → Devrent → Avanos → Love Valley<br><b>熱氣球取消 → Green 線：</b>Uçhisar Castle → Pigeon Valley → 地下城（Kaymakli / Derinkuyu 二選一）→ 體力夠延伸 Ihlara / Selime'},
+      {time:"17:30–18:30", act:'回 Grand Elite 休息', note:'晚上仍住 Grand Elite；熱氣球日不騎駱駝'},
+      {time:"晚上", act:'Göreme / Uçhisar 晚餐、早睡', note:'<span class="stay">11/03 還有第 2 次熱氣球機會，不排夜間節目</span>'},
+    ],
+    meals:[
+      {type:"🌅 早餐", name:"Grand Elite 飯店早餐", desc:"熱氣球後回飯店補充能量，不要省", highlight:false},
+      {type:"🍽 午餐", name:"Avanos 或 Göreme 餐廳", desc:"Red 線選 Avanos；Green 線依位置就近解決", highlight:false},
+      {type:"🌙 晚餐", name:"Göreme 當地餐廳", desc:"就近，早睡準備隔天熱氣球備援", highlight:false},
+    ]
+  },
+
+  // 6: DAY 05 — 11/03 Tue
+  {
+    day:"DAY 05", date:"11 / 03", week:"星期二", route:"卡帕多奇亞 · 熱氣球②＋Red 線＋換飯店",
+    city:"卡帕多奇亞", stat:"high", statText:"疲勞中高", fatigue:4,
+    hotel:"住宿：<b>Gamirasu Cave Hotel</b>（Ayvalı / Ürgüp）",
+    luggage:"行李：早上<b>寄放 Grand Elite</b>，傍晚回拿再開去 Gamirasu",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CAvanos+Cappadocia%7CLove+Valley+Cappadocia&travelmode=driving",
+    rows:[
+      {time:"04:00–08:30", act:'<span class="pin">🎈</span> 熱氣球 ② / 飯店露台觀球', note:'若 11/02 已搭成，可只在 Grand Elite 露台拍熱氣球昇空',
+        img:'https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Cappadocia balloons'},
+      {time:"08:30–10:30", act:'早餐、退房、寄放行李', note:'Grand Elite 11:00 前退房；大行李寄飯店，貴重物隨身<span class="tl-tag tag-bag">行李</span>'},
+      {time:"10:30–13:00", act:'<span class="pin">🚗</span> Red 線前半', note:'Göreme Open Air Museum → Pasabağ 蘑菇谷 → Devrent Valley；只帶小包',
+        img:'https://images.unsplash.com/photo-1601985705806-c70e48c6e07a?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Göreme fairy chimneys'},
+      {time:"13:00–14:30", act:'午餐（Avanos 或 Göreme）', note:'依當天路線選最近的；若 14:00 有駱駝，午餐不可拖<span class="tl-tag tag-food">用餐</span>'},
+      {time:"14:30–17:30", act:'<span class="pin">📍</span> Red 線後半', note:'Avanos 陶藝小鎮（午餐候選）→ Love Valley → Göreme Panorama / Esentepe'},
+      {time:"17:30–18:30", act:'回 Grand Elite 取行李', note:'檢查行李、充電器、證件；不在路邊整理大行李<span class="tl-tag tag-bag">行李</span>'},
+      {time:"18:30–19:30", act:'<span class="pin">🚗</span> 入住 Gamirasu Cave Hotel', note:'<span class="stay">Gamirasu 14:00 後可入住；晚上不再排太硬的行程</span>'},
+    ],
+    meals:[
+      {type:"🍽 午餐", name:"Avanos 陶藝小鎮", desc:"Red 線必經，陶藝文化小鎮，午餐選擇多元", highlight:false},
+      {type:"🌙 晚餐", name:"Gamirasu / Ürgüp", desc:"換飯店後就近用餐；不建議回 Göreme", highlight:false},
+    ]
+  },
+
+  // 7: DAY 06 — 11/04 Wed
+  {
+    day:"DAY 06", date:"11 / 04", week:"星期三", route:"卡帕多奇亞 收尾 → 飛回伊斯坦堡",
+    city:"卡帕 → 伊斯坦堡", stat:"mid", statText:"疲勞中", fatigue:3,
+    hotel:"住宿：<b>Basilissis Hotel</b>（伊斯坦堡舊城）",
+    luggage:"行李：行李跟車；16:30–17:00 完成 ASR 還車；不停風險高的觀光停車場",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&travelmode=driving",
+    rows:[
+      {time:"清晨", act:'<span class="pin">🎈</span> 熱氣球 ③ / 飯店露台', note:'最後備援日；若 11/02 或 11/03 已搭成，清晨可在 Gamirasu 露台靜觀'},
+      {time:"08:30–10:30", act:'洞穴飯店早餐 + 露台 View + 泳池拍照', note:'<span class="stay">天氣好時露台價值最高；11/04 早上要穿泳衣拍網美照，泳衣前晚備好</span>',
+        img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Cave hotel Cappadocia'},
+      {time:"10:30–12:30", act:'情境 A/B：11:00 駱駝 60 分鐘', note:'只有前兩天已搭到熱氣球才騎駱駝；若 11/04 補飛則不騎駱駝<span class="tl-tag tag-star">必排候選</span>'},
+      {time:"12:30–13:30", act:'Ürgüp 午餐 / 咖啡', note:'順路補餐；若行李遮蔽不足只保這站<span class="tl-tag tag-food">用餐</span>'},
+      {time:"13:30–15:00", act:'Mustafapaşa / Ortahisar Castle 輕量收尾', note:'可刪；若 11/04 補飛熱氣球、太累或行李問題，直接往 ASR'},
+      {time:"15:00–17:00", act:'前往 ASR、加油、AVEC 還車', note:'TK2017 18:40 起飛；建議 16:30–17:00 完成還車<span class="tl-tag tag-move">還車</span>'},
+      {time:"18:40–20:20", act:'<span class="pin">✈</span> TK2017 ASR → IST', note:'已開票；訂位代號 TB5RZM；飛行 1h 40min<span class="tl-tag tag-move">國內線</span>'},
+      {time:"20:20–22:45", act:'IST 領行李 → Klook 接機 → Basilissis Hotel', note:'Klook 已訂 20:20 接機；不拖行李搭多段大眾交通；直接接送入住<span class="tl-tag tag-move">接送</span>'},
+    ],
+    meals:[
+      {type:"🏨 早餐", name:"Gamirasu Cave Hotel 飯店早餐", desc:"高級洞穴飯店早餐，儀式感十足，配露台 View", highlight:true},
+      {type:"🍽 午餐", name:"Ürgüp 餐廳", desc:"卡帕多奇亞收尾午餐，就近解決", highlight:false},
+      {type:"🌙 晚餐", name:"Basilissis Hotel 附近", desc:"太晚抵達不排正式晚餐，外帶或便利店簡單處理", highlight:false},
+    ]
+  },
+
+  // 8: DAY 07 — 11/05 Thu
+  {
+    day:"DAY 07", date:"11 / 05", week:"星期四", route:"伊斯坦堡暖身 · Karaköy ＋ Galata ＋ Eminönü",
+    city:"伊斯坦堡", stat:"low", statText:"疲勞低中", fatigue:2,
+    hotel:"住宿：<b>Basilissis Hotel</b>（舊城）",
+    luggage:"行李：放 Basilissis Hotel；<b>Boris'in Yeri 只收現金，出門前準備里拉現鈔</b>",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Eminonu+Istanbul&waypoints=Boris%27in+Yeri+Istanbul%7CGalata+Tower+Istanbul%7CSokak+Lezzeti+Tarihi+Balik+Durumcu+Mehmet+Usta+Istanbul%7CGalata+Bridge+Istanbul&travelmode=transit",
+    rows:[
+      {time:"上午", act:"飯店整理、出門前備現金", note:"前一晚抵達偏晚，上午不用太早出門；準備 Boris'in Yeri 現鈔"},
+      {time:"10:30–12:15", act:'<span class="pin">🍳</span> Boris\'in Yeri 土耳其式早餐', note:'重點：蜂蜜牛奶、kaymak、土耳其咖啡、sucuk 臘腸、menemen 番茄炒蛋；只收現金；好拍好吃<span class="tl-tag tag-food">用餐</span><span class="tl-tag tag-star">必排</span>'},
+      {time:"12:15–12:45", act:'Boris\'in Yeri → Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘'},
+      {time:"12:45–13:45", act:'<span class="pin">📍</span> Galata / Karaköy 散步', note:'港口、坡道、咖啡館；上坡太累只走 Karaköy 平地',
+        img:'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Istanbul Galata skyline'},
+      {time:"13:45–14:30", act:'<span class="pin">🐟</span> Balık Dürüm Mehmet Usta', note:'烤鯖魚捲餅，Karaköy 街頭美食；早餐太飽就兩人分一份<span class="tl-tag tag-food">用餐</span><span class="tl-tag tag-star">必吃</span>'},
+      {time:"14:30–16:00", act:'<span class="pin">📍</span> Galata Bridge + Eminönü 海邊短散步', note:'補伊斯坦堡港口城市感；觀橋上釣魚、金角灣與舊城天際線'},
+      {time:"16:00–17:30", act:'Spice Bazaar 香料市集（候選）', note:'食物與香氣記憶；市集人多注意包包；可移到 11/06 替代'},
+      {time:"晚上", act:'<span class="pin">🥙</span> Suat Usta Mersin Tantuni（候選）', note:'Taksim 分店；烤肉捲餅類街食，輕鬆晚餐；若今天吃太多延到 11/07<span class="tl-tag tag-food">用餐</span>'},
+    ],
+    meals:[
+      {type:"🍳 早午餐", name:"Boris'in Yeri ★", desc:"傳統土耳其早餐：kaymak、蜂蜜牛奶、sucuk、menemen。只收現金！是行程必排體驗", highlight:true},
+      {type:"🐟 點心/輕午", name:"Balık Dürüm Mehmet Usta ★", desc:"Karaköy 街頭烤鯖魚捲餅。尖峰排隊，可兩人分一份", highlight:true},
+      {type:"🌙 晚餐候選", name:"Suat Usta Mersin Tantuni", desc:"Taksim；烤雞肉蛋餅/tantuni 類；平價街食，可延到 11/07", highlight:false},
+    ]
+  },
+
+  // 9: DAY 08 — 11/06 Fri
+  {
+    day:"DAY 08", date:"11 / 06", week:"星期五", route:"伊斯坦堡舊城 · 藍清真寺＋聖索菲亞＋大巴札",
+    city:"伊斯坦堡", stat:"mid", statText:"疲勞中", fatigue:3,
+    hotel:"住宿：<b>Basilissis Hotel</b>（舊城）",
+    luggage:"行李：放飯店；舊城以步行為主，早上避人潮最大優勢；注意扒手",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Basilica+Cistern+Istanbul%7CHagia+Sophia+Istanbul%7CBlue+Mosque+Istanbul%7CSeven+Hills+Restaurant+Istanbul%7CGrand+Bazaar+Istanbul%7CHafiz+Mustafa+1864+Sirkeci&travelmode=walking",
+    rows:[
+      {time:"08:30–09:00", act:'步行出發 → Sultanahmet 廣場', note:'Basilissis 位置極佳，步行直達舊城核心；早出避旅行團'},
+      {time:"09:00–09:45", act:'<span class="pin">📍</span> Sultanahmet 廣場 + 藍色清真寺',
+        note:'六座宣禮塔、藍色磁磚內部；注意進入服裝規定',
+        img:'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Blue Mosque Istanbul'},
+      {time:"10:00–11:30", act:'<span class="pin">📍</span> 聖索菲亞 Hagia Sophia',
+        note:'拜占庭穹頂＋鄂圖曼層次，是伊斯坦堡的核心；確認參觀規則、票券（建議 Klook Pass）',
+        img:'https://images.unsplash.com/photo-1522769955690-40c2f2ac94cd?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Hagia Sophia interior'},
+      {time:"11:45–12:45", act:'<span class="pin">📍</span> 地下水宮殿 Basilica Cistern',
+        note:'古代地下蓄水系統，與地面宗教建築形成強烈對比；建議 Klook Pass 免排隊',
+        img:'https://images.unsplash.com/photo-1589162368693-58fde4399e7e?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Basilica Cistern Istanbul'},
+      {time:"13:00–13:45", act:'<span class="pin">🏛</span> Seven Hills Restaurant 屋頂拍照小點', note:'主目標是屋頂俯瞰聖索菲亞、藍清真寺與海景；偏貴，點飲料/甜點/湯品即可；確認低消規則<span class="tl-tag tag-food">用餐</span>'},
+      {time:"14:15–16:15", act:'<span class="pin">🛍</span> Grand Bazaar 大巴札', note:'11/06 固定走大巴札；週五營業；工藝、金飾與觀光商品；注意扒手與隨身包<span class="tl-tag tag-star">必排</span>'},
+      {time:"16:15–17:15", act:'<span class="pin">🍮</span> Hafiz Mustafa 1864 Sirkeci', note:'土耳其甜點茶點：招牌甜品 1–2 份分食，配土耳其茶/咖啡；Sirkeci 分店 24h 營業<span class="tl-tag tag-food">用餐</span>'},
+      {time:"傍晚~晚上", act:'Galata Bridge / Karaköy 晚餐散步', note:'<span class="stay">晚上不帶護照與大量現金；搭 T1 或叫車回 Basilissis</span>'},
+    ],
+    meals:[
+      {type:"🏛 午餐小點", name:"Seven Hills Restaurant", desc:"屋頂視野絕佳，主目的是拍照。偏貴，只點飲料或甜點/湯品，確認是否有低消", highlight:false},
+      {type:"🍮 下午茶", name:"Hafiz Mustafa 1864 Sirkeci", desc:"百年土耳其甜點老舖，招牌 baklava 蜂蜜千層酥，兩人分 1~2 份配土耳其茶", highlight:true},
+      {type:"🌙 晚餐", name:"Galata Bridge / Karaköy", desc:"橋下餐廳或 Karaköy 街區用餐；若 11/05 沒吃 Suat Usta，今晚可排", highlight:false},
+    ]
+  },
+
+  // 10: DAY 09 — 11/07 Sat
+  {
+    day:"DAY 09", date:"11 / 07", week:"星期六", route:"伊斯坦堡 · 土耳其浴＋Kadıköy 亞洲側",
+    city:"伊斯坦堡", stat:"low", statText:"疲勞低中", fatigue:2,
+    hotel:"住宿：<b>Basilissis Hotel</b>（舊城）",
+    luggage:"行李：放飯店；超市採買後先回飯店放，再去 Olden 1772；晚上不帶大量現金",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Eminonu+Istanbul%7CKadikoy+Istanbul%7CUskudar+Istanbul&travelmode=transit",
+    rows:[
+      {time:"09:30–10:30", act:'輕早餐 / 咖啡', note:'11/05 已完成土耳其式早餐；今天早餐吃輕，讓土耳其浴更舒服'},
+      {time:"11:30–13:30", act:'<span class="pin">♨</span> 土耳其浴 Hammam（Acemoglu 15 世紀）', note:'Klook Pass 已購，2026/08/12 後預約 11/07 12:00 時段；11:50 前抵達；確認是否男女分開<span class="tl-tag tag-star">必排</span>'},
+      {time:"14:00–17:30", act:'<span class="pin">⛵</span> 日常觀察路線擇一', note:'<b>亞洲側：</b>Eminönü/Karaköy 搭渡輪 → Kadıköy 市場/Moda → Üsküdar 夕陽視角<br><b>歐洲側（浴後很累）：</b>Karaköy / Galata 低移動散步'},
+      {time:"17:30–18:30", act:'<span class="pin">🛒</span> Şok Sirkeci 超市伴手禮採買', note:'離 Basilissis 近；一～日 09:00–21:00；茶、咖啡粉、巧克力、餅乾、開心果、料理包<span class="tl-tag tag-bag">採買</span>'},
+      {time:"18:30–19:15", act:'回 Basilissis Hotel 整理戰利品', note:'巧克力分散兩箱、咖啡粉夾鏈袋、餅乾防壓；今晚整理好，11/08 早上不手忙腳亂'},
+      {time:"晚上", act:'<span class="pin">🍷</span> Olden 1772 儀式感晚餐（候選）', note:'歷史建築氣氛，約₺1,500–2,000+/人，另可能有 10% 服務費；先看菜單與費用，建議訂位<span class="tl-tag tag-food">用餐</span>'},
+    ],
+    meals:[
+      {type:"☕ 早餐", name:"Basilissis 附近輕早餐", desc:"浴前不吃太重；咖啡、麵包、乳酪小點即可", highlight:false},
+      {type:"🍷 晚餐", name:"Olden 1772 ★", desc:"行程最後一頓儀式感晚餐。歷史建築空間，氣氛佳。約₺1,500–2,000+/人，需查菜單/訂位", highlight:true},
+    ]
+  },
+
+  // 11: DAY 10 — 11/08 Sun
+  {
+    day:"DAY 10", date:"11 / 08", week:"星期日", route:"伊斯坦堡 → 托普卡匹 → 13:00 Klook 送機",
+    city:"伊斯坦堡 → 回程", stat:"high", statText:"回程！", fatigue:3,
+    hotel:"住宿：機上",
+    luggage:"行李：前一晚整理好；退房後行李寄存；<b>13:00 Klook 送機不可延後</b>",
+    map:"https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Topkapi+Palace+Istanbul&travelmode=walking",
+    rows:[
+      {time:"08:15–08:45", act:'輕早餐 / 咖啡、退房寄存行李', note:'行李前一晚整理好；早上只帶小包出門；退房寄存行李到 13:00 前'},
+      {time:"09:00–10:45", act:'<span class="pin">📍</span> Topkapi Palace 早場短版',
+        note:'週日 09:00 開；只走主庭院、寶物/海景重點區，不排 Harem；<b>10:45 必須離開</b>',
+        img:'https://images.unsplash.com/photo-1582152629442-4a864303fb96?w=200&h=140&fit=crop&auto=format&q=75', imgAlt:'Topkapi Palace Istanbul'},
+      {time:"11:00–12:00", act:'午餐二選一（Topkapi 後）', note:'主選：地圖連結(待補店名)；備案：非土耳其早餐；上菜慢就外帶/咖啡，不可拖<span class="tl-tag tag-food">用餐</span>'},
+      {time:"12:10–13:00", act:'回 Basilissis Hotel 取行李、等 Klook 送機', note:'護照、錢、信用卡、手機、藥品確認隨身<span class="tl-tag tag-bag">行李</span>'},
+      {time:"13:00–14:30", act:'<span class="pin">🚕</span> Klook 送機 → Istanbul Airport IST', note:'不退稅；目標 14:30 前抵達；不建議最後一天搭多段大眾交通<span class="tl-tag tag-move">送機</span>'},
+      {time:"14:30 後", act:'<span class="pin">✈</span> 報到、安檢、出境、候機', note:'安安 TK124 17:15 → 桃園；豬豬 TK208 18:30 → 新加坡'},
+    ],
+    meals:[
+      {type:"☕ 早餐", name:"飯店附近輕早餐", desc:"回程日不吃重，快速出門去 Topkapi", highlight:false},
+      {type:"🍽 午餐", name:"Topkapi 後午餐（主選/備案）", desc:"店名待補；上菜慢可改外帶；13:00 送機時間是上限不可延後", highlight:false},
+    ]
+  },
+
+  // 12: DAY 11 — 11/09 Mon
+  {
+    day:"DAY 11", date:"11 / 09", week:"星期一", route:"抵達 · 各自返家",
+    city:"返家", stat:"fly", statText:"回到家", fatigue:2,
+    hotel:"住宿：—",
+    luggage:"行李：核對所有托運與隨身，確認沒有遺漏",
+    rows:[
+      {time:"08:45", act:'<span class="pin">🛬</span> 安安抵達桃園 T2', note:'TK124 抵達；過海關、領行李'},
+      {time:"10:00", act:'<span class="pin">🛬</span> 豬豬抵達新加坡樟宜 T1', note:'TK208 抵達；過海關、領行李'},
+      {time:"回家後", act:'土耳其 11 日圓滿落幕 ✦', note:'整理照片、紀念品；回想熱氣球、棉堡、烤鯖魚的滋味'},
+    ],
+    meals:[]
+  },
+];
+
+const deck=document.getElementById('deck');
+const dotsWrap=document.getElementById('dots');
+let idx=0;
+const total=DATA.length;
+document.getElementById('total').textContent=total;
+
+function buildSlide(d,i){
+  const s=document.createElement('section');
+  s.className='slide';
+
+  if(d.cover){
+    s.classList.add('cover');
+    s.innerHTML=`
+      <div class="ov-orn">✦ ❋ ✦</div>
+      <div class="ov-pre">A Journey Through</div>
+      <h1>TÜRKİYE</h1>
+      <div class="ov-zh">2026 土耳其 11 日</div>
+      <div class="ov-dates">2026 / 10 / 30 — 2026 / 11 / 09 &nbsp;·&nbsp; 安安 × 豬豬</div>
+      <div class="ov-cities">
+        <span>伊斯坦堡 İstanbul</span>
+        <span>以弗所 Ephesus</span>
+        <span>棉堡 Pamukkale</span>
+        <span>卡帕多奇亞 Cappadocia</span>
+      </div>
+      <div class="ov-hint">← → 方向鍵翻頁 &nbsp;·&nbsp; 手機左右滑動 &nbsp;·&nbsp; 點下方圓點跳頁<br>下一頁：行程概要與每日疲勞總覽</div>`;
+
+  } else if(d.summary){
+    s.innerHTML=`
+      <div class="s-head" style="border-bottom:none;padding-bottom:clamp(8px,1.5vw,14px)">
+        <div>
+          <div class="s-daynum" style="font-size:clamp(11px,2.8vw,14px)">TRIP OVERVIEW</div>
+          <div class="s-date" style="font-size:clamp(20px,5.5vw,36px)">行程概要</div>
+        </div>
+        <div class="s-badge">
+          <span class="chip city">11 天 4 城市</span>
+          <span class="chip stat-high">10/30 – 11/09</span>
+        </div>
+      </div>
+      <div class="summary-slide">
+        <div class="sum-grid">
+          <div class="sum-block sum-route" style="grid-column:1/-1">
+            <h3>🗺 旅行路線</h3>
+            <div class="route-bar">
+              <span class="route-city">🛫 台北/新加坡</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">伊斯坦堡 IST</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">以弗所 Ephesus</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">棉堡 Pamukkale</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">卡帕多奇亞 Cappadocia</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">伊斯坦堡 4 晚</span>
+              <span class="route-arrow">→</span>
+              <span class="route-city">🛬 回程</span>
+            </div>
+          </div>
+          <div class="sum-block">
+            <h3>⭐ 行程重點</h3>
+            <ul>
+              <li>以弗所古城：塞爾蘇斯圖書館 · 大劇院 · 克里特斯街</li>
+              <li>棉堡：白色石灰棚 + Hierapolis 古城劇場</li>
+              <li>卡帕多奇亞：格雷梅日出熱氣球（已訂 11/02，備援 11/03、11/04）</li>
+              <li>卡帕多奇亞：Red 線 / Green 線自駕 + 駱駝騎乘</li>
+              <li>洞穴飯店：Grand Elite Cave Suites + Gamirasu Cave Hotel</li>
+              <li>伊斯坦堡：聖索菲亞 · 藍清真寺 · 地下水宮殿 · 大巴札</li>
+              <li>土耳其浴 Hammam（Acemoglu 15 世紀，11/07）</li>
+              <li>Topkapi Palace 短版早場（11/08）</li>
+            </ul>
+          </div>
+          <div class="sum-block">
+            <h3>🍽 餐食重點</h3>
+            <ul>
+              <li>Boris'in Yeri：傳統土耳其早餐（11/05，只收現金）</li>
+              <li>Balık Dürüm Mehmet Usta：Karaköy 烤鯖魚捲餅（11/05）</li>
+              <li>Suat Usta Mersin Tantuni：烤肉捲餅街食（11/05 或 11/07）</li>
+              <li>Seven Hills Restaurant：舊城屋頂拍照小點（11/06）</li>
+              <li>Hafiz Mustafa 1864 Sirkeci：百年甜點茶點（11/06）</li>
+              <li>Olden 1772：儀式感歷史建築晚餐（11/07）</li>
+              <li>Gamirasu 飯店早餐：洞穴飯店露台 View（11/04 早）</li>
+            </ul>
+          </div>
+          <div class="sum-block fatigue-table" style="grid-column:1/-1">
+            <h3>💪 每日疲勞度總覽</h3>
+            <table>
+              <tr><th>日期</th><th>疲勞</th><th>主要原因</th></tr>
+              <tr><td>10/30 五</td><td>${starsHtml(4)}</td><td>長途夜航出發</td></tr>
+              <tr><td>10/31 六</td><td>${starsHtml(4)}</td><td>入境轉機取車以弗所全接</td></tr>
+              <tr><td>11/01 日</td><td>${starsHtml(5)}</td><td>全程最硬：自駕棉堡＋夜間轉機取車</td></tr>
+              <tr><td>11/02 一</td><td>${starsHtml(4)}</td><td>清晨熱氣球＋紅/綠線自駕</td></tr>
+              <tr><td>11/03 二</td><td>${starsHtml(4)}</td><td>補飛備援＋換飯店</td></tr>
+              <tr><td>11/04 三</td><td>${starsHtml(3)}</td><td>慢節奏收尾轉場回伊斯坦堡</td></tr>
+              <tr><td>11/05 四</td><td>${starsHtml(2)}</td><td>城市暖身，新城散步</td></tr>
+              <tr><td>11/06 五</td><td>${starsHtml(3)}</td><td>舊城景點密集＋排隊</td></tr>
+              <tr><td>11/07 六</td><td>${starsHtml(2)}</td><td>土耳其浴後放鬆</td></tr>
+              <tr><td>11/08 日</td><td>${starsHtml(3)}</td><td>回程日：Topkapi＋送機壓力</td></tr>
+              <tr><td>11/09 一</td><td>${starsHtml(2)}</td><td>抵達日整理</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>`;
+
+  } else {
+    // Regular day slide
+    const rows = d.rows.map((r,k)=>{
+      const hasImg = !!r.img;
+      return `
+        <div class="tl-row${hasImg?' has-img':''}" style="animation-delay:${k*0.06}s">
+          <div class="tl-time">${r.time}</div>
+          <div class="tl-main">
+            <div class="tl-act">${r.act}</div>
+            ${r.note?`<div class="tl-note">${r.note}</div>`:''}
+          </div>
+          ${hasImg?`<img class="tl-img" src="${r.img}" alt="${r.imgAlt||''}" loading="lazy" onerror="this.style.display='none'">`:''}
+        </div>`;
+    }).join('');
+
+    const mealHtml = (d.meals && d.meals.length) ? `
+      <div class="meal-strip">
+        ${d.meals.map(m=>`
+          <div class="meal-card${m.highlight?' highlight':''}">
+            <div class="meal-type">${m.type}</div>
+            <div class="meal-name">${m.name}</div>
+            ${m.desc?`<div class="meal-desc">${m.desc}</div>`:''}
+          </div>`).join('')}
+      </div>` : '';
+
+    s.innerHTML=`
+      <div class="s-head">
+        <div>
+          <div class="s-daynum">${d.day}</div>
+          <div class="s-date">${d.date}</div>
+          <div class="s-week">${d.week}</div>
+          <div class="s-route">${d.route}</div>
+        </div>
+        <div class="s-badge">
+          <span class="chip city">${d.city}</span>
+          <span class="chip stat-${d.stat}">${d.statText}</span>
+          <div class="fatigue-wrap">
+            <span class="fatigue-label">疲勞度</span>
+            ${starsHtml(d.fatigue||0)}
+          </div>
+          <span class="s-hotel">${d.hotel}</span>
+        </div>
+      </div>
+      <div class="s-body"><div class="timeline">${rows}</div></div>
+      ${mealHtml}
+      <div class="s-foot">
+        <span class="luggage">${d.luggage}</span>
+        ${d.map?`<a class="maps" href="${d.map}" target="_blank" rel="noopener">🗺 當日路線</a>`:''}
+      </div>`;
+  }
+
+  deck.appendChild(s);
+  const dot=document.createElement('button');
+  dot.className='dot';
+  dot.setAttribute('aria-label','第'+(i+1)+'頁');
+  dot.onclick=()=>go(i);
+  dotsWrap.appendChild(dot);
+}
+
+DATA.forEach(buildSlide);
+
+const slides=[...document.querySelectorAll('.slide')];
+const dots=[...document.querySelectorAll('.dot')];
+const prevBtn=document.getElementById('prev');
+const nextBtn=document.getElementById('next');
+const curEl=document.getElementById('cur');
+const pbar=document.getElementById('pbar');
+
+function render(prevIdx){
+  slides.forEach((sl,i)=>{
+    sl.classList.remove('active','exit-left');
+    if(i===idx)sl.classList.add('active');
+    else if(prevIdx!=null && i===prevIdx && i<idx)sl.classList.add('exit-left');
+  });
+  if(!DATA[idx].cover && !DATA[idx].summary){
+    const rows=slides[idx].querySelectorAll('.tl-row');
+    rows.forEach((r,k)=>{r.style.animation='none';r.offsetHeight;r.style.animation=`rowIn .5s ${k*0.06}s both`;});
+    const body=slides[idx].querySelector('.s-body');
+    if(body)body.scrollTop=0;
+  }
+  dots.forEach((dt,i)=>dt.classList.toggle('active',i===idx));
+  const adot=dots[idx];if(adot&&adot.scrollIntoView)adot.scrollIntoView({inline:'center',block:'nearest'});
+  curEl.textContent=idx+1;
+  prevBtn.disabled=idx===0;
+  nextBtn.disabled=idx===total-1;
+  pbar.style.width=((idx)/(total-1)*100)+'%';
+}
+function go(n){const p=idx;idx=Math.max(0,Math.min(total-1,n));render(p);}
+function next(){go(idx+1);}
+function prev(){go(idx-1);}
+nextBtn.onclick=next;prevBtn.onclick=prev;
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')next();
+  else if(e.key==='ArrowLeft'||e.key==='PageUp')prev();
+  else if(e.key==='Home')go(0);
+  else if(e.key==='End')go(total-1);
+});
+let tx=0,ty=0;
+const stage=document.querySelector('.stage');
+stage.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+stage.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.4){dx<0?next():prev();}
+},{passive:true});
+
+render(null);
+</script>
+</body>
+</html>
