@@ -45,6 +45,15 @@ didi-travel-world/
 4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`
 5. 更新 CLAUDE.md 旅行狀態表
 
+## 總覽頁風格規則
+
+`index.html` 的視覺風格**必須與最近一次新增的旅遊計劃頁面一致**：
+- 背景色、字型、色彩 token 需與最新子頁面對齊
+- 卡片 `.trip-card-hero-bg` 的漸層使用對應子頁面的主題色
+- 目前對齊花東縱谷風格：背景 `#ede8dd`、字型 `PingFang TC`、`Georgia serif`、forest green 系
+
+每次新增旅遊計劃後，若新計劃風格與現有總覽差異明顯，需同步更新總覽配色。
+
 ## 設計慣例
 
 - 每趟旅行有獨立的**色彩主題**（CSS variables）

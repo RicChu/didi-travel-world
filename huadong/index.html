@@ -620,34 +620,46 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   let cur = 1;
   const navBtns = document.querySelectorAll('.nav-btn');
   const dots = document.querySelectorAll('.progress-dot');
+  const cleanupTimers = new Map(); // track pending .active cleanup per slide id
 
   window.goDay = function(n){
     if(n===cur) return;
-    const dir = n > cur ? 1 : -1;
-    const from = document.getElementById('s'+cur);
-    const to   = document.getElementById('s'+n);
+    const dir  = n > cur ? 1 : -1;
+    const fid  = 's'+cur;
+    const tid  = 's'+n;
+    const from = document.getElementById(fid);
+    const to   = document.getElementById(tid);
 
-    /* 1. Set 'to' at offscreen position with transition disabled */
+    /* Cancel any stale cleanup targeting 'to' — it's now the destination */
+    if(cleanupTimers.has(tid)){
+      clearTimeout(cleanupTimers.get(tid));
+      cleanupTimers.delete(tid);
+    }
+
+    /* Immediately reset 'to' inline styles before repositioning */
+    to.style.cssText = '';
+    to.classList.remove('active','prev');
+
+    /* Position 'to' off-screen with transition disabled, then force reflow */
     to.style.cssText = `transition:none;opacity:0;transform:translateX(${dir>0?48:-48}px)`;
-    to.classList.remove('prev');
     to.classList.add('active');
+    to.getBoundingClientRect(); // force paint commit
 
-    /* 2. Force reflow so browser commits the initial state before transition */
-    to.getBoundingClientRect();
-
-    /* 3. Clear inline overrides → CSS transition takes over to opacity:1 / translateX(0) */
+    /* Release inline overrides → CSS transition animates to opacity:1 / translateX(0) */
     to.style.cssText = '';
 
-    /* 4. Animate 'from' out using inline styles (transition still active on .slide) */
+    /* Push 'from' off-screen */
     from.style.cssText = `opacity:0;transform:translateX(${dir>0?-48:48}px)`;
 
-    /* 5. After transition, fully remove 'from' from flow */
-    setTimeout(()=>{
+    /* Schedule cleanup for 'from'; cancel previous timer for same slide if any */
+    if(cleanupTimers.has(fid)) clearTimeout(cleanupTimers.get(fid));
+    cleanupTimers.set(fid, setTimeout(()=>{
       from.classList.remove('active','prev');
       from.style.cssText = '';
-    }, 420);
+      cleanupTimers.delete(fid);
+    }, 420));
 
-    /* 6. Re-trigger item entry animations */
+    /* Re-trigger tl-item entry animations */
     to.querySelectorAll('.tl-item').forEach(it=>{
       it.style.animation='none';
       it.getBoundingClientRect();
