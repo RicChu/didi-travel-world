@@ -626,26 +626,34 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
     const dir = n > cur ? 1 : -1;
     const from = document.getElementById('s'+cur);
     const to   = document.getElementById('s'+n);
-    from.style.transition='none';
-    from.classList.remove('active','prev');
-    from.style.transform='translateX(0)';
-    requestAnimationFrame(()=>{
-      from.style.transition='';
-      from.classList.add(dir>0?'prev':'');
-      if(dir<0) from.style.transform='translateX(48px)';
-      to.classList.remove('prev');
-      to.style.transform=`translateX(${dir>0?48:-48}px)`;
-      to.style.opacity='0';
-      to.style.transition='none';
-      requestAnimationFrame(()=>{
-        to.style.transition='';
-        to.classList.add('active');
-        to.style.transform='';
-        to.style.opacity='';
-        const items = to.querySelectorAll('.tl-item');
-        items.forEach(it=>{it.style.animation='none';it.offsetHeight;it.style.animation=''});
-      });
+
+    /* 1. Set 'to' at offscreen position with transition disabled */
+    to.style.cssText = `transition:none;opacity:0;transform:translateX(${dir>0?48:-48}px)`;
+    to.classList.remove('prev');
+    to.classList.add('active');
+
+    /* 2. Force reflow so browser commits the initial state before transition */
+    to.getBoundingClientRect();
+
+    /* 3. Clear inline overrides → CSS transition takes over to opacity:1 / translateX(0) */
+    to.style.cssText = '';
+
+    /* 4. Animate 'from' out using inline styles (transition still active on .slide) */
+    from.style.cssText = `opacity:0;transform:translateX(${dir>0?-48:48}px)`;
+
+    /* 5. After transition, fully remove 'from' from flow */
+    setTimeout(()=>{
+      from.classList.remove('active','prev');
+      from.style.cssText = '';
+    }, 420);
+
+    /* 6. Re-trigger item entry animations */
+    to.querySelectorAll('.tl-item').forEach(it=>{
+      it.style.animation='none';
+      it.getBoundingClientRect();
+      it.style.animation='';
     });
+
     navBtns.forEach(b=>b.classList.toggle('on', +b.dataset.for===n));
     dots.forEach(d=>d.classList.toggle('on', +d.dataset.pd===n));
     cur=n;
