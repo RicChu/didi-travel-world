@@ -31,6 +31,28 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   --nav-h:68px;
 }
 
+/* ── Back Button ── */
+.back-btn{
+  position:fixed;top:calc(var(--safe-t) + 12px);left:16px;
+  z-index:200;
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:20px;padding:7px 14px 7px 10px;
+  font-size:12px;font-weight:600;letter-spacing:.04em;
+  color:white;text-decoration:none;
+  transition:background .2s ease,transform .15s ease;
+}
+.back-btn:active{transform:scale(.94)}
+.back-btn svg{opacity:.8}
+/* in app mode (hero gone), change colour */
+.back-btn.in-app{
+  background:rgba(237,232,221,.88);
+  border-color:rgba(122,158,142,.3);
+  color:var(--forest);
+}
+
 /* ── Hero ── */
 .hero{
   position:fixed;inset:0;z-index:100;
@@ -40,9 +62,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 }
 .hero.hidden{opacity:0;transform:scale(1.04) translateY(-8px);pointer-events:none}
 
-.hero-mountains{
-  position:absolute;bottom:60px;left:0;right:0;height:140px;opacity:.12;
-}
+.hero-mountains{position:absolute;bottom:60px;left:0;right:0;height:140px;opacity:.12}
 .hero-stars{position:absolute;inset:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:white;animation:twinkle var(--d,3s) ease-in-out infinite var(--dl,0s)}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.9}}
@@ -52,48 +72,20 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   text-align:center;color:white;
   padding:40px 32px;
 }
-.hero-kicker{
-  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-  opacity:.55;margin-bottom:22px;
-  animation:heroRise .9s ease .15s both;
-}
-.hero-title{
-  font-family:Georgia,"Noto Serif TC",serif;
-  font-size:72px;font-weight:normal;line-height:1;
-  margin-bottom:4px;letter-spacing:-.02em;
-  animation:heroRise .9s ease .3s both;
-}
-.hero-en{
-  font-family:Georgia,serif;font-size:14px;font-style:italic;
-  opacity:.45;letter-spacing:.12em;margin-bottom:28px;
-  animation:heroRise .9s ease .42s both;
-}
-.hero-tags{
-  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
-  margin-bottom:48px;
-  animation:heroRise .9s ease .52s both;
-}
-.hero-tag{
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
-  border-radius:20px;padding:5px 14px;font-size:12px;letter-spacing:.04em;
-}
-.hero-meta{
-  display:flex;align-items:center;gap:12px;justify-content:center;
-  margin-bottom:52px;
-  animation:heroRise .9s ease .6s both;
-}
-.hero-date-range{
-  font-family:Georgia,serif;font-size:22px;letter-spacing:.06em;opacity:.9;
-}
+.hero-kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;margin-bottom:22px;animation:heroRise .9s ease .15s both}
+.hero-title{font-family:Georgia,"Noto Serif TC",serif;font-size:72px;font-weight:normal;line-height:1;margin-bottom:4px;letter-spacing:-.02em;animation:heroRise .9s ease .3s both}
+.hero-en{font-family:Georgia,serif;font-size:14px;font-style:italic;opacity:.45;letter-spacing:.12em;margin-bottom:28px;animation:heroRise .9s ease .42s both}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;animation:heroRise .9s ease .52s both}
+.hero-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:5px 14px;font-size:12px;letter-spacing:.04em}
+.hero-meta{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:52px;animation:heroRise .9s ease .6s both}
+.hero-date-range{font-family:Georgia,serif;font-size:22px;letter-spacing:.06em;opacity:.9}
 .hero-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)}
 .hero-nights{font-size:12px;opacity:.5;letter-spacing:.05em}
-
 .hero-btn{
   display:inline-flex;align-items:center;gap:10px;
   background:rgba(255,255,255,.95);color:#154535;
-  border:none;border-radius:30px;
-  padding:16px 36px;font-size:15px;font-weight:600;
-  cursor:pointer;font-family:inherit;letter-spacing:.03em;
+  border:none;border-radius:30px;padding:16px 36px;
+  font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.03em;
   animation:heroRise .9s ease .75s both;
   transition:transform .2s ease,box-shadow .2s ease;
   box-shadow:0 8px 32px rgba(0,0,0,.25);
@@ -102,10 +94,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 .hero-btn svg{transition:transform .2s ease}
 .hero-btn:active svg{transform:translateX(3px)}
 
-@keyframes heroRise{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes heroRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── App Shell ── */
 .app{position:fixed;inset:0;display:flex;flex-direction:column}
@@ -144,18 +133,37 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   padding:20px 24px 14px;flex-shrink:0;
   display:flex;flex-direction:column;
 }
-.day-label{
-  font-size:10px;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--mist);margin-bottom:5px;
-}
-.day-title{
-  font-family:Georgia,"Noto Serif TC",serif;
-  font-size:26px;font-weight:normal;color:var(--ink);
-  line-height:1.25;margin-bottom:2px;
-}
+.day-label{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:5px}
+.day-title{font-family:Georgia,"Noto Serif TC",serif;font-size:26px;font-weight:normal;color:var(--ink);line-height:1.25;margin-bottom:2px}
 .day-sub{font-size:12px;color:var(--mist);letter-spacing:.04em}
-.day-bar{
-  width:32px;height:3px;border-radius:2px;margin-top:12px;
+.day-bar{width:32px;height:3px;border-radius:2px;margin-top:12px}
+
+/* ── Map Toggle ── */
+.map-toggle-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:10px;
+  background:rgba(122,158,142,.12);
+  border:1px solid rgba(122,158,142,.28);
+  border-radius:16px;padding:6px 14px;
+  font-size:11px;font-weight:600;color:var(--forest);
+  cursor:pointer;font-family:inherit;letter-spacing:.04em;
+  transition:background .18s ease;
+  align-self:flex-start;
+}
+.map-toggle-btn:active{background:rgba(122,158,142,.22)}
+.map-toggle-btn .map-icon{font-size:13px}
+.map-panel{
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1);
+  flex-shrink:0;
+}
+.map-panel.open{max-height:240px}
+.map-panel iframe{
+  width:100%;height:220px;border:none;
+  display:block;
+  border-radius:10px;
+  margin-top:8px;
 }
 
 /* ── Timeline ── */
@@ -164,10 +172,13 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   padding:4px 20px 24px;
   -webkit-overflow-scrolling:touch;
 }
-.tl{position:relative;padding-left:56px}
+
+/* FIX: wider gutter so time label & dot don't overlap */
+/* gutter = 76px; line at 58px; time 0–50px; dot centre ~55px */
+.tl{position:relative;padding-left:76px}
 .tl::before{
   content:"";position:absolute;
-  left:24px;top:10px;bottom:10px;
+  left:58px;top:10px;bottom:10px;
   width:1.5px;
   background:linear-gradient(to bottom,transparent,var(--mist-light) 8%,var(--mist-light) 92%,transparent);
   opacity:.4;
@@ -190,14 +201,16 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 
 @keyframes itemIn{to{opacity:1;transform:translateY(0)}}
 
+/* time: 0–50px zone (right-aligned for cleaner reading) */
 .tl-time{
-  position:absolute;left:-56px;top:12px;
-  width:40px;text-align:right;
+  position:absolute;left:-76px;top:12px;
+  width:50px;text-align:right;
   font-size:10px;font-weight:600;letter-spacing:.02em;
   color:var(--mist);line-height:1.25;
 }
+/* dot: centre at ~55px → left = 55-4.5 = 50.5 → from item: 50.5-76 = -25.5 → -26px */
 .tl-dot{
-  position:absolute;left:-34px;top:14px;
+  position:absolute;left:-26px;top:14px;
   width:9px;height:9px;border-radius:50%;
   border:2px solid var(--bg);
   box-shadow:0 0 0 1.5px currentColor;
@@ -209,27 +222,18 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   padding:12px 15px;
   box-shadow:0 2px 10px rgba(26,40,32,.09),0 1px 3px rgba(26,40,32,.06);
 }
-.card.accent{
-  background:var(--accent-card,var(--forest));
-  color:white;
-}
+.card.accent{background:var(--accent-card,var(--forest));color:white}
 .card.accent .c-type,.card.accent .c-note{color:rgba(255,255,255,.65)}
 .card.accent .c-name{color:white}
 .card.soft{background:var(--cream)}
 
-.c-type{
-  font-size:9px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;opacity:.55;margin-bottom:3px;
-}
+.c-type{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-bottom:3px}
 .c-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.3}
 .c-note{font-size:11.5px;color:var(--mist);margin-top:3px;line-height:1.5}
 
 .tl-spacer{height:8px}
 
-.stay-row{
-  display:flex;align-items:center;gap:8px;
-  margin:6px 0 0;
-}
+.stay-row{display:flex;align-items:center;gap:8px;margin:6px 0 0}
 .stay-chip{
   display:inline-flex;align-items:center;gap:6px;
   background:var(--cream);
@@ -254,8 +258,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
   border-radius:25px;border:1.5px solid rgba(122,158,142,.28);
   background:transparent;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
-  transition:all .22s ease;
-  color:var(--mist);
+  transition:all .22s ease;color:var(--mist);
 }
 .nav-btn.on{border-color:transparent;color:white}
 .nav-btn-d{font-size:13px;font-weight:700;line-height:1;font-family:Georgia,serif}
@@ -265,34 +268,31 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 [data-day="1"] .day-bar{background:var(--ocean)}
 [data-day="1"] .tl-dot{color:var(--ocean)}
 [data-day="1"] .accent{--accent-card:var(--ocean)}
+[data-day="1"] .map-toggle-btn{color:var(--ocean);border-color:rgba(30,88,120,.3);background:rgba(30,88,120,.08)}
 .nav-btn[data-for="1"].on{background:var(--ocean)}
 
 [data-day="2"] .day-bar{background:var(--forest)}
 [data-day="2"] .tl-dot{color:var(--forest)}
 [data-day="2"] .accent{--accent-card:var(--forest)}
+[data-day="2"] .map-toggle-btn{color:var(--forest);border-color:rgba(37,69,58,.3);background:rgba(37,69,58,.08)}
 .nav-btn[data-for="2"].on{background:var(--forest)}
 
 [data-day="3"] .day-bar{background:var(--coral)}
 [data-day="3"] .tl-dot{color:var(--coral)}
 [data-day="3"] .accent{--accent-card:var(--coral)}
+[data-day="3"] .map-toggle-btn{color:var(--coral);border-color:rgba(191,80,56,.3);background:rgba(191,80,56,.08)}
 .nav-btn[data-for="3"].on{background:var(--coral)}
 
 [data-day="4"] .day-bar{background:var(--amber)}
 [data-day="4"] .tl-dot{color:var(--amber)}
 [data-day="4"] .accent{--accent-card:var(--amber)}
+[data-day="4"] .map-toggle-btn{color:var(--amber);border-color:rgba(168,106,30,.3);background:rgba(168,106,30,.08)}
 .nav-btn[data-for="4"].on{background:var(--amber)}
 
 /* ── Progress Dots ── */
-.progress-dots{
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:8px 0 4px;flex-shrink:0;position:relative;z-index:1;
-}
-.progress-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--mist-light);transition:all .25s ease;
-}
+.progress-dots{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 0 4px;flex-shrink:0;position:relative;z-index:1}
+.progress-dot{width:5px;height:5px;border-radius:50%;background:var(--mist-light);transition:all .25s ease}
 .progress-dot.on{width:18px;border-radius:3px}
-[data-day="1"] ~ .bottom-nav .progress-dot:nth-child(1).on,
 .progress-dot[data-pd="1"].on{background:var(--ocean)}
 .progress-dot[data-pd="2"].on{background:var(--forest)}
 .progress-dot[data-pd="3"].on{background:var(--coral)}
@@ -300,14 +300,20 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 
 @media(min-width:480px){
   .hero-title{font-size:88px}
-  .tl{padding-left:64px}
-  .tl::before{left:28px}
-  .tl-time{left:-64px;width:48px}
-  .tl-dot{left:-38px}
+  .tl{padding-left:84px}
+  .tl::before{left:64px}
+  .tl-time{left:-84px;width:56px}
+  .tl-dot{left:-28px}
 }
 </style>
 </head>
 <body>
+
+<!-- ── Back Button (always on top) ── -->
+<a class="back-btn" id="backBtn" href="../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L5 7l4 4"/></svg>
+  總覽
+</a>
 
 <!-- ── Hero ── -->
 <div class="hero" id="hero">
@@ -333,9 +339,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
     </div>
     <button class="hero-btn" onclick="startApp()">
       查看行程
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 7.5h9M8.5 3l4.5 4.5L8.5 12"/>
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5h9M8.5 3l4.5 4.5L8.5 12"/></svg>
     </button>
   </div>
 </div>
@@ -353,93 +357,59 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">桃園 → 花蓮</div>
         <div class="day-sub">沿蘇花公路 · 太平洋相伴</div>
         <div class="day-bar"></div>
+        <button class="map-toggle-btn" onclick="toggleMap('map1',this)">
+          <span class="map-icon">🗺</span> 查看路線地圖
+        </button>
+        <div class="map-panel" id="map1">
+          <iframe loading="lazy"
+            src="https://www.google.com/maps/d/embed?mid=10puYHXo4jrZ3tdtE7YV99zxQPvymNa4&hl=zh-TW&ll=24.30,121.62&z=9"
+            allowfullscreen></iframe>
+        </div>
       </div>
       <div class="timeline">
         <div class="tl" id="tl1">
-
           <div class="tl-item">
             <div class="tl-time">08:00</div>
             <div class="tl-dot"></div>
-            <div class="card accent">
-              <div class="c-type">出發</div>
-              <div class="c-name">桃園出發</div>
-            </div>
+            <div class="card accent"><div class="c-type">出發</div><div class="c-name">桃園出發</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">10:00</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">中途 · 用餐</div>
-              <div class="c-name">宜蘭休息、午餐</div>
-              <div class="c-note">補充體力，準備往花蓮前進</div>
-            </div>
+            <div class="card"><div class="c-type">中途 · 用餐</div><div class="c-name">宜蘭休息、午餐</div><div class="c-note">補充體力，準備往花蓮前進</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">12:30</div>
             <div class="tl-dot"></div>
-            <div class="card soft">
-              <div class="c-type">移動</div>
-              <div class="c-name">往花蓮</div>
-              <div class="c-note">沿台九丙線，約 3 小時車程</div>
-            </div>
+            <div class="card soft"><div class="c-type">移動</div><div class="c-name">往花蓮</div><div class="c-note">沿台九丙線，約 3 小時車程</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">15:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">抵達</div>
-              <div class="c-name">花蓮市區</div>
-            </div>
+            <div class="card"><div class="c-type">抵達</div><div class="c-name">花蓮市區</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">16:00</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">咖啡 · 打卡</div>
-              <div class="c-name">星巴克 花蓮理想門市</div>
-              <div class="c-note">全台最美星巴克之一，落地窗山景</div>
-            </div>
+            <div class="card"><div class="c-type">咖啡 · 打卡</div><div class="c-name">星巴克 花蓮理想門市</div><div class="c-note">全台最美星巴克之一，落地窗山景</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">17:00</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">景點</div>
-              <div class="c-name">雲山水夢幻湖</div>
-              <div class="c-note">湖光山色，雲霧繚繞的秘境</div>
-            </div>
+            <div class="card"><div class="c-type">景點</div><div class="c-name">雲山水夢幻湖</div><div class="c-note">湖光山色，雲霧繚繞的秘境</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">18:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">晚餐 · 在地美食</div>
-              <div class="c-name">花蓮公正包子</div>
-              <div class="c-note">在地排隊名物，皮薄餡多</div>
-            </div>
+            <div class="card"><div class="c-type">晚餐 · 在地美食</div><div class="c-name">花蓮公正包子</div><div class="c-note">在地排隊名物，皮薄餡多</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">19:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">夜市</div>
-              <div class="c-name">東大門夜市</div>
-              <div class="c-note">花蓮最大夜市，四大夜市集結</div>
-            </div>
+            <div class="card"><div class="c-type">夜市</div><div class="c-name">東大門夜市</div><div class="c-note">花蓮最大夜市，四大夜市集結</div></div>
           </div>
-
           <div class="tl-spacer"></div>
-          <div class="stay-row">
-            <div class="stay-chip">🌙 住宿 · 花蓮市區</div>
-          </div>
-
+          <div class="stay-row"><div class="stay-chip">🌙 住宿 · 花蓮市區</div></div>
         </div>
       </div>
     </div>
@@ -451,65 +421,44 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">花蓮 → 台東</div>
         <div class="day-sub">花東縱谷 · 金黃稻浪</div>
         <div class="day-bar"></div>
+        <button class="map-toggle-btn" onclick="toggleMap('map2',this)">
+          <span class="map-icon">🗺</span> 查看路線地圖
+        </button>
+        <div class="map-panel" id="map2">
+          <iframe loading="lazy"
+            src="https://www.google.com/maps/d/embed?mid=10puYHXo4jrZ3tdtE7YV99zxQPvymNa4&hl=zh-TW&ll=23.15,121.25&z=10"
+            allowfullscreen></iframe>
+        </div>
       </div>
       <div class="timeline">
         <div class="tl" id="tl2">
-
           <div class="tl-item">
             <div class="tl-time">09:00</div>
             <div class="tl-dot"></div>
-            <div class="card accent">
-              <div class="c-type">出發</div>
-              <div class="c-name">花蓮出發</div>
-              <div class="c-note">沿台九線南下，縱谷風光相伴</div>
-            </div>
+            <div class="card accent"><div class="c-type">出發</div><div class="c-name">花蓮出發</div><div class="c-note">沿台九線南下，縱谷風光相伴</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">11:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">午餐 · 池上</div>
-              <div class="c-name">池上午餐</div>
-              <div class="c-note">品嚐池上便當，台灣米的故鄉</div>
-            </div>
+            <div class="card"><div class="c-type">午餐 · 池上</div><div class="c-name">池上午餐</div><div class="c-note">品嚐池上便當，台灣米的故鄉</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">12:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">景點 · 打卡</div>
-              <div class="c-name">金城武樹</div>
-              <div class="c-note">池上伯朗大道上的知名茄苳樹</div>
-            </div>
+            <div class="card"><div class="c-type">景點 · 打卡</div><div class="c-name">金城武樹</div><div class="c-note">池上伯朗大道上的知名茄苳樹</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">14:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">景點 · 體驗</div>
-              <div class="c-name">初鹿牧場</div>
-              <div class="c-note">台東規模最大牧場，鮮奶冰品必試</div>
-            </div>
+            <div class="card"><div class="c-type">景點 · 體驗</div><div class="c-name">初鹿牧場</div><div class="c-note">台東規模最大牧場，鮮奶冰品必試</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">17:00</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">景點 · 落日</div>
-              <div class="c-name">鹿野高台</div>
-              <div class="c-note">熱氣球重要基地，居高臨下眺縱谷</div>
-            </div>
+            <div class="card"><div class="c-type">景點 · 落日</div><div class="c-name">鹿野高台</div><div class="c-note">熱氣球重要基地，居高臨下眺縱谷</div></div>
           </div>
-
           <div class="tl-spacer"></div>
-          <div class="stay-row">
-            <div class="stay-chip">🌙 住宿 · 台東市區或鹿野</div>
-          </div>
-
+          <div class="stay-row"><div class="stay-chip">🌙 住宿 · 台東市區或鹿野</div></div>
         </div>
       </div>
     </div>
@@ -521,73 +470,49 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">台東 → 花蓮</div>
         <div class="day-sub">太麻里 · 海岸線北返</div>
         <div class="day-bar"></div>
+        <button class="map-toggle-btn" onclick="toggleMap('map3',this)">
+          <span class="map-icon">🗺</span> 查看路線地圖
+        </button>
+        <div class="map-panel" id="map3">
+          <iframe loading="lazy"
+            src="https://www.google.com/maps/d/embed?mid=10puYHXo4jrZ3tdtE7YV99zxQPvymNa4&hl=zh-TW&ll=23.45,121.38&z=10"
+            allowfullscreen></iframe>
+        </div>
       </div>
       <div class="timeline">
         <div class="tl" id="tl3">
-
           <div class="tl-item">
             <div class="tl-time">09:00</div>
             <div class="tl-dot"></div>
-            <div class="card accent">
-              <div class="c-type">出發</div>
-              <div class="c-name">台東出發</div>
-            </div>
+            <div class="card accent"><div class="c-type">出發</div><div class="c-name">台東出發</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">10:00</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">景點 · 文青</div>
-              <div class="c-name">太麻里櫻木平交道</div>
-              <div class="c-note">日出平交道，灌籃高手聖地</div>
-            </div>
+            <div class="card"><div class="c-type">景點 · 文青</div><div class="c-name">太麻里櫻木平交道</div><div class="c-note">日出平交道，灌籃高手聖地</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">11:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">午餐</div>
-              <div class="c-name">台東或太麻里午餐</div>
-              <div class="c-note">依路況彈性選擇用餐地點</div>
-            </div>
+            <div class="card"><div class="c-type">午餐</div><div class="c-name">台東或太麻里午餐</div><div class="c-note">依路況彈性選擇用餐地點</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">13:30</div>
             <div class="tl-dot"></div>
-            <div class="card soft">
-              <div class="c-type">移動</div>
-              <div class="c-name">往花蓮</div>
-              <div class="c-note">沿台 11 線海岸公路北上，約 4 小時</div>
-            </div>
+            <div class="card soft"><div class="c-type">移動</div><div class="c-name">往花蓮</div><div class="c-note">沿台 11 線海岸公路北上，約 4 小時</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">17:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">抵達</div>
-              <div class="c-name">花蓮市區</div>
-            </div>
+            <div class="card"><div class="c-type">抵達</div><div class="c-name">花蓮市區</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">晚上</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">自由活動</div>
-              <div class="c-name">東大門夜市補逛，或輕鬆休息</div>
-              <div class="c-note">依體力決定，明天需早起</div>
-            </div>
+            <div class="card"><div class="c-type">自由活動</div><div class="c-name">東大門夜市補逛，或輕鬆休息</div><div class="c-note">依體力決定，明天需早起</div></div>
           </div>
-
           <div class="tl-spacer"></div>
-          <div class="stay-row">
-            <div class="stay-chip">🌙 住宿 · 花蓮市區</div>
-          </div>
-
+          <div class="stay-row"><div class="stay-chip">🌙 住宿 · 花蓮市區</div></div>
         </div>
       </div>
     </div>
@@ -599,68 +524,47 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">花蓮 → 土城</div>
         <div class="day-sub">途經宜蘭 · 滿載而歸</div>
         <div class="day-bar"></div>
+        <button class="map-toggle-btn" onclick="toggleMap('map4',this)">
+          <span class="map-icon">🗺</span> 查看路線地圖
+        </button>
+        <div class="map-panel" id="map4">
+          <iframe loading="lazy"
+            src="https://www.google.com/maps/d/embed?mid=10puYHXo4jrZ3tdtE7YV99zxQPvymNa4&hl=zh-TW&ll=24.25,121.65&z=9"
+            allowfullscreen></iframe>
+        </div>
       </div>
       <div class="timeline">
         <div class="tl" id="tl4">
-
           <div class="tl-item">
             <div class="tl-time">08:30</div>
             <div class="tl-dot"></div>
-            <div class="card accent">
-              <div class="c-type">出發</div>
-              <div class="c-name">花蓮出發</div>
-            </div>
+            <div class="card accent"><div class="c-type">出發</div><div class="c-name">花蓮出發</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">11:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">抵達</div>
-              <div class="c-name">宜蘭</div>
-            </div>
+            <div class="card"><div class="c-type">抵達</div><div class="c-name">宜蘭</div></div>
           </div>
-
           <div class="tl-item">
-            <div class="tl-time">11:30<br>–12:30</div>
+            <div class="tl-time">11:30–12:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">午餐</div>
-              <div class="c-name">宜蘭午餐</div>
-              <div class="c-note">在宜蘭市區覓食，享用最後一頓在地料理</div>
-            </div>
+            <div class="card"><div class="c-type">午餐</div><div class="c-name">宜蘭午餐</div><div class="c-note">在宜蘭市區覓食，享用最後一頓在地料理</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">12:30</div>
             <div class="tl-dot"></div>
-            <div class="card">
-              <div class="c-type">購物 · 必買</div>
-              <div class="c-name">弈順軒 · 生乳捲</div>
-              <div class="c-note">建議選礁溪店或宜蘭店，依路線與塞車狀況決定</div>
-            </div>
+            <div class="card"><div class="c-type">購物 · 必買</div><div class="c-name">弈順軒 · 生乳捲</div><div class="c-note">建議選礁溪店或宜蘭店，依路線與塞車狀況決定</div></div>
           </div>
-
           <div class="tl-item">
             <div class="tl-time">13:30</div>
             <div class="tl-dot"></div>
-            <div class="card soft">
-              <div class="c-type">移動</div>
-              <div class="c-name">出發回土城</div>
-              <div class="c-note">走國道 5 號，留意周末塞車</div>
-            </div>
+            <div class="card soft"><div class="c-type">移動</div><div class="c-name">出發回土城</div><div class="c-note">走國道 5 號，留意周末塞車</div></div>
           </div>
-
           <div class="tl-item">
-            <div class="tl-time">15:00<br>–16:30</div>
+            <div class="tl-time">15–16:30</div>
             <div class="tl-dot"></div>
-            <div class="card accent">
-              <div class="c-type">抵達 · 旅行結束</div>
-              <div class="c-name">回到土城 🏡</div>
-              <div class="c-note">依塞車情況，預估 1.5–3 小時</div>
-            </div>
+            <div class="card accent"><div class="c-type">抵達 · 旅行結束</div><div class="c-name">回到土城 🏡</div><div class="c-note">依塞車情況，預估 1.5–3 小時</div></div>
           </div>
-
         </div>
       </div>
     </div>
@@ -677,22 +581,10 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 
   <!-- Bottom Nav -->
   <nav class="bottom-nav">
-    <button class="nav-btn on" data-for="1" onclick="goDay(1)">
-      <span class="nav-btn-d">7/15</span>
-      <span class="nav-btn-wd">週三</span>
-    </button>
-    <button class="nav-btn" data-for="2" onclick="goDay(2)">
-      <span class="nav-btn-d">7/16</span>
-      <span class="nav-btn-wd">週四</span>
-    </button>
-    <button class="nav-btn" data-for="3" onclick="goDay(3)">
-      <span class="nav-btn-d">7/17</span>
-      <span class="nav-btn-wd">週五</span>
-    </button>
-    <button class="nav-btn" data-for="4" onclick="goDay(4)">
-      <span class="nav-btn-d">7/18</span>
-      <span class="nav-btn-wd">週六</span>
-    </button>
+    <button class="nav-btn on" data-for="1" onclick="goDay(1)"><span class="nav-btn-d">7/15</span><span class="nav-btn-wd">週三</span></button>
+    <button class="nav-btn" data-for="2" onclick="goDay(2)"><span class="nav-btn-d">7/16</span><span class="nav-btn-wd">週四</span></button>
+    <button class="nav-btn" data-for="3" onclick="goDay(3)"><span class="nav-btn-d">7/17</span><span class="nav-btn-wd">週五</span></button>
+    <button class="nav-btn" data-for="4" onclick="goDay(4)"><span class="nav-btn-d">7/18</span><span class="nav-btn-wd">週六</span></button>
   </nav>
 
 </div><!-- /app -->
@@ -709,14 +601,23 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
     starsEl.appendChild(s);
   }
 
-  /* Hero */
+  /* Hero → App */
   window.startApp = function(){
     document.getElementById('hero').classList.add('hidden');
+    document.getElementById('backBtn').classList.add('in-app');
+  };
+
+  /* Map toggle */
+  window.toggleMap = function(id, btn){
+    const panel = document.getElementById(id);
+    const open = panel.classList.toggle('open');
+    btn.innerHTML = open
+      ? '<span class="map-icon">🗺</span> 收起地圖'
+      : '<span class="map-icon">🗺</span> 查看路線地圖';
   };
 
   /* Day nav */
   let cur = 1;
-  const slides = document.querySelectorAll('.slide');
   const navBtns = document.querySelectorAll('.nav-btn');
   const dots = document.querySelectorAll('.progress-dot');
 
@@ -727,7 +628,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
     const to   = document.getElementById('s'+n);
     from.style.transition='none';
     from.classList.remove('active','prev');
-    from.style.transform=`translateX(0)`;
+    from.style.transform='translateX(0)';
     requestAnimationFrame(()=>{
       from.style.transition='';
       from.classList.add(dir>0?'prev':'');
@@ -741,16 +642,8 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         to.classList.add('active');
         to.style.transform='';
         to.style.opacity='';
-        /* re-trigger animations */
-        const tl = to.querySelector('.tl');
-        if(tl){
-          const items = tl.querySelectorAll('.tl-item');
-          items.forEach(it=>{
-            it.style.animation='none';
-            it.offsetHeight;
-            it.style.animation='';
-          });
-        }
+        const items = to.querySelectorAll('.tl-item');
+        items.forEach(it=>{it.style.animation='none';it.offsetHeight;it.style.animation=''});
       });
     });
     navBtns.forEach(b=>b.classList.toggle('on', +b.dataset.for===n));
@@ -760,18 +653,15 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 
   /* Touch swipe */
   const slidesEl = document.getElementById('slides');
-  let tx0=0, ty0=0, swiping=false;
-  slidesEl.addEventListener('touchstart', e=>{
-    const t=e.touches[0];
-    tx0=t.clientX; ty0=t.clientY; swiping=true;
-  },{passive:true});
-  slidesEl.addEventListener('touchend', e=>{
-    if(!swiping) return;
+  let tx0=0,ty0=0,swiping=false;
+  slidesEl.addEventListener('touchstart',e=>{const t=e.touches[0];tx0=t.clientX;ty0=t.clientY;swiping=true},{passive:true});
+  slidesEl.addEventListener('touchend',e=>{
+    if(!swiping)return;
     const t=e.changedTouches[0];
-    const dx=t.clientX-tx0, dy=t.clientY-ty0;
-    if(Math.abs(dx)>Math.abs(dy)*1.4 && Math.abs(dx)>44){
-      if(dx<0 && cur<4) goDay(cur+1);
-      if(dx>0 && cur>1) goDay(cur-1);
+    const dx=t.clientX-tx0,dy=t.clientY-ty0;
+    if(Math.abs(dx)>Math.abs(dy)*1.4&&Math.abs(dx)>44){
+      if(dx<0&&cur<4)goDay(cur+1);
+      if(dx>0&&cur>1)goDay(cur-1);
     }
     swiping=false;
   },{passive:true});

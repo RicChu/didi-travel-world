@@ -57,7 +57,17 @@ body{font-family:"Noto Serif TC","Cormorant Garamond",serif;color:var(--ink);}
   display:flex;align-items:center;justify-content:space-between;
   padding:clamp(8px,2vw,16px) clamp(14px,3vw,28px) 4px;
 }
-.brand{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.72);font-size:clamp(11px,2.6vw,15px);letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.back-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;padding:5px 12px 5px 9px;
+  font-size:11px;font-weight:600;letter-spacing:.04em;
+  color:rgba(246,239,220,.85);text-decoration:none;
+  transition:background .18s ease;flex-shrink:0;
+}
+.back-btn:active{background:rgba(255,255,255,.18)}
+.brand{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.72);font-size:clamp(11px,2.6vw,15px);letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50%}
 .counter{font-family:"Cormorant Garamond",serif;font-style:italic;color:rgba(246,239,220,.85);font-size:clamp(13px,3vw,19px);letter-spacing:.05em;flex-shrink:0}
 .counter b{font-family:"Marcellus",serif;color:var(--gold-bright);font-style:normal}
 .stage{flex:1 1 auto;position:relative;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,28px)}
@@ -266,7 +276,11 @@ body{font-family:"Noto Serif TC","Cormorant Garamond",serif;color:var(--ink);}
 
 <div class="app" id="app">
   <div class="topbar">
-    <div class="brand">İSTANBUL · CAPPADOCIA · EPHESUS · PAMUKKALE · 2026</div>
+    <a class="back-btn" href="../index.html">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L4 6l4 4"/></svg>
+      總覽
+    </a>
+    <div class="brand">İSTANBUL · CAPPADOCIA · PAMUKKALE · 2026</div>
     <div class="counter"><b id="cur">1</b> / <span id="total">13</span></div>
   </div>
   <div class="stage"><div class="deck" id="deck"></div></div>

@@ -33,53 +33,49 @@ body{
 /* ── Header ── */
 .site-header{
   padding:calc(var(--safe-t) + 48px) 24px 36px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+  text-align:center;position:relative;overflow:hidden;
 }
 .site-header::before{
   content:"";position:absolute;inset:0;
   background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.12) 0%,transparent 65%);
   pointer-events:none;
 }
+.header-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:16px}
+.header-title{font-family:"Cormorant Garamond","Noto Serif TC",serif;font-size:48px;font-weight:400;line-height:1.1;letter-spacing:-.01em;color:var(--cream);margin-bottom:8px}
+.header-sub{font-size:13px;color:var(--cream-dim);letter-spacing:.06em}
+.header-line{width:40px;height:1px;background:var(--gold-dim);margin:20px auto 0}
 
-.header-eyebrow{
-  font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold);opacity:.8;margin-bottom:16px;
+/* ── Section Labels ── */
+.section-label{
+  max-width:600px;margin:0 auto;
+  padding:28px 16px 10px;
+  display:flex;align-items:center;gap:12px;
 }
-.header-title{
-  font-family:"Cormorant Garamond","Noto Serif TC",serif;
-  font-size:48px;font-weight:400;line-height:1.1;
-  letter-spacing:-.01em;color:var(--cream);
-  margin-bottom:8px;
+.section-label-text{
+  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  white-space:nowrap;
 }
-.header-sub{
-  font-size:13px;color:var(--cream-dim);letter-spacing:.06em;
-}
-.header-line{
-  width:40px;height:1px;background:var(--gold-dim);
-  margin:20px auto 0;
-}
+.section-label-text.upcoming{color:var(--gold)}
+.section-label-text.completed{color:rgba(240,235,224,.3)}
+.section-label-line{flex:1;height:1px}
+.section-label.upcoming .section-label-line{background:rgba(201,168,76,.2)}
+.section-label.completed .section-label-line{background:rgba(255,255,255,.08)}
+
+@media(min-width:520px){.section-label{padding-inline:24px}}
 
 /* ── Grid ── */
 .trips-grid{
-  padding:32px 16px 80px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
+  padding:0 16px 24px;
+  display:grid;grid-template-columns:1fr;gap:16px;
   max-width:600px;margin:0 auto;
 }
-
-@media(min-width:520px){
-  .trips-grid{padding-inline:24px}
-}
+@media(min-width:520px){.trips-grid{padding-inline:24px}}
 
 /* ── Trip Card ── */
 .trip-card{
   background:var(--card-bg);
   border:1px solid var(--card-border);
-  border-radius:18px;
-  overflow:hidden;
+  border-radius:18px;overflow:hidden;
   display:flex;flex-direction:column;
   text-decoration:none;color:inherit;
   transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
@@ -91,15 +87,12 @@ body{
   box-shadow:0 8px 40px rgba(0,0,0,.4);
   transform:translateY(-2px);
 }
+/* Completed style: desaturated */
+.trip-card.done{opacity:.55;filter:grayscale(.35)}
+.trip-card.done:hover{opacity:.75;filter:grayscale(.15)}
 
-.trip-card-hero{
-  height:160px;position:relative;overflow:hidden;
-  flex-shrink:0;
-}
-.trip-card-hero-bg{
-  position:absolute;inset:0;
-  transition:transform .4s ease;
-}
+.trip-card-hero{height:160px;position:relative;overflow:hidden;flex-shrink:0}
+.trip-card-hero-bg{position:absolute;inset:0;transition:transform .4s ease}
 .trip-card:hover .trip-card-hero-bg{transform:scale(1.04)}
 
 /* Turkey gradient */
@@ -117,16 +110,26 @@ body{
     linear-gradient(135deg,#0c2e1e 0%,#0c3528 45%,#0c2e44 100%);
 }
 
-.trip-card-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.55) 100%);
-}
+.trip-card-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.55) 100%)}
 .trip-card-badge{
   position:absolute;top:14px;right:14px;
   background:rgba(0,0,0,.4);backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.2);
   border-radius:20px;padding:4px 12px;
   font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.85);
+}
+/* Completed badge override */
+.trip-card.done .trip-card-badge{
+  background:rgba(0,0,0,.5);
+  border-color:rgba(255,255,255,.15);
+}
+.done-badge{
+  position:absolute;top:14px;left:14px;
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:4px 10px;
+  font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.6);
 }
 .trip-card-year{
   position:absolute;bottom:14px;left:16px;
@@ -135,54 +138,35 @@ body{
 }
 
 /* Card Body */
-.trip-card-body{
-  padding:18px 20px 20px;
-  display:flex;flex-direction:column;gap:8px;
-}
+.trip-card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
 .trip-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .trip-meta{display:flex;flex-direction:column;gap:3px;flex:1}
-.trip-country{
-  font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gold);
-}
-.trip-name{
-  font-family:"Noto Serif TC",serif;
-  font-size:22px;font-weight:500;color:var(--cream);line-height:1.25;
-}
-.trip-dates{
-  font-size:11px;color:var(--cream-dim);letter-spacing:.06em;margin-top:1px;
-}
+.trip-country{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.trip-name{font-family:"Noto Serif TC",serif;font-size:22px;font-weight:500;color:var(--cream);line-height:1.25}
+.trip-dates{font-size:11px;color:var(--cream-dim);letter-spacing:.06em;margin-top:1px}
 
 .arrow-btn{
   width:36px;height:36px;border-radius:50%;
   border:1px solid var(--card-border);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  margin-top:4px;
-  transition:border-color .2s ease,background .2s ease;
+  margin-top:4px;transition:border-color .2s ease,background .2s ease;
 }
 .trip-card:hover .arrow-btn{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
 
-.trip-tags{
-  display:flex;gap:6px;flex-wrap:wrap;
-}
+.trip-tags{display:flex;gap:6px;flex-wrap:wrap}
 .trip-tag{
   font-size:10px;letter-spacing:.04em;
   background:rgba(255,255,255,.07);
   border:1px solid rgba(255,255,255,.1);
-  border-radius:10px;padding:3px 9px;
-  color:var(--cream-dim);
+  border-radius:10px;padding:3px 9px;color:var(--cream-dim);
 }
 
-.trip-desc{
-  font-size:12.5px;line-height:1.6;
-  color:rgba(240,235,224,.5);
-}
+.trip-desc{font-size:12.5px;line-height:1.6;color:rgba(240,235,224,.5)}
 
 /* ── Footer ── */
 .site-footer{
-  text-align:center;padding:24px;
-  font-size:11px;color:rgba(240,235,224,.2);
-  letter-spacing:.06em;
+  text-align:center;padding:32px 24px;
+  font-size:11px;color:rgba(240,235,224,.2);letter-spacing:.06em;
 }
 </style>
 </head>
@@ -195,9 +179,15 @@ body{
   <div class="header-line"></div>
 </header>
 
+<!-- ── 即將出發 ── -->
+<div class="section-label upcoming">
+  <span class="section-label-text upcoming">即將出發</span>
+  <div class="section-label-line"></div>
+</div>
+
 <main class="trips-grid">
 
-  <!-- Huadong -->
+  <!-- Huadong — 未完成 -->
   <a class="trip-card" href="./huadong/index.html">
     <div class="trip-card-hero">
       <div class="trip-card-hero-bg bg-huadong"></div>
@@ -213,9 +203,7 @@ body{
           <span class="trip-dates">2026 / 07 / 15 — 07 / 18</span>
         </div>
         <div class="arrow-btn">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 7h10M8 3l4 4-4 4"/>
-          </svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
         </div>
       </div>
       <div class="trip-tags">
@@ -229,7 +217,7 @@ body{
     </div>
   </a>
 
-  <!-- Turkey -->
+  <!-- Turkey — 未完成 -->
   <a class="trip-card" href="./turkey/index.html">
     <div class="trip-card-hero">
       <div class="trip-card-hero-bg bg-turkey"></div>
@@ -245,9 +233,7 @@ body{
           <span class="trip-dates">2026 / 10月</span>
         </div>
         <div class="arrow-btn">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 7h10M8 3l4 4-4 4"/>
-          </svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
         </div>
       </div>
       <div class="trip-tags">
@@ -261,8 +247,21 @@ body{
 
 </main>
 
+<!-- ── 已完成 ── -->
+<div class="section-label completed">
+  <span class="section-label-text completed">已完成</span>
+  <div class="section-label-line"></div>
+</div>
+
+<div class="trips-grid" style="padding-bottom:80px">
+  <!-- 未來已完成的旅行會列在此 -->
+  <div style="text-align:center;padding:24px 0;font-size:12px;color:rgba(240,235,224,.18);letter-spacing:.08em">
+    旅行完成後將在此留下記憶
+  </div>
+</div>
+
 <footer class="site-footer">
-  © 2026 旅行計劃 · Travel Plans
+  © 2026 didi-travel-world · 每一趟出發都是一段故事
 </footer>
 
 </body>
