@@ -260,9 +260,10 @@
 | 日期 | 航班 | 時間 | 航線 | 狀態 / 備註 |
 |------|------|------|------|-------------|
 | 2026/10/31（六） | TK2320 | 11:00 → 12:10 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) → [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | 已開票；訂位代號 **TB5RZM**；與國際線非同張票，需入境、領行李、重新托運；比 10:00 班更安全；EcoFly 托運 1 件 15kg、登機 1 件 8kg |
+| 2026/11/01（日） | SunExpress | 21:00 → 22:35 | [Izmir Adnan Menderes Airport ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) → [Kayseri Airport ASR](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) | 已訂；Booking number **D438G7**；直飛約 1 小時 35 分；11/01 20:00 ADB 還車後辦理托運；抵達 ASR 後 23:00 取車；行李額度截圖待補 |
 | 2026/11/04（三） | TK2017 | 18:40 → 20:20 | [Kayseri Airport ASR](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) → [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | 已開票；訂位代號 **TB5RZM**；需確認 AVEC 可在 16:30～17:00 左右提早還車；EcoFly 托運 1 件 15kg、登機 1 件 8kg |
 
-土航官網已開票，訂位代號 **TB5RZM**，交易日期 **2026-06-12 17:16 Istanbul Local Time**，2 位乘客合計 **TRY 19,872.04**。票價類型為 Economy EcoFly，兩段國內線票規畫面一致：
+土航兩段國內線（TK2320、TK2017）已開票，訂位代號 **TB5RZM**，交易日期 **2026-06-12 17:16 Istanbul Local Time**，2 位乘客合計 **TRY 19,872.04**。票價類型為 Economy EcoFly，兩段土航國內線票規畫面一致：
 
 - 行李額度：托運行李 **1 件 15kg**、登機行李 **1 件 8kg**。26 / 28 吋行李箱容易超過 15kg，出發前需控重或準備加買 / 付超重費；可另備一個可登機行李袋，把衣物、外套、非液體日用品等從托運箱分到手提行李，讓托運箱壓在 15kg 內。
 - 重新訂票 / 改票：畫面顯示可改票但需付改票費，常見金額為 **TRY 1,100 / TRY 1,350**；越接近起飛限制越多，起飛前很短時間內或 no-show 可能禁止。
