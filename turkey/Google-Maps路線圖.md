@@ -2,7 +2,7 @@
 
 用途：檢查每天移動是否順路、估算開車 / 步行疲勞。飛機段只列機場端點；自駕與步行段才用 directions 連結。
 
-主文件索引：[DIDI_integration_202610伊斯坦堡_旅行計劃.md](./DIDI_integration_202610伊斯坦堡_旅行計劃.md) | [進度.md](./進度.md) | [行程.md](./行程.md) | [餐廳安排.md](./餐廳安排.md) | [當日疲勞度.md](./當日疲勞度.md) | [Google-Maps路線圖.md](./Google-Maps路線圖.md) | [飯店預訂.md](./飯店預訂.md) | [租車預訂.md](./租車預訂.md) | [航班預訂.md](./航班預訂.md) | [行程預訂.md](./行程預訂.md) | [待訂項目.md](./待訂項目.md)
+主文件索引：[進度.md](./進度.md) | [行程.md](./行程.md) | [餐廳安排.md](./餐廳安排.md) | [當日疲勞度.md](./當日疲勞度.md) | [Google-Maps路線圖.md](./Google-Maps路線圖.md) | [飯店預訂.md](./飯店預訂.md) | [租車預訂.md](./租車預訂.md) | [航班預訂.md](./航班預訂.md) | [待訂項目.md](./待訂項目.md) | [安安要做的事.md](./安安要做的事.md) | [豬豬要做的事.md](./豬豬要做的事.md)
 
 ## 已成形日期 Google Maps 路線圖
 
@@ -21,43 +21,48 @@
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
-| ADB 取車後自駕 | [ADB → Pikan Ephesus → Selçuk 鎮中心 → Ephesus Ancient City → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920%7CSelcuk+Town+Centre+Turkey%7CEphesus+Ancient+City&travelmode=driving) | ADB、Pikan Ephesus、Selçuk 鎮中心、以弗所古城 | 飯店在 Selçuk，位於 ADB 與以弗所之間，下午去以弗所順路 |
-| 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Harbour Street](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Upper+Gate&destination=Harbour+Street+Ephesus&waypoints=Curetes+Street+Ephesus%7CTemple+of+Hadrian+Ephesus%7CLibrary+of+Celsus+Ephesus%7CGreat+Theatre+Ephesus&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大理石街（圖書館到大劇院之間）、大劇院、港口大道 | 這段是古城內步行，和車行路線分開看；Google Maps 找不到 Marble Street 時，用 Library of Celsus → Great Theatre 這段涵蓋 |
+| ADB 取車後自駕 | [ADB → Pikan Ephesus → Ephesus Lower Gate → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920%7CEphesus+Lower+Gate&travelmode=driving) | ADB、Pikan Ephesus、以弗所下入口 | ADB → 以弗所 1h25（實測 1h12）。飯店在 Selçuk，位於 ADB 與以弗所之間。⚠️ **車停下入口（Lower Gate），不是上入口** |
+| 以弗所兩個入口之間（搭車，不走路） | [Ephesus Lower Gate → Ephesus Upper Gate](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Lower+Gate&destination=Ephesus+Upper+Gate&travelmode=driving) | 下入口、上入口 | 約 3 公里坡地。**停好車後搭計程車 / 小巴上到上入口**，約 5 分鐘、費用低，需備少量里拉現鈔 |
+| 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Harbour Street](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Upper+Gate&destination=Harbour+Street+Ephesus&waypoints=Curetes+Street+Ephesus%7CTemple+of+Hadrian+Ephesus%7CLibrary+of+Celsus+Ephesus%7CGreat+Theatre+Ephesus&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大理石街（圖書館到大劇院之間）、大劇院、港口大道 | 從上往下走比較省力，結束在下入口**剛好回到自己的車**。Google Maps 找不到 Marble Street 時，用 Library of Celsus → Great Theatre 這段涵蓋。冬季 18:00 關門，17:40 前往出口移動 |
 
 ### 11/01（日）Pikan Ephesus → Pamukkale → ADB → ASR → Grand Elite
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 白天自駕與還車 | [Pikan Ephesus → Pamukkale → Travertines → Hierapolis → Theatre → Antique Pool → ADB](https://www.google.com/maps/dir/?api=1&origin=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&destination=Izmir+Adnan+Menderes+Airport&waypoints=Pamukkale+Turkey%7CPamukkale+Travertines%7CHierapolis+Ancient+City%7CHierapolis+Theatre%7CCleopatra+Antique+Pool+Pamukkale&travelmode=driving) | Pikan Ephesus、Pamukkale 村、棉堡石灰棚、Hierapolis、劇場、**Cleopatra Antique Pool 泡澡**、ADB | 這天是長距離日；**已排古董池泡澡，需帶泳衣**；16:30 前離開棉堡，18:30～19:00 抵達 ADB 還車 |
+| 白天自駕與還車 | [Pikan Ephesus → Pamukkale → Travertines → Hierapolis → Theatre → Antique Pool → ADB](https://www.google.com/maps/dir/?api=1&origin=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&destination=Izmir+Adnan+Menderes+Airport&waypoints=Pamukkale+Turkey%7CPamukkale+Travertines%7CHierapolis+Ancient+City%7CHierapolis+Theatre%7CCleopatra+Antique+Pool+Pamukkale&travelmode=driving) | Pikan Ephesus、Pamukkale 村、棉堡石灰棚、Hierapolis、劇場、**Cleopatra Antique Pool 泡澡**、ADB | 單日約 430 公里的 V 字形折返。**08:30 出發**；Selçuk → 棉堡 2h20（實測 1h55）、棉堡 → ADB 2h40（實測 2h13）。**已排古董池泡澡，需帶泳衣**，泡池冬季 17:00 關門故排 14:00。**16:05 為離開棉堡的硬性上限**，表定 15:35 出發、18:15 抵達 ADB |
 | 飛機端點 | [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) / [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) | Izmir Adnan Menderes Airport、Kayseri Airport | 21:00 ADB → 22:35 ASR |
 | ASR 深夜取車後自駕 | [Kayseri Airport → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Kayseri+Airport&destination=Grand+Elite+Cave+Suites+Goreme&travelmode=driving) | ASR、Grand Elite Cave Suites | 這段是深夜路線，重點是租車櫃台營業、航班延誤與駕駛疲勞 |
 
-### 11/02（一）Grand Elite → 熱氣球 → 精簡紅線 → 駱駝（Plan A）
+### 11/02（一）Grand Elite → 熱氣球 → 露天博物館 → 駱駝
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 熱氣球接送參考 | [Grand Elite Cave Suites → Cappadocia Discovery Balloons → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Cappadocia+Discovery+Balloons&travelmode=driving) | Grand Elite、Discovery Balloons | Plan A 預設 11/02 06:00 |
-| Plan A：精簡紅線 + 15:00 駱駝 | [Grand Elite → Göreme Open Air Museum → Pasabag → Devrent → Love Valley → Cappadocia Camel Ride → Grand Elite](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CDevrent+Valley+Cappadocia%7CLove+Valley+Cappadocia%7CCappadocia+Camel+Ride&travelmode=driving) | Museum、Pasabag、Devrent、Love Valley、駱駝 | **跳過** Red / Rose / Ortahisar（駱駝已含）；不含 Avanos |
-| Plan B/C：綠線精簡 | [Grand Elite → Uçhisar Castle → Pigeon Valley → Kaymakli / Derinkuyu → Grand Elite](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City%7CDerinkuyu+Underground+City&travelmode=driving) | Uçhisar、鴿子谷、地下城二選一 | 11/02 熱氣球取消時採用 |
+| 熱氣球接送參考 | [Grand Elite Cave Suites → Cappadocia Discovery Balloons → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Cappadocia+Discovery+Balloons&travelmode=driving) | Grand Elite、Discovery Balloons | 已訂 11/02 06:00；04:00 起床，回飯店後 09:00～12:00 補眠 |
+| 下午自駕（唯一一段） | [Grand Elite → Göreme Open Air Museum → Grand Elite](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Grand+Elite+Cave+Suites+Goreme&waypoints=Goreme+Open+Air+Museum&travelmode=driving) | Grand Elite、露天博物館 | 13:10 進、14:45 出；博物館離鎮中心約 1.5 公里。11 月適用冬季時間，最後入場約 16:00，**行前確認** |
+| 駱駝（含接送，不自駕） | [Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia+Camel+Ride) | 紅色山谷、玫瑰谷、Ortahisar | 15:00～16:00，供應商到 Grand Elite 接送。**自駕全程跳過** Red / Rose / Ortahisar，這三點駱駝已含 |
 
-### 11/03（二）Plan A 綠線 / Plan B 熱氣球日 / Plan C 紅線+駱駝 → Gamirasu
+### 11/03（二）Grand Elite → 綠線單向弧線 → Gamirasu
 
-| 段落 | Google Maps | 包含點位 | 判斷重點 |
-|------|-------------|----------|----------|
-| Plan A：綠線精簡 + 換飯店 | [Grand Elite → Uçhisar Castle → Pigeon Valley → Kaymakli / Derinkuyu → Grand Elite → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City%7CDerinkuyu+Underground+City%7CGrand+Elite+Cave+Suites+Goreme&travelmode=driving) | Uçhisar、鴿子谷、地下城、Grand Elite 拿行李、Gamirasu | 11/02 已飛成時採用 |
-| Plan B：熱氣球 + 精簡紅線 + 15:00 駱駝 + Gamirasu | [Grand Elite → Göreme Open Air Museum → Pasabag → Cappadocia Camel Ride → Grand Elite → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CCappadocia+Camel+Ride%7CGrand+Elite+Cave+Suites+Goreme&travelmode=driving) | Museum、Pasabag、駱駝、拿行李、Gamirasu | 11/03 補飛；紅線極簡 |
-| Plan C：紅線 + 15:00 駱駝 + Gamirasu | [Grand Elite → Göreme Open Air Museum → Pasabag → Cappadocia Camel Ride → Grand Elite → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Goreme+Open+Air+Museum%7CPasabag+Monks+Valley+Cappadocia%7CCappadocia+Camel+Ride%7CGrand+Elite+Cave+Suites+Goreme&travelmode=driving) | Museum、Pasabag、駱駝、Gamirasu | 11/02、11/03 都沒飛時；11/04 留給最後熱氣球 |
-
-### 11/04（三）Gamirasu → Avanos 陶藝 → ASR → Istanbul
-
-> 目前狀態：已成形。Plan A/B：自然醒 → Avanos 陶藝 → ASR；Plan C 若 11/04 補飛熱氣球則陶藝改短版或 Ürgüp 外帶。駱駝已併入 11/02～11/03 紅線日 15:00。航班 TK2017 ASR → IST 已開票。
+> 路線刻意設計成不回頭：Göreme（中）→ Uçhisar（西）→ Kaymaklı（南）→ Ayvalı（東南）。**退房後行李直接上車**，不寄放、不折返 Göreme。
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| Plan A/B：Avanos 陶藝 + ASR | [Gamirasu → Avanos → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Avanos+Cappadocia%7CUrgup+Cappadocia&travelmode=driving) | Gamirasu、Avanos 陶藝、Ürgüp、ASR | 12:30 退房後出發；目標 16:30 前抵達 ASR |
-| Plan C：熱氣球備援（Gamirasu 接送需確認） | [Gamirasu → Cappadocia Hot Air Balloon → Gamirasu → Avanos → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Cappadocia+Hot+Air+Balloon%7CAvanos+Cappadocia&travelmode=driving) | Gamirasu、熱氣球、Avanos 短版、ASR | 陶藝僅 45～60 分鐘或改 Ürgüp 外帶 |
+| 綠線 + 搬家（一趟到底） | [Grand Elite → Uçhisar Castle → Pigeon Valley → Kaymakli → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia%7CKaymakli+Underground+City&travelmode=driving) | Uçhisar、鴿子谷、Kaymaklı 地下城、Gamirasu | 11:00 退房出發；Göreme → Uçhisar 10 分、Uçhisar → 鴿子谷 5 分、鴿子谷 → Kaymaklı 40 分、Kaymaklı → Gamirasu 30 分（實測 21 分） |
+| 縮短版（太累時） | [Grand Elite → Uçhisar Castle → Pigeon Valley → Gamirasu](https://www.google.com/maps/dir/?api=1&origin=Grand+Elite+Cave+Suites+Goreme&destination=Gamirasu+Cave+Hotel+Special+Class+Urgup&waypoints=Uchisar+Castle%7CPigeon+Valley+Cappadocia&travelmode=driving) | Uçhisar、鴿子谷、Gamirasu | 砍掉地下城，提早進 Gamirasu 享受飯店 |
+
+**地下城選 Kaymaklı 不選 Derinkuyu**：Derinkuyu 更深更震撼，但要再往南多開 10 公里，而這天要往東南收尾。
+
+### 11/04（三）Gamirasu → Paşabağ → Avanos 陶藝 → ASR → Istanbul
+
+> 目前狀態：已成形。Paşabağ 蘑菇谷從紅線移到這天，因為它離 Avanos 只有 5～8 分鐘車程，順路補完紅線最後一點。航班 TK2017 ASR → IST 已開票。
+
+| 段落 | Google Maps | 包含點位 | 判斷重點 |
+|------|-------------|----------|----------|
+| 主線：Paşabağ + Avanos 陶藝 + ASR | [Gamirasu → Paşabağ → Avanos → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Pasabag+Monks+Valley+Cappadocia%7CAvanos+Cappadocia&travelmode=driving) | Gamirasu、Paşabağ、Avanos 陶藝、ASR | 12:30 退房出發；Gamirasu → Paşabağ 45 分（實測 33 分，經 Ürgüp）、Paşabağ → Avanos 10 分、Avanos → ASR 1h15（實測 1h01）；目標 16:25 抵達 ASR、16:45 完成還車 |
+| 加碼：順路加 Devrent | [Gamirasu → Devrent → Paşabağ → Avanos → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Devrent+Valley+Cappadocia%7CPasabag+Monks+Valley+Cappadocia%7CAvanos+Cappadocia&travelmode=driving) | Devrent 想像谷、Paşabağ、Avanos、ASR | 時間充裕才加，Devrent 只停 20 分 |
+| 熱氣球備援（11/02、11/03 都沒飛） | [Gamirasu → Cappadocia Hot Air Balloon → Gamirasu → Avanos → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Cappadocia+Hot+Air+Balloon%7CAvanos+Cappadocia&travelmode=driving) | Gamirasu、熱氣球、Avanos 短版、ASR | ⚠️ **接送點必須事先與 Discovery Balloons 確認**，Ayvalı 不在 Göreme 一般接送範圍；當天 Paşabağ 縮到 20 分、陶藝改 45～60 分 |
 | 雨天備案 | [Gamirasu → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Mustafapasa+Cappadocia%7CUrgup+Cappadocia&travelmode=driving) | Gamirasu、Mustafapaşa、Ürgüp、ASR | 跳過 Avanos |
-| 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；建議 16:30～17:00 完成還車 / 抵達航廈 |
+| 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；目標 16:30 完成還車 / 抵達航廈。⚠️ Rentalcars 訂單上的還車時間是 **19:00**，晚於起飛時間，需與 AVEC / Rentalcars 確認可提早還車 |
 | IST → Basilissis Hotel | [Istanbul Airport → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Istanbul+Airport&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&travelmode=driving) | IST、Basilissis Hotel | Klook 接機已訂：11/04 20:20，IST → Basilissis Hotel，經濟車型 4 人座，2 位乘客，實付 NT$1,620；抵達後依司機會合資訊上車 |
 
 ### 11/05（四）Basilissis Hotel → Karakoy / Galata / Eminonu → Basilissis Hotel
