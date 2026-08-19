@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d3b66">
 <title>2026 土耳其 11 日 · 行程</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:wght@600;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --iznik-deep:#0d3b66; --iznik-blue:#1b4b8f; --iznik-mid:#2a6db0;
@@ -21,12 +18,14 @@
   --safe-t:env(safe-area-inset-top,0px);
   --safe-b:env(safe-area-inset-bottom,0px);
   --acc:var(--iznik-mid);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang TC","Helvetica Neue","Microsoft JhengHei",sans-serif;
+  --font-d:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang TC","Helvetica Neue",sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
 body{
   background:var(--paper); color:var(--ink);
-  font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",sans-serif;
+  font-family:var(--font);
   font-size:17px; line-height:1.65;
   -webkit-text-size-adjust:100%;
   overflow-x:hidden;
@@ -53,7 +52,7 @@ a{color:var(--iznik-blue)}
 }
 .back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .topbar-title{
-  font-family:"Marcellus",serif; font-size:16px; letter-spacing:.14em;
+  font-family:var(--font-d); font-size:14px; font-weight:600; letter-spacing:.2em;
   color:var(--ink-mute); text-transform:uppercase; margin-left:auto;
 }
 
@@ -74,15 +73,15 @@ a{color:var(--iznik-blue)}
 }
 .cover-inner{position:relative;z-index:1}
 .cover-kicker{
-  font-family:"Marcellus",serif; font-size:14px; letter-spacing:.34em;
+  font-family:var(--font-d); font-size:12.5px; font-weight:600; letter-spacing:.28em;
   text-transform:uppercase; color:var(--gold-bright); margin:0 0 12px;
 }
 .cover h1{
-  font-family:"Cormorant Garamond","Noto Serif TC",serif;
-  font-weight:700; font-size:clamp(38px,10.5vw,54px); line-height:1.08;
-  margin:0 0 6px; letter-spacing:.01em;
+  font-family:var(--font-d);
+  font-weight:700; font-size:clamp(40px,11vw,56px); line-height:1.04;
+  margin:0 0 6px; letter-spacing:-.02em;
 }
-.cover h1 em{display:block;font-style:normal;font-family:"Noto Serif TC",serif;font-size:.52em;letter-spacing:.16em;color:var(--cream-deep);margin-top:10px}
+.cover h1 em{display:block;font-style:normal;font-weight:500;font-size:.46em;letter-spacing:.2em;color:var(--cream-deep);margin-top:12px}
 .cover-dates{
   margin:16px 0 0; font-size:18px; font-weight:500; color:#fff;
   padding-top:16px; border-top:1px solid rgba(246,239,220,.28);
@@ -90,16 +89,65 @@ a{color:var(--iznik-blue)}
 .cover-dates span{display:block;font-size:15px;color:rgba(246,239,220,.78);font-weight:400;margin-top:4px}
 .cover-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
 .cstat{
+  position:relative; display:block; width:100%; text-align:left; cursor:pointer;
+  font-family:inherit; color:inherit;
   background:rgba(246,239,220,.10); border:1px solid rgba(246,239,220,.20);
-  border-radius:14px; padding:12px 14px;
+  border-radius:14px; padding:12px 30px 12px 14px;
+  transition:background .22s ease, border-color .22s ease;
 }
-.cstat b{display:block;font-family:"Marcellus",serif;font-size:22px;line-height:1.2;color:var(--gold-bright)}
+.cstat::after{
+  content:""; position:absolute; right:14px; bottom:17px;
+  width:7px; height:7px; transform:rotate(45deg);
+  border-right:2px solid rgba(246,239,220,.55);
+  border-bottom:2px solid rgba(246,239,220,.55);
+  transition:transform .3s ease, border-color .3s ease;
+}
+.cstat.on{background:rgba(246,239,220,.20);border-color:rgba(227,189,106,.65)}
+.cstat.on::after{transform:rotate(-135deg);border-color:var(--gold-bright)}
+.cstat b{display:block;font-family:var(--font-d);font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;color:var(--gold-bright);font-variant-numeric:tabular-nums}
 .cstat span{display:block;font-size:14px;color:rgba(246,239,220,.82);margin-top:3px}
+
+/* ---------- 統計明細面板 ---------- */
+.panels{background:var(--cream-deep)}
+.panel{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+.panel-in{padding:20px 16px 22px;border-bottom:1px solid var(--line)}
+.panel-title{display:flex;align-items:baseline;gap:10px;margin:0 0 6px;font-size:17.5px;font-weight:700;color:var(--iznik-deep)}
+.panel-title span{margin-left:auto;font-size:14px;font-weight:400;color:var(--ink-mute)}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(13,59,102,.13)}
+.psub{
+  margin:16px 0 0; padding:9px 0 0; border-top:1px solid rgba(13,59,102,.13);
+  font-size:14px; font-weight:600; letter-spacing:.02em; color:var(--ink-mute);
+}
+.psub + .plist li:first-child{border-top:0}
+.pk{
+  flex:0 0 auto; width:88px; line-height:1.5;
+  font-family:var(--font-d); font-size:14px; font-weight:600;
+  color:var(--iznik-blue); font-variant-numeric:tabular-nums;
+}
+.pv{flex:1 1 auto;min-width:0}
+.pv b{display:block;font-size:16.5px;font-weight:700;line-height:1.5;color:var(--ink)}
+.pv i{display:block;font-style:normal;font-size:15.5px;color:var(--ink-soft);margin-top:3px;line-height:1.65}
+.pv em{display:block;font-style:normal;font-size:14.5px;color:var(--ink-mute);margin-top:6px;line-height:1.7}
+.pv u{
+  display:block; text-decoration:none; font-size:14.5px; font-weight:500;
+  color:#a13b28; margin-top:7px; line-height:1.7;
+  padding-left:11px; border-left:3px solid rgba(193,74,53,.4);
+}
+.jump{
+  display:flex; gap:12px; align-items:baseline; width:100%; text-align:left;
+  background:none; border:0; border-top:1px solid rgba(13,59,102,.13);
+  padding:12px 0; font-family:inherit; font-size:16px; color:inherit; cursor:pointer;
+}
+.panel-title + .jump{border-top:0}
+.jump .pk{width:88px}
+.jump .jt{flex:1 1 auto;min-width:0;font-weight:500;line-height:1.55}
+.jump .jc{flex:0 0 auto;color:var(--iznik-blue);font-size:22px;line-height:1;opacity:.55}
 
 /* ---------- key notes ---------- */
 .notes{padding:22px 16px 4px}
 .notes h2{
-  font-family:"Noto Serif TC",serif; font-size:19px; margin:0 0 14px;
+  font-size:19px; font-weight:700; letter-spacing:.01em; margin:0 0 14px;
   display:flex; align-items:center; gap:10px; color:var(--iznik-deep);
 }
 .notes h2::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -117,7 +165,7 @@ a{color:var(--iznik-blue)}
 /* ---------- day list ---------- */
 .days{padding:22px 16px calc(var(--safe-b) + 44px)}
 .days-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.days-head h2{font-family:"Noto Serif TC",serif;font-size:19px;margin:0;color:var(--iznik-deep)}
+.days-head h2{font-size:19px;font-weight:700;letter-spacing:.01em;margin:0;color:var(--iznik-deep)}
 .toggle-all{
   margin-left:auto; border:1px solid var(--line); background:#fff;
   color:var(--iznik-blue); font-size:14.5px; font-family:inherit;
@@ -138,17 +186,18 @@ a{color:var(--iznik-blue)}
   flex:0 0 auto; width:52px; text-align:center;
 }
 .day-num b{
-  display:block; font-family:"Marcellus",serif; font-size:11.5px;
-  letter-spacing:.2em; color:var(--ink-mute);
+  display:block; font-family:var(--font-d); font-size:10.5px; font-weight:600;
+  letter-spacing:.16em; color:var(--ink-mute);
 }
 .day-num i{
-  display:block; font-style:normal; font-family:"Cormorant Garamond",serif;
-  font-weight:700; font-size:30px; line-height:1; color:var(--acc);
+  display:block; font-style:normal; font-family:var(--font-d);
+  font-weight:700; font-size:28px; line-height:1.05; letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums; color:var(--acc);
 }
 .day-main{flex:1 1 auto;min-width:0}
 .day-date{font-size:15px;color:var(--ink-mute);font-weight:500;letter-spacing:.02em}
 .day-title{
-  font-family:"Noto Serif TC",serif; font-weight:700;
+  font-weight:700; letter-spacing:.01em;
   font-size:18.5px; line-height:1.45; margin:2px 0 7px; color:var(--ink);
 }
 .day-meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
@@ -195,7 +244,7 @@ a{color:var(--iznik-blue)}
   margin:0 0 12px; padding:10px 14px; border-radius:10px;
   background:linear-gradient(90deg,rgba(42,109,176,.10),rgba(42,109,176,0));
 }
-.grp-head b{font-family:"Noto Serif TC",serif;font-size:16.5px;color:var(--iznik-deep)}
+.grp-head b{font-size:16.5px;font-weight:700;letter-spacing:.01em;color:var(--iznik-deep)}
 .grp-head span{font-size:14.5px;color:var(--ink-mute)}
 .grp.alt .grp-head{background:linear-gradient(90deg,rgba(200,160,77,.16),rgba(200,160,77,0))}
 .grp.alt .grp-head b{color:#8a6a1f}
@@ -206,8 +255,8 @@ a{color:var(--iznik-blue)}
 .tl-row:last-child{padding-bottom:0}
 .tl-time{
   position:absolute; left:-84px; top:0; width:66px; text-align:right;
-  font-family:"Marcellus",serif; font-size:14.5px; line-height:1.5;
-  color:var(--iznik-blue); font-variant-numeric:tabular-nums; letter-spacing:.01em;
+  font-family:var(--font-d); font-size:14.5px; font-weight:600; line-height:1.5;
+  color:var(--iznik-blue); font-variant-numeric:tabular-nums; letter-spacing:0;
 }
 .tl-dot{
   position:absolute; left:-15px; top:6px; width:11px; height:11px;
@@ -241,11 +290,11 @@ a{color:var(--iznik-blue)}
   border-top:1px solid var(--line); background:var(--cream);
 }
 .foot p{margin:0;font-size:14.5px;color:var(--ink-mute);line-height:1.8}
-.foot b{font-family:"Marcellus",serif;letter-spacing:.16em;color:var(--iznik-deep);display:block;margin-bottom:6px;font-size:15px}
+.foot b{font-family:var(--font-d);font-weight:600;letter-spacing:.2em;color:var(--iznik-deep);display:block;margin-bottom:6px;font-size:13.5px}
 
 @media (min-width:680px){
   body{font-size:18px}
-  .cover,.notes,.days{max-width:720px;margin-left:auto;margin-right:auto}
+  .cover,.panels,.notes,.days{max-width:720px;margin-left:auto;margin-right:auto}
   .cover{border-radius:0}
   .cover-stats{grid-template-columns:repeat(4,1fr)}
   .day-hero img{aspect-ratio:24/9}
@@ -276,13 +325,15 @@ a{color:var(--iznik-blue)}
         <span>安安 TK025 桃園出發 · 豬豬 TK055 樟宜出發</span>
       </p>
       <div class="cover-stats">
-        <div class="cstat"><b>11</b><span>天</span></div>
-        <div class="cstat"><b>4</b><span>段住宿</span></div>
-        <div class="cstat"><b>5</b><span>趟班機</span></div>
-        <div class="cstat"><b>2</b><span>段租車</span></div>
+        <button class="cstat" type="button" data-p="days"><b>11</b><span>天</span></button>
+        <button class="cstat" type="button" data-p="stay"><b>4</b><span>段住宿</span></button>
+        <button class="cstat" type="button" data-p="fly"><b>5</b><span>段航程</span></button>
+        <button class="cstat" type="button" data-p="car"><b>2</b><span>段租車</span></button>
       </div>
     </div>
   </header>
+
+  <section class="panels" id="panels"></section>
 
   <section class="notes">
     <h2>三個貫穿全程的原則</h2>
@@ -595,6 +646,65 @@ var DATA=[
 }
 ];
 
+/* ---------------- 統計明細 ---------------- */
+var PANELS={
+  stay:{
+    title:'4 段住宿', note:'全部已訂',
+    rows:[
+      {k:'10/31–11/01', b:'Pikan Ephesus', i:'Selçuk · 1 晚',
+       em:'Agoda 訂單 1734845536 · 入住 15:00／退房 11:00 · 2026/10/30 前皆可免費取消 · 地址 1045. Sokak 42 A, Selçuk 35920',
+       w:'待問能否提早寄放行李——14:10 就會到 Selçuk，而下午要直接去以弗所'},
+      {k:'11/01–11/03', b:'Grand Elite Cave Suites', i:'Göreme · 2 晚',
+       em:'Booking.com · 入住 14:00–00:00／退房 11:00 · 座標 38.6394198, 34.8294131 · 有停車場 · 熱氣球與駱駝都在這裡接送 · 已填預估抵達 23:00–00:00',
+       w:'11/03 09:00 退房後行李寄放到 15:05 尚未確認（是 11/03 整天的地基）；街道門牌與早餐開始時間也待補'},
+      {k:'11/03–11/04', b:'Gamirasu Cave Hotel · Special Class', i:'Ayvalı／Ürgüp · 1 晚',
+       em:'Hotels.com 73467533073850 · 15:45 抵達（可入住 14:00）／退房 12:30 · 入住時付款 · 餐廳 18:00–22:00 · 地址 Davutlu Ayvalı Köyü Yolu No:101',
+       w:'晚餐推定不含在房價，需先預約並問價位；房型是否含早餐待確認'},
+      {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
+       em:'Hotels.com 73473369372843 · 標準雙床房 · 入住 14:00／退房 12:00 · 評分 8.4（56 則）· 地址 Güzelsanatlar Sk. 4, Fatih · 步行可進舊城核心',
+       w:'待補含稅總價、取消條款、是否含早餐、late check-in 與電梯／行李協助'}
+    ]
+  },
+  fly:{
+    title:'5 段航程', note:'全部已開票',
+    rows:[
+      {k:'10/30', b:'去程 · 台北／新加坡 → 伊斯坦堡',
+       i:'安安 TK025 22:00 桃園 T2 → 10/31 05:40 IST<br>豬豬 TK055 23:15 樟宜 T1 → 10/31 05:50 IST',
+       em:'安安訂位代號 UQE3KZ · 國際線托運 23kg／手提 8kg／個人物品 4kg · 08:15 在入境後公共區域集合'},
+      {k:'10/31', b:'TK2320 · IST → ADB（Izmir）', i:'11:00 → 12:10，1h10',
+       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg／手提 8kg',
+       w:'與國際線非同張票 → 要入境、領行李、重新托運；報到櫃台 10:15 關'},
+      {k:'11/01', b:'SunExpress · ADB → ASR（Kayseri）', i:'21:00 → 22:35，1h35 直飛',
+       em:'Booking number D438G7 · 18:15 就到 ADB，105 分鐘是全天最大的緩衝'},
+      {k:'11/04', b:'TK2017 · ASR → IST', i:'18:40 → 20:20，1h40',
+       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg（所以 11/04 不買陶器）',
+       w:'Kayseri 租車訂單的還車時間是 19:00，比起飛還晚 → 需改 16:30'},
+      {k:'11/08', b:'回程 · 伊斯坦堡 → 台北／新加坡',
+       i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
+       em:'目標 14:30 前抵達 IST，預留 2.5–3 小時報到安檢 · 不退稅'}
+    ],
+    sub:'機場接送（Klook，兩段皆已訂）',
+    subRows:[
+      {k:'11/04', b:'接機 · IST → Basilissis Hotel', i:'20:20 抵達後上車',
+       em:'經濟車型 4 人座、2 位乘客，實付 NT$1,620 · 晚上避免拖行李搭多段大眾交通 · 確認司機會合點與聯絡方式'},
+      {k:'11/08', b:'送機 · Basilissis Hotel → IST', i:'13:00 出發，車程 45–90 分',
+       em:'經濟車型 4 人座、2 位乘客，實付 NT$1,620',
+       w:'13:00 是可接受上限，不再往後延'}
+    ]
+  },
+  car:{
+    title:'2 段租車', note:'皆已訂 · 主駕駛豬豬',
+    rows:[
+      {k:'10/31–11/01', b:'AVEC · Toyota Corolla 或相似車款', i:'10/31 13:00 ADB 取車 → 11/01 20:00 ADB 還車',
+       em:'Rentalcars 確認號 670245222 · +90 232 531 2832 · 5 座 4 門／2 大 1 小行李 · 自排、空調、里程無上限 · 建議 18:45 前抵達 ADB 還車 · 駕照與取車信用卡都必須是豬豬',
+       w:'訂單取車時間寫 11:30，但飛機 12:10 才落地 → 需改成 13:00'},
+      {k:'11/01–11/04', b:'AVEC · Opel Crossland 或相似車款', i:'11/01 23:00 ASR 取車 → 11/04 16:30 ASR 還車',
+       em:'Rentalcars 確認號 637534354 · +90 352 353 3800 · 5 座 4 門／2 大行李 · 深夜取車時間已對齊 22:35 抵達 · 三天總車程 120＋75 分',
+       w:'訂單還車寫 19:00，比 18:40 起飛還晚 → 需改 16:30；掀背車，取車當場確認有後車廂遮蔽板（11/04 行李要在車上約 2 小時）'}
+    ]
+  }
+};
+
 /* ---------------- 渲染 ---------------- */
 var THEME={gold:'var(--gold)', terra:'var(--terra)', turq:'var(--turq)', blue:'var(--iznik-mid)'};
 
@@ -727,10 +837,87 @@ btn.addEventListener('click',function(){
   btn.textContent=expand?'全部收合':'全部展開';
 });
 
-/* 視窗改變時，已展開的卡片高度交還給內容 */
+/* 視窗改變時，已展開的區塊高度交還給內容 */
 window.addEventListener('resize',function(){
-  var open=list.querySelectorAll('.day.open .day-wrap');
-  for(var i=0;i<open.length;i++) open[i].style.maxHeight='none';
+  var open=document.querySelectorAll('.day.open .day-wrap,.panel');
+  for(var i=0;i<open.length;i++){
+    if(open[i].style.maxHeight&&open[i].style.maxHeight!=='0px') open[i].style.maxHeight='none';
+  }
+});
+
+/* ---------------- 統計明細面板 ---------------- */
+function pRows(rows){
+  var h='<ul class="plist">';
+  for(var i=0;i<rows.length;i++){
+    var r=rows[i];
+    h+='<li><div class="pk">'+r.k+'</div><div class="pv">'
+      +'<b>'+r.b+'</b>'
+      +(r.i?'<i>'+r.i+'</i>':'')
+      +(r.em?'<em>'+r.em+'</em>':'')
+      +(r.w?'<u>⚠️ '+r.w+'</u>':'')
+      +'</div></li>';
+  }
+  return h+'</ul>';
+}
+var panelBox=document.getElementById('panels');
+var panelHtml='';
+/* 11 天 — 點任一列直接跳到那天並展開 */
+panelHtml+='<div class="panel" data-p="days"><div class="panel-in">'
+  +'<h3 class="panel-title">11 天總覽<span>點任一天直接跳過去</span></h3>';
+for(var i=0;i<DATA.length;i++){
+  var d=DATA[i];
+  panelHtml+='<button class="jump" type="button" data-jump="'+d.day+'">'
+    +'<span class="pk">'+d.date+'（'+d.week+'）</span>'
+    +'<span class="jt">'+d.title+'</span><span class="jc">›</span></button>';
+}
+panelHtml+='</div></div>';
+['stay','fly','car'].forEach(function(key){
+  var p=PANELS[key];
+  panelHtml+='<div class="panel" data-p="'+key+'"><div class="panel-in">'
+    +'<h3 class="panel-title">'+p.title+'<span>'+p.note+'</span></h3>'
+    +pRows(p.rows)
+    +(p.sub?'<div class="psub">'+p.sub+'</div>'+pRows(p.subRows):'')
+    +'</div></div>';
+});
+panelBox.innerHTML=panelHtml;
+
+var statBtns=document.querySelectorAll('.cstat');
+var panelEls=panelBox.querySelectorAll('.panel');
+function closePanels(){
+  for(var i=0;i<panelEls.length;i++){
+    var el=panelEls[i];
+    if(el.style.maxHeight&&el.style.maxHeight!=='0px'){
+      el.style.maxHeight=el.scrollHeight+'px';
+      (function(e){requestAnimationFrame(function(){e.style.maxHeight='0px';});})(el);
+    }
+  }
+  for(var j=0;j<statBtns.length;j++) statBtns[j].classList.remove('on');
+}
+for(var s=0;s<statBtns.length;s++){
+  statBtns[s].addEventListener('click',function(){
+    var key=this.getAttribute('data-p');
+    var wasOn=this.classList.contains('on');
+    closePanels();
+    if(wasOn) return;
+    this.classList.add('on');
+    var el=panelBox.querySelector('.panel[data-p="'+key+'"]');
+    el.style.maxHeight=el.scrollHeight+'px';
+    setTimeout(function(){
+      if(el.style.maxHeight!=='0px') el.style.maxHeight='none';
+      var top=el.getBoundingClientRect().top;
+      if(top>window.innerHeight*0.55||top<56) window.scrollBy({top:top-70,behavior:'smooth'});
+    },400);
+  });
+}
+panelBox.addEventListener('click',function(e){
+  var btn=e.target.closest?e.target.closest('.jump'):null;
+  if(!btn) return;
+  var el=list.querySelector('.day[data-day="'+btn.getAttribute('data-jump')+'"]');
+  if(!el) return;
+  if(!el.classList.contains('open')) setOpen(el,true);
+  setTimeout(function(){
+    window.scrollBy({top:el.getBoundingClientRect().top-68,behavior:'smooth'});
+  },80);
 });
 
 /* 預設展開：旅程期間展開「今天」，其餘時候展開第一個有行程的日子（DAY 02） */
