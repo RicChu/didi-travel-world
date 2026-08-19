@@ -87,6 +87,43 @@ a{color:var(--iznik-blue)}
   padding-top:16px; border-top:1px solid rgba(246,239,220,.28);
 }
 .cover-dates span{display:block;font-size:15px;color:rgba(246,239,220,.78);font-weight:400;margin-top:4px}
+
+/* ---------- 現在時間狀態條 ---------- */
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(255,122,92,.55)}
+  70%{box-shadow:0 0 0 10px rgba(255,122,92,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,122,92,0)}
+}
+@keyframes nowRing{
+  0%{box-shadow:0 0 0 0 rgba(193,74,53,.5)}
+  70%{box-shadow:0 0 0 11px rgba(193,74,53,0)}
+  100%{box-shadow:0 0 0 0 rgba(193,74,53,0)}
+}
+@keyframes nowBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+.cover-live{
+  display:flex; align-items:center; gap:9px; flex-wrap:wrap;
+  margin:14px 0 0; padding:11px 13px; border-radius:12px;
+  background:rgba(246,239,220,.12); border:1px solid rgba(246,239,220,.22);
+  font-size:15px; color:#fff; line-height:1.55;
+}
+.cover-live .lv-dot{
+  flex:0 0 auto; width:9px; height:9px; border-radius:50%; background:var(--gold-bright);
+  margin-top:6px; align-self:flex-start;
+}
+.cover-live > span{flex:1 1 0;min-width:0}
+.cover-live.on{background:rgba(255,122,92,.16);border-color:rgba(255,122,92,.45)}
+.cover-live.on .lv-dot{background:#ff7a5c;animation:pulseDot 1.9s ease-out infinite}
+.cover-live b{font-family:var(--font-d);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em;white-space:nowrap}
+.cover-live i{flex:1 1 100%;font-style:normal;font-size:14.5px;color:rgba(246,239,220,.88);line-height:1.6}
+.now-fab{
+  position:fixed; right:14px; bottom:calc(var(--safe-b) + 16px); z-index:30;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 18px 12px 15px; border:0; border-radius:999px;
+  background:var(--terra); color:#fff; font-family:inherit; font-size:15.5px; font-weight:600;
+  box-shadow:0 6px 20px rgba(193,74,53,.36); cursor:pointer;
+}
+.now-fab::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff;animation:nowBeat 1.9s ease-in-out infinite}
+[hidden]{display:none!important}
 .cover-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
 .cstat{
   position:relative; display:block; width:100%; text-align:left; cursor:pointer;
@@ -276,6 +313,30 @@ a{color:var(--iznik-blue)}
 .tl-tag.car{background:rgba(27,154,170,.14);color:#136b75}
 .tl-tag.lock{background:rgba(193,74,53,.12);color:#a13b28}
 
+/* 現在進行中的那一段 */
+.tl-row.now .tl-dot{
+  background:var(--terra); border-color:var(--terra); z-index:2;
+  animation:nowRing 1.9s ease-out infinite, nowBeat 1.9s ease-in-out infinite;
+}
+.tl-row.now .tl-time{color:var(--terra);font-weight:700}
+.tl-row.now .tl-time::after{
+  content:"現在"; display:block; margin-top:2px;
+  font-family:var(--font); font-size:13px; font-weight:700; letter-spacing:.06em;
+  color:var(--terra);
+}
+.tl-row.now .tl-act{font-weight:700;color:#a13b28}
+.tl-row.now.up .tl-dot{animation:none;background:#fff;border-color:var(--terra)}
+.tl-row.now.up .tl-time::after{content:"即將開始";font-size:12.5px;letter-spacing:0;color:var(--ink-mute)}
+.tl-row.now.up .tl-act{color:var(--ink)}
+.live-chip{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:700; padding:3px 10px; border-radius:999px;
+  background:rgba(193,74,53,.12); color:#a13b28;
+}
+.live-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terra);animation:pulseDot 1.9s ease-out infinite}
+.day.today{border-color:rgba(193,74,53,.42);box-shadow:0 3px 16px rgba(193,74,53,.14)}
+.day.today .day-head{border-left-color:var(--terra)}
+
 .stay{
   display:flex; align-items:flex-start; gap:11px;
   margin-top:22px; padding:14px 16px; border-radius:12px;
@@ -300,7 +361,7 @@ a{color:var(--iznik-blue)}
   .day-hero img{aspect-ratio:24/9}
 }
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important}
+  *,*::before,*::after{transition:none!important;animation:none!important}
 }
 </style>
 </head>
@@ -324,6 +385,7 @@ a{color:var(--iznik-blue)}
         2026 / 10 / 30（五）－ 11 / 09（一）
         <span>安安 TK025 桃園出發 · 豬豬 TK055 樟宜出發</span>
       </p>
+      <p class="cover-live" id="coverLive"></p>
       <div class="cover-stats">
         <button class="cstat" type="button" data-p="days"><b>11</b><span>天</span></button>
         <button class="cstat" type="button" data-p="stay"><b>4</b><span>段住宿</span></button>
@@ -368,6 +430,8 @@ a{color:var(--iznik-blue)}
   </footer>
 
 </div>
+
+<button class="now-fab" id="nowFab" type="button" hidden>現在在這</button>
 
 <script>
 /* ---------------- 行程資料 ---------------- */
@@ -920,19 +984,166 @@ panelBox.addEventListener('click',function(e){
   },80);
 });
 
-/* 預設展開：旅程期間展開「今天」，其餘時候展開第一個有行程的日子（DAY 02） */
-(function(){
-  var t=new Date(), target=2;
-  var stamp=t.getFullYear()*10000+(t.getMonth()+1)*100+t.getDate();
-  if(stamp>=20261030 && stamp<=20261109){
-    for(var i=0;i<DATA.length;i++){
-      var p=DATA[i].date.split('/');
-      if(20260000+parseInt(p[0],10)*100+parseInt(p[1],10)===stamp){ target=DATA[i].day; break; }
+/* ---------------- 「現在」定位 ----------------
+   時間一律換算成土耳其時間（UTC+3，全年不換日光節約），
+   所以手機還留在台北 / 新加坡時區也會指到正確的那一格。
+   預覽：在網址加 ?now=1102-1030（MMDDHHMM）可假裝那個時刻。 */
+var TRIP_Y=2026, DEP_MO=10, DEP_DD=30;
+var FAB=document.getElementById('nowFab'), LIVE=document.getElementById('coverLive');
+
+function nowInfo(){
+  var q=(location.search.match(/[?&]now=([^&#]*)/)||[])[1];
+  if(q){
+    var s=decodeURIComponent(q).replace(/\D/g,'');
+    if(s.length>=8) return {y:TRIP_Y,mo:+s.slice(0,2),dd:+s.slice(2,4),min:(+s.slice(4,6))*60+(+s.slice(6,8)),preview:true};
+    if(s.length===4) return {y:TRIP_Y,mo:+s.slice(0,2),dd:+s.slice(2,4),min:540,preview:true};
+  }
+  var d=new Date();
+  var t=new Date(d.getTime()+d.getTimezoneOffset()*60000+10800000);
+  return {y:t.getFullYear(),mo:t.getMonth()+1,dd:t.getDate(),min:t.getHours()*60+t.getMinutes()};
+}
+function md(n){return n.mo*100+n.dd;}
+function mdOf(d){var p=d.date.split('/');return parseInt(p[0],10)*100+parseInt(p[1],10);}
+function pad(v){return (v<10?'0':'')+v;}
+function hhmm(m){m=((m%1440)+1440)%1440;return pad(Math.floor(m/60))+':'+pad(m%60);}
+function cardOf(day){return list.querySelector('.day[data-day="'+day+'"]');}
+/* 取出一格時間文字裡的所有 HH:MM：「11:30–12:30」→ [690,750] */
+function timesOf(s){
+  var re=/(\d{1,2})[:：](\d{2})/g, m, out=[];
+  while((m=re.exec(String(s)))) out.push(parseInt(m[1],10)*60+parseInt(m[2],10));
+  return out;
+}
+/* 條件列（刪減 / 雨天 / 備案 / Plan B、C 備援）不是真的時刻，不參與比對 */
+var SKIP_TIME=/刪減|雨天|備案|備援|Plan/;
+/* 一張日卡裡，每個時間軸各找出「現在」落在哪一列。
+   11/02 有兩個上午 Plan，上午時段兩邊各自標——當下確實可能是其中任一個；
+   已經走完的時間軸（例如下午還在標上午的 Plan）會被排除。 */
+function hitRows(cardEl,m,liveOnly){
+  var live=[], all=[], lists=cardEl.querySelectorAll('.tl');
+  for(var l=0;l<lists.length;l++){
+    var rows=lists[l].querySelectorAll('.tl-row');
+    var prev=-1, off=0, hit=null, hitV=0, hitE=null, lastEl=null;
+    for(var i=0;i<rows.length;i++){
+      var tEl=rows[i].querySelector('.tl-time');
+      var txt=tEl?tEl.textContent:'';
+      if(SKIP_TIME.test(txt)) continue;
+      var t=timesOf(txt), v, e=null;
+      if(!t.length){ v=prev; }             /* 白天 / 上午 / 晚上 / 睡前 → 沿用前一列 */
+      else{
+        v=t[0]+off;
+        if(v<prev-120){ off+=1440; v+=1440; }   /* 跨午夜（11/01 的 00:45 入住） */
+        if(t.length>1){ e=t[t.length-1]+off; if(e<v) e+=1440; }
+      }
+      prev=v; lastEl=rows[i];
+      if(v<=m){ hit=rows[i]; hitV=v; hitE=e; }
+    }
+    if(hit){
+      /* 沒寫結束時間就給 60 分；若是當天最後一列（夜航、睡覺）給 6 小時 */
+      var end=(hitE!==null)?hitE:(hitV+(hit===lastEl?360:60));
+      all.push(hit);
+      if(m<=end) live.push(hit);
     }
   }
-  var el=list.querySelector('.day[data-day="'+target+'"]');
-  if(el) setOpen(el,true);
-})();
+  if(live.length) return live;
+  if(liveOnly) return [];                     /* 昨天的時間軸只在「還在進行中」時才算 */
+  return all.length?[all[all.length-1]]:[];   /* 全部走完 → 只留最後一段 */
+}
+/* 決定「現在」落在哪一天：先試今天，今天還沒開始就往前一天找（凌晨還在昨天的時間軸上） */
+function resolveNow(n){
+  if(n.y!==TRIP_Y) return null;
+  var key=md(n), today=-1, yday=-1, i;
+  for(i=0;i<DATA.length;i++){
+    if(mdOf(DATA[i])===key) today=i;
+    if(i+1<DATA.length&&mdOf(DATA[i+1])===key) yday=i;
+  }
+  var cands=[];
+  if(today>=0) cands.push({idx:today,m:n.min});
+  if(yday>=0&&n.min<300) cands.push({idx:yday,m:n.min+1440,live:true});
+  for(i=0;i<cands.length;i++){
+    var c=cands[i];
+    c.card=cardOf(DATA[c.idx].day);
+    c.rows=hitRows(c.card,c.m,c.live);
+    if(c.rows.length) return c;
+  }
+  if(today>=0){
+    var el=cardOf(DATA[today].day), first=el.querySelector('.tl-row');
+    return {idx:today,m:n.min,card:el,rows:first?[first]:[],up:true};
+  }
+  return null;
+}
+
+var CUR=null;
+function clearNow(){
+  var i, a=list.querySelectorAll('.tl-row.now');
+  for(i=0;i<a.length;i++){ a[i].classList.remove('now'); a[i].classList.remove('up'); }
+  var b=list.querySelectorAll('.day.today');
+  for(i=0;i<b.length;i++) b[i].classList.remove('today');
+  var c=list.querySelectorAll('.live-chip');
+  for(i=0;i<c.length;i++) c[i].parentNode.removeChild(c[i]);
+}
+function liveLine(n,r){
+  if(!LIVE) return;
+  var clock=pad(n.mo)+'/'+pad(n.dd)+' '+hhmm(n.min)+(n.preview?'（預覽）':'');
+  var h='<span class="lv-dot"></span>';
+  if(r){
+    var d=DATA[r.idx], act='', parts=[];
+    if(!r.up){
+      for(var k=0;k<r.rows.length&&k<2;k++){
+        var a=r.rows[k].querySelector('.tl-act');
+        if(a) parts.push(a.textContent.replace(/\s+/g,' ').replace(/^→\s*/,'').trim());
+      }
+      act=parts.join(' ／ ');
+      if(act.length>40) act=act.slice(0,40)+'…';
+    }
+    LIVE.className='cover-live on';
+    h+='<span>第 <b>'+d.day+'</b> 天 · 土耳其時間 <b>'+clock+'</b></span>'
+      +'<i>'+(r.up?'今天還沒開始：'+d.title:'現在：'+act)+'</i>';
+  }else{
+    var diff=Math.round((Date.UTC(TRIP_Y,DEP_MO-1,DEP_DD)-Date.UTC(n.y,n.mo-1,n.dd))/86400000);
+    LIVE.className='cover-live';
+    h+= diff>0
+      ? '<span>出發倒數 <b>'+diff+'</b> 天 · 土耳其時間 <b>'+clock+'</b></span>'
+      : '<span>旅程已結束 · 土耳其時間 <b>'+clock+'</b></span>';
+  }
+  LIVE.innerHTML=h;
+}
+function paintNow(){
+  var n=nowInfo(), r=resolveNow(n);
+  clearNow();
+  liveLine(n,r);
+  FAB.hidden=!r;
+  CUR=r;
+  if(!r) return null;
+  r.card.classList.add('today');
+  var chip=document.createElement('span');
+  chip.className='live-chip';
+  chip.textContent=r.up?'今天':'現在進行中';
+  r.card.querySelector('.day-meta').appendChild(chip);
+  for(var i=0;i<r.rows.length;i++){
+    r.rows[i].classList.add('now');
+    if(r.up) r.rows[i].classList.add('up');
+  }
+  return r;
+}
+/* 捲到現在那一列（auto=true 是進頁面時的自動捲動，使用者已經自己滑過就不搶） */
+function jumpNow(auto){
+  if(!CUR) return;
+  if(auto&&window.pageYOffset>40) return;
+  var target=CUR.rows[0]||CUR.card;
+  if(!CUR.card.classList.contains('open')) setOpen(CUR.card,true);
+  setTimeout(function(){
+    var y=window.pageYOffset+target.getBoundingClientRect().top-Math.round(window.innerHeight*0.33);
+    if(y<0) y=0;
+    try{ window.scrollTo({top:y,behavior:'smooth'}); }catch(err){ window.scrollTo(0,y); }
+  },470);
+}
+
+if(paintNow()) jumpNow(true);
+else setOpen(cardOf(2),true);            /* 旅程外：展開第一個有行程的日子 */
+
+FAB.addEventListener('click',function(){ paintNow(); jumpNow(false); });
+setInterval(paintNow,60000);             /* 每分鐘把點點往前挪，不自動捲動 */
+document.addEventListener('visibilitychange',function(){ if(!document.hidden) paintNow(); });
 </script>
 </body>
 </html>
