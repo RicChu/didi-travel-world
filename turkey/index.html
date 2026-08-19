@@ -145,24 +145,27 @@ a{color:var(--iznik-blue)}
 .cstat span{display:block;font-size:14px;color:rgba(246,239,220,.82);margin-top:3px}
 
 /* ---------- 統計明細面板 ---------- */
-.panels{background:var(--cream-deep)}
 .panel{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
-.panel-in{padding:20px 16px 22px;border-bottom:1px solid var(--line)}
-.panel-title{display:flex;align-items:baseline;gap:10px;margin:0 0 6px;font-size:17.5px;font-weight:700;color:var(--iznik-deep)}
+.panel-in{padding:20px 16px 4px}
+.panel-title{display:flex;align-items:baseline;gap:10px;margin:0 0 12px;font-size:17.5px;font-weight:700;color:var(--iznik-deep)}
 .panel-title span{margin-left:auto;font-size:14px;font-weight:400;color:var(--ink-mute)}
 .plist{list-style:none;margin:0;padding:0}
-.plist li{display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(13,59,102,.13)}
-.psub{
-  margin:16px 0 0; padding:9px 0 0; border-top:1px solid rgba(13,59,102,.13);
-  font-size:14px; font-weight:600; letter-spacing:.02em; color:var(--ink-mute);
+.plist li{
+  display:block; background:#fff; border:1px solid var(--line); border-radius:14px;
+  padding:13px 15px 14px; margin-bottom:10px;
+  box-shadow:0 1px 4px rgba(13,59,102,.06);
 }
-.psub + .plist li:first-child{border-top:0}
+.psub{
+  margin:18px 0 10px; font-size:14px; font-weight:600;
+  letter-spacing:.02em; color:var(--ink-mute);
+}
 .pk{
-  flex:0 0 auto; width:88px; line-height:1.5;
-  font-family:var(--font-d); font-size:14px; font-weight:600;
+  display:inline-block; margin-bottom:7px; padding:3px 10px; border-radius:999px;
+  background:rgba(27,75,143,.08); line-height:1.5;
+  font-family:var(--font-d); font-size:13.5px; font-weight:600;
   color:var(--iznik-blue); font-variant-numeric:tabular-nums;
 }
-.pv{flex:1 1 auto;min-width:0}
+.pv{min-width:0}
 .pv b{display:block;font-size:16.5px;font-weight:700;line-height:1.5;color:var(--ink)}
 .pv i{display:block;font-style:normal;font-size:15.5px;color:var(--ink-soft);margin-top:3px;line-height:1.65}
 .pv em{display:block;font-style:normal;font-size:14.5px;color:var(--ink-mute);margin-top:6px;line-height:1.7}
@@ -172,32 +175,15 @@ a{color:var(--iznik-blue)}
   padding-left:11px; border-left:3px solid rgba(193,74,53,.4);
 }
 .jump{
-  display:flex; gap:12px; align-items:baseline; width:100%; text-align:left;
-  background:none; border:0; border-top:1px solid rgba(13,59,102,.13);
-  padding:12px 0; font-family:inherit; font-size:16px; color:inherit; cursor:pointer;
+  display:flex; gap:11px; align-items:center; width:100%; text-align:left;
+  background:#fff; border:1px solid var(--line); border-radius:14px;
+  box-shadow:0 1px 4px rgba(13,59,102,.06);
+  padding:11px 13px; margin-bottom:9px;
+  font-family:inherit; font-size:16px; color:inherit; cursor:pointer;
 }
-.panel-title + .jump{border-top:0}
-.jump .pk{width:88px}
+.jump .pk{flex:0 0 auto;margin-bottom:0}
 .jump .jt{flex:1 1 auto;min-width:0;font-weight:500;line-height:1.55}
 .jump .jc{flex:0 0 auto;color:var(--iznik-blue);font-size:22px;line-height:1;opacity:.55}
-
-/* ---------- key notes ---------- */
-.notes{padding:22px 16px 4px}
-.notes h2{
-  font-size:19px; font-weight:700; letter-spacing:.01em; margin:0 0 14px;
-  display:flex; align-items:center; gap:10px; color:var(--iznik-deep);
-}
-.notes h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.note{
-  background:#fff; border:1px solid var(--line); border-left:4px solid var(--acc);
-  border-radius:12px; padding:14px 16px; margin-bottom:10px;
-  box-shadow:0 1px 3px rgba(13,59,102,.05);
-}
-.note b{display:block;font-size:16.5px;margin-bottom:4px;color:var(--iznik-deep)}
-.note p{margin:0;font-size:15.5px;color:var(--ink-soft);line-height:1.7}
-.note.n1{border-left-color:var(--turq)}
-.note.n2{border-left-color:var(--gold)}
-.note.n3{border-left-color:var(--terra)}
 
 /* ---------- day list ---------- */
 .days{padding:22px 16px calc(var(--safe-b) + 44px)}
@@ -260,8 +246,14 @@ a{color:var(--iznik-blue)}
 .day-wrap{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
 .day-body{padding:4px 16px 20px;border-top:1px solid var(--line)}
 .day.open .day-body{}
-.day-hero{margin:16px -16px 18px;background:var(--cream-deep)}
+.day-hero{position:relative;margin:16px -16px 18px;background:var(--cream-deep)}
 .day-hero img{width:100%;height:auto;aspect-ratio:20/9;object-fit:cover}
+.hero-cap{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:22px 16px 8px; font-size:13.5px; font-weight:500; color:#fff;
+  letter-spacing:.02em; text-shadow:0 1px 3px rgba(0,0,0,.5);
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.48) 100%);
+}
 .day-lead{
   font-size:16px; line-height:1.8; color:var(--ink-soft);
   margin:16px 0 18px; padding:14px 16px;
@@ -352,10 +344,11 @@ a{color:var(--iznik-blue)}
 }
 .foot p{margin:0;font-size:14.5px;color:var(--ink-mute);line-height:1.8}
 .foot b{font-family:var(--font-d);font-weight:600;letter-spacing:.2em;color:var(--iznik-deep);display:block;margin-bottom:6px;font-size:13.5px}
+.foot .credit{margin-top:14px;font-size:12.5px;line-height:1.75;color:rgba(102,116,140,.85)}
 
 @media (min-width:680px){
   body{font-size:18px}
-  .cover,.panels,.notes,.days{max-width:720px;margin-left:auto;margin-right:auto}
+  .cover,.panels,.days{max-width:720px;margin-left:auto;margin-right:auto}
   .cover{border-radius:0}
   .cover-stats{grid-template-columns:repeat(4,1fr)}
   .day-hero img{aspect-ratio:24/9}
@@ -397,22 +390,6 @@ a{color:var(--iznik-blue)}
 
   <section class="panels" id="panels"></section>
 
-  <section class="notes">
-    <h2>三個貫穿全程的原則</h2>
-    <div class="note n1">
-      <b>現場零決策</b>
-      <p>熱氣球停飛由業者自動延後一天，所以四個 Plan（A／B／C／D）的白天行程<strong>完全相同</strong>，唯一差別是「04:00 起床發生在哪一天」。11/02 的駱駝永遠釘在 <strong>16:00</strong>，不會因為熱氣球而動。</p>
-    </div>
-    <div class="note n2">
-      <b>行李不放在車上</b>
-      <p>Opel Crossland 是掀背車，行李會從後窗看得到。11/02 全天在房間、11/03 寄放 Grand Elite（09:00 → 15:05 領回）。<strong>11/04 是三天裡唯一行李必須在車上的一天</strong>，約 2 小時、2 個停點。</p>
-    </div>
-    <div class="note n3">
-      <b>11/02、11/03 晚上 22:00 前睡</b>
-      <p>不管當天有沒有飛，隔天都可能 04:00 起床。只有確定 Plan D（三天全滅）之後才可以放鬆睡。</p>
-    </div>
-  </section>
-
   <section class="days">
     <div class="days-head">
       <h2>每日行程</h2>
@@ -427,6 +404,10 @@ a{color:var(--iznik-blue)}
       逐日狀態、車程實測值、訂單編號與待訂清單以 <code>turkey/*.md</code> 為準。<br>
       10/31－11/04 已定版，11/05－11/09 為初版。
     </p>
+    <p class="credit">
+      每日照片皆為當日實際地點，來自 Wikimedia Commons：<br>
+      Roy Egloff（以弗所）、Slyronit（棉堡）、MusikAnimal（卡帕多奇亞熱氣球）、Bernard Gagnon（Uçhisar）、Buzancar（Sarı Han）、Grzegorz Jereczek（加拉達塔）、Dosseman（聖索菲亞、Topkapı）— CC BY-SA 2.0／3.0／4.0
+    </p>
   </footer>
 
 </div>
@@ -435,8 +416,8 @@ a{color:var(--iznik-blue)}
 
 <script>
 /* ---------------- 行程資料 ---------------- */
-var IMG='https://images.unsplash.com/photo-';
-var Q='?w=760&h=360&fit=crop&auto=format&q=72';
+/* 每日照片：img/ 目錄下的本地檔案，全部是該日實際地點（來源與授權見 img/CREDITS.md） */
+var IMG='img/';
 
 var DATA=[
 /* ========== DAY 01 · 10/30 ========== */
@@ -461,7 +442,7 @@ var DATA=[
   title:'伊斯坦堡機場 → Izmir → 以弗所',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'高',
-  img:'1527838832700-5059252407fa',
+  img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
   lead:'國際線與國內線<strong>不是同一張票</strong>，要入境、領行李、重新托運。白天<strong>不排任何一餐</strong>，只吃台灣帶的麵包——機上最後一餐約 04:30，到 Selçuk 晚餐 18:30 中間隔 14 小時，最可能的進食時機是 12:40－14:45 的車上。',
   facts:['ADB → 以弗所 1h25','托運 ≤ 15kg／手提 ≤ 8kg','以弗所冬季 08:00－18:00'],
   rows:[
@@ -487,7 +468,7 @@ var DATA=[
   title:'以弗所 → 棉堡 → 卡帕多奇亞',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 全程最硬',
-  img:'1574684891174-df6b02ab38d7',
+  img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
   lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。車程已用 Google Maps 實測值重算，所以出發時間回到 08:30，不需要早起。',
   facts:['自駕 430 km','Selçuk → 棉堡 2h20','棉堡 → ADB 2h40','⚠️ 16:05 硬性上限'],
   rows:[
@@ -512,7 +493,7 @@ var DATA=[
   title:'Göreme 核心日 · 熱氣球 + 駱駝',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'中高／高（有飛）· 中（沒飛）',
-  img:'1570939274717-7eda259b50ed',
+  img:'cappadocia-balloons.jpg', cap:'格雷梅 · 日出熱氣球',
   lead:'<strong>12:00 之後四個 Plan 完全相同</strong>，只有上午分兩種寫法。行李全天在房間。自駕 Plan A 只有 20 分，Plan B/C/D 55 分。',
   facts:['日落 17:41','黃金時段 16:41－17:41','自駕 20／55 分','行李全天在房間'],
   groups:[
@@ -552,7 +533,7 @@ var DATA=[
   title:'地下城 + 鴿子谷 · 搬家日',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'中高',
-  img:'1528360983277-13d401cdc186',
+  img:'uchisar-castle.jpg', cap:'Uçhisar Castle · 鴿子谷方向',
   lead:'路線是「<strong>南下 → 北返 → 東南收尾</strong>」：Göreme → Kaymaklı（南，第一站）→ 鴿子谷 / Uçhisar（西）→ 路過 Göreme 拿行李 → Ayvalı（東南）。車程 120 分，比舊版多 35 分——那 35 分就是「<strong>行李一整天不上車</strong>」的價碼，而且順便讓進 Gamirasu 從 16:55 提早到 15:45。',
   facts:['自駕 120 分','⚠️ 行李寄放 Grand Elite','5 段點到點路線'],
   rows:[
@@ -581,7 +562,7 @@ var DATA=[
   title:'Avanos · Sarı Han → 回伊斯坦堡',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:3, fatigueText:'中（A/B/D）· 中高（Plan C）',
-  img:'1601985705806-c70e48c6e07a',
+  img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
   lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>——12:30 退房後無處可放，Avanos + Sarı Han 共約 2 小時、2 個停點，後車廂防護要在 11/01 取車時就做完。',
   facts:['⚠️ 行李在車上 2 小時','⚠️ 15:35 離開 Sarı Han','還車待改 16:30'],
   rows:[
@@ -607,7 +588,7 @@ var DATA=[
   title:'城市暖身 · 土耳其早餐與 Karaköy',
   status:'初版', statusCls:'draft',
   fatigue:2, fatigueText:'低中',
-  img:'1524231757912-21f4fe3a7200',
+  img:'galata-tower.jpg', cap:'加拉達塔 · 從 Karaköy 望去',
   lead:'前一晚才回到伊斯坦堡，這天只做城市暖身與短距離散步，以步行、T1 電車和短程叫車銜接。目標是補齊必去清單裡的<strong>土耳其式早餐</strong>與 Karaköy / Beyoğlu 街頭美食。',
   facts:['行李全放飯店','⚠️ Boris\'in Yeri 只收現金'],
   rows:[
@@ -631,7 +612,7 @@ var DATA=[
   title:'Sultanahmet 舊城核心',
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
-  img:'1541432901042-2d8bd64b4a9b',
+  img:'hagia-sophia.jpg', cap:'聖索菲亞 · Sultanahmet 廣場',
   lead:'舊城景點密集、排隊與步行會累，但不用換城市。重點是<strong>控制排隊時間</strong>，不要把大景點和兩個市集全塞滿。Topkapi 已移到 11/08 早場短版，這天不再二選一。',
   facts:['全程步行','Grand Bazaar 固定這天','門票走官方售票系統'],
   rows:[
@@ -677,7 +658,7 @@ var DATA=[
   title:'Topkapi 早場 → 回程',
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
-  img:'1582152629442-4a864303fb96',
+  img:'topkapi-palace.jpg', cap:'Topkapı 皇宮 · 崇敬之門',
   lead:'不要冒險、不安排遠點，但保留一個有記憶點的舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，已訂 Klook <strong>13:00 送機</strong>，目標 14:30 前到 IST。11/07 已完成伴手禮採買，今天不再安排購物任務。',
   facts:['Topkapi 週日 09:00 開','⚠️ 13:00 送機不延後','不退稅'],
   rows:[
@@ -803,7 +784,11 @@ function rowsHtml(rows){
 }
 function bodyHtml(d){
   var h='';
-  if(d.img) h+='<div class="day-hero"><img loading="lazy" src="'+IMG+d.img+Q+'" alt="'+d.title+'" onerror="this.parentNode.style.display=\'none\'"></div>';
+  if(d.img) h+='<div class="day-hero">'
+    +'<img loading="lazy" decoding="async" src="'+IMG+d.img+'" alt="'+(d.cap||d.title)+'"'
+    +' onerror="this.parentNode.style.display=\'none\'">'
+    +(d.cap?'<span class="hero-cap">'+d.cap+'</span>':'')
+    +'</div>';
   if(d.lead) h+='<div class="day-lead">'+d.lead+'</div>';
   if(d.facts&&d.facts.length){
     h+='<div class="day-facts">';
