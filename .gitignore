@@ -16,3 +16,7 @@ Icon
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+### 開發用
+__pycache__/
+.playwright-mcp/

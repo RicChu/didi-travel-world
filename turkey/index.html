@@ -305,6 +305,44 @@ a{color:var(--iznik-blue)}
 .tl-tag.car{background:rgba(27,154,170,.14);color:#136b75}
 .tl-tag.lock{background:rgba(193,74,53,.12);color:#a13b28}
 
+/* 可點開說明的景點 —— 直式清單，由上到下就是步行順序 */
+.tl-spots{margin-top:10px;border:1px solid rgba(13,59,102,.14);border-radius:10px;overflow:hidden}
+.spots-head{
+  display:flex;align-items:center;gap:6px;padding:7px 11px;
+  background:rgba(13,59,102,.05);border-bottom:1px solid rgba(13,59,102,.1);
+  font-size:12.5px;letter-spacing:.04em;color:var(--ink-mute);
+}
+.spot{
+  display:flex;align-items:center;gap:9px;width:100%;
+  font:inherit;text-align:left;cursor:pointer;
+  padding:10px 11px;border:0;border-top:1px solid rgba(13,59,102,.08);
+  background:transparent;color:var(--ink);
+}
+.tl-spots .spot:first-of-type{border-top:0}
+.spot:active{background:rgba(13,59,102,.05)}
+.spot.on{background:rgba(42,109,176,.09)}
+.spot-no{
+  flex:none;width:19px;height:19px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;
+  background:var(--iznik-deep);color:#fff;
+}
+.spot-no.way{background:transparent;color:var(--ink-mute);border:1px dashed rgba(13,59,102,.35);font-size:10px}
+.spot.on .spot-no{background:var(--terra)}
+.spot-txt{flex:1;min-width:0;font-size:14.5px;line-height:1.45}
+.spot-en{display:block;font-size:11.5px;color:var(--ink-mute);letter-spacing:.01em}
+.spot-i{flex:none;font-size:12px;color:var(--ink-mute)}
+.spot.on .spot-i{color:var(--terra)}
+.spot-fig{display:block;aspect-ratio:16/9;object-fit:cover;
+  margin:0 0 10px -28px;width:calc(100% + 28px);   /* 抵銷面板左內距，讓圖齊左 */
+  border-radius:8px;background:rgba(13,59,102,.06)}
+.spot-panel{
+  padding:11px 13px 13px 41px;
+  background:var(--cream);border-top:1px solid rgba(13,59,102,.1);
+  font-size:14px;line-height:1.8;color:var(--ink-soft);
+}
+.spot-panel[hidden]{display:none}
+
 /* 點到點 Google Maps 路線 */
 .tl-maps{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
 .tl-map{
@@ -391,7 +429,7 @@ a{color:var(--iznik-blue)}
       <h1>Türkiye<em>土耳其 11 日</em></h1>
       <p class="cover-dates">
         2026 / 10 / 30（五）－ 11 / 09（一）
-        <span>安安 TK025 桃園出發 · 豬豬 TK055 樟宜出發</span>
+        <span>安安桃園出發 · 豬豬樟宜出發</span>
       </p>
       <p class="cover-live" id="coverLive"></p>
       <div class="cover-stats">
@@ -421,7 +459,7 @@ a{color:var(--iznik-blue)}
     </p>
     <p class="credit">
       每日照片皆為當日實際地點，來自 Wikimedia Commons：<br>
-      Roy Egloff（以弗所）、Slyronit（棉堡）、MusikAnimal（卡帕多奇亞熱氣球）、Bernard Gagnon（Uçhisar）、Buzancar（Sarı Han）、Grzegorz Jereczek（加拉達塔）、Dosseman（聖索菲亞、Topkapı）— CC BY-SA 2.0／3.0／4.0
+      Roy Egloff、Furkan Akkurt、Dosseman、Yair Haklai、Radosław Botev（以弗所）、Slyronit（棉堡）、MusikAnimal（卡帕多奇亞熱氣球）、Bernard Gagnon（Uçhisar）、Buzancar（Sarı Han）、Grzegorz Jereczek（加拉達塔）、Dosseman（聖索菲亞、Topkapı）— CC BY 3.0 pl／CC BY-SA 2.0／3.0／4.0
     </p>
   </footer>
 
@@ -518,14 +556,13 @@ var DATA=[
 /* ========== DAY 01 · 10/30 ========== */
 {
   day:1, date:'10/30', week:'五', theme:'gold',
-  title:'出發日 · 桃園 / 樟宜 → 伊斯坦堡',
+  title:'出發日',
   status:'無行程可排', statusCls:'none',
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
-  facts:['飛行 11.5～12.7 小時','手提袋已裝進托運箱最上層'],
   rows:[
-    {time:'22:00', act:'安安 TK025 桃園 T2 → IST', note:'訂位代號 UQE3KZ，10/31 05:40 抵達伊斯坦堡。'},
-    {time:'23:15', act:'豬豬 TK055 樟宜 T1 → IST', note:'10/31 05:50 抵達，兩人在入境後的公共區域集合。'}
+    {time:'22:00', act:'安安 TK025 TPE T2 → IST', note:'飛行 13 小時，05:40 抵達'},
+    {time:'23:15', act:'豬豬 TK055 SIN T1 → IST', note:'飛行 12 小時，05:50 抵達'}
   ],
   stay:{name:'機上', note:'國際線托運 23kg／隔天國內線 15kg。手提袋出發前裝好、秤過。'}
 },
@@ -533,41 +570,42 @@ var DATA=[
 /* ========== DAY 02 · 10/31 ========== */
 {
   day:2, date:'10/31', week:'六', theme:'terra',
-  title:'伊斯坦堡機場 → Izmir → 以弗所',
+  title:'伊斯坦堡機場 → 以弗所',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'高',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
-  lead:'國際線與國內線<strong>不是同一張票</strong>，要入境、領行李、重新托運。白天<strong>不排任何一餐</strong>，只吃台灣帶的麵包，最可能的進食時機是 12:40－14:40 的車上。',
-  facts:['ADB → Pikan 1h20','托運 ≤ 15kg／手提 ≤ 8kg','以弗所冬季 08:00－18:00'],
+  lead:'國內線轉機、處理租車手續及開車自駕至以弗所',
   rows:[
-    {time:'05:50<br>–08:15', act:'IST 入境、領行李、抽出手提袋、與豬豬集合'},
-    {time:'08:15<br>–09:30', act:'重新托運 + 國內線安檢', note:'櫃台 10:15 關。托運 ≤ 15kg、手提 ≤ 8kg。', tags:['⚠️ 10:15 櫃台關']},
-    {time:'09:30<br>–10:30', act:'候機緩衝'},
-    {time:'11:00<br>–12:10', act:'TK2320 IST → ADB', note:'訂位代號 TB5RZM。'},
-    {time:'12:10<br>–12:40', act:'ADB 領行李'},
-    {time:'12:40<br>–13:20', act:'AVEC 取車、驗車', note:'Rentalcars 確認號 670245222。豬豬為主駕駛，取車時確認後車廂遮蔽板、保險自負額、滿油規則。', tags:['car:租車 Day 1']},
-    {time:'13:20<br>–14:40', act:'ADB → Pikan Ephesus 飯店', note:'車程 1h20、約 63 km。這段車上是今天最可能吃東西的時候。', tags:['car:自駕 1h20','eat:車上吃麵包'], map:drv(P.adb,P.pikan)},
-    {time:'14:40<br>–15:00', act:'Pikan Ephesus 入住、放行李', note:'入住 15:00。<strong>大行李留飯店</strong>，只帶小包去以弗所。'},
-    {time:'15:00<br>–15:10', act:'→ 以弗所考古遺址 Ephesus Archaeological Site', note:'車程 10 分、3.7 km。停車場在遺址入口旁。', tags:['car:10 分'], map:drv(P.pikan,P.ephSite)},
-    {time:'15:10<br>–17:40', act:'以弗所考古遺址 Ephesus Archaeological Site', note:'停好車後全程步行：<strong>大劇院 Great Theatre → 塞爾蘇斯圖書館 Library of Celsus → 哈德良神廟 Temple of Hadrian → 音樂廳 Odeon</strong>，走完回到停車處。串起這幾點的主街是克里特斯街 Curetes Street。冬季 18:00 關門，17:40 開始往出口移動。停車費與門票現場付。', hi:true, tags:['⚠️ 18:00 關門'], map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'17:40<br>–17:50', act:'→ 回 Pikan Ephesus', note:'車程 10 分、3.5 km。', tags:['car:10 分'], map:drv(P.ephSite,P.pikan)},
-    {time:'18:30<br>–20:00', act:'Selçuk 街上晚餐、早休', note:'今天第一頓正餐，走飯店附近的 Selçuk 街上。睡前把<strong>泳衣、拖鞋、小毛巾、防水袋</strong>從大行李拿出來放隨身小包，隔天棉堡泡澡要用。', tags:['eat:晚餐']},
-    {time:'備案', act:'以弗所夜間場 19:00－22:30', note:'週三～六開放，<strong>但只到 2026/11/02</strong>，10/31 剛好是週六。白天若被延誤吃掉，這是最後手段，需另購票。'}
+    {time:'05:50<br>–12:10', act:'國內線轉機 IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
+    {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
+    {time:'13:20<br>–14:40', act:'ADB Airport → 飯店寄放行李', tags:['car:🚘 50 min'], map:drv(P.adb,P.pikan)},
+    {time:'15:00<br>–15:10', act:'→ 前往遺址', note:'停車場在遺址入口旁', tags:['car:🚘 10 min'], map:drv(P.pikan,P.ephSite)},
+    {time:'15:10<br>–17:40', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 冬季 18:00 關門'],
+     spots:[
+       {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
+       {zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
+       {zh:'哈德良神廟', en:'Temple of Hadrian', img:'ephesus-temple-hadrian.jpg', d:'西元 2 世紀的科林斯式神廟，4 世紀整修過。門楣與拱心石的浮雕保存得很完整，是全城細節最好看的一處。'},
+       {zh:'音樂廳', en:'Odeon', img:'ephesus-odeon.jpg', d:'約 1,500 席的小型半圓劇場，用於戲劇與音樂演出。靠近上入口，是走回停車處前的最後一站。'},
+       {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
+     ],
+     map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
+    {time:'17:40<br>–17:50', act:'→ 回 Pikan Ephesus', tags:['car:🚘 10 min'], map:drv(P.ephSite,P.pikan)},
+    {time:'18:30<br>–20:00', act:'Selçuk 街上覓食'},
   ],
-  stay:{name:'Pikan Ephesus（Selçuk）', note:'Agoda 訂單 1734845536 · 14:40 抵達、入住 15:00／退房 11:00 · 大行李留飯店，只帶小包去以弗所'}
+  stay:{name:'Pikan Ephesus（Selçuk）', note:'Agoda 1734845536，入住 15:00／退房 11:00'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
 {
   day:3, date:'11/01', week:'日', theme:'turq',
   title:'以弗所 → 棉堡 → 卡帕多奇亞',
-  status:'✅ 已定版', statusCls:'fixed',
+  status:'✅ 待微調', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 全程最硬',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
   lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。08:30 出發。',
   facts:['自駕 430 km','Selçuk → 棉堡 2h20','棉堡 → ADB 2h40','⚠️ 16:05 硬性上限'],
   rows:[
-    {time:'08:00<br>–08:30', act:'Pikan Ephesus 退房', note:'泳衣、拖鞋、小毛巾、防水袋放<strong>隨身小包</strong>，不要塞後車廂深處。'},
+    {time:'08:00<br>–08:30', act:'退房', note:'泳衣、拖鞋、小毛巾、防水袋放<strong>隨身小包</strong>，不要塞後車廂深處。'},
     {time:'08:30<br>–10:50', act:'Selçuk → Pamukkale', note:'採用 2h20（實測 1h55）、198 km。', tags:['car:自駕 2h20'], map:drv(P.pikan,P.pamukkale)},
     {time:'10:50<br>–11:10', act:'吃麵包乾糧', note:'<strong>不在 Pamukkale 村吃正餐。</strong>', tags:['eat:乾糧']},
     {time:'11:10<br>–14:00', act:'棉堡石灰棚 Pamukkale Travertines + Hierapolis 劇場 Hierapolis Theatre', note:'2h50。部分區域要赤腳走。若時間壓力大，壓縮石灰棚拍照或 Hierapolis 散步。', map:wlk(P.pamukkale,P.hTheatre,[P.hierapolis])},
@@ -586,7 +624,7 @@ var DATA=[
 {
   day:4, date:'11/02', week:'一', theme:'gold',
   title:'Göreme 核心日 · 熱氣球 + 駱駝',
-  status:'✅ 已定版', statusCls:'fixed',
+  status:'✅ 待微調', statusCls:'fixed',
   fatigue:4, fatigueText:'中高／高（有飛）· 中（沒飛）',
   img:'cappadocia-balloons.jpg', cap:'格雷梅 · 日出熱氣球',
   lead:'<strong>12:00 之後四個 Plan 完全相同</strong>，只有上午分兩種寫法。行李全天在房間。自駕 Plan A 只有 20 分，Plan B/C/D 55 分。',
@@ -626,7 +664,7 @@ var DATA=[
 {
   day:5, date:'11/03', week:'二', theme:'turq',
   title:'地下城 + 鴿子谷 · 搬家日',
-  status:'✅ 已定版', statusCls:'fixed',
+  status:'✅ 待微調', statusCls:'fixed',
   fatigue:4, fatigueText:'中高',
   img:'uchisar-castle.jpg', cap:'Uçhisar Castle · 鴿子谷方向',
   lead:'路線是「<strong>南下 → 北返 → 東南收尾</strong>」：Göreme → Kaymaklı（南，第一站）→ 鴿子谷 / Uçhisar（西）→ 路過 Göreme 拿行李 → Ayvalı（東南）。車程 120 分，<strong>行李一整天不上車</strong>，15:45 進 Gamirasu。',
@@ -655,7 +693,7 @@ var DATA=[
 {
   day:6, date:'11/04', week:'三', theme:'terra',
   title:'Avanos · Sarı Han → 回伊斯坦堡',
-  status:'✅ 已定版', statusCls:'fixed',
+  status:'✅ 待微調', statusCls:'fixed',
   fatigue:3, fatigueText:'中（A/B/D）· 中高（Plan C）',
   img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
   lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>，Avanos + Sarı Han 共約 2 小時、2 個停點。',
@@ -880,6 +918,27 @@ function mapsHtml(m){
   }
   return h+'</div>';
 }
+function escAttr(t){
+  return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+/* r.spots：[{zh, en, d, img, way}]，由上到下就是步行順序；way:true 表示沿路經過、不算一站 */
+function spotsHtml(list){
+  if(!list||!list.length) return '';
+  var h='<div class="tl-spots"><div class="spots-head">\uD83D\uDEB6 步行順序 · 點景點看說明</div>', n=0;
+  for(var i=0;i<list.length;i++){
+    var s=list[i], label;
+    if(s.way){ label='<span class="spot-no way">\u00B7</span>'; }
+    else { n++; label='<span class="spot-no">'+n+'</span>'; }
+    h+='<button type="button" class="spot" data-zh="'+escAttr(s.zh)+'"'
+      +' data-img="'+escAttr(s.img||'')+'" data-d="'+escAttr(s.d)+'">'
+      +label
+      +'<span class="spot-txt">'+s.zh
+      +(s.way?'<span class="spot-en">'+(s.en||'')+' \u00B7 沿路經過</span>'
+             :(s.en?'<span class="spot-en">'+s.en+'</span>':''))
+      +'</span><span class="spot-i">\u24D8</span></button>';
+  }
+  return h+'<div class="spot-panel" hidden></div></div>';
+}
 function rowsHtml(rows){
   var h='<ul class="tl">';
   for(var i=0;i<rows.length;i++){
@@ -889,6 +948,7 @@ function rowsHtml(rows){
       +'<div class="tl-act">'+r.act+'</div>'
       +(r.note?'<div class="tl-note">'+r.note+'</div>':'')
       +tagsHtml(r.tags)
+      +spotsHtml(r.spots)
       +mapsHtml(r.map)
       +'</li>';
   }
@@ -973,6 +1033,27 @@ function setOpen(day,open){
     day.classList.remove('open');
   }
 }
+/* 景點說明：同一組一次只開一個，面板插在被點的那一項下面 */
+list.addEventListener('click',function(e){
+  var btn=e.target.closest?e.target.closest('.spot'):null;
+  if(!btn) return;
+  e.stopPropagation();
+  var box=btn.closest('.tl-spots'), panel=box.querySelector('.spot-panel');
+  var same=btn.classList.contains('on');
+  var all=box.querySelectorAll('.spot');
+  for(var i=0;i<all.length;i++) all[i].classList.remove('on');
+  if(same){ panel.hidden=true; return; }
+  btn.classList.add('on');
+  var im=btn.getAttribute('data-img');
+  panel.innerHTML=(im?'<img class="spot-fig" loading="lazy" decoding="async" src="'+IMG+im
+      +'" alt="'+escAttr(btn.getAttribute('data-zh'))+'" onerror="this.style.display=\'none\'">':'')
+    +btn.getAttribute('data-d');
+  panel.hidden=false;
+  btn.parentNode.insertBefore(panel, btn.nextSibling);
+  var wrap=btn.closest('.day-wrap');
+  if(wrap) wrap.style.maxHeight='none';
+});
+
 list.addEventListener('click',function(e){
   var head=e.target.closest?e.target.closest('.day-head'):null;
   if(!head) return;

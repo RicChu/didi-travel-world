@@ -199,23 +199,58 @@ function sync(){
   setStat(d ? '未儲存' : '已同步', d ? 'dirty' : 'ok');
 }
 
-fetch('/__raw?f=' + encodeURIComponent(FILE))
-  .then(function(r){ return r.text(); })
-  .then(function(t){ src.value = saved = t; sync(); })
-  .catch(function(e){ setStat('讀取失敗', 'dirty'); hint.textContent = String(e); });
+var stamp = null;                     /* 載入當下的檔案指紋 */
 
+function load(){
+  return fetch('/__raw?f=' + encodeURIComponent(FILE))
+    .then(function(r){ stamp = r.headers.get('X-Stamp'); return r.text(); })
+    .then(function(t){ src.value = saved = t; sync(); })
+    .catch(function(e){ setStat('讀取失敗', 'dirty'); hint.textContent = String(e); });
+}
+load();
+
+/* 檔案在外部被改過（例如 Claude 動了它）就提醒，不要等到存檔才發現 */
+function watchOutside(){
+  if (isDirty()) return;              /* 自己有未存的修改時不自動覆蓋 */
+  fetch('/__stamp?f=' + encodeURIComponent(FILE), { cache: 'no-store' })
+    .then(function(r){ return r.text(); })
+    .then(function(now){
+      if (now && stamp && now !== stamp) {
+        hint.textContent = '檔案在外部被改過，已自動重新載入';
+        load();
+      }
+    }).catch(function(){});
+}
+setInterval(watchOutside, 2000);
+
+var pendingForce = false;
 function save(){
   if (!isDirty()) return;
-  var body = src.value;
+  var body = src.value, force = pendingForce;
+  pendingForce = false;
   setStat('儲存中…');
   fetch('/__save', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ f: FILE, text: body })
+    body: JSON.stringify({ f: FILE, text: body, stamp: stamp, force: force })
   }).then(function(r){ return r.json(); })
     .then(function(res){
-      if (res.ok) { saved = body; sync(); setStat('已儲存', 'ok'); }
-      else { setStat('失敗', 'dirty'); hint.textContent = '儲存失敗：' + (res.error || '?'); }
+      if (res.ok) { saved = body; stamp = res.stamp; sync(); setStat('已儲存', 'ok'); return; }
+      if (res.stale) {
+        setStat('有衝突', 'dirty');
+        hint.textContent = '檔案在你編輯的期間被改過。按「重新載入」拿最新版（你這邊未存的修改會消失），'
+          + '或按「強制覆蓋」用你這份蓋掉。';
+        if (confirm('這個檔案在你編輯的期間被別人／其他程式改過了。\n\n'
+                  + '按「確定」＝重新載入最新版（丟掉你未儲存的修改）\n'
+                  + '按「取消」＝保留你的版本，之後可再按一次儲存強制覆蓋')) {
+          load(); setStat('已重新載入', 'ok');
+        } else {
+          pendingForce = true;
+          hint.textContent = '已保留你的版本。再按一次儲存就會強制覆蓋。';
+        }
+        return;
+      }
+      setStat('失敗', 'dirty'); hint.textContent = '儲存失敗：' + (res.error || '?');
     })
     .catch(function(e){ setStat('失敗', 'dirty'); hint.textContent = '儲存失敗：' + e; });
 }
@@ -321,6 +356,11 @@ def editable_files():
     return sorted(out)
 
 
+def file_stamp(fp: Path) -> str:
+    """檔案內容的指紋，用來偵測「載入之後有沒有被別人改過」。"""
+    return hashlib.sha1(fp.read_bytes()).hexdigest()
+
+
 def resolve_editable(rel: str) -> Path:
     """把相對路徑解成 ROOT 底下的實體檔案，擋掉跳出專案目錄與不該編輯的檔案。"""
     fp = (ROOT / rel.lstrip("/")).resolve()
@@ -359,12 +399,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             return
 
+        if path == "/__stamp":
+            try:
+                fp = resolve_editable(qs.get("f", [DEFAULT_FILE])[0])
+            except ValueError as exc:
+                return self._send(str(exc).encode(), "text/plain; charset=utf-8", 400)
+            return self._send(file_stamp(fp).encode(), "text/plain; charset=utf-8")
+
         if path == "/__raw":
             try:
                 fp = resolve_editable(qs.get("f", [DEFAULT_FILE])[0])
             except ValueError as exc:
                 return self._send(str(exc).encode(), "text/plain; charset=utf-8", 400)
-            return self._send(fp.read_bytes(), "text/plain; charset=utf-8")
+            data = fp.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header("Cache-Control", "no-store")
+            # 存檔時拿這個指紋比對，檔案在編輯期間被改過就擋下來，不讓覆蓋
+            self.send_header("X-Stamp", file_stamp(fp))
+            self.end_headers()
+            self.wfile.write(data)
+            return
 
         if path == "/__edit":
             rel = qs.get("f", [DEFAULT_FILE])[0].lstrip("/")
@@ -405,17 +461,23 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             text = payload["text"]
             if not isinstance(text, str):
                 raise ValueError("內容不是文字")
+            sent = payload.get("stamp")
+            now = file_stamp(fp)
+            if sent and sent != now and not payload.get("force"):
+                print("  ⚠️  擋下覆蓋：%s 在編輯期間被改過" % payload["f"], flush=True)
+                return self._json({"ok": False, "stale": True,
+                                   "error": "這個檔案在你編輯的期間被改過了"}, 409)
             fp.write_text(text, encoding="utf-8")
         except Exception as exc:  # noqa: BLE001
             return self._json({"ok": False, "error": str(exc)}, 400)
         print("  ↳ 已儲存 %s（%d 字）" % (payload["f"], len(text)), flush=True)
-        return self._json({"ok": True})
+        return self._json({"ok": True, "stamp": file_stamp(fp)})
 
     def log_message(self, fmt, *args):
         # send_error() 會傳 HTTPStatus 進來，不是字串，所以一定要先轉成 str，
         # 否則下面的 in 運算會丟 TypeError、把整個連線弄斷（瀏覽器看到 ERR_EMPTY_RESPONSE）
         first = str(args[0]) if args else ""
-        if "/__ver" in first or "/favicon.ico" in first:
+        if "/__ver" in first or "/__stamp" in first or "/favicon.ico" in first:
             return
         super().log_message(fmt, *args)
 

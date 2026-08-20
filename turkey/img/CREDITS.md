@@ -16,4 +16,16 @@
 
 10/30（純飛行）、11/07（土耳其浴 / 生活街區）、11/09（回家）沒有配圖。
 
+## 景點說明用的照片
+
+行程頁點開景點時顯示，裁切成 800×450（16:9）。
+
+| 檔案 | 景點 | 原始檔名 | 作者 | 授權 |
+|------|------|----------|------|------|
+| `ephesus-great-theatre.jpg` | 以弗所 大劇院 | `Great Theatre of Ephesus 2024.jpg` | Furkan Akkurt | CC BY-SA 4.0 |
+| `ephesus-celsus-library.jpg` | 以弗所 塞爾蘇斯圖書館（與 10/31 日照共用） | 同上表 | Roy Egloff | CC BY-SA 4.0 |
+| `ephesus-temple-hadrian.jpg` | 以弗所 哈德良神廟 | `Ephesus Temple of Hadrian Front 1.jpg` | Dosseman | CC BY-SA 4.0 |
+| `ephesus-odeon.jpg` | 以弗所 音樂廳 Odeon | `Odeon (Ephesus).jpg` | Yair Haklai | CC BY-SA 4.0 |
+| `ephesus-curetes-street.jpg` | 以弗所 克里特斯街 | `Curetes Street in Ephesus (1).jpg` | Radosław Botev | CC BY 3.0 pl |
+
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
