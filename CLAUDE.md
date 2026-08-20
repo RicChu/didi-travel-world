@@ -83,9 +83,12 @@ didi-travel-world/
 要一邊看畫面一邊改原始檔時：
 
 ```
-python3 turkey/scripts/dev.py                 # 自動開 http://localhost:8787/turkey/index.html
+python3 turkey/scripts/dev.py                 # 自動開瀏覽器
 python3 turkey/scripts/dev.py --autocommit    # 存檔停 3 秒後自動 git commit
 ```
+
+預設 port 8770，被佔用時自動往上找下一個可用的。**網址看啟動訊息印出的那一行**，
+不要憑記憶輸入 port——這台機器上有其他服務會佔住常見 port。
 
 改任何 `.html` / `.md` / 圖片存檔後瀏覽器會自動重新載入，並**保留原本展開的日卡與捲動位置**，
 所以可以停在某一天邊改邊看。重新載入用的程式碼是伺服器即時注入的，**不會寫進檔案**，隨時可以直接 commit。

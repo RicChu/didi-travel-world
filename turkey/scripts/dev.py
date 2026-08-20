@@ -4,9 +4,12 @@
 
 用法：
 
-    python3 turkey/scripts/dev.py                 # 開 http://localhost:8787/turkey/index.html
+    python3 turkey/scripts/dev.py                 # 自動開瀏覽器
     python3 turkey/scripts/dev.py --autocommit    # 另外：每次存檔停 3 秒後自動 git commit
     python3 turkey/scripts/dev.py --port 9000 --no-open
+
+預設 port 8770；若被佔用會自動往上找下一個可用的，並在啟動訊息裡印出實際用的 port
+（**要看啟動訊息印的網址，不要憑記憶輸入 port**）。
 
 重新載入時會保留「原本展開的日卡」與「捲動位置」，所以可以停在某一天邊改邊看。
 
@@ -104,6 +107,21 @@ def version() -> str:
     return h.hexdigest()
 
 
+def serve_on_free_port(handler, first_port: int, tries: int = 25):
+    """從 first_port 開始找一個能綁的 port。回傳 (server, port, skipped)。"""
+    skipped = []
+    for port in range(first_port, first_port + tries):
+        try:
+            return http.server.ThreadingHTTPServer(("127.0.0.1", port), handler), port, skipped
+        except OSError as exc:
+            if exc.errno not in (48, 98):   # EADDRINUSE (macOS / Linux)
+                raise
+            skipped.append(port)
+    raise SystemExit(
+        "  %d～%d 全部被佔用，用 --port 指定其他 port" % (first_port, first_port + tries - 1)
+    )
+
+
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):  # noqa: N802
         if self.path.split("?")[0] == "/__ver":
@@ -173,12 +191,12 @@ def autocommit_loop(quiet_seconds: float = 3.0):
             ["git", "-C", str(ROOT), "commit", "-m", "chore: 手動編輯 %s" % stamp],
             check=False, capture_output=True,
         )
-        print("  ↳ 已 commit：chore: 手動編輯 %s" % stamp)
+        print("  ↳ 已 commit：chore: 手動編輯 %s" % stamp, flush=True)
 
 
 def main():
     ap = argparse.ArgumentParser(description="改檔存檔即自動重新載入的本機預覽伺服器")
-    ap.add_argument("--port", type=int, default=8787)
+    ap.add_argument("--port", type=int, default=8770, help="預設 8770；被佔用時自動往上找")
     ap.add_argument("--page", default="turkey/index.html")
     ap.add_argument("--autocommit", action="store_true", help="存檔停 3 秒後自動 git commit")
     ap.add_argument("--no-open", action="store_true", help="不要自動開瀏覽器")
@@ -187,14 +205,16 @@ def main():
     if args.autocommit:
         threading.Thread(target=autocommit_loop, daemon=True).start()
 
-    url = "http://localhost:%d/%s" % (args.port, args.page.lstrip("/"))
     handler = functools.partial(Handler, directory=str(ROOT))
-    srv = http.server.ThreadingHTTPServer(("127.0.0.1", args.port), handler)
+    srv, port, skipped = serve_on_free_port(handler, args.port)
+    url = "http://localhost:%d/%s" % (port, args.page.lstrip("/"))
 
-    print("  預覽：%s" % url)
-    print("  監看：%s" % ROOT)
-    print("  自動 commit：%s" % ("開" if args.autocommit else "關（用 --autocommit 打開）"))
-    print("  Ctrl+C 結束\n")
+    if skipped:
+        print("  ⚠️  %s 已被其他程式佔用，改用 %d" % ("、".join(str(x) for x in skipped), port))
+    print("  監看：%s" % ROOT, flush=True)
+    print("  自動 commit：%s" % ("開" if args.autocommit else "關（用 --autocommit 打開）"), flush=True)
+    print("  Ctrl+C 結束", flush=True)
+    print("\n  ▶ 預覽：%s\n" % url, flush=True)
     if not args.no_open:
         threading.Timer(0.6, webbrowser.open, args=(url,)).start()
     try:
