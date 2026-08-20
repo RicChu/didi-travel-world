@@ -540,10 +540,10 @@ var DATA=[
   lead:'國際線與國內線<strong>不是同一張票</strong>，要入境、領行李、重新托運。白天<strong>不排任何一餐</strong>，只吃台灣帶的麵包，最可能的進食時機是 12:40－14:40 的車上。',
   facts:['ADB → Pikan 1h20','托運 ≤ 15kg／手提 ≤ 8kg','以弗所冬季 08:00－18:00'],
   rows:[
-    {time:'05:50<br>–08:15', act:'IST 入境、領行李、抽出手提袋、與豬豬集合', note:'領行李時直接打開托運箱，把預裝好的手提袋抽出來，約 5 分鐘。整段預留 2～2.5 小時。'},
+    {time:'05:50<br>–08:15', act:'IST 入境、領行李、抽出手提袋、與豬豬集合'},
     {time:'08:15<br>–09:30', act:'重新托運 + 國內線安檢', note:'櫃台 10:15 關。托運 ≤ 15kg、手提 ≤ 8kg。', tags:['⚠️ 10:15 櫃台關']},
-    {time:'09:30<br>–10:30', act:'候機緩衝', note:'<strong>不排用餐、不進貴賓室</strong>。前面超時就吃掉這格；有空才吃自備麵包。'},
-    {time:'11:00<br>–12:10', act:'TK2320 IST → ADB', note:'訂位代號 TB5RZM，已開票。'},
+    {time:'09:30<br>–10:30', act:'候機緩衝'},
+    {time:'11:00<br>–12:10', act:'TK2320 IST → ADB', note:'訂位代號 TB5RZM。'},
     {time:'12:10<br>–12:40', act:'ADB 領行李'},
     {time:'12:40<br>–13:20', act:'AVEC 取車、驗車', note:'Rentalcars 確認號 670245222。豬豬為主駕駛，取車時確認後車廂遮蔽板、保險自負額、滿油規則。', tags:['car:租車 Day 1']},
     {time:'13:20<br>–14:40', act:'ADB → Pikan Ephesus 飯店', note:'車程 1h20、約 63 km。這段車上是今天最可能吃東西的時候。', tags:['car:自駕 1h20','eat:車上吃麵包'], map:drv(P.adb,P.pikan)},
@@ -669,7 +669,7 @@ var DATA=[
     {time:'15:20<br>–16:25', act:'→ Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:35 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr)},
     {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。'},
     {time:'16:45<br>起', act:'報到、安檢、候機'},
-    {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM，已開票。'},
+    {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM。'},
     {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。晚上避免拖行李搭多段大眾交通。', hi:true},
     {time:'Plan C', act:'熱氣球補飛在今天', note:'04:00 起床、04:40 Discovery Balloons 到 <strong>Gamirasu 接（已向業者確認可接 Ayvalı）</strong>、06:00－07:30 飛、07:30－09:00 送回，09:00 接回主線。累的話跳過 Avanos：Gamirasu → Sarı Han 直達 40 分，15:15 就能到 ASR。', map:[['跳過 Avanos · Gamirasu → Sarı Han',drv(P.gamirasu,P.sarihan)]]},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
@@ -808,23 +808,20 @@ var PANELS={
        i:'安安 TK025 22:00 桃園 T2 → 10/31 05:40 IST<br>豬豬 TK055 23:15 樟宜 T1 → 10/31 05:50 IST',
        em:'安安訂位代號 UQE3KZ · 國際線托運 23kg／手提 8kg／個人物品 4kg · 08:15 在入境後公共區域集合'},
       {k:'10/31', b:'TK2320 · IST → ADB（Izmir）', i:'11:00 → 12:10，1h10',
-       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg／手提 8kg',
-       w:'與國際線非同張票 → 要入境、領行李、重新托運；報到櫃台 10:15 關'},
+       em:'土耳其航空，訂位代號 TB5RZM · 托運 15kg／手提 8kg',
+       w:'入境、領行李、重新托運；報到櫃台 10:15 關'},
       {k:'11/01', b:'SunExpress · ADB → ASR（Kayseri）', i:'21:00 → 22:35，1h35 直飛',
-       em:'Booking number D438G7 · 18:15 就到 ADB，105 分鐘是全天最大的緩衝'},
+       em:'訂位代號 D438G7 '},
       {k:'11/04', b:'TK2017 · ASR → IST', i:'18:40 → 20:20，1h40',
-       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg'},
+       em:'土耳其航空，訂位代號 TB5RZM · EcoFly 托運 15kg'},
       {k:'11/08', b:'回程 · 伊斯坦堡 → 台北／新加坡',
        i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
-       em:'目標 14:30 前抵達 IST，預留 2.5–3 小時報到安檢 · 不退稅'}
+       em:'目標 14:30 前抵達 IST'}
     ],
     sub:'機場接送（Klook，兩段皆已訂）',
     subRows:[
-      {k:'11/04', b:'接機 · IST → Basilissis Hotel', i:'20:20 抵達後上車',
-       em:'經濟車型 4 人座、2 位乘客，實付 NT$1,620 · 晚上避免拖行李搭多段大眾交通 · 確認司機會合點與聯絡方式'},
-      {k:'11/08', b:'送機 · Basilissis Hotel → IST', i:'13:00 出發，車程 45–90 分',
-       em:'經濟車型 4 人座、2 位乘客，實付 NT$1,620',
-       w:'13:00 是可接受上限，不再往後延'}
+      {k:'11/04', b:'接機 · IST → Basilissis Hotel', i:'20:20 抵達後上車'},
+      {k:'11/08', b:'送機 · Basilissis Hotel → IST', i:'13:00 出發，車程 45–90 分'}
     ]
   },
   car:{

@@ -78,6 +78,18 @@ didi-travel-world/
 - **每一段「自己移動」的點到點都要附 Google Maps 連結**：行程資料的 row 加 `map` 欄位（字串網址，或 `[[標籤, 網址], ...]` 表示多個選項），由 `drv()` / `wlk()` / `trn()` / `pin()` 產生，座標與地名集中在 `P` 物件。標籤依 `travelmode` 自動帶入「自駕路線 / 步行路線 / 大眾運輸路線」。
   **不附連結的情況**：飛機段、司機接送（Klook 機場接送、熱氣球與駱駝的飯店接送）、以及各自出發與抵達的家鄉機場
 
+## 本機編輯與預覽
+
+要一邊看畫面一邊改原始檔時：
+
+```
+python3 turkey/scripts/dev.py                 # 自動開 http://localhost:8787/turkey/index.html
+python3 turkey/scripts/dev.py --autocommit    # 存檔停 3 秒後自動 git commit
+```
+
+改任何 `.html` / `.md` / 圖片存檔後瀏覽器會自動重新載入，並**保留原本展開的日卡與捲動位置**，
+所以可以停在某一天邊改邊看。重新載入用的程式碼是伺服器即時注入的，**不會寫進檔案**，隨時可以直接 commit。
+
 ## GitHub
 
 - Repo: `https://github.com/RicChu/didi-travel-world`
