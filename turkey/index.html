@@ -459,7 +459,7 @@ a{color:var(--iznik-blue)}
     </p>
     <p class="credit">
       每日照片皆為當日實際地點，來自 Wikimedia Commons：<br>
-      Roy Egloff、Furkan Akkurt、Dosseman、Yair Haklai、Radosław Botev（以弗所）、Slyronit（棉堡）、MusikAnimal（卡帕多奇亞熱氣球）、Bernard Gagnon（Uçhisar）、Buzancar（Sarı Han）、Grzegorz Jereczek（加拉達塔）、Dosseman（聖索菲亞、Topkapı）— CC BY 3.0 pl／CC BY-SA 2.0／3.0／4.0
+      Roy Egloff、Furkan Akkurt、Dosseman、Yair Haklai、Radosław Botev（以弗所）、Slyronit、Gargarapalvin、shankar s.（棉堡）、MusikAnimal（卡帕多奇亞熱氣球）、Bernard Gagnon（Uçhisar）、Buzancar（Sarı Han）、Grzegorz Jereczek（加拉達塔）、Dosseman（聖索菲亞、Topkapı）— CC BY 3.0 pl／CC BY-SA 2.0／3.0／4.0
     </p>
   </footer>
 
@@ -505,11 +505,13 @@ var P={
   celsus:'37.9392052,27.3409200',   /* 塞爾蘇斯圖書館 Library of Celsus */
   hadrian:'37.9385230,27.3420025',  /* 哈德良神廟 Temple of Hadrian */
   odeon:'37.9368337,27.3449823',    /* 音樂廳 Odeon */
-  /* 棉堡 · Pamukkale */
+  /* 棉堡 · Pamukkale（座標取自使用者 2026-08-20 提供的 Google Maps 路線） */
+  teras:'37.9189881,29.1210713',    /* Teras restaurant — 早餐 + 停車 */
+  pamEast:'37.9260000,29.1180000',  /* 石灰棚東觀景台 Travertines East viewpoint */
   pamukkale:'37.924483,29.119012',  /* 石灰棚 Travertenleri */
   hierapolis:'37.930954,29.126363',
-  hTheatre:'37.926772,29.129177',
-  cleopatra:'37.926095,29.125591',  /* Antik Havuz 古董池 */
+  hTheatre:'37.9267772,29.1290471', /* Hierapolis 古劇場 */
+  cleopatra:'37.9261476,29.1255078',/* 古董池 Cleopatra Antique Pools */
   /* 卡帕多奇亞 */
   grand:'38.6394198,34.8294131',
   goreme:'38.6390591,34.8455787',
@@ -592,7 +594,7 @@ var DATA=[
     {time:'17:40<br>–17:50', act:'→ 回 Pikan Ephesus', tags:['car:🚘 10 min'], map:drv(P.ephSite,P.pikan)},
     {time:'18:30<br>–20:00', act:'Selçuk 街上覓食'},
   ],
-  stay:{name:'Pikan Ephesus（Selçuk）', note:'Agoda 1734845536，入住 15:00／退房 11:00'}
+  stay:{name:'Pikan Ephesus Boutique Hotel', note:'Agoda 1734845536，入住 15:00／退房 11:00'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
@@ -602,20 +604,24 @@ var DATA=[
   status:'✅ 待微調', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 全程最硬',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
-  lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。08:30 出發。',
-  facts:['自駕 430 km','Selçuk → 棉堡 2h20','棉堡 → ADB 2h40','⚠️ 16:05 硬性上限'],
+  lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。08:30 出發，棉堡全程步行、不泡湯。',
   rows:[
-    {time:'08:00<br>–08:30', act:'退房', note:'泳衣、拖鞋、小毛巾、防水袋放<strong>隨身小包</strong>，不要塞後車廂深處。'},
-    {time:'08:30<br>–10:50', act:'Selçuk → Pamukkale', note:'採用 2h20（實測 1h55）、198 km。', tags:['car:自駕 2h20'], map:drv(P.pikan,P.pamukkale)},
-    {time:'10:50<br>–11:10', act:'吃麵包乾糧', note:'<strong>不在 Pamukkale 村吃正餐。</strong>', tags:['eat:乾糧']},
-    {time:'11:10<br>–14:00', act:'棉堡石灰棚 Pamukkale Travertines + Hierapolis 劇場 Hierapolis Theatre', note:'2h50。部分區域要赤腳走。若時間壓力大，壓縮石灰棚拍照或 Hierapolis 散步。', map:wlk(P.pamukkale,P.hTheatre,[P.hierapolis])},
-    {time:'14:00<br>–15:20', act:'古董池泡澡 Cleopatra Antique Pool', note:'<strong>必排不可刪。</strong>冬季 17:00 關門；泡池門票另收約 €6。泡完用防水袋收濕衣物。', hi:true, tags:['lock:必排','⚠️ 另收 €6'], map:wlk(P.hTheatre,P.cleopatra)},
-    {time:'15:20<br>–15:35', act:'回車', note:'<strong>16:05 是離開棉堡的硬性上限</strong>，表定 15:35 上路，只有 30 分鐘餘裕。', tags:['lock:16:05 上限']},
-    {time:'15:35<br>–18:15', act:'棉堡 → ADB', note:'採用 2h40（實測 2h13）、233 km，中途加油。', tags:['car:自駕 2h40'], map:drv(P.cleopatra,P.adb)},
-    {time:'18:15<br>–20:00', act:'加油 / 還車 / 托運 / 安檢', note:'105 分鐘緩衝。建議 18:45 前抵達 ADB。'},
-    {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', note:'Booking number D438G7，直飛 1h35。'},
-    {time:'22:35<br>–23:15', act:'ASR 領行李 + AVEC 取車', note:'Rentalcars 確認號 637534354。取車當場確認 <strong>Opel Crossland 有後車廂遮蔽板</strong>，沒有就要換車。', tags:['car:租車 Day 2','⚠️ 確認遮蔽板']},
-    {time:'23:15<br>–00:45', act:'夜路 81 km → Grand Elite Cave Suites', note:'採用 1h30（實測 1h14）。飯店已填預估抵達 23:00－00:00。<strong>只入住睡覺，不做別的事。</strong>', hi:true, map:drv(P.asr,P.grand)}
+    {time:'08:00<br>–08:30', act:'退房'},
+    {time:'08:30<br>–10:50', act:'Selçuk → Teras restaurant（棉堡）', note:'車停餐廳附近，之後的景點全部步行', tags:['car:\U0001F698 2h20'], map:drv(P.pikan,P.teras)},
+    {time:'10:50<br>–11:40', act:'Teras restaurant 早餐', tags:['eat:早餐']},
+    {time:'11:40<br>–14:50', act:'棉堡 · Hierapolis 步行環線', note:'走完回到餐廳附近取車。石灰棚部分區域要赤腳走。', hi:true,
+     spots:[
+       {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
+       {zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。'},
+       {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。可以付費下水，但這趟<strong>不泡，只拍照</strong>。'}
+     ],
+     map:[['步行環線 · 回到餐廳',wlk(P.teras,P.teras,[P.pamEast,P.hTheatre,P.cleopatra])]]},
+    {time:'14:50<br>–15:10', act:'走回餐廳附近取車', note:'<strong>16:05 是離開棉堡的硬性上限</strong>，表定 15:10 上路。', tags:['lock:16:05 上限']},
+    {time:'15:10<br>–17:50', act:'棉堡 → ADB', note:'中途加油。', tags:['car:\U0001F698 2h40'], map:drv(P.teras,P.adb)},
+    {time:'17:50<br>–20:00', act:'加油 / 還車 / 托運 / 安檢'},
+    {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['D438G7','直飛 1h35']},
+    {time:'22:35<br>–23:15', act:'ASR 領行李 + AVEC 取車', note:'取車當場確認 <strong>Opel Crossland 有後車廂遮蔽板</strong>，沒有就要換車。', tags:['car:租車 Day 2','⚠️ 確認遮蔽板']},
+    {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', note:'<strong>只入住睡覺，不做別的事。</strong>', hi:true, tags:['car:\U0001F698 1h30'], map:drv(P.asr,P.grand)}
   ],
   stay:{name:'Grand Elite Cave Suites（Göreme）', note:'11/01－11/03 兩晚 · 座標 38.6394198, 34.8294131 · 熱氣球與駱駝都在這裡接送'}
 },

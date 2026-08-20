@@ -27,5 +27,8 @@
 | `ephesus-temple-hadrian.jpg` | 以弗所 哈德良神廟 | `Ephesus Temple of Hadrian Front 1.jpg` | Dosseman | CC BY-SA 4.0 |
 | `ephesus-odeon.jpg` | 以弗所 音樂廳 Odeon | `Odeon (Ephesus).jpg` | Yair Haklai | CC BY-SA 4.0 |
 | `ephesus-curetes-street.jpg` | 以弗所 克里特斯街 | `Curetes Street in Ephesus (1).jpg` | Radosław Botev | CC BY 3.0 pl |
+| `hierapolis-theatre.jpg` | 棉堡 Hierapolis 古劇場 | `Antik Tiyatro, Hierapolis, 2019 02.jpg` | Gargarapalvin | CC BY-SA 4.0 |
+| `cleopatra-pool.jpg` | 棉堡 古董池 | `Cleopatra Antique pool (15688240214).jpg` | shankar s. | CC BY 2.0 |
+| `pamukkale-travertines.jpg` | 棉堡 石灰棚（與 11/01 日照共用） | 同上表 | Slyronit | CC BY-SA 4.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
