@@ -581,7 +581,7 @@ var DATA=[
     {time:'22:00', act:'安安 TK025 TPE T2 → IST', note:'飛行 13 小時，05:40 抵達'},
     {time:'23:15', act:'豬豬 TK055 SIN T1 → IST', note:'飛行 12 小時，05:50 抵達'}
   ],
-  stay:{name:'機上', note:'國際線托運 23kg／隔天國內線 15kg。手提袋出發前裝好、秤過。'}
+  stay:{name:'機上', note:'TK025 22:00 桃園 T2／TK055 23:15 樟宜 T1'}
 },
 
 /* ========== DAY 02 · 10/31 ========== */
@@ -593,7 +593,7 @@ var DATA=[
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
   lead:'國內線轉機、處理租車手續及開車自駕至以弗所',
   rows:[
-    {time:'05:50<br>–12:10', act:'國內線轉機 IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
+    {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
     {time:'13:20<br>–14:40', act:'ADB Airport → 飯店寄放行李', tags:['car:🚘 50 min'], map:drv(P.adb,P.pikan)},
     {time:'15:00<br>–15:10', act:'→ 前往遺址', note:'停車場在遺址入口旁', tags:['car:🚘 10 min'], map:drv(P.pikan,P.ephSite)},
@@ -623,7 +623,7 @@ var DATA=[
   rows:[
     {time:'08:00<br>–08:30', act:'退房'},
     {time:'08:30<br>–10:50', act:'Selçuk → Teras restaurant（棉堡）', note:'車停餐廳附近，之後的景點全部步行', tags:['car:🚘 2h20'], map:drv(P.pikan,P.teras)},
-    {time:'10:50<br>–11:40', act:'Teras restaurant 早餐', tags:['eat:早餐'],
+    {time:'10:50<br>–11:40', act:'Teras restaurant', tags:['eat:早餐'],
      eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，車停這裡，吃完直接開始步行環線，走完再回來取車。'},
      map:pin(P.teras)},
     {time:'11:40<br>–14:50', act:'棉堡 · Hierapolis 步行環線', note:'走完回到餐廳附近取車。石灰棚部分區域要赤腳走。', hi:true,
@@ -634,13 +634,12 @@ var DATA=[
      ],
      map:[['步行環線 · 回到餐廳',wlk(P.teras,P.teras,[P.pamEast,P.hTheatre,P.cleopatra])]]},
     {time:'14:50<br>–15:10', act:'走回餐廳附近取車', note:'<strong>16:05 是離開棉堡的硬性上限</strong>，表定 15:10 上路。', tags:['lock:16:05 上限']},
-    {time:'15:10<br>–17:50', act:'棉堡 → ADB', note:'中途加油。', tags:['car:🚘 2h40'], map:drv(P.teras,P.adb)},
-    {time:'17:50<br>–20:00', act:'加油 / 還車 / 托運 / 安檢'},
+    {time:'15:10<br>–17:50', act:'棉堡 → ADB Airport', note:'辦理還車手續、吃晚餐', tags:['car:🚘 2h40'], map:drv(P.teras,P.adb)},
     {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
-    {time:'22:35<br>–23:15', act:'ASR 領行李 + AVEC 取車', note:'取車當場確認 <strong>Opel Crossland 有後車廂遮蔽板</strong>，沒有就要換車。', tags:['car:租車 Day 2','⚠️ 確認遮蔽板']},
-    {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', note:'<strong>只入住睡覺，不做別的事。</strong>', hi:true, tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
+    {time:'22:35<br>–23:15', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
+    {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', hi:true, tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
   ],
-  stay:{name:'Grand Elite Cave Suites', note:'11/01－11/03 兩晚 · 座標 38.6394198, 34.8294131 · 熱氣球與駱駝都在這裡接送'}
+  stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
 },
 
 /* ========== DAY 04 · 11/02 ========== */
@@ -680,7 +679,7 @@ var DATA=[
       {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'<strong>22:00 前睡。</strong>', tags:['eat:晚餐','lock:22:00 前睡']}
     ]}
   ],
-  stay:{name:'Grand Elite Cave Suites（Göreme）', note:'第 2 晚 · 行李全天在房間，不用上車'}
+  stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -710,7 +709,7 @@ var DATA=[
      eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
     {time:'Plan B', act:'熱氣球在今天 → 整表後移 30 分', note:'09:30 出發 → 10:05 Kaymaklı → 15:35 拿行李 → <strong>16:15 進 Gamirasu</strong>，18:00 晚餐照樣趕得上。要刪就刪 Uçhisar Castle。'}
   ],
-  stay:{name:'Gamirasu Cave Hotel（Ayvalı / Ürgüp）', note:'Hotels.com 73467533073850 · 15:45 抵達／退房 11/04 12:30 · 入住時付款'}
+  stay:{name:'Gamirasu Cave Hotel', note:'Hotels.com 73467533073850，入住 14:00／退房 12:30'}
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -736,7 +735,7 @@ var DATA=[
     {time:'Plan C', act:'熱氣球補飛在今天', note:'04:00 起床、04:40 Discovery Balloons 到 <strong>Gamirasu 接（已向業者確認可接 Ayvalı）</strong>、06:00－07:30 飛、07:30－09:00 送回，09:00 接回主線。累的話跳過 Avanos：Gamirasu → Sarı Han 直達 40 分，15:15 就能到 ASR。', map:[['跳過 Avanos · Gamirasu → Sarı Han',drv(P.gamirasu,P.sarihan)]]},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
   ],
-  stay:{name:'Basilissis Hotel（伊斯坦堡舊城）', note:'Hotels.com 73473369372843 · 11/04－11/08 四晚 · 標準雙床房'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 07 · 11/05 ========== */
@@ -765,7 +764,7 @@ var DATA=[
      map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
     {time:'刪減', act:'若前一晚抵達太晚', note:'保留 Boris\'in Yeri + Karaköy / Galata + Balık Dürüm，Spice Bazaar 與 Suat Usta 擇一或延後。'}
   ],
-  stay:{name:'Basilissis Hotel', note:'第 1 晚 · 位置在 Alemdar / Gülhane 附近，步行可進舊城核心'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 08 · 11/06 ========== */
@@ -793,7 +792,7 @@ var DATA=[
     {time:'傍晚<br>起', act:'加拉達橋 Galata Bridge / Karaköy 晚餐與短散步', note:'若 11/05 已走過 Galata，改 Sirkeci / 舊城附近晚餐。去 Karaköy 可搭 T1 或叫車，<strong>晚上不帶護照與大量現金</strong>。', tags:['eat:晚餐'], map:[['走去 Karaköy',wlk(P.hafiz,P.karakoy,[P.gBridge])],['回飯店',trn(P.karakoy,P.basil)]]},
     {time:'刪減', act:'排隊太久或天氣差', note:'下午仍優先保留 Grand Bazaar；天氣差則優先保留室內的地下水宮殿與市集。'}
   ],
-  stay:{name:'Basilissis Hotel', note:'第 2 晚 · 舊城全程步行可達'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 09 · 11/07 ========== */
@@ -819,7 +818,7 @@ var DATA=[
      map:wlk(P.basil,P.olden)},
     {time:'睡前', act:'把行李整理完畢', note:'11/08 只回飯店拿了就走。', hi:true}
   ],
-  stay:{name:'Basilissis Hotel', note:'第 3 晚 · 夜間巡遊不硬排，Galata / Karaköy 短散步或短版博斯普魯斯遊船當備案'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 10 · 11/08 ========== */
@@ -842,7 +841,7 @@ var DATA=[
     {time:'18:30', act:'豬豬 TK208 IST → 樟宜'},
     {time:'刪減', act:'若前一晚很晚睡或天氣差', note:'只保留 Topkapi 早場短版 + 午餐 / 外帶 + 回飯店拿行李，13:00 送機時間不延後。'}
   ],
-  stay:{name:'今晚在飛機上', note:'12:00 退房 · 行李 11/07 就整理完'}
+  stay:{name:'機上', note:'TK124 17:15 IST／TK208 18:30 IST'}
 },
 
 /* ========== DAY 11 · 11/09 ========== */
@@ -857,7 +856,7 @@ var DATA=[
     {time:'08:45', act:'安安 TK124 抵達桃園 T2'},
     {time:'白天', act:'各自回家、整理行李', note:'回家只要拆箱。'}
   ],
-  stay:{name:'回家', note:'旅程結束'}
+  stay:{name:'回家', note:'TK124 08:45 抵達桃園 T2'}
 }
 ];
 
