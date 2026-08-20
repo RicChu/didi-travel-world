@@ -6,7 +6,6 @@
 | 檔案 | 對應日期 | 地點 | 原始檔名 | 作者 | 授權 |
 |------|----------|------|----------|------|------|
 | `ephesus-celsus-library.jpg` | 10/31 | 以弗所 塞爾蘇斯圖書館 | `TR.IZ.Selcuk Ephesus Celsus-Library 32 3x2-R 5K.jpg` | Roy Egloff | CC BY-SA 4.0 |
-| `cappadocia-balloons.jpg` | 11/02 | 格雷梅 日出熱氣球 | `Hot air balloons over valleys near Göreme, Cappadocia at dawn.JPG` | MusikAnimal | CC BY-SA 4.0 |
 | `uchisar-castle.jpg` | 11/03 | Uçhisar Castle | `Uçhisar Castle 02.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
 | `sarihan-caravanserai.jpg` | 11/04 | Sarı Han 商隊驛站（Avanos） | `Sarıhan - Avanos (Nevşehir).jpg` | Buzancar | CC BY-SA 4.0 |
 | `galata-tower.jpg` | 11/05 | 加拉達塔（從 Karaköy 望去） | `The Galata Tower (8424178473).jpg` | Grzegorz Jereczek | CC BY-SA 2.0 |
@@ -40,3 +39,4 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 |------|------|------|
 | `teras-restaurant.jpg` | 11/01 Teras restaurant 餐廳卡片 | 使用者於 2026-08-20 提供 |
 | `pamukkale-travertines.jpg` | 11/01 日照 + 石灰棚東觀景台景點卡 | 使用者於 2026-08-20 提供（取代原本 Slyronit 的 CC BY-SA 4.0 照片） |
+| `cappadocia-balloons.jpg` | 11/02 日照 | 使用者於 2026-08-20 提供（取代原本 MusikAnimal 的 CC BY-SA 4.0 照片） |
