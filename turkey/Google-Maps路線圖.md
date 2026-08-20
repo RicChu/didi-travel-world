@@ -21,14 +21,15 @@
 | 豬豬出發端點：新加坡樟宜機場 T1 | [地圖](https://www.google.com/maps/search/?api=1&query=Singapore%20Changi%20Airport%20Terminal%201) | TK055 出發機場 |
 | 抵達端點：Istanbul Airport | [地圖](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | 10/31 清晨集合與轉國內線 |
 
-### 10/31（六）IST → ADB → Selçuk → Ephesus → Pikan Ephesus
+### 10/31（六）IST → ADB → Pikan Ephesus → 以弗所考古遺址 → Pikan Ephesus
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir%20Adnan%20Menderes%20Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
-| ADB 取車後自駕 | [ADB → Pikan Ephesus → Ephesus Lower Gate → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir%20Adnan%20Menderes%20Airport&destination=37.948976,27.367237&waypoints=37.948976,27.367237%7C37.945369,27.342139&travelmode=driving) | ADB、Pikan Ephesus、以弗所下入口、回 Pikan | ADB → 以弗所 1h25（實測 1h12）。飯店在 Selçuk，位於 ADB 與以弗所之間。⚠️ **車停下入口（Lower Gate），不是上入口** |
-| 以弗所兩個入口之間（搭車，不走路） | [Ephesus Lower Gate → Ephesus Upper Gate](https://www.google.com/maps/dir/?api=1&origin=37.945369,27.342139&destination=37.935466,27.346194&travelmode=driving) | 下入口、上入口 | 約 3 公里坡地。**停好車後搭計程車 / 小巴上到上入口**，約 5 分鐘、費用低，需備少量里拉現鈔 |
-| 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Lower Gate](https://www.google.com/maps/dir/?api=1&origin=37.935466,27.346194&destination=37.945369,27.342139&waypoints=37.938035,27.342249%7C37.938506,27.341937%7C37.939216,27.340829%7C37.941067,27.342511&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大劇院、下入口 | 從上往下走比較省力，結束在下入口**剛好回到自己的車**。大理石街在圖書館到大劇院之間，順著走就會經過。冬季 18:00 關門，17:40 前往出口移動 |
+| ADB 取車後自駕去飯店 | [ADB → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir%20Adnan%20Menderes%20Airport&destination=37.9489789,27.3671724&travelmode=driving) | ADB、Pikan Ephesus | 表定 **1h20**（實算 49 分 / 62.7 km）。**先進飯店 check-in 放行李**，14:40 抵達、入住 15:00 |
+| 飯店 → 以弗所考古遺址 | [Pikan Ephesus → Ephesus Archaeological Site](https://www.google.com/maps/dir/?api=1&origin=37.9489789,27.3671724&destination=37.9355518,27.3461146&travelmode=driving) | Pikan Ephesus、以弗所考古遺址 | 表定 **10 分**（實算 5 分 / 3.7 km）。⚠️ **停在遺址入口旁的停車場**，比下入口好停；舊版「車停下入口 + 搭計程車上上入口」已作廢 |
+| 以弗所步行環線（回到停車處） | [遺址入口 → 大劇院 → 塞爾蘇斯圖書館 → 哈德良神廟 → 音樂廳 → 回遺址入口](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9355518,27.3461146&waypoints=37.9410660,27.3426916%7C37.9392052,27.3409200%7C37.9385230,27.3420025%7C37.9368337,27.3449823&travelmode=walking) | 遺址入口、大劇院 Great Theatre、塞爾蘇斯圖書館 Library of Celsus、哈德良神廟 Temple of Hadrian、音樂廳 Odeon | 15:10～17:40，走完回到停車處。串起這幾點的主街是克里特斯街 Curetes Street。冬季 18:00 關門，17:40 前往出口移動 |
+| 以弗所 → 飯店 | [Ephesus Archaeological Site → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9489789,27.3671724&travelmode=driving) | 以弗所考古遺址、Pikan Ephesus | 表定 **10 分**（實算 5 分 / 3.5 km）。18:30 晚餐在飯店附近的 Selçuk 街上 |
 
 ### 11/01（日）Pikan Ephesus → Pamukkale → ADB → ASR → Grand Elite
 
