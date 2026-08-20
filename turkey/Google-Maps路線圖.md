@@ -2,6 +2,11 @@
 
 用途：檢查每天移動是否順路、估算開車 / 步行疲勞。飛機段只列機場端點；自駕與步行段才用 directions 連結。
 
+> **所有連結一律用座標，不用地名字串**（2026-08-20 全面改寫，來源：OSM Nominatim / Overpass 實查）。
+> 原因是地名會被解成別的地方——原本的 `Grand Bazaar Istanbul` 指到**加拿大 South Surrey** 的同名店、`Harbour Street Ephesus` 指到**愛丁堡**，另有 12 個地名根本查不到。
+> 例外只有四類仍用名稱：三個 IATA 機場加桃園 / 樟宜航廈（用名稱才會導到航廈而非跑道）、兩家熱氣球 / 駱駝業者（本來就是飯店接送）、以及 `Boris'in Yeri`（不在 OSM 上）。
+> 連結顯示文字仍保留原本的地名，方便閱讀。
+
 主文件索引：[進度.md](./進度.md) | [行程.md](./行程.md) | [餐廳安排.md](./餐廳安排.md) | [當日疲勞度.md](./當日疲勞度.md) | [Google-Maps路線圖.md](./Google-Maps路線圖.md) | [飯店預訂.md](./飯店預訂.md) | [租車預訂.md](./租車預訂.md) | [航班預訂.md](./航班預訂.md) | [待訂項目.md](./待訂項目.md) | [安安要做的事.md](./安安要做的事.md) | [豬豬要做的事.md](./豬豬要做的事.md)
 
 ## 已成形日期 Google Maps 路線圖
@@ -12,26 +17,26 @@
 
 | 路線 | Google Maps | 用途 |
 |------|-------------|------|
-| 安安出發端點：桃園機場 T2 | [地圖](https://www.google.com/maps/search/?api=1&query=Taiwan+Taoyuan+International+Airport+Terminal+2) | TK025 出發機場 |
-| 豬豬出發端點：新加坡樟宜機場 T1 | [地圖](https://www.google.com/maps/search/?api=1&query=Singapore+Changi+Airport+Terminal+1) | TK055 出發機場 |
-| 抵達端點：Istanbul Airport | [地圖](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | 10/31 清晨集合與轉國內線 |
+| 安安出發端點：桃園機場 T2 | [地圖](https://www.google.com/maps/search/?api=1&query=Taiwan%20Taoyuan%20International%20Airport%20Terminal%202) | TK025 出發機場 |
+| 豬豬出發端點：新加坡樟宜機場 T1 | [地圖](https://www.google.com/maps/search/?api=1&query=Singapore%20Changi%20Airport%20Terminal%201) | TK055 出發機場 |
+| 抵達端點：Istanbul Airport | [地圖](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | 10/31 清晨集合與轉國內線 |
 
 ### 10/31（六）IST → ADB → Selçuk → Ephesus → Pikan Ephesus
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
-| ADB 取車後自駕 | [ADB → Pikan Ephesus → Ephesus Lower Gate → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir+Adnan+Menderes+Airport&destination=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&waypoints=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920%7CEphesus+Lower+Gate&travelmode=driving) | ADB、Pikan Ephesus、以弗所下入口 | ADB → 以弗所 1h25（實測 1h12）。飯店在 Selçuk，位於 ADB 與以弗所之間。⚠️ **車停下入口（Lower Gate），不是上入口** |
-| 以弗所兩個入口之間（搭車，不走路） | [Ephesus Lower Gate → Ephesus Upper Gate](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Lower+Gate&destination=Ephesus+Upper+Gate&travelmode=driving) | 下入口、上入口 | 約 3 公里坡地。**停好車後搭計程車 / 小巴上到上入口**，約 5 分鐘、費用低，需備少量里拉現鈔 |
-| 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Harbour Street](https://www.google.com/maps/dir/?api=1&origin=Ephesus+Upper+Gate&destination=Harbour+Street+Ephesus&waypoints=Curetes+Street+Ephesus%7CTemple+of+Hadrian+Ephesus%7CLibrary+of+Celsus+Ephesus%7CGreat+Theatre+Ephesus&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大理石街（圖書館到大劇院之間）、大劇院、港口大道 | 從上往下走比較省力，結束在下入口**剛好回到自己的車**。Google Maps 找不到 Marble Street 時，用 Library of Celsus → Great Theatre 這段涵蓋。冬季 18:00 關門，17:40 前往出口移動 |
+| 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir%20Adnan%20Menderes%20Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
+| ADB 取車後自駕 | [ADB → Pikan Ephesus → Ephesus Lower Gate → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir%20Adnan%20Menderes%20Airport&destination=37.948976,27.367237&waypoints=37.948976,27.367237%7C37.945369,27.342139&travelmode=driving) | ADB、Pikan Ephesus、以弗所下入口、回 Pikan | ADB → 以弗所 1h25（實測 1h12）。飯店在 Selçuk，位於 ADB 與以弗所之間。⚠️ **車停下入口（Lower Gate），不是上入口** |
+| 以弗所兩個入口之間（搭車，不走路） | [Ephesus Lower Gate → Ephesus Upper Gate](https://www.google.com/maps/dir/?api=1&origin=37.945369,27.342139&destination=37.935466,27.346194&travelmode=driving) | 下入口、上入口 | 約 3 公里坡地。**停好車後搭計程車 / 小巴上到上入口**，約 5 分鐘、費用低，需備少量里拉現鈔 |
+| 以弗所古城步行核心 | [Upper Gate → Curetes Street → Temple of Hadrian → Library of Celsus → Great Theatre → Lower Gate](https://www.google.com/maps/dir/?api=1&origin=37.935466,27.346194&destination=37.945369,27.342139&waypoints=37.938035,27.342249%7C37.938506,27.341937%7C37.939216,27.340829%7C37.941067,27.342511&travelmode=walking) | 上入口、克里特斯街、哈德良神廟、塞爾蘇斯圖書館、大劇院、下入口 | 從上往下走比較省力，結束在下入口**剛好回到自己的車**。大理石街在圖書館到大劇院之間，順著走就會經過。冬季 18:00 關門，17:40 前往出口移動 |
 
 ### 11/01（日）Pikan Ephesus → Pamukkale → ADB → ASR → Grand Elite
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 白天自駕與還車 | [Pikan Ephesus → Pamukkale → Travertines → Hierapolis → Theatre → Antique Pool → ADB](https://www.google.com/maps/dir/?api=1&origin=Pikan+Ephesus+1045+Sokak+42+A+Selcuk+Turkey+35920&destination=Izmir+Adnan+Menderes+Airport&waypoints=Pamukkale+Turkey%7CPamukkale+Travertines%7CHierapolis+Ancient+City%7CHierapolis+Theatre%7CCleopatra+Antique+Pool+Pamukkale&travelmode=driving) | Pikan Ephesus、Pamukkale 村、棉堡石灰棚、Hierapolis、劇場、**Cleopatra Antique Pool 泡澡**、ADB | 單日約 430 公里的 V 字形折返。**08:30 出發**；Selçuk → 棉堡 2h20（實測 1h55）、棉堡 → ADB 2h40（實測 2h13）。**已排古董池泡澡，需帶泳衣**，泡池冬季 17:00 關門故排 14:00。**16:05 為離開棉堡的硬性上限**，表定 15:35 出發、18:15 抵達 ADB |
-| 飛機端點 | [ADB](https://www.google.com/maps/search/?api=1&query=Izmir+Adnan+Menderes+Airport) / [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) | Izmir Adnan Menderes Airport、Kayseri Airport | 21:00 ADB → 22:35 ASR |
-| ASR 深夜取車後自駕 | [Kayseri Airport → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Kayseri+Airport&destination=Grand+Elite+Cave+Suites+Goreme&travelmode=driving) | ASR、Grand Elite Cave Suites | 這段是深夜路線，重點是租車櫃台營業、航班延誤與駕駛疲勞 |
+| 白天自駕與還車 | [Pikan Ephesus → 棉堡石灰棚 → Hierapolis → Theatre → Antique Pool → ADB](https://www.google.com/maps/dir/?api=1&origin=37.948976,27.367237&destination=Izmir%20Adnan%20Menderes%20Airport&waypoints=37.924483,29.119012%7C37.930954,29.126363%7C37.926772,29.129177%7C37.926095,29.125591&travelmode=driving) | Pikan Ephesus、棉堡石灰棚、Hierapolis、劇場、**Cleopatra Antique Pool 泡澡**、ADB | 單日約 430 公里的 V 字形折返。**08:30 出發**；Selçuk → 棉堡 2h20（實測 1h55）、棉堡 → ADB 2h40（實測 2h13）。**已排古董池泡澡，需帶泳衣**，泡池冬季 17:00 關門故排 14:00。**16:05 為離開棉堡的硬性上限**，表定 15:35 出發、18:15 抵達 ADB |
+| 飛機端點 | [ADB](https://www.google.com/maps/search/?api=1&query=Izmir%20Adnan%20Menderes%20Airport) / [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri%20Airport) | Izmir Adnan Menderes Airport、Kayseri Airport | 21:00 ADB → 22:35 ASR |
+| ASR 深夜取車後自駕 | [Kayseri Airport → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Kayseri%20Airport&destination=38.6394198,34.8294131&travelmode=driving) | ASR、Grand Elite Cave Suites | 這段是深夜路線，重點是租車櫃台營業、航班延誤與駕駛疲勞 |
 
 ### 卡帕多奇亞三天的精確座標
 
@@ -72,10 +77,10 @@
 
 | # | 段落（點到點） | 車程 | 判斷重點 |
 |---|------|------|----------|
-| — | 熱氣球（接送，不自駕）：[Cappadocia Discovery Balloons](https://www.google.com/maps/search/?api=1&query=Cappadocia+Discovery+Balloons) | — | 已訂 11/02 06:00，Grand Elite 接送。**Plan A** 04:00 起床、08:30 回飯店、09:00～12:00 補眠；**Plan B / C / D** 這格空著，改走上面的 A1～A3 |
+| — | 熱氣球（接送，不自駕）：[Cappadocia Discovery Balloons](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Discovery%20Balloons) | — | 已訂 11/02 06:00，Grand Elite 接送。**Plan A** 04:00 起床、08:30 回飯店、09:00～12:00 補眠；**Plan B / C / D** 這格空著，改走上面的 A1～A3 |
 | 1 | [**Grand Elite → Göreme Open Air Museum**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.6390591,34.8455787&travelmode=driving) | **10 分**（實測 7 分 / 1.8 km） | 13:20 出發、13:30 進館、15:20 出。**排下午是因為旅行團集中在上午**，越晚人越少。✅ 官方（muze.gov.tr `GRM01`）：**每天開、08:00 開門**，13:30 進場離關門很遠，**已不需要行前確認** |
 | 2 | [**Göreme Open Air Museum → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6390591,34.8455787&destination=38.6394198,34.8294131&travelmode=driving) | **10 分** | 15:20 出發、15:30 到，車停飯店，15:30～16:00 休息換保暖外套 |
-| — | 駱駝（接送，不自駕，GetYourGuide `t486222`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia+Camel+Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Grand Elite 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
+| — | 駱駝（接送，不自駕，GetYourGuide `t486222`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Camel%20Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Grand Elite 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
 
 ### 11/03（二）Grand Elite → Kaymaklı → 鴿子谷 → Uçhisar → 拿行李 → Gamirasu
 
@@ -111,9 +116,9 @@
 
 | # | 段落（點到點） | 車程 | 時間 | 判斷重點 |
 |---|------|------|------|----------|
-| 1 | [**Gamirasu → Avanos**](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=Avanos+Cappadocia&travelmode=driving) | **45 分**（實查 34 分） | 12:30～13:15 | 24.4 km，經 Ürgüp。12:30 退房出發 |
-| 2 | [**Avanos → Sarı Han 商隊驛站**](https://www.google.com/maps/dir/?api=1&origin=Avanos+Cappadocia&destination=38.7118040,34.9091913&travelmode=driving) | **10 分**（實查 7 分） | 14:25～14:35 | 7.0 km，在 Avanos 正東、往 ASR 方向，**不是繞路**。Avanos 13:15～14:25 河邊午餐，**不買陶器** |
-| 3 | [**Sarı Han → Kayseri Airport ASR**](https://www.google.com/maps/dir/?api=1&origin=38.7118040,34.9091913&destination=Kayseri+Airport&travelmode=driving) | **1h05**（實查 53 分） | 15:20～16:25 | 60.5 km，中途加油。Sarı Han 14:35～15:20（09:00–18:00 開放）；**15:35 為離開 Sarı Han 的硬性上限**；16:25～16:45 還車 |
+| 1 | [**Gamirasu → Avanos**](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=38.718737,34.846866&travelmode=driving) | **45 分**（實查 34 分） | 12:30～13:15 | 24.4 km，經 Ürgüp。12:30 退房出發 |
+| 2 | [**Avanos → Sarı Han 商隊驛站**](https://www.google.com/maps/dir/?api=1&origin=38.718737,34.846866&destination=38.7118040,34.9091913&travelmode=driving) | **10 分**（實查 7 分） | 14:25～14:35 | 7.0 km，在 Avanos 正東、往 ASR 方向，**不是繞路**。Avanos 13:15～14:25 河邊午餐，**不買陶器** |
+| 3 | [**Sarı Han → Kayseri Airport ASR**](https://www.google.com/maps/dir/?api=1&origin=38.7118040,34.9091913&destination=Kayseri%20Airport&travelmode=driving) | **1h05**（實查 53 分） | 15:20～16:25 | 60.5 km，中途加油。Sarı Han 14:35～15:20（09:00–18:00 開放）；**15:35 為離開 Sarı Han 的硬性上限**；16:25～16:45 還車 |
 
 **Plan C 備援：熱氣球補飛在 11/04**
 
@@ -127,44 +132,44 @@
 
 | 段落 | Google Maps | 判斷重點 |
 |------|-------------|----------|
-| 跳過 Avanos 與 Sarı Han | [Gamirasu → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=Gamirasu+Cave+Hotel+Special+Class+Urgup&destination=Kayseri+Airport&waypoints=Mustafapasa+Cappadocia%7CUrgup+Cappadocia&travelmode=driving) | Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR |
+| 跳過 Avanos 與 Sarı Han | [Gamirasu → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=Kayseri%20Airport&waypoints=38.583396,34.896916%7C38.630051,34.911603&travelmode=driving) | Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR |
 
 **其餘段落**
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri+Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；目標 16:30 完成還車 / 抵達航廈。⚠️ Rentalcars 訂單上的還車時間是 **19:00**，晚於起飛時間，需與 AVEC / Rentalcars 確認可提早還車 |
-| IST → Basilissis Hotel | [Istanbul Airport → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Istanbul+Airport&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&travelmode=driving) | IST、Basilissis Hotel | Klook 接機已訂：11/04 20:20，IST → Basilissis Hotel，經濟車型 4 人座，2 位乘客，實付 NT$1,620；抵達後依司機會合資訊上車 |
+| 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri%20Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；目標 16:30 完成還車 / 抵達航廈。⚠️ Rentalcars 訂單上的還車時間是 **19:00**，晚於起飛時間，需與 AVEC / Rentalcars 確認可提早還車 |
+| IST → Basilissis Hotel | [Istanbul Airport → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Istanbul%20Airport&destination=41.010415,28.978109&travelmode=driving) | IST、Basilissis Hotel | Klook 接機已訂：11/04 20:20，IST → Basilissis Hotel，經濟車型 4 人座，2 位乘客，實付 NT$1,620；抵達後依司機會合資訊上車 |
 
 ### 11/05（四）Basilissis Hotel → Karakoy / Galata / Eminonu → Basilissis Hotel
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 新城暖身主線 | [Basilissis Hotel → Boris'in Yeri → Galata Tower → Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta → Galata Bridge → Eminonu](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Eminonu+Istanbul&waypoints=Boris%27in+Yeri+Istanbul%7CGalata+Tower+Istanbul%7CSokak+Lezzeti+Tarihi+Balik+Durumcu+Mehmet+Usta+Istanbul%7CGalata+Bridge+Istanbul&travelmode=transit) | Basilissis、Boris'in Yeri、Galata、Karakoy Balık Dürüm、Galata Bridge、Eminonu | 11/05 早餐固定在 Boris'in Yeri；Balık Dürüm 放 Karakoy 當輕午餐 / 點心，早餐吃太飽就兩人分一份 |
-| 香料市集 / Suat Usta 晚餐回程 | [Spice Bazaar → Suat Usta Mersin Tantuni Taksim → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Spice+Bazaar+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Suat+Usta+Mersin+Tantuni+Taksim&travelmode=transit) | Spice Bazaar、Taksim Suat Usta、Basilissis | Suat Usta 適合 11/05 晚上接新城區；若當天吃太飽，延到 11/07 晚上替代 Olden 1772 |
+| 新城暖身主線 | [Basilissis Hotel → Boris'in Yeri → Galata Tower → Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta → Galata Bridge → Eminonu](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.017996,28.974141&waypoints=Boris%27in%20Yeri,%20Fatih,%20%C4%B0stanbul%7C41.025640,28.974213%7C41.024425,28.978617%7C41.020076,28.973087&travelmode=transit) | Basilissis、Boris'in Yeri、Galata、Karakoy Balık Dürüm、Galata Bridge、Eminonu | 11/05 早餐固定在 Boris'in Yeri；Balık Dürüm 放 Karakoy 當輕午餐 / 點心，早餐吃太飽就兩人分一份 |
+| 香料市集 / Suat Usta 晚餐回程 | [Spice Bazaar → Suat Usta Mersin Tantuni Taksim → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.016463,28.971098&destination=41.010415,28.978109&waypoints=41.034666,28.982851&travelmode=transit) | Spice Bazaar、Taksim Suat Usta、Basilissis | Suat Usta 適合 11/05 晚上接新城區；若當天吃太飽，延到 11/07 晚上替代 Olden 1772 |
 
 ### 11/06（五）Basilissis Hotel → Sultanahmet 舊城核心 → Basilissis Hotel
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafiz Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Basilica+Cistern+Istanbul%7CHagia+Sophia+Istanbul%7CBlue+Mosque+Istanbul%7CSeven+Hills+Restaurant+Istanbul%7CGrand+Bazaar+Istanbul%7CHafiz+Mustafa+1864+Sirkeci&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；Topkapi 移到 11/08 早場短版 |
+| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafiz Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.008479,28.978382%7C41.008504,28.980011%7C41.005384,28.976853%7C41.006371,28.979714%7C41.010967,28.968253%7C41.016010,28.973360&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；Topkapi 移到 11/08 早場短版 |
 
 ### 11/07（六）Basilissis Hotel → Hammam → Vefa Bozacisi → Kadikoy / Uskudar 或 Karakoy → Basilissis Hotel
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 土耳其浴 + Vefa Bozacisi | [Basilissis Hotel → Turkish Bath Hammam → Vefa Bozacisi → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Turkish+bath+Istanbul%7CVefa+Bozacisi+Istanbul&travelmode=walking) | Basilissis、hammam、Vefa Bozacisi | 浴後順路 [Vefa Bozacisi](https://maps.app.goo.gl/scQBEiTX13GjXswQA)；浴場選 Sultanahmet / Sirkeci 一帶，與 Vefa 同區；20～30 分喝杯 boza 即可 |
-| 亞洲側生活線 | [Basilissis Hotel → Eminonu → Kadikoy → Uskudar → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Eminonu+Istanbul%7CKadikoy+Istanbul%7CUskudar+Istanbul&travelmode=transit) | Basilissis、Eminonu、Kadikoy、Uskudar | 若天氣好且體力夠，從 Eminonu / Karakoy 搭渡輪去 Kadikoy；Uskudar 作夕陽 / 海峽視角加分項，不硬排 |
-| 低移動替代線 | [Basilissis Hotel → Karakoy → Galata → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Karakoy+Istanbul%7CGalata+Istanbul&travelmode=transit) | Basilissis、Karakoy、Galata | 若土耳其浴後很放鬆或天氣差，就不要跨亞洲側；用 T1 / 叫車到 Karakoy / Galata 吃飯散步即可 |
-| 超市後晚餐線 | [Basilissis Hotel → Olden 1772 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Olden+1772+Istanbul&travelmode=walking) | Basilissis、Olden 1772 | 11/07 傍晚超市買完先回飯店放東西，再步行 / 短程叫車去 Olden 1772；若想更輕鬆，改飯店附近晚餐 |
+| 土耳其浴 + Vefa Bozacisi | [Basilissis Hotel → Turkish Bath Hammam → Vefa Bozacisi → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.012140,28.958548%7C41.015318,28.958420&travelmode=walking) | Basilissis、hammam、Vefa Bozacisi | 浴後順路 [Vefa Bozacisi](https://maps.app.goo.gl/scQBEiTX13GjXswQA)；浴場選 Sultanahmet / Sirkeci 一帶，與 Vefa 同區；20～30 分喝杯 boza 即可 |
+| 亞洲側生活線 | [Basilissis Hotel → Eminonu → Kadikoy → Uskudar → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.017996,28.974141%7C40.991295,29.024563%7C41.026549,29.015132&travelmode=transit) | Basilissis、Eminonu、Kadikoy、Uskudar | 若天氣好且體力夠，從 Eminonu / Karakoy 搭渡輪去 Kadikoy；Uskudar 作夕陽 / 海峽視角加分項，不硬排 |
+| 低移動替代線 | [Basilissis Hotel → Karakoy → Galata → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.022864,28.974039%7C41.025640,28.974213&travelmode=transit) | Basilissis、Karakoy、Galata | 若土耳其浴後很放鬆或天氣差，就不要跨亞洲側；用 T1 / 叫車到 Karakoy / Galata 吃飯散步即可 |
+| 超市後晚餐線 | [Basilissis Hotel → Olden 1772 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.014927,28.974103&travelmode=walking) | Basilissis、Olden 1772 | 11/07 傍晚超市買完先回飯店放東西，再步行 / 短程叫車去 Olden 1772；若想更輕鬆，改飯店附近晚餐 |
 
 ### 11/08（日）Basilissis Hotel → Istanbul Airport 回程
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| Topkapi 早場 + 午餐收尾線 | [Basilissis Hotel → Topkapi Palace → 11/08 午餐主選 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&waypoints=Topkapi+Palace+Istanbul%7Chttps%3A%2F%2Fmaps.app.goo.gl%2F7Za34LJP283V84rTA&travelmode=walking) | Basilissis、Topkapi、午餐主選 | Topkapi 週日 09:00 開，早場只走短版，不排 Harem；午餐主選用使用者提供地圖連結，若不想再吃土耳其早餐則改備案連結 |
-| Basilissis Hotel → IST | [Basilissis Hotel → Istanbul Airport](https://www.google.com/maps/dir/?api=1&origin=Basilissis+Hotel+Guzelsanatlar+Sokak+No+4+Fatih+Istanbul&destination=Istanbul+Airport&travelmode=driving) | Basilissis Hotel、IST | Klook 送機已訂：11/08 13:00，Basilissis Hotel → IST，經濟車型 4 人座，2 位乘客，實付 NT$1,620；不退稅，目標 14:30 前抵達 IST |
-| 回程機場端點 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul+Airport) | IST | 11/08 建議 14:30 前抵達 IST；安安 17:15 起飛，豬豬 18:30 起飛 |
+| Topkapi 早場 + 午餐收尾線 | [Basilissis Hotel → Topkapi Palace → 11/08 午餐主選 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.011344,28.983203%7C41.003864,28.978764&travelmode=walking) | Basilissis、Topkapi、午餐主選 | Topkapi 週日 09:00 開，早場只走短版，不排 Harem；午餐主選用使用者提供地圖連結，若不想再吃土耳其早餐則改備案連結 |
+| Basilissis Hotel → IST | [Basilissis Hotel → Istanbul Airport](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=Istanbul%20Airport&travelmode=driving) | Basilissis Hotel、IST | Klook 送機已訂：11/08 13:00，Basilissis Hotel → IST，經濟車型 4 人座，2 位乘客，實付 NT$1,620；不退稅，目標 14:30 前抵達 IST |
+| 回程機場端點 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | IST | 11/08 建議 14:30 前抵達 IST；安安 17:15 起飛，豬豬 18:30 起飛 |
 
 
 ## Google Maps 使用建議

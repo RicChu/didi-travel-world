@@ -453,18 +453,27 @@ function wlk(o,d,w){return gmap('walking',o,d,w);}   /* 步行 */
 function trn(o,d,w){return gmap('transit',o,d,w);}   /* 大眾運輸 */
 function pin(q){return 'https://www.google.com/maps/search/?api=1&query='+enc(q);}
 
-/* 常用點位（卡帕多奇亞用 OSM 實查座標，見 Google-Maps路線圖.md） */
+/* 常用點位 —— 座標一律經 OSM／Overpass 實查（2026-08-20），不用地名字串，
+   因為地名會被地圖服務解成別的地方（例如 "Grand Bazaar Istanbul" 會指到加拿大）。
+   只有三個機場保留名稱：IATA 級機場不會歧義，且用名稱才會導到航廈而不是跑道。 */
 var P={
   adb:'Izmir Adnan Menderes Airport',
   asr:'Kayseri Airport',
   ist:'Istanbul Airport',
-  pikan:'Pikan Ephesus 1045 Sokak 42 A Selcuk Turkey 35920',
-  eLower:'Ephesus Lower Gate',
-  eUpper:'Ephesus Upper Gate',
-  pamukkale:'Pamukkale Travertines',
-  hierapolis:'Hierapolis Ancient City',
-  hTheatre:'Hierapolis Theatre',
-  cleopatra:'Cleopatra Antique Pool Pamukkale',
+  /* 以弗所 · Selçuk */
+  pikan:'37.948976,27.367237',      /* Pikan Ephesus Boutique Hotel */
+  eLower:'37.945369,27.342139',     /* North / Lower Gate — 車停這裡 */
+  eUpper:'37.935466,27.346194',     /* South / Upper Gate */
+  curetes:'37.938035,27.342249',    /* Curetes Street */
+  hadrian:'37.938506,27.341937',    /* Hadrian Tapınağı */
+  celsus:'37.939216,27.340829',     /* Celsus Kütüphanesi */
+  eTheatre:'37.941067,27.342511',   /* 大劇院 */
+  /* 棉堡 · Pamukkale */
+  pamukkale:'37.924483,29.119012',  /* 石灰棚 Travertenleri */
+  hierapolis:'37.930954,29.126363',
+  hTheatre:'37.926772,29.129177',
+  cleopatra:'37.926095,29.125591',  /* Antik Havuz 古董池 */
+  /* 卡帕多奇亞 */
   grand:'38.6394198,34.8294131',
   goreme:'38.6390591,34.8455787',
   kaymakli:'38.4599265,34.7524882',
@@ -475,32 +484,35 @@ var P={
   uchisar:'38.6304425,34.8053230',
   gamirasu:'38.5456235,34.8705660',
   sarihan:'38.7118040,34.9091913',
-  avanos:'Avanos Cappadocia',
-  basil:'Basilissis Hotel Guzelsanatlar Sokak No 4 Fatih Istanbul',
-  boris:"Boris'in Yeri Istanbul",
-  galata:'Galata Tower Istanbul',
-  karakoy:'Karakoy Istanbul',
-  balik:'Sokak Lezzeti Tarihi Balik Durumcu Mehmet Usta Istanbul',
-  gBridge:'Galata Bridge Istanbul',
-  eminonu:'Eminonu Istanbul',
-  spice:'Spice Bazaar Istanbul',
-  suat:'Suat Usta Mersin Tantuni Taksim',
-  blueMosque:'Blue Mosque Istanbul',
-  hagia:'Hagia Sophia Istanbul',
-  cistern:'Basilica Cistern Istanbul',
-  sevenHills:'Seven Hills Restaurant Istanbul',
-  arasta:'Arasta Bazaar Istanbul',
-  grandBazaar:'Grand Bazaar Istanbul',
-  hafiz:'Hafiz Mustafa 1864 Sirkeci',
-  hamam:'Acemoglu Hamami Sehzadebasi Caddesi Fatih Istanbul',
-  vefa:'Vefa Bozacisi Istanbul',
-  kadikoy:'Kadikoy Istanbul',
-  uskudar:'Uskudar Istanbul',
-  sok:'Sok Market Sirkeci Istanbul',
-  olden:'Olden 1772 Istanbul',
-  topkapi:'Topkapi Palace Istanbul',
-  mustafapasa:'Mustafapasa Cappadocia',
-  urgup:'Urgup Cappadocia'
+  avanos:'38.718737,34.846866',     /* Avanos 鎮中心，不是行政區中心點 */
+  mustafapasa:'38.583396,34.896916',
+  urgup:'38.630051,34.911603',
+  /* 伊斯坦堡 */
+  basil:'41.010415,28.978109',      /* Güzel Sanatlar Sokağı, Alemdar（飯店不在 OSM 上） */
+  boris:"Boris'in Yeri, Fatih, İstanbul",  /* 不在 OSM，保留店名 */
+  galata:'41.025640,28.974213',
+  karakoy:'41.022864,28.974039',
+  balik:'41.024425,28.978617',      /* Balık Dürüm Mehmet Usta */
+  gBridge:'41.020076,28.973087',
+  eminonu:'41.017996,28.974141',
+  spice:'41.016463,28.971098',      /* Mısır Çarşısı */
+  suat:'41.034666,28.982851',       /* Suat Usta Tantuni */
+  blueMosque:'41.005384,28.976853',
+  hagia:'41.008504,28.980011',
+  cistern:'41.008479,28.978382',    /* Yerebatan Sarnıcı */
+  sevenHills:'41.006371,28.979714',
+  arasta:'41.004927,28.977902',
+  grandBazaar:'41.010967,28.968253',/* Kapalı Çarşı */
+  hafiz:'41.016010,28.973360',
+  hamam:'41.012140,28.958548',      /* Acemoğlu Hamam */
+  vefa:'41.015318,28.958420',       /* Vefa Bozacısı 1876 */
+  kadikoy:'40.991295,29.024563',
+  uskudar:'41.026549,29.015132',
+  sok:'41.013436,28.975343',        /* Şok İstanbul Sirkeci 分店 */
+  olden:'41.014927,28.974103',
+  topkapi:'41.011344,28.983203',
+  lunchA:'41.003864,28.978764',     /* 11/08 午餐主選 Blu Ma'Cel Breakfast */
+  lunchB:'41.004331,28.975324'      /* 11/08 午餐備案 Cuppa Espresso Bakery */
 };
 
 var DATA=[
@@ -510,14 +522,13 @@ var DATA=[
   title:'出發日 · 桃園 / 樟宜 → 伊斯坦堡',
   status:'無行程可排', statusCls:'none',
   fatigue:4, fatigueText:'高',
-  lead:'長途夜航，沒有景點壓力。這天唯一真正要做的事是在出門前<strong>確認駱駝那筆已扣款成功</strong>——GetYourGuide 的 Pay later 排在今天扣，掉單的話 16:00 只剩少數位子。',
+  lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   facts:['飛行 11.5～12.7 小時','手提袋已裝進托運箱最上層'],
   rows:[
-    {time:'白天', act:'出門前打開 GetYourGuide App，確認駱駝已扣款成功', note:'Pay later 排在 10/30 扣款。卡片額度要留夠，出國前先跟銀行報備避免被風控擋。班機是晚上，白天有一整天可以處理。', hi:true, tags:['⚠️ 不做會掉單']},
     {time:'22:00', act:'安安 TK025 桃園 T2 → IST', note:'訂位代號 UQE3KZ，10/31 05:40 抵達伊斯坦堡。'},
     {time:'23:15', act:'豬豬 TK055 樟宜 T1 → IST', note:'10/31 05:50 抵達，兩人在入境後的公共區域集合。'}
   ],
-  stay:{name:'機上', note:'國際線托運 23kg；但隔天要接土航國內線 15kg，手提袋出發前就要裝好、秤過。'}
+  stay:{name:'機上', note:'國際線托運 23kg／隔天國內線 15kg。手提袋出發前裝好、秤過。'}
 },
 
 /* ========== DAY 02 · 10/31 ========== */
@@ -527,19 +538,19 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'高',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
-  lead:'國際線與國內線<strong>不是同一張票</strong>，要入境、領行李、重新托運。白天<strong>不排任何一餐</strong>，只吃台灣帶的麵包——機上最後一餐約 04:30，到 Selçuk 晚餐 18:30 中間隔 14 小時，最可能的進食時機是 12:40－14:45 的車上。',
+  lead:'國際線與國內線<strong>不是同一張票</strong>，要入境、領行李、重新托運。白天<strong>不排任何一餐</strong>，只吃台灣帶的麵包，最可能的進食時機是 12:40－14:45 的車上。',
   facts:['ADB → 以弗所 1h25','托運 ≤ 15kg／手提 ≤ 8kg','以弗所冬季 08:00－18:00'],
   rows:[
     {time:'05:50<br>–08:15', act:'IST 入境、領行李、抽出手提袋、與豬豬集合', note:'領行李時直接打開托運箱，把預裝好的手提袋抽出來，約 5 分鐘。整段預留 2～2.5 小時。'},
-    {time:'08:15<br>–09:30', act:'重新托運 + 國內線安檢', note:'櫃台 10:15 關。托運 ≤ 15kg、手提 ≤ 8kg，這是土航 EcoFly 的額度，比國際線 23kg 少很多。', tags:['⚠️ 10:15 櫃台關']},
+    {time:'08:15<br>–09:30', act:'重新托運 + 國內線安檢', note:'櫃台 10:15 關。托運 ≤ 15kg、手提 ≤ 8kg。', tags:['⚠️ 10:15 櫃台關']},
     {time:'09:30<br>–10:30', act:'候機緩衝', note:'<strong>不排用餐、不進貴賓室</strong>。前面超時就吃掉這格；有空才吃自備麵包。'},
     {time:'11:00<br>–12:10', act:'TK2320 IST → ADB', note:'訂位代號 TB5RZM，已開票。'},
     {time:'12:10<br>–12:40', act:'ADB 領行李'},
-    {time:'12:40<br>–13:20', act:'AVEC 取車、驗車', note:'Rentalcars 確認號 670245222。<strong>訂單上寫 11:30，需改成 13:00。</strong>豬豬為主駕駛，取車時確認後車廂遮蔽板、保險自負額、滿油規則。', tags:['car:租車 Day 1','⚠️ 待改 13:00']},
+    {time:'12:40<br>–13:20', act:'AVEC 取車、驗車', note:'Rentalcars 確認號 670245222。豬豬為主駕駛，取車時確認後車廂遮蔽板、保險自負額、滿油規則。', tags:['car:租車 Day 1']},
     {time:'13:20<br>–14:45', act:'ADB → 以弗所下入口（Lower Gate）', note:'車程 1h25、約 65 km。<strong>不先繞去飯店</strong>，直接到景點。這段車上是今天最可能吃東西的時候。', tags:['car:自駕 1h25','eat:車上吃麵包'], map:drv(P.adb,P.eLower)},
-    {time:'14:45<br>–15:00', act:'停車，搭計程車上 Upper Gate', note:'兩個入口相距約 3 公里坡地。<strong>車停下入口</strong>、搭車上到上入口，從上往下走完剛好回到自己的車。需備少量里拉現鈔。', tags:['⚠️ 要里拉現鈔'], map:drv(P.eLower,P.eUpper)},
-    {time:'15:00<br>–17:40', act:'以弗所古城（精簡版）', note:'克里特斯街 → 哈德良神廟 → 塞爾蘇斯圖書館 → 大劇院 → 港口大道。冬季 18:00 關門，17:40 開始往出口移動。若班機或取車延誤，只保留圖書館、大劇院、Curetes Street。', hi:true, tags:['⚠️ 18:00 關門'], map:wlk(P.eUpper,'Harbour Street Ephesus',['Curetes Street Ephesus','Temple of Hadrian Ephesus','Library of Celsus Ephesus','Great Theatre Ephesus'])},
-    {time:'17:40<br>–17:55', act:'→ Pikan Ephesus 入住', note:'飯店在 Selçuk，位於 ADB 與以弗所之間。', map:drv(P.eLower,P.pikan)},
+    {time:'14:45<br>–15:00', act:'停車，搭計程車上 Upper Gate', note:'兩個入口相距約 3 公里坡地。<strong>車停下入口</strong>、搭車上到上入口。需備少量里拉現鈔。', tags:['⚠️ 要里拉現鈔'], map:drv(P.eLower,P.eUpper)},
+    {time:'15:00<br>–17:40', act:'以弗所古城（精簡版）', note:'克里特斯街 → 哈德良神廟 → 塞爾蘇斯圖書館 → 大劇院 → 港口大道。冬季 18:00 關門，17:40 開始往出口移動。若班機或取車延誤，只保留圖書館、大劇院、Curetes Street。', hi:true, tags:['⚠️ 18:00 關門'], map:wlk(P.eUpper,P.eLower,[P.curetes,P.hadrian,P.celsus,P.eTheatre])},
+    {time:'17:40<br>–17:55', act:'→ Pikan Ephesus 入住', note:'飯店在 Selçuk。', map:drv(P.eLower,P.pikan)},
     {time:'18:30<br>–20:00', act:'Selçuk 晚餐、早休', note:'今天第一頓正餐。睡前把<strong>泳衣、拖鞋、小毛巾、防水袋</strong>從大行李拿出來放隨身小包，隔天棉堡泡澡要用。', tags:['eat:晚餐']},
     {time:'備案', act:'以弗所夜間場 19:00－22:30', note:'週三～六開放，<strong>但只到 2026/11/02</strong>，10/31 剛好是週六。白天若被延誤吃掉，這是最後手段，需另購票。'}
   ],
@@ -553,17 +564,17 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 全程最硬',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
-  lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。車程已用 Google Maps 實測值重算，所以出發時間回到 08:30，不需要早起。',
+  lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。08:30 出發。',
   facts:['自駕 430 km','Selçuk → 棉堡 2h20','棉堡 → ADB 2h40','⚠️ 16:05 硬性上限'],
   rows:[
     {time:'08:00<br>–08:30', act:'Pikan Ephesus 退房', note:'泳衣、拖鞋、小毛巾、防水袋放<strong>隨身小包</strong>，不要塞後車廂深處。'},
     {time:'08:30<br>–10:50', act:'Selçuk → Pamukkale', note:'採用 2h20（實測 1h55）、198 km。', tags:['car:自駕 2h20'], map:drv(P.pikan,P.pamukkale)},
-    {time:'10:50<br>–11:10', act:'吃麵包乾糧', note:'<strong>不在 Pamukkale 村吃正餐</strong>——今天的時間全部要留給石灰棚和古董池。', tags:['eat:乾糧']},
+    {time:'10:50<br>–11:10', act:'吃麵包乾糧', note:'<strong>不在 Pamukkale 村吃正餐。</strong>', tags:['eat:乾糧']},
     {time:'11:10<br>–14:00', act:'石灰棚 + Hierapolis Theatre', note:'2h50。部分區域要赤腳走。若時間壓力大，壓縮石灰棚拍照或 Hierapolis 散步。', map:wlk(P.pamukkale,P.hTheatre,[P.hierapolis])},
-    {time:'14:00<br>–15:20', act:'Cleopatra 古董池泡澡', note:'<strong>必排不可刪。</strong>冬季 17:00 關門所以排 14:00；泡池門票另收約 €6。泡完用防水袋收濕衣物。', hi:true, tags:['lock:必排','⚠️ 另收 €6'], map:wlk(P.hTheatre,P.cleopatra)},
+    {time:'14:00<br>–15:20', act:'Cleopatra 古董池泡澡', note:'<strong>必排不可刪。</strong>冬季 17:00 關門；泡池門票另收約 €6。泡完用防水袋收濕衣物。', hi:true, tags:['lock:必排','⚠️ 另收 €6'], map:wlk(P.hTheatre,P.cleopatra)},
     {time:'15:20<br>–15:35', act:'回車', note:'<strong>16:05 是離開棉堡的硬性上限</strong>，表定 15:35 上路，只有 30 分鐘餘裕。', tags:['lock:16:05 上限']},
     {time:'15:35<br>–18:15', act:'棉堡 → ADB', note:'採用 2h40（實測 2h13）、233 km，中途加油。', tags:['car:自駕 2h40'], map:drv(P.cleopatra,P.adb)},
-    {time:'18:15<br>–20:00', act:'加油 / 還車 / 托運 / 安檢', note:'105 分鐘，是全天最大的緩衝。建議 18:45 前抵達 ADB。'},
+    {time:'18:15<br>–20:00', act:'加油 / 還車 / 托運 / 安檢', note:'105 分鐘緩衝。建議 18:45 前抵達 ADB。'},
     {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', note:'Booking number D438G7，直飛 1h35。'},
     {time:'22:35<br>–23:15', act:'ASR 領行李 + AVEC 取車', note:'Rentalcars 確認號 637534354。取車當場確認 <strong>Opel Crossland 有後車廂遮蔽板</strong>，沒有就要換車。', tags:['car:租車 Day 2','⚠️ 確認遮蔽板']},
     {time:'23:15<br>–00:45', act:'夜路 81 km → Grand Elite Cave Suites', note:'採用 1h30（實測 1h14）。飯店已填預估抵達 23:00－00:00。<strong>只入住睡覺，不做別的事。</strong>', hi:true, map:drv(P.asr,P.grand)}
@@ -582,30 +593,30 @@ var DATA=[
   facts:['日落 17:41','黃金時段 16:41－17:41','自駕 20／55 分','行李全天在房間'],
   groups:[
     {label:'上午 · Plan A（有飛）', sub:'04:00 起床', rows:[
-      {time:'04:00<br>–04:30', act:'起床、著裝', note:'前一晚 00:45 才進飯店，只睡得到 3 小時——這是已知的代價。清晨很冷，帶保暖外套。'},
+      {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。'},
       {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。業者會在前 1～2 天通知實際接送時間。'},
       {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', note:'日出 07:07。', hi:true},
       {time:'07:30<br>–08:30', act:'香檳、證書、送回飯店'},
       {time:'08:30<br>–09:00', act:'飯店早餐'},
-      {time:'09:00<br>–12:00', act:'補眠', note:'<strong>這三小時不可挪用。</strong>Plan A 沒有 Paşabağ / Zelve 就是為了保住這段。', hi:true, tags:['lock:不可挪用']}
+      {time:'09:00<br>–12:00', act:'補眠', note:'<strong>這三小時不可挪用。</strong>', hi:true, tags:['lock:不可挪用']}
     ]},
     {label:'上午 · Plan B／C／D（沒飛）', sub:'睡飽 · 車程 35 分', alt:true, rows:[
       {time:'自然醒<br>–08:45', act:'睡飽'},
       {time:'08:45<br>–09:30', act:'飯店早餐 45 分'},
       {time:'09:30<br>–09:45', act:'→ Paşabağ 蘑菇谷', note:'採用 15 分（實測 9.8 分 / 6.9 km）。', tags:['car:15 分'], map:drv(P.grand,P.pasabag)},
-      {time:'09:45<br>–10:45', act:'Paşabağ 蘑菇谷 60 分', note:'最經典的多頭精靈煙囪，平地好走。<strong>這裡買的票同時含 Zelve</strong>——官方是同一個景點「ZELVE-PAŞABAĞLAR」，一張 €12 通用。', hi:true, tags:['⚠️ 票買一次就好']},
+      {time:'09:45<br>–10:45', act:'Paşabağ 蘑菇谷 60 分', note:'最經典的多頭精靈煙囪，平地好走。<strong>這裡買的票同時含 Zelve</strong>，一張 €12 通用。', hi:true, tags:['⚠️ 票買一次就好']},
       {time:'10:45<br>–10:50', act:'→ Zelve 露天博物館', note:'只有 1.8 km，5 分鐘。', tags:['car:5 分'], map:drv(P.pasabag,P.zelve)},
-      {time:'10:50<br>–11:50', act:'Zelve 露天博物館 60 分', note:'廢棄洞穴村，人比 Göreme 露天博物館少很多。官方查證：<strong>每天開、08:00 開門</strong>。'},
+      {time:'10:50<br>–11:50', act:'Zelve 露天博物館 60 分', note:'廢棄洞穴村，人比 Göreme 露天博物館少。<strong>每天開、08:00 開門。</strong>'},
       {time:'11:50<br>–12:05', act:'→ Grand Elite', note:'採用 15 分。車停飯店，走去吃午餐。', tags:['car:15 分'], map:drv(P.zelve,P.grand)}
     ]},
     {label:'下午 · 四個 Plan 完全相同', sub:'現場零決策', rows:[
       {time:'12:00<br>–13:20', act:'Göreme 午餐 80 分', tags:['eat:午餐']},
       {time:'13:20<br>–13:30', act:'→ Göreme Open Air Museum', note:'採用 10 分（實測 7 分 / 1.8 km）。', tags:['car:10 分'], map:drv(P.grand,P.goreme)},
-      {time:'13:30<br>–15:20', act:'Göreme 露天博物館 1h50', note:'<strong>排下午不是妥協</strong>——旅行團集中在上午，越晚人越少。官方查證：每天開、08:00 開門，13:30 進場離關門很遠。', hi:true},
+      {time:'13:30<br>–15:20', act:'Göreme 露天博物館 1h50', note:'每天開、08:00 開門。', hi:true},
       {time:'15:20<br>–15:30', act:'→ 回飯店', tags:['car:10 分'], map:drv(P.goreme,P.grand)},
-      {time:'15:30<br>–16:00', act:'30 分緩衝', note:'休息、換保暖外套。Plan A 那天（04:00 起床）這 30 分特別值錢。'},
+      {time:'15:30<br>–16:00', act:'30 分緩衝', note:'休息、換保暖外套。'},
       {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。接送 16:00、騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41、曙暮光 18:07）。路線含 Red + Rose Valley。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
-      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'<strong>22:00 前睡</strong>——不管今天有沒有飛，隔天都可能 04:00 起床。', tags:['eat:晚餐','lock:22:00 前睡']}
+      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'<strong>22:00 前睡。</strong>', tags:['eat:晚餐','lock:22:00 前睡']}
     ]}
   ],
   stay:{name:'Grand Elite Cave Suites（Göreme）', note:'第 2 晚 · 行李全天在房間，不用上車'}
@@ -618,23 +629,23 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'中高',
   img:'uchisar-castle.jpg', cap:'Uçhisar Castle · 鴿子谷方向',
-  lead:'路線是「<strong>南下 → 北返 → 東南收尾</strong>」：Göreme → Kaymaklı（南，第一站）→ 鴿子谷 / Uçhisar（西）→ 路過 Göreme 拿行李 → Ayvalı（東南）。車程 120 分，比舊版多 35 分——那 35 分就是「<strong>行李一整天不上車</strong>」的價碼，而且順便讓進 Gamirasu 從 16:55 提早到 15:45。',
+  lead:'路線是「<strong>南下 → 北返 → 東南收尾</strong>」：Göreme → Kaymaklı（南，第一站）→ 鴿子谷 / Uçhisar（西）→ 路過 Göreme 拿行李 → Ayvalı（東南）。車程 120 分，<strong>行李一整天不上車</strong>，15:45 進 Gamirasu。',
   facts:['自駕 120 分','行李寄放 Grand Elite','5 段點到點路線'],
   rows:[
-    {time:'08:00<br>–08:45', act:'Grand Elite 早餐', note:'⚠️ 早餐幾點開始待確認。若 08:30 才開，整天要往後推 30 分。'},
-    {time:'08:45<br>–09:00', act:'退房、行李寄放飯店', note:'行李寄放到 15:05，全天不上車——所以 Kaymaklı 才能排成停最久、離飯店最遠的一站。'},
-    {time:'09:00<br>–09:35', act:'→ Kaymaklı 地下城', note:'採用 35 分、32 km，全天最長的一段，放在最有精神的時候。⚠️ <strong>唯一還沒用 Google 直接量過的路段</strong>（OSRM 推估 27～29 分），出發前補查；超過 40 分全天往後推。', tags:['car:35 分','⚠️ 待實查'], map:drv(P.grand,P.kaymakli)},
-    {time:'09:35<br>–11:05', act:'Kaymaklı 地下城 1.5 小時', note:'選 Kaymaklı 不選 Derinkuyu，因為後者要再往南多開 10 公里。官方查證：<strong>每天開、08:00 開門</strong>。通道低矮，穿好走的鞋。', hi:true},
+    {time:'08:00<br>–08:45', act:'Grand Elite 早餐'},
+    {time:'08:45<br>–09:00', act:'退房、行李寄放飯店', note:'行李寄放到 15:05，全天不上車。'},
+    {time:'09:00<br>–09:35', act:'→ Kaymaklı 地下城', note:'採用 35 分、32 km，全天最長的一段。', tags:['car:35 分'], map:drv(P.grand,P.kaymakli)},
+    {time:'09:35<br>–11:05', act:'Kaymaklı 地下城 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true},
     {time:'11:05<br>–11:45', act:'→ 鴿子谷觀景台', note:'採用 40 分、約 18 km，走 Uçhisar–Nevşehir 路，<strong>不經 Göreme</strong>。⚠️ 導航要設「觀景台」，不要設谷地中心點，那個點在谷裡、會被帶到產業道路。', tags:['car:40 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon)},
     {time:'11:45<br>–12:45', act:'鴿子谷觀景台 60 分'},
     {time:'12:45<br>–12:50', act:'→ Uçhisar', note:'相鄰，3.9 km。', tags:['car:5 分'], map:drv(P.pigeon,P.uchisar)},
     {time:'12:50<br>–13:50', act:'Uçhisar 午餐', tags:['eat:午餐']},
-    {time:'13:55<br>–14:55', act:'Uçhisar Castle 60 分', note:'太累的話這站是<strong>唯一該砍的</strong>（省 65 分，14:00 就能進 Gamirasu）。鴿子谷和 Castle 是同一片谷地的兩個角度，砍一個不會少看什麼。<strong>不要砍 Kaymaklı。</strong>', map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]]},
+    {time:'13:55<br>–14:55', act:'Uçhisar Castle 60 分', note:'太累的話這站是<strong>唯一該砍的</strong>（省 65 分，14:00 就能進 Gamirasu）。<strong>不要砍 Kaymaklı。</strong>', map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]]},
     {time:'14:55<br>–15:05', act:'→ Grand Elite', tags:['car:10 分'], map:drv(P.uchisar,P.grand)},
     {time:'15:05<br>–15:15', act:'拿回寄放的行李', note:'拿了直接開往飯店門口，不再停任何景點。', hi:true},
-    {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。這段跟 Kaymaklı → Gamirasu 一樣長，所以回頭拿行李沒有讓收尾變遠。', tags:['car:30 分'], map:drv(P.grand,P.gamirasu)},
+    {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:30 分'], map:drv(P.grand,P.gamirasu)},
     {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。'},
-    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00，à la carte + 套餐、可配酒。<strong>在飯店吃才不用開鄉間夜路，兩個人都能喝酒</strong>（豬豬是唯一駕駛）。⚠️ 推定不含在房價，建議先預約並問價位。', hi:true, tags:['eat:飯店晚餐','⚠️ 需預約問價']},
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00，à la carte + 套餐、可配酒。<strong>在飯店吃，兩個人都能喝酒。</strong>', hi:true, tags:['eat:飯店晚餐']},
     {time:'Plan B', act:'熱氣球在今天 → 整表後移 30 分', note:'09:30 出發 → 10:05 Kaymaklı → 15:35 拿行李 → <strong>16:15 進 Gamirasu</strong>，18:00 晚餐照樣趕得上。要刪就刪 Uçhisar Castle。'}
   ],
   stay:{name:'Gamirasu Cave Hotel（Ayvalı / Ürgüp）', note:'Hotels.com 73467533073850 · 15:45 抵達／退房 11/04 12:30 · 入住時付款'}
@@ -647,23 +658,23 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:3, fatigueText:'中（A/B/D）· 中高（Plan C）',
   img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
-  lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>——12:30 退房後無處可放，Avanos + Sarı Han 共約 2 小時、2 個停點，後車廂防護要在 11/01 取車時就做完。',
-  facts:['⚠️ 行李在車上 2 小時','⚠️ 15:35 離開 Sarı Han','還車待改 16:30'],
+  lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>，Avanos + Sarı Han 共約 2 小時、2 個停點。',
+  facts:['⚠️ 行李在車上 2 小時','⚠️ 15:35 離開 Sarı Han','16:45 前完成還車'],
   rows:[
     {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台拍照', note:'洞穴房、泳池、露台是這間的重點。12:30 退房。'},
     {time:'12:30<br>–13:15', act:'→ Avanos', note:'採用 45 分（實查 34 分）、24.4 km，經 Ürgüp。', tags:['car:45 分'], map:drv(P.gamirasu,P.avanos)},
-    {time:'13:15<br>–14:25', act:'Avanos 午餐 + Kızılırmak 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>——當天要接托運只有 15kg 的國內線，陶器又重又易碎。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器']},
-    {time:'14:25<br>–14:35', act:'→ Sarı Han 商隊驛站', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向，<strong>不是繞路</strong>。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan)},
-    {time:'14:35<br>–15:20', act:'Sarı Han 商隊驛站 45 分', note:'1249 年的塞爾柱商隊旅館，<strong>全程唯一的塞爾柱時期建築</strong>。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true},
+    {time:'13:15<br>–14:25', act:'Avanos 午餐 + Kızılırmak 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器']},
+    {time:'14:25<br>–14:35', act:'→ Sarı Han 商隊驛站', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan)},
+    {time:'14:35<br>–15:20', act:'Sarı Han 商隊驛站 45 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true},
     {time:'15:20<br>–16:25', act:'→ Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:35 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr)},
-    {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'⚠️ 租車訂單的還車時間是 <strong>19:00，比 18:40 起飛還晚</strong>，需改成 16:30 並確認可提早還車（確認號 637534354）。', tags:['⚠️ 待改 16:30']},
+    {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。'},
     {time:'16:45<br>起', act:'報到、安檢、候機'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM，已開票。'},
     {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。晚上避免拖行李搭多段大眾交通。', hi:true},
     {time:'Plan C', act:'熱氣球補飛在今天', note:'04:00 起床、04:40 Discovery Balloons 到 <strong>Gamirasu 接（已向業者確認可接 Ayvalı）</strong>、06:00－07:30 飛、07:30－09:00 送回，09:00 接回主線。累的話跳過 Avanos：Gamirasu → Sarı Han 直達 40 分，15:15 就能到 ASR。', map:[['跳過 Avanos · Gamirasu → Sarı Han',drv(P.gamirasu,P.sarihan)]]},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
   ],
-  stay:{name:'Basilissis Hotel（伊斯坦堡舊城）', note:'Hotels.com 73473369372843 · 11/04－11/08 四晚 · 標準雙床房 · 待補含稅總價與取消條款'}
+  stay:{name:'Basilissis Hotel（伊斯坦堡舊城）', note:'Hotels.com 73473369372843 · 11/04－11/08 四晚 · 標準雙床房'}
 },
 
 /* ========== DAY 07 · 11/05 ========== */
@@ -676,15 +687,15 @@ var DATA=[
   lead:'前一晚才回到伊斯坦堡，這天只做城市暖身與短距離散步，以步行、T1 電車和短程叫車銜接。目標是補齊必去清單裡的<strong>土耳其式早餐</strong>與 Karaköy / Beyoğlu 街頭美食。',
   facts:['行李全放飯店','⚠️ Boris\'in Yeri 只收現金'],
   rows:[
-    {time:'上午', act:'起床、整理小包', note:'前一晚抵達市區已偏晚，上午不要太早出門。飯店早餐可略過或只喝飲料。'},
+    {time:'上午', act:'起床、整理小包', note:'上午不要太早出門。飯店早餐可略過或只喝飲料。'},
     {time:'10:30<br>–11:00', act:'→ Boris\'in Yeri', note:'在 Kumkapı / Fatih 方向，離飯店較近；可步行、短程叫車或搭大眾交通。', map:trn(P.basil,P.boris)},
     {time:'11:00<br>–12:15', act:'Boris\'in Yeri 土耳其早餐', note:'這餐完成必去清單的土耳其式早餐——1876 年這區的老早餐店，主打傳統早餐與乳製品，也好拍。點餐參考：蜂蜜牛奶、<em>kaymak</em>、土耳其咖啡、<em>sucuk</em> 臘腸、<em>menemen</em> 番茄炒蛋。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['eat:早餐','⚠️ 只收現金']},
     {time:'12:15<br>–12:45', act:'→ Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘。', map:trn(P.boris,P.galata)},
     {time:'12:45<br>–13:45', act:'Galata / Karaköy 散步', note:'低強度看港口、坡道、咖啡店與街區。上坡太累就只走 Karaköy 平地。', map:wlk(P.galata,P.karakoy)},
-    {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃，但前面早餐重，<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'], map:wlk(P.karakoy,P.balik)},
+    {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃。<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'], map:wlk(P.karakoy,P.balik)},
     {time:'14:30<br>–16:00', act:'Galata Bridge + Eminönü 海邊散步', note:'看點是城市日常——橋上釣魚、橋下餐廳、金角灣與舊城天際線同時出現。不追求景點數量。', map:wlk(P.balik,P.eminonu,[P.gBridge])},
-    {time:'16:00<br>–17:30', act:'Spice Bazaar 香料市集', note:'比大巴札更偏氣味與食物記憶。11/06 排大巴札，所以今天用香料市集補食物與香料。人多時注意包包。', map:wlk(P.eminonu,P.spice)},
-    {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>，不犧牲白天動線。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'], map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
+    {time:'16:00<br>–17:30', act:'Spice Bazaar 香料市集', note:'比大巴札更偏氣味與食物記憶。人多時注意包包。', map:wlk(P.eminonu,P.spice)},
+    {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'], map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
     {time:'刪減', act:'若前一晚抵達太晚', note:'保留 Boris\'in Yeri + Karaköy / Galata + Balık Dürüm，Spice Bazaar 與 Suat Usta 擇一或延後。'}
   ],
   stay:{name:'Basilissis Hotel', note:'第 1 晚 · 位置在 Alemdar / Gülhane 附近，步行可進舊城核心'}
@@ -697,17 +708,17 @@ var DATA=[
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
   img:'hagia-sophia.jpg', cap:'聖索菲亞 · Sultanahmet 廣場',
-  lead:'舊城景點密集、排隊與步行會累，但不用換城市。重點是<strong>控制排隊時間</strong>，不要把大景點和兩個市集全塞滿。Topkapi 已移到 11/08 早場短版，這天不再二選一。',
+  lead:'舊城景點密集、排隊與步行會累，但不用換城市。重點是<strong>控制排隊時間</strong>，不要把大景點和兩個市集全塞滿。Topkapi 排在 11/08 早場短版。',
   facts:['全程步行','Grand Bazaar 固定這天','門票走官方售票系統'],
   rows:[
-    {time:'08:30<br>–09:00', act:'→ Sultanahmet Square', note:'直接步行，這是住 Basilissis 的主要優勢。早點出門避開旅行團。', map:wlk(P.basil,P.blueMosque)},
+    {time:'08:30<br>–09:00', act:'→ Sultanahmet Square', note:'直接步行。早點出門避開旅行團。', map:wlk(P.basil,P.blueMosque)},
     {time:'09:00<br>–09:45', act:'Sultanahmet Square + 藍色清真寺', note:'六座宣禮塔與藍色磁磚是特色。注意服裝規則。'},
-    {time:'10:00<br>–11:30', act:'Hagia Sophia 聖索菲亞', note:'重點是巨大穹頂與不同宗教層次共存。<strong>官方售票 €25 / 人</strong>（比 Klook 便宜）。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, tags:['⚠️ 官方票 €25'], map:wlk(P.blueMosque,P.hagia)},
-    {time:'11:45<br>–12:45', act:'Basilica Cistern 地下水宮殿', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。<strong>官方票 ₺1,950 / 人</strong>（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', tags:['⚠️ 官方票 ₺1,950'], map:wlk(P.hagia,P.cistern)},
-    {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。⚠️ 需先確認能否少量點餐、低消與訂位規則。', hi:true, tags:['eat:拍照小點','⚠️ 低消待確認'], map:wlk(P.cistern,P.sevenHills)},
+    {time:'10:00<br>–11:30', act:'Hagia Sophia 聖索菲亞', note:'重點是巨大穹頂與不同宗教層次共存。<strong>官方售票 €25 / 人</strong>。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, tags:['官方票 €25'], map:wlk(P.blueMosque,P.hagia)},
+    {time:'11:45<br>–12:45', act:'Basilica Cistern 地下水宮殿', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。<strong>官方票 ₺1,950 / 人</strong>（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', tags:['官方票 ₺1,950'], map:wlk(P.hagia,P.cistern)},
+    {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。', hi:true, tags:['eat:拍照小點'], map:wlk(P.cistern,P.sevenHills)},
     {time:'13:45<br>–14:15', act:'Arasta 周邊短走或直接轉場', note:'不硬塞第二餐；Seven Hills 只點很少的話，用飲料 / 小點墊胃。', map:wlk(P.sevenHills,P.arasta)},
-    {time:'14:15<br>–16:15', act:'Grand Bazaar 大巴札', note:'偏工藝、金飾與觀光商品。週五營業，放在舊城日午後最順。', map:wlk(P.arasta,P.grandBazaar)},
-    {time:'16:15<br>–17:15', act:'Hafiz Mustafa 1864 Sirkeci 甜點茶點', note:'從 11/08 移到今天，避免回程日早上吃太甜。點 1～2 份招牌甜點分食，配土耳其茶或咖啡。', tags:['eat:甜點'], map:wlk(P.grandBazaar,P.hafiz)},
+    {time:'14:15<br>–16:15', act:'Grand Bazaar 大巴札', note:'偏工藝、金飾與觀光商品。週五營業。', map:wlk(P.arasta,P.grandBazaar)},
+    {time:'16:15<br>–17:15', act:'Hafiz Mustafa 1864 Sirkeci 甜點茶點', note:'點 1～2 份招牌甜點分食，配土耳其茶或咖啡。', tags:['eat:甜點'], map:wlk(P.grandBazaar,P.hafiz)},
     {time:'傍晚<br>起', act:'Galata Bridge / Karaköy 晚餐與短散步', note:'若 11/05 已走過 Galata，改 Sirkeci / 舊城附近晚餐。去 Karaköy 可搭 T1 或叫車，<strong>晚上不帶護照與大量現金</strong>。', tags:['eat:晚餐'], map:[['走去 Karaköy',wlk(P.hafiz,P.karakoy,[P.gBridge])],['回飯店',trn(P.karakoy,P.basil)]]},
     {time:'刪減', act:'排隊太久或天氣差', note:'下午仍優先保留 Grand Bazaar；天氣差則優先保留室內的地下水宮殿與市集。'}
   ],
@@ -720,17 +731,17 @@ var DATA=[
   title:'土耳其浴 · 生活街區 · 伴手禮',
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'低中／中',
-  lead:'早餐與土耳其浴偏放鬆，真正的疲勞來自下午是否跨去 Kadıköy / Üsküdar——<strong>生活街區擇一即可</strong>。11/05 已完成土耳其式早餐，這天早餐改輕量，避免浴前吃太重。傍晚先完成超市伴手禮，晚上以 Olden 1772 作近距離晚餐。',
-  facts:['⚠️ 土耳其浴需提前訂','超市 09:00－21:00','行李今晚整理完'],
+  lead:'早餐與土耳其浴偏放鬆，下午<strong>生活街區擇一即可</strong>。這天早餐改輕量。傍晚先完成超市伴手禮，晚上以 Olden 1772 作近距離晚餐。',
+  facts:['土耳其浴 11:30 開始','超市 09:00－21:00','行李今晚整理完'],
   rows:[
     {time:'09:30<br>–10:30', act:'輕早餐 / 咖啡', note:'今天不要吃太重。選飯店附近或浴場附近即可。', tags:['eat:輕早餐']},
     {time:'11:20', act:'土耳其浴提前 10 分鐘抵達', note:'<strong>遲到或未出席可能不退款。</strong>Acemoglu 在 Fatih 的 Şehzadebaşı Cd.，Vezneciler 地鐵站步行 1 分鐘。', tags:['⚠️ 不可遲到'], map:wlk(P.basil,P.hamam)},
-    {time:'11:30<br>–13:30', act:'Acemoglu 15 世紀土耳其浴', note:'必做項目。Klook 單買 <strong>公共池 NT$1,480 / 半私人 NT$1,850</strong>，需先決定——公共池是男女混浴、同時段最多 8 人、全部由女性工作人員服務。體驗約 45 分鐘。', hi:true, tags:['⚠️ 待訂']},
-    {time:'13:30<br>–14:15', act:'Vefa Bozacısı boza', note:'1876 年開業的老字號，主打 <em>boza</em>（發酵小米飲，常配烤鷹嘴豆）。<strong>浴後順路</strong>，距浴場僅約 350 公尺。兩人分一杯就好，不必當正餐。', tags:['eat:老字號'], map:wlk(P.hamam,P.vefa)},
+    {time:'11:30<br>–13:30', act:'Acemoglu 15 世紀土耳其浴', note:'必做項目。公共池是男女混浴、同時段最多 8 人、全部由女性工作人員服務。體驗約 45 分鐘。', hi:true},
+    {time:'13:30<br>–14:15', act:'Vefa Bozacısı boza', note:'1876 年開業的老字號，主打 <em>boza</em>（發酵小米飲，常配烤鷹嘴豆）。距浴場約 350 公尺。兩人分一杯就好，不必當正餐。', tags:['eat:老字號'], map:wlk(P.hamam,P.vefa)},
     {time:'14:15<br>–17:30', act:'生活街區擇一', note:'<strong>選項一 Kadıköy + Üsküdar（亞洲側）</strong>：從 Eminönü / Karaköy 搭渡輪約 20－30 分，市場、咖啡店、海邊與通勤渡輪能看到伊斯坦堡日常；Üsküdar 補海峽夕陽視角。<strong>選項二 Karaköy / Galata</strong>：浴後很累或天氣差就留歐洲側，少移動、晚餐方便。（Balat / Fener 彩色街區為第三備案。）', hi:true, map:[['亞洲側 · Kadıköy + Üsküdar',trn(P.vefa,P.uskudar,[P.eminonu,P.kadikoy])],['歐洲側 · Karaköy / Galata',trn(P.vefa,P.galata,[P.karakoy])]]},
     {time:'17:30<br>–18:30', act:'超市伴手禮採買', note:'Şok İstanbul Sirkeci，離飯店近，營業一～日 09:00－21:00。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾 / 杜拜巧克力、GODIVA、開心果、烤肉調味包。買完直接回飯店。', hi:true, map:[['Şok İstanbul Sirkeci',pin(P.sok)]]},
     {time:'18:30<br>–19:15', act:'回飯店分裝戰利品', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。巧克力避免熱源、餅乾防壓、咖啡粉用夾鏈袋再包一層。11/08 早上不要再重整。', map:wlk(P.sok,P.basil)},
-    {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近，適合超市後的低風險晚餐。⚠️ 建議先查價位、營業時間與是否需訂位。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐','⚠️ 訂位待確認'], map:wlk(P.basil,P.olden)},
+    {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐'], map:wlk(P.basil,P.olden)},
     {time:'睡前', act:'把行李整理完畢', note:'11/08 只回飯店拿了就走。', hi:true}
   ],
   stay:{name:'Basilissis Hotel', note:'第 3 晚 · 夜間巡遊不硬排，Galata / Karaköy 短散步或短版博斯普魯斯遊船當備案'}
@@ -743,14 +754,14 @@ var DATA=[
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
   img:'topkapi-palace.jpg', cap:'Topkapı 皇宮 · 崇敬之門',
-  lead:'不要冒險、不安排遠點，但保留一個有記憶點的舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，已訂 Klook <strong>13:00 送機</strong>，目標 14:30 前到 IST。11/07 已完成伴手禮採買，今天不再安排購物任務。',
+  lead:'不安排遠點，保留一個舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，已訂 Klook <strong>13:00 送機</strong>，目標 14:30 前到 IST。今天不安排購物。',
   facts:['Topkapi 週日 09:00 開','⚠️ 13:00 送機不延後','不退稅'],
   rows:[
     {time:'08:15<br>–08:45', act:'飯店附近輕早餐、退房寄放行李', note:'行李前一晚已整理好，早上只帶小包出門。不要吃太慢。', tags:['eat:輕早餐']},
-    {time:'09:00<br>–10:45', act:'Topkapi Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。⚠️ 票還沒決定：只買本館必須現場排隊，能線上買的是含後宮的聯票 ₺2,750——買聯票、現場排隊、或整個拿掉三者要先選一個。', hi:true, tags:['⚠️ 票券未決定'], map:wlk(P.basil,P.topkapi)},
-    {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。⚠️ 兩間店名待補。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐','⚠️ 店名待補'], map:[['午餐主選 · 地圖連結','https://maps.app.goo.gl/7Za34LJP283V84rTA']]},
-    {time:'12:10<br>–13:00', act:'回飯店拿行李、等 Klook 送機', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>確認 Klook 憑證與司機聯絡資訊。', map:wlk(P.topkapi,P.basil)},
-    {time:'13:00<br>–14:30', act:'Basilissis Hotel → Istanbul Airport', note:'Klook 送機已訂 13:00，實付 NT$1,620。依塞車約 45－90 分。<strong>這是可接受上限，不再往後延</strong>；回程日不搭多段大眾交通。', hi:true, tags:['lock:13:00 不延後']},
+    {time:'09:00<br>–10:45', act:'Topkapi Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。', hi:true, map:wlk(P.basil,P.topkapi)},
+    {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.topkapi,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.topkapi,P.lunchB)]]},
+    {time:'12:10<br>–13:00', act:'回飯店拿行李、等 Klook 送機', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>確認 Klook 憑證與司機聯絡資訊。', map:wlk(P.lunchA,P.basil)},
+    {time:'13:00<br>–14:30', act:'Basilissis Hotel → Istanbul Airport', note:'Klook 送機已訂 13:00，實付 NT$1,620。依塞車約 45－90 分。<strong>13:00 不再往後延</strong>；回程日不搭多段大眾交通。', hi:true, tags:['lock:13:00 不延後']},
     {time:'14:30<br>起', act:'報到、安檢、出境、登機', note:'預留 2.5－3 小時。<strong>不退稅。</strong>'},
     {time:'17:15', act:'安安 TK124 IST → 桃園', note:'11/09 08:45 抵達。'},
     {time:'18:30', act:'豬豬 TK208 IST → 樟宜'},
@@ -769,7 +780,7 @@ var DATA=[
   facts:['安安 08:45 抵達桃園 T2'],
   rows:[
     {time:'08:45', act:'安安 TK124 抵達桃園 T2'},
-    {time:'白天', act:'各自回家、整理行李', note:'伴手禮 11/07 就已分裝好，回家只要拆箱。'}
+    {time:'白天', act:'各自回家、整理行李', note:'回家只要拆箱。'}
   ],
   stay:{name:'回家', note:'旅程結束'}
 }
@@ -783,14 +794,11 @@ var PANELS={
       {k:'10/31–11/01', b:'Pikan Ephesus', i:'Selçuk · 1 晚',
        em:'Agoda 訂單 1734845536 · 入住 15:00／退房 11:00 · 2026/10/30 前皆可免費取消 · 地址 1045. Sokak 42 A, Selçuk 35920 · 14:10 到 Selçuk，入住前先寄放行李再去以弗所'},
       {k:'11/01–11/03', b:'Grand Elite Cave Suites', i:'Göreme · 2 晚',
-       em:'Booking.com · 入住 14:00–00:00／退房 11:00 · 座標 38.6394198, 34.8294131 · 有停車場 · 熱氣球與駱駝都在這裡接送 · 已填預估抵達 23:00–00:00',
-       w:'街道門牌與早餐開始時間待補（早餐若 08:30 才開，11/03 整天往後推 30 分）'},
+       em:'Booking.com · 入住 14:00–00:00／退房 11:00 · 座標 38.6394198, 34.8294131 · 有停車場 · 熱氣球與駱駝都在這裡接送 · 已填預估抵達 23:00–00:00'},
       {k:'11/03–11/04', b:'Gamirasu Cave Hotel · Special Class', i:'Ayvalı／Ürgüp · 1 晚',
-       em:'Hotels.com 73467533073850 · 15:45 抵達（可入住 14:00）／退房 12:30 · 入住時付款 · 餐廳 18:00–22:00 · 地址 Davutlu Ayvalı Köyü Yolu No:101',
-       w:'晚餐推定不含在房價，需先預約並問價位；房型是否含早餐待確認'},
+       em:'Hotels.com 73467533073850 · 15:45 抵達（可入住 14:00）／退房 12:30 · 入住時付款 · 餐廳 18:00–22:00 · 地址 Davutlu Ayvalı Köyü Yolu No:101'},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
-       em:'Hotels.com 73473369372843 · 標準雙床房 · 入住 14:00／退房 12:00 · 評分 8.4（56 則）· 地址 Güzelsanatlar Sk. 4, Fatih · 步行可進舊城核心',
-       w:'待補含稅總價、取消條款、是否含早餐、late check-in 與電梯／行李協助'}
+       em:'Hotels.com 73473369372843 · 標準雙床房 · 入住 14:00／退房 12:00 · 評分 8.4（56 則）· 地址 Güzelsanatlar Sk. 4, Fatih · 步行可進舊城核心'}
     ]
   },
   fly:{
@@ -805,8 +813,7 @@ var PANELS={
       {k:'11/01', b:'SunExpress · ADB → ASR（Kayseri）', i:'21:00 → 22:35，1h35 直飛',
        em:'Booking number D438G7 · 18:15 就到 ADB，105 分鐘是全天最大的緩衝'},
       {k:'11/04', b:'TK2017 · ASR → IST', i:'18:40 → 20:20，1h40',
-       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg（所以 11/04 不買陶器）',
-       w:'Kayseri 租車訂單的還車時間是 19:00，比起飛還晚 → 需改 16:30'},
+       em:'土耳其航空，訂位代號 TB5RZM 已開票 · EcoFly 托運 15kg'},
       {k:'11/08', b:'回程 · 伊斯坦堡 → 台北／新加坡',
        i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
        em:'目標 14:30 前抵達 IST，預留 2.5–3 小時報到安檢 · 不退稅'}
@@ -824,11 +831,10 @@ var PANELS={
     title:'2 段租車', note:'皆已訂 · 主駕駛豬豬',
     rows:[
       {k:'10/31–11/01', b:'AVEC · Toyota Corolla 或相似車款', i:'10/31 13:00 ADB 取車 → 11/01 20:00 ADB 還車',
-       em:'Rentalcars 確認號 670245222 · +90 232 531 2832 · 5 座 4 門／2 大 1 小行李 · 自排、空調、里程無上限 · 建議 18:45 前抵達 ADB 還車 · 駕照與取車信用卡都必須是豬豬',
-       w:'訂單取車時間寫 11:30，但飛機 12:10 才落地 → 需改成 13:00'},
+       em:'Rentalcars 確認號 670245222 · +90 232 531 2832 · 5 座 4 門／2 大 1 小行李 · 自排、空調、里程無上限 · 建議 18:45 前抵達 ADB 還車 · 駕照與取車信用卡都必須是豬豬'},
       {k:'11/01–11/04', b:'AVEC · Opel Crossland 或相似車款', i:'11/01 23:00 ASR 取車 → 11/04 16:30 ASR 還車',
        em:'Rentalcars 確認號 637534354 · +90 352 353 3800 · 5 座 4 門／2 大行李 · 深夜取車時間已對齊 22:35 抵達 · 三天總車程 120＋75 分',
-       w:'訂單還車寫 19:00，比 18:40 起飛還晚 → 需改 16:30；掀背車，取車當場確認有後車廂遮蔽板（11/04 行李要在車上約 2 小時）'}
+       w:'掀背車，取車當場確認有後車廂遮蔽板（11/04 行李要在車上約 2 小時）'}
     ]
   }
 };
