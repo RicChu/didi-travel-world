@@ -6,7 +6,6 @@
 | 檔案 | 對應日期 | 地點 | 原始檔名 | 作者 | 授權 |
 |------|----------|------|----------|------|------|
 | `ephesus-celsus-library.jpg` | 10/31 | 以弗所 塞爾蘇斯圖書館 | `TR.IZ.Selcuk Ephesus Celsus-Library 32 3x2-R 5K.jpg` | Roy Egloff | CC BY-SA 4.0 |
-| `pamukkale-travertines.jpg` | 11/01 | 棉堡 石灰棚梯田 | `The Travertine terraces of Pamukkale.jpg` | Slyronit | CC BY-SA 4.0 |
 | `cappadocia-balloons.jpg` | 11/02 | 格雷梅 日出熱氣球 | `Hot air balloons over valleys near Göreme, Cappadocia at dawn.JPG` | MusikAnimal | CC BY-SA 4.0 |
 | `uchisar-castle.jpg` | 11/03 | Uçhisar Castle | `Uçhisar Castle 02.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
 | `sarihan-caravanserai.jpg` | 11/04 | Sarı Han 商隊驛站（Avanos） | `Sarıhan - Avanos (Nevşehir).jpg` | Buzancar | CC BY-SA 4.0 |
@@ -29,7 +28,6 @@
 | `ephesus-curetes-street.jpg` | 以弗所 克里特斯街 | `Curetes Street in Ephesus (1).jpg` | Radosław Botev | CC BY 3.0 pl |
 | `hierapolis-theatre.jpg` | 棉堡 Hierapolis 古劇場 | `Antik Tiyatro, Hierapolis, 2019 02.jpg` | Gargarapalvin | CC BY-SA 4.0 |
 | `cleopatra-pool.jpg` | 棉堡 古董池 | `Cleopatra Antique pool (15688240214).jpg` | shankar s. | CC BY 2.0 |
-| `pamukkale-travertines.jpg` | 棉堡 石灰棚（與 11/01 日照共用） | 同上表 | Slyronit | CC BY-SA 4.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
 
@@ -41,3 +39,4 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | 檔案 | 用途 | 來源 |
 |------|------|------|
 | `teras-restaurant.jpg` | 11/01 Teras restaurant 餐廳卡片 | 使用者於 2026-08-20 提供 |
+| `pamukkale-travertines.jpg` | 11/01 日照 + 石灰棚東觀景台景點卡 | 使用者於 2026-08-20 提供（取代原本 Slyronit 的 CC BY-SA 4.0 照片） |

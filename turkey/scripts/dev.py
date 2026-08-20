@@ -483,6 +483,21 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
         super().do_GET()
 
+    def end_headers(self):
+        # 換圖後瀏覽器還顯示舊的很難察覺，所以靜態檔一律不快取
+        if not self._sent_no_store:
+            self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
+    def send_header(self, key, value):
+        if key.lower() == "cache-control":
+            self._sent_no_store = True
+        super().send_header(key, value)
+
+    def handle_one_request(self):
+        self._sent_no_store = False
+        super().handle_one_request()
+
     def do_POST(self):  # noqa: N802
         if self.path.split("?")[0] != "/__save":
             return self._json({"ok": False, "error": "未知路徑"}, 404)
