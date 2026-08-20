@@ -127,6 +127,9 @@ RELOAD_JS = """
 
 # ───────────────────────────── 編輯器頁面 ─────────────────────────────
 
+# ⚠️ 這是一般（非 raw）字串，Python 會先處理一次跳脫：
+#    JS 裡要出現 \n 的地方，這裡必須寫成 \\n，只寫 \n 會變成真的換行、
+#    讓 JS 字串跨行而整個 script 語法錯誤（畫面就會卡在「載入中…」）。
 EDITOR_HTML = """<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -177,6 +180,22 @@ button.primary:disabled{opacity:.4;cursor:default}
   <select id="pick">__OPTIONS__</select>
   <button id="open">預覽開新分頁</button>
 </div>
+<script>
+/* 看門狗：獨立的 script 區塊，主程式若有語法錯誤這裡仍會執行，
+   避免畫面停在「載入中…」讓人以為是網路問題 */
+window.addEventListener("error", function(e){
+  var s=document.getElementById("stat"), h=document.getElementById("hint");
+  if(s){ s.textContent="頁面出錯"; s.className="dirty"; }
+  if(h) h.textContent="編輯器程式錯誤："+(e.message||e);
+});
+setTimeout(function(){
+  var s=document.getElementById("stat"), h=document.getElementById("hint");
+  if(s && s.textContent==="載入中…"){
+    s.textContent="載入失敗"; s.className="dirty";
+    if(h) h.textContent="5 秒內沒載入完成，多半是編輯器程式出錯 —— 看瀏覽器 Console";
+  }
+}, 5000);
+</script>
 <div id="split">
   <div id="left">
     <textarea id="src" spellcheck="false" wrap="off"></textarea>
@@ -244,14 +263,14 @@ function save(){
         if (res.removed) lines.push('少了 ' + res.removed + ' 行');
         var what = lines.length ? ('磁碟上那份比你這份' + lines.join('、')) : '兩份內容不同';
         var peek = (res.sample && res.sample.length)
-          ? '\n\n磁碟上多出來的內容，例如：\n  ' + res.sample.join('\n  ') : '';
+          ? '\\n\\n磁碟上多出來的內容，例如：\\n  ' + res.sample.join('\\n  ') : '';
         hint.textContent = '衝突：' + what + '。你這份是舊的。';
-        var msg = '⚠️ 這個檔案在你編輯的期間被改過了。\n\n'
-          + what + '。\n'
-          + '你編輯器裡這份是「你打開時」的舊版本。' + peek + '\n\n'
-          + '─────────────\n'
-          + '確定 ＝ 放棄你未儲存的修改，載入磁碟上的最新版（建議）\n'
-          + '取消 ＝ 保留你這份；再按一次儲存就會「刪掉」磁碟上那些新內容\n'
+        var msg = '⚠️ 這個檔案在你編輯的期間被改過了。\\n\\n'
+          + what + '。\\n'
+          + '你編輯器裡這份是「你打開時」的舊版本。' + peek + '\\n\\n'
+          + '─────────────\\n'
+          + '確定 ＝ 放棄你未儲存的修改，載入磁碟上的最新版（建議）\\n'
+          + '取消 ＝ 保留你這份；再按一次儲存就會「刪掉」磁碟上那些新內容\\n'
           + '─────────────';
         if (confirm(msg)) {
           load(); setStat('已重新載入', 'ok');
