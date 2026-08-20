@@ -21,6 +21,7 @@
 """
 
 import argparse
+import difflib
 import functools
 import hashlib
 import http.server
@@ -238,15 +239,27 @@ function save(){
       if (res.ok) { saved = body; stamp = res.stamp; sync(); setStat('已儲存', 'ok'); return; }
       if (res.stale) {
         setStat('有衝突', 'dirty');
-        hint.textContent = '檔案在你編輯的期間被改過。按「重新載入」拿最新版（你這邊未存的修改會消失），'
-          + '或按「強制覆蓋」用你這份蓋掉。';
-        if (confirm('這個檔案在你編輯的期間被別人／其他程式改過了。\n\n'
-                  + '按「確定」＝重新載入最新版（丟掉你未儲存的修改）\n'
-                  + '按「取消」＝保留你的版本，之後可再按一次儲存強制覆蓋')) {
+        var lines = [];
+        if (res.added)   lines.push('多了 ' + res.added + ' 行');
+        if (res.removed) lines.push('少了 ' + res.removed + ' 行');
+        var what = lines.length ? ('磁碟上那份比你這份' + lines.join('、')) : '兩份內容不同';
+        var peek = (res.sample && res.sample.length)
+          ? '\n\n磁碟上多出來的內容，例如：\n  ' + res.sample.join('\n  ') : '';
+        hint.textContent = '衝突：' + what + '。你這份是舊的。';
+        var msg = '⚠️ 這個檔案在你編輯的期間被改過了。\n\n'
+          + what + '。\n'
+          + '你編輯器裡這份是「你打開時」的舊版本。' + peek + '\n\n'
+          + '─────────────\n'
+          + '確定 ＝ 放棄你未儲存的修改，載入磁碟上的最新版（建議）\n'
+          + '取消 ＝ 保留你這份；再按一次儲存就會「刪掉」磁碟上那些新內容\n'
+          + '─────────────';
+        if (confirm(msg)) {
           load(); setStat('已重新載入', 'ok');
+          hint.textContent = '已載入磁碟上的最新版';
         } else {
           pendingForce = true;
-          hint.textContent = '已保留你的版本。再按一次儲存就會強制覆蓋。';
+          hint.textContent = '⚠️ 已保留你這份。再按一次儲存會覆蓋掉磁碟上的新內容。';
+          setStat('待強制覆蓋', 'dirty');
         }
         return;
       }
@@ -465,8 +478,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             now = file_stamp(fp)
             if sent and sent != now and not payload.get("force"):
                 print("  ⚠️  擋下覆蓋：%s 在編輯期間被改過" % payload["f"], flush=True)
+                disk = fp.read_text(encoding="utf-8").splitlines()
+                mine = text.splitlines()
+                diff = list(difflib.unified_diff(mine, disk, lineterm="", n=0))
+                added = sum(1 for x in diff[2:] if x.startswith("+"))
+                removed = sum(1 for x in diff[2:] if x.startswith("-"))
+                sample = [x[1:].strip()[:70] for x in diff[2:] if x.startswith("+")][:4]
                 return self._json({"ok": False, "stale": True,
-                                   "error": "這個檔案在你編輯的期間被改過了"}, 409)
+                                   "error": "這個檔案在你編輯的期間被改過了",
+                                   "added": added, "removed": removed,
+                                   "sample": sample}, 409)
             fp.write_text(text, encoding="utf-8")
         except Exception as exc:  # noqa: BLE001
             return self._json({"ok": False, "error": str(exc)}, 400)
