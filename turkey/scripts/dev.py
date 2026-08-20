@@ -412,7 +412,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         return self._json({"ok": True})
 
     def log_message(self, fmt, *args):
-        first = args[0] if args else ""
+        # send_error() 會傳 HTTPStatus 進來，不是字串，所以一定要先轉成 str，
+        # 否則下面的 in 運算會丟 TypeError、把整個連線弄斷（瀏覽器看到 ERR_EMPTY_RESPONSE）
+        first = str(args[0]) if args else ""
         if "/__ver" in first or "/favicon.ico" in first:
             return
         super().log_message(fmt, *args)
