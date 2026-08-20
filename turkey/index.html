@@ -343,6 +343,21 @@ a{color:var(--iznik-blue)}
 }
 .spot-panel[hidden]{display:none}
 
+/* 餐廳卡片 */
+.eatery{margin-top:10px;border:1px solid rgba(200,160,77,.45);border-radius:10px;overflow:hidden;
+  background:rgba(200,160,77,.07)}
+.eatery-fig{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:rgba(13,59,102,.06)}
+.eatery-body{padding:10px 12px 12px}
+.eatery-name{font-size:15px;font-weight:600;color:var(--iznik-deep);line-height:1.35}
+.eatery-en{font-size:11.5px;font-weight:400;color:var(--ink-mute);display:block;letter-spacing:.01em}
+.eatery-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.eatery-meta span{
+  font-size:12.5px;line-height:1;padding:5px 8px;border-radius:6px;
+  background:rgba(200,160,77,.2);color:#7d5f16;
+}
+.eatery-meta span.hr{background:rgba(13,59,102,.08);color:var(--ink-soft)}
+.eatery-d{margin-top:8px;font-size:14px;line-height:1.75;color:var(--ink-soft)}
+
 /* 點到點 Google Maps 路線 */
 .tl-maps{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
 .tl-map{
@@ -608,7 +623,9 @@ var DATA=[
   rows:[
     {time:'08:00<br>–08:30', act:'退房'},
     {time:'08:30<br>–10:50', act:'Selçuk → Teras restaurant（棉堡）', note:'車停餐廳附近，之後的景點全部步行', tags:['car:\U0001F698 2h20'], map:drv(P.pikan,P.teras)},
-    {time:'10:50<br>–11:40', act:'Teras restaurant 早餐', tags:['eat:早餐']},
+    {time:'10:50<br>–11:40', act:'Teras restaurant 早餐', tags:['eat:早餐'],
+     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，車停這裡，吃完直接開始步行環線，走完再回來取車。'},
+     map:pin(P.teras)},
     {time:'11:40<br>–14:50', act:'棉堡 · Hierapolis 步行環線', note:'走完回到餐廳附近取車。石灰棚部分區域要赤腳走。', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
@@ -689,7 +706,8 @@ var DATA=[
     {time:'15:05<br>–15:15', act:'拿回寄放的行李', note:'拿了直接開往飯店門口，不再停任何景點。', hi:true},
     {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:30 分'], map:drv(P.grand,P.gamirasu)},
     {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。'},
-    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00，à la carte + 套餐、可配酒。<strong>在飯店吃，兩個人都能喝酒。</strong>', hi:true, tags:['eat:飯店晚餐']},
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00，à la carte + 套餐、可配酒。<strong>在飯店吃，兩個人都能喝酒。</strong>', hi:true, tags:['eat:飯店晚餐'],
+     eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
     {time:'Plan B', act:'熱氣球在今天 → 整表後移 30 分', note:'09:30 出發 → 10:05 Kaymaklı → 15:35 拿行李 → <strong>16:15 進 Gamirasu</strong>，18:00 晚餐照樣趕得上。要刪就刪 Uçhisar Castle。'}
   ],
   stay:{name:'Gamirasu Cave Hotel（Ayvalı / Ürgüp）', note:'Hotels.com 73467533073850 · 15:45 抵達／退房 11/04 12:30 · 入住時付款'}
@@ -733,13 +751,18 @@ var DATA=[
   rows:[
     {time:'上午', act:'起床、整理小包', note:'上午不要太早出門。飯店早餐可略過或只喝飲料。'},
     {time:'10:30<br>–11:00', act:'→ Boris\'in Yeri', note:'在 Kumkapı / Fatih 方向，離飯店較近；可步行、短程叫車或搭大眾交通。', map:trn(P.basil,P.boris)},
-    {time:'11:00<br>–12:15', act:'Boris\'in Yeri 土耳其早餐', note:'這餐完成必去清單的土耳其式早餐——1876 年這區的老早餐店，主打傳統早餐與乳製品，也好拍。點餐參考：蜂蜜牛奶、<em>kaymak</em>、土耳其咖啡、<em>sucuk</em> 臘腸、<em>menemen</em> 番茄炒蛋。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['eat:早餐','⚠️ 只收現金']},
+    {time:'11:00<br>–12:15', act:'Boris\'in Yeri 土耳其早餐', note:'這餐完成必去清單的土耳其式早餐——1876 年這區的老早餐店，主打傳統早餐與乳製品，也好拍。點餐參考：蜂蜜牛奶、<em>kaymak</em>、土耳其咖啡、<em>sucuk</em> 臘腸、<em>menemen</em> 番茄炒蛋。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['eat:早餐','⚠️ 只收現金'],
+     eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', price:'只收現金，備足里拉', d:'1876 年的老早餐店，主打傳統早餐與乳製品。點餐參考：蜂蜜牛奶、kaymak、土耳其咖啡、sucuk 臘腸、menemen 番茄炒蛋。'}},
     {time:'12:15<br>–12:45', act:'→ 加拉達 Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘。', map:trn(P.boris,P.galata)},
     {time:'12:45<br>–13:45', act:'加拉達 Galata / Karaköy 街區散步', note:'低強度看港口、坡道、咖啡店與街區。上坡太累就只走 Karaköy 平地。', map:wlk(P.galata,P.karakoy)},
-    {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃。<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'], map:wlk(P.karakoy,P.balik)},
+    {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃。<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'],
+     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', price:'₺220–300 / 份', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
+     map:wlk(P.karakoy,P.balik)},
     {time:'14:30<br>–16:00', act:'加拉達橋 Galata Bridge + Eminönü 海邊散步', note:'看點是城市日常——橋上釣魚、橋下餐廳、金角灣與舊城天際線同時出現。不追求景點數量。', map:wlk(P.balik,P.eminonu,[P.gBridge])},
     {time:'16:00<br>–17:30', act:'香料市集 Spice Bazaar（Mısır Çarşısı）', note:'比大巴札更偏氣味與食物記憶。人多時注意包包。', map:wlk(P.eminonu,P.spice)},
-    {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'], map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
+    {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'],
+     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', price:'約 ₺400–700 / 人', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
+     map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
     {time:'刪減', act:'若前一晚抵達太晚', note:'保留 Boris\'in Yeri + Karaköy / Galata + Balık Dürüm，Spice Bazaar 與 Suat Usta 擇一或延後。'}
   ],
   stay:{name:'Basilissis Hotel', note:'第 1 晚 · 位置在 Alemdar / Gülhane 附近，步行可進舊城核心'}
@@ -759,10 +782,14 @@ var DATA=[
     {time:'09:00<br>–09:45', act:'蘇丹艾哈邁德廣場 Sultanahmet Square + 藍色清真寺 Blue Mosque', note:'六座宣禮塔與藍色磁磚是特色。注意服裝規則。'},
     {time:'10:00<br>–11:30', act:'聖索菲亞 Hagia Sophia（Ayasofya）', note:'重點是巨大穹頂與不同宗教層次共存。<strong>官方售票 €25 / 人</strong>。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, tags:['官方票 €25'], map:wlk(P.blueMosque,P.hagia)},
     {time:'11:45<br>–12:45', act:'地下水宮殿 Basilica Cistern（Yerebatan Sarnıcı）', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。<strong>官方票 ₺1,950 / 人</strong>（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', tags:['官方票 ₺1,950'], map:wlk(P.hagia,P.cistern)},
-    {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。', hi:true, tags:['eat:拍照小點'], map:wlk(P.cistern,P.sevenHills)},
+    {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。', hi:true, tags:['eat:拍照小點'],
+     eatery:{name:'Seven Hills Restaurant', en:'Sultanahmet 屋頂', price:'正餐常見 ₺1,000+ / 人', hours:'12:00–23:00（早餐至 12:00）', d:'主目標是屋頂視角，不是吃正餐。只點飲料 / 甜點 / 湯品 / 小菜。'},
+     map:wlk(P.cistern,P.sevenHills)},
     {time:'13:45<br>–14:15', act:'Arasta 市集 Arasta Bazaar 周邊短走或直接轉場', note:'不硬塞第二餐；Seven Hills 只點很少的話，用飲料 / 小點墊胃。', map:wlk(P.sevenHills,P.arasta)},
     {time:'14:15<br>–16:15', act:'大巴札 Grand Bazaar（Kapalıçarşı）', note:'偏工藝、金飾與觀光商品。週五營業。', map:wlk(P.arasta,P.grandBazaar)},
-    {time:'16:15<br>–17:15', act:'Hafiz Mustafa 1864 Sirkeci 甜點茶點', note:'點 1～2 份招牌甜點分食，配土耳其茶或咖啡。', tags:['eat:甜點'], map:wlk(P.grandBazaar,P.hafiz)},
+    {time:'16:15<br>–17:15', act:'Hafiz Mustafa 1864 Sirkeci 甜點茶點', note:'點 1～2 份招牌甜點分食，配土耳其茶或咖啡。', tags:['eat:甜點'],
+     eatery:{name:'Hafiz Mustafa 1864', en:'Sirkeci 分店', hours:'24 小時', d:'土耳其甜點、茶與咖啡，也有伴手禮櫃。點 1～2 份分食即可。'},
+     map:wlk(P.grandBazaar,P.hafiz)},
     {time:'傍晚<br>起', act:'加拉達橋 Galata Bridge / Karaköy 晚餐與短散步', note:'若 11/05 已走過 Galata，改 Sirkeci / 舊城附近晚餐。去 Karaköy 可搭 T1 或叫車，<strong>晚上不帶護照與大量現金</strong>。', tags:['eat:晚餐'], map:[['走去 Karaköy',wlk(P.hafiz,P.karakoy,[P.gBridge])],['回飯店',trn(P.karakoy,P.basil)]]},
     {time:'刪減', act:'排隊太久或天氣差', note:'下午仍優先保留 Grand Bazaar；天氣差則優先保留室內的地下水宮殿與市集。'}
   ],
@@ -781,11 +808,15 @@ var DATA=[
     {time:'09:30<br>–10:30', act:'輕早餐 / 咖啡', note:'今天不要吃太重。選飯店附近或浴場附近即可。', tags:['eat:輕早餐']},
     {time:'11:20', act:'土耳其浴提前 10 分鐘抵達', note:'<strong>遲到或未出席可能不退款。</strong>Acemoglu 在 Fatih 的 Şehzadebaşı Cd.，Vezneciler 地鐵站步行 1 分鐘。', tags:['⚠️ 不可遲到'], map:wlk(P.basil,P.hamam)},
     {time:'11:30<br>–13:30', act:'Acemoğlu 土耳其浴 Acemoğlu Hamamı（15 世紀）', note:'必做項目。公共池是男女混浴、同時段最多 8 人、全部由女性工作人員服務。體驗約 45 分鐘。', hi:true},
-    {time:'13:30<br>–14:15', act:'Vefa Bozacısı boza', note:'1876 年開業的老字號，主打 <em>boza</em>（發酵小米飲，常配烤鷹嘴豆）。距浴場約 350 公尺。兩人分一杯就好，不必當正餐。', tags:['eat:老字號'], map:wlk(P.hamam,P.vefa)},
+    {time:'13:30<br>–14:15', act:'Vefa Bozacısı boza', note:'1876 年開業的老字號，主打 <em>boza</em>（發酵小米飲，常配烤鷹嘴豆）。距浴場約 350 公尺。兩人分一杯就好，不必當正餐。', tags:['eat:老字號'],
+     eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', price:'平價，備現金', d:'boza（發酵小米飲，常配烤鷹嘴豆）老字號。距浴場約 350 公尺，兩人分一杯就好。'},
+     map:wlk(P.hamam,P.vefa)},
     {time:'14:15<br>–17:30', act:'生活街區擇一', note:'<strong>選項一 Kadıköy + Üsküdar（亞洲側）</strong>：從 Eminönü / Karaköy 搭渡輪約 20－30 分，市場、咖啡店、海邊與通勤渡輪能看到伊斯坦堡日常；Üsküdar 補海峽夕陽視角。<strong>選項二 Karaköy / Galata</strong>：浴後很累或天氣差就留歐洲側，少移動、晚餐方便。（Balat / Fener 彩色街區為第三備案。）', hi:true, map:[['亞洲側 · Kadıköy + Üsküdar',trn(P.vefa,P.uskudar,[P.eminonu,P.kadikoy])],['歐洲側 · Karaköy / Galata',trn(P.vefa,P.galata,[P.karakoy])]]},
     {time:'17:30<br>–18:30', act:'超市伴手禮採買', note:'Şok İstanbul Sirkeci，離飯店近，營業一～日 09:00－21:00。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾 / 杜拜巧克力、GODIVA、開心果、烤肉調味包。買完直接回飯店。', hi:true, map:[['Şok İstanbul Sirkeci',pin(P.sok)]]},
     {time:'18:30<br>–19:15', act:'回飯店分裝戰利品', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。巧克力避免熱源、餅乾防壓、咖啡粉用夾鏈袋再包一層。11/08 早上不要再重整。', map:wlk(P.sok,P.basil)},
-    {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐'], map:wlk(P.basil,P.olden)},
+    {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐'],
+     eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', price:'約 ₺1,500–2,000+ / 人', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
+     map:wlk(P.basil,P.olden)},
     {time:'睡前', act:'把行李整理完畢', note:'11/08 只回飯店拿了就走。', hi:true}
   ],
   stay:{name:'Basilissis Hotel', note:'第 3 晚 · 夜間巡遊不硬排，Galata / Karaköy 短散步或短版博斯普魯斯遊船當備案'}
@@ -945,6 +976,23 @@ function spotsHtml(list){
   }
   return h+'<div class="spot-panel" hidden></div></div>';
 }
+/* r.eatery：{name, en, price, hours, img, d} */
+function eateryHtml(e){
+  if(!e) return '';
+  var h='<div class="eatery">';
+  if(e.img) h+='<img class="eatery-fig" loading="lazy" decoding="async" src="'+IMG+e.img
+    +'" alt="'+escAttr(e.name)+'" onerror="this.style.display=\'none\'">';
+  h+='<div class="eatery-body"><div class="eatery-name">'+e.name
+    +(e.en?'<span class="eatery-en">'+e.en+'</span>':'')+'</div>';
+  if(e.price||e.hours){
+    h+='<div class="eatery-meta">';
+    if(e.price) h+='<span>'+e.price+'</span>';
+    if(e.hours) h+='<span class="hr">'+e.hours+'</span>';
+    h+='</div>';
+  }
+  if(e.d) h+='<div class="eatery-d">'+e.d+'</div>';
+  return h+'</div></div>';
+}
 function rowsHtml(rows){
   var h='<ul class="tl">';
   for(var i=0;i<rows.length;i++){
@@ -954,6 +1002,7 @@ function rowsHtml(rows){
       +'<div class="tl-act">'+r.act+'</div>'
       +(r.note?'<div class="tl-note">'+r.note+'</div>':'')
       +tagsHtml(r.tags)
+      +eateryHtml(r.eatery)
       +spotsHtml(r.spots)
       +mapsHtml(r.map)
       +'</li>';

@@ -32,3 +32,12 @@
 | `pamukkale-travertines.jpg` | 棉堡 石灰棚（與 11/01 日照共用） | 同上表 | Slyronit | CC BY-SA 4.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
+
+## 使用者提供的照片
+
+不是 Wikimedia Commons 來源，**授權未確認**。這個 repo 會發佈到 GitHub Pages，
+若要公開散佈需先確認來源與授權，或換成自己拍的 / 免費授權的照片。
+
+| 檔案 | 用途 | 來源 |
+|------|------|------|
+| `teras-restaurant.jpg` | 11/01 Teras restaurant 餐廳卡片 | 使用者於 2026-08-20 提供 |
