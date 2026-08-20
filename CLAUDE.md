@@ -73,6 +73,8 @@ didi-travel-world/
 - 時間軸三欄佈局：`[time 60px] [4px gap] [line/dot] [4px gap] [card]`，`.tl` padding-left:77px；`.tl-time` width:60px left:-77px；`.tl-dot` left:-13px；`.tl::before` left:64px。這樣可容納 `11:30–12:30` 等較長時間文字，且三欄完全不重疊。
 - 子頁面返回按鈕使用 `.app-topbar > .back-btn` 結構，嵌入 `.app` flex 流（非 `position:fixed`），避免覆蓋內容
 - 住宿資訊以 `.stay-chip` 呈現於每日最下方
+- **每一段「自己移動」的點到點都要附 Google Maps 連結**：行程資料的 row 加 `map` 欄位（字串網址，或 `[[標籤, 網址], ...]` 表示多個選項），由 `drv()` / `wlk()` / `trn()` / `pin()` 產生，座標與地名集中在 `P` 物件。標籤依 `travelmode` 自動帶入「自駕路線 / 步行路線 / 大眾運輸路線」。
+  **不附連結的情況**：飛機段、司機接送（Klook 機場接送、熱氣球與駱駝的飯店接送）、以及各自出發與抵達的家鄉機場
 
 ## GitHub
 
