@@ -521,7 +521,8 @@ var P={
   hadrian:'37.9385230,27.3420025',  /* 哈德良神廟 Temple of Hadrian */
   odeon:'37.9368337,27.3449823',    /* 音樂廳 Odeon */
   /* 棉堡 · Pamukkale（座標取自使用者 2026-08-20 提供的 Google Maps 路線） */
-  teras:'37.9189881,29.1210713',    /* Teras restaurant — 早餐 + 停車 */
+  bella:'37.918462,29.115503',      /* Bellamaritimo Hotel — 10/31 住宿，走得到全部景點 */
+  teras:'37.9189881,29.1210713',    /* Teras restaurant — 露台面對石灰棚 */
   pamEast:'37.9260000,29.1180000',  /* 石灰棚東觀景台 Travertines East viewpoint */
   pamukkale:'37.924483,29.119012',  /* 石灰棚 Travertenleri */
   hierapolis:'37.930954,29.126363',
@@ -587,17 +588,16 @@ var DATA=[
 /* ========== DAY 02 · 10/31 ========== */
 {
   day:2, date:'10/31', week:'六', theme:'terra',
-  title:'伊斯坦堡機場 → 以弗所',
+  title:'伊斯坦堡機場 → 以弗所 → 棉堡',
   status:'✅ 已定版', statusCls:'fixed',
-  fatigue:4, fatigueText:'高',
+  fatigue:5, fatigueText:'很高 · 抵達日又接夜路',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
-  lead:'國內線轉機、處理租車手續及開車自駕至以弗所',
+  lead:'國內線轉機、取車，下午看以弗所，傍晚直接開去棉堡過夜。把 190 km 挪到今天，換 11/01 輕鬆。',
   rows:[
     {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
-    {time:'13:20<br>–14:40', act:'ADB Airport → 飯店寄放行李', tags:['car:🚘 50 min'], map:drv(P.adb,P.pikan)},
-    {time:'15:00<br>–15:10', act:'→ 前往遺址', note:'停車場在遺址入口旁', tags:['car:🚘 10 min'], map:drv(P.pikan,P.ephSite)},
-    {time:'15:10<br>–17:40', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 冬季 18:00 關門'],
+    {time:'13:20<br>–14:30', act:'ADB Airport → 以弗所考古遺址', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', tags:['car:🚘 1h10'], map:drv(P.adb,P.ephSite)},
+    {time:'14:30<br>–16:30', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 16:30 一定要上路'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
        {zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
@@ -606,35 +606,35 @@ var DATA=[
        {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
      ],
      map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'17:40<br>–17:50', act:'→ 回 Pikan Ephesus', tags:['car:🚘 10 min'], map:drv(P.ephSite,P.pikan)},
-    {time:'18:30<br>–20:00', act:'Selçuk 街上覓食'},
+    {time:'16:30<br>–18:50', act:'以弗所 → Bellamaritimo Hotel（棉堡）', note:'190 km，八成走 O-31 高速公路。日落約 18:15，只有最後進村那段摸黑。<strong>中途在休息站停一次</strong>。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
+    {time:'19:00<br>起', act:'棉堡村晚餐、早休'}
   ],
-  stay:{name:'Pikan Ephesus Boutique Hotel', note:'Agoda 1734845536，入住 15:00／退房 11:00'}
+  stay:{name:'Bellamaritimo Hotel', note:'棉堡村 · 走得到石灰棚、古董池與古劇場'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
 {
   day:3, date:'11/01', week:'日', theme:'turq',
-  title:'以弗所 → 棉堡 → 卡帕多奇亞',
+  title:'棉堡 → 卡帕多奇亞',
   status:'✅ 已定版', statusCls:'fixed',
-  fatigue:5, fatigueText:'很高 · 全程最硬',
+  fatigue:4, fatigueText:'中高 · 尾段夜路到 00:45',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
-  lead:'單日自駕約 <strong>430 公里的 V 字形折返</strong>，加上 ADB 還車、晚班機、ASR 深夜取車與夜路進 Göreme。08:30 出發，棉堡全程步行、不泡湯。',
+  lead:'早上從飯店走出去逛完棉堡，<strong>車整個上午不用動</strong>。下午開 232 km 回 ADB，晚班機到 ASR 再夜路進 Göreme。全天開車 4h10。',
   rows:[
-    {time:'08:00<br>–08:30', act:'退房'},
-    {time:'08:30<br>–10:50', act:'Selçuk → Teras restaurant（棉堡）', note:'車停餐廳附近，之後的景點全部步行', tags:['car:🚘 2h20'], map:drv(P.pikan,P.teras)},
-    {time:'10:50<br>–11:40', act:'Teras restaurant', tags:['eat:早餐'],
-     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，車停這裡，吃完直接開始步行環線，走完再回來取車。'},
-     map:pin(P.teras)},
-    {time:'11:40<br>–14:50', act:'棉堡 · Hierapolis 步行環線', note:'走完回到餐廳附近取車。石灰棚部分區域要赤腳走。', hi:true,
+    {time:'08:30<br>–09:30', act:'Bellamaritimo Hotel 早餐'},
+    {time:'09:30<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'<strong>從飯店走出去，車整晚不用動。</strong>由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
        {zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。'},
        {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。可以付費下水，但這趟<strong>不泡，只拍照</strong>。'}
      ],
-     map:[['步行環線 · 回到餐廳',wlk(P.teras,P.teras,[P.pamEast,P.hTheatre,P.cleopatra])]]},
-    {time:'14:50<br>–15:10', act:'走回餐廳附近取車', tags:['lock:16:05 為最晚離開時間']},
-    {time:'15:10<br>–17:50', act:'棉堡 → ADB Airport', note:'辦理還車手續、吃晚餐', tags:['car:🚘 2h40'], map:drv(P.teras,P.adb)},
+     map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
+    {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'],
+     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。'},
+     map:pin(P.teras)},
+    {time:'14:30<br>–14:50', act:'回飯店取車'},
+    {time:'14:50<br>–17:30', act:'棉堡 → ADB Airport', note:'232 km，中途加油。<strong>17:00 前上路都來得及</strong>，比舊版的 16:05 硬上限寬鬆很多。', tags:['car:🚘 2h40'], map:drv(P.bella,P.adb)},
+    {time:'17:30<br>–20:00', act:'加油 / 還車 / 托運 / 安檢、吃晚餐'},
     {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'22:35<br>–23:15', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
     {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', hi:true, tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
