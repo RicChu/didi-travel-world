@@ -343,6 +343,25 @@ a{color:var(--iznik-blue)}
 }
 .spot-panel[hidden]{display:none}
 
+/* 情境切換（熱氣球飛不飛） */
+.sw{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 4px;
+  padding:10px 12px;border-radius:10px;background:rgba(42,109,176,.07);
+  border:1px solid rgba(42,109,176,.2)}
+.sw-lab{font-size:12.5px;letter-spacing:.05em;color:var(--ink-mute);margin-right:2px}
+.sw-btn{
+  font:inherit;font-size:14px;line-height:1;cursor:pointer;
+  padding:8px 13px;border-radius:999px;
+  border:1px solid rgba(13,59,102,.22);background:#fff;color:var(--ink-soft);
+}
+.sw-btn:active{background:rgba(13,59,102,.06)}
+.sw-btn.on{background:var(--iznik-deep);border-color:var(--iznik-deep);color:#fff;font-weight:600}
+.sw-btn[disabled]{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+/* 有 data-sc 的區塊預設不顯示，只有符合當前情境的才出現 */
+.tl-row[data-sc],.grp[data-sc]{display:none}
+.day[data-sc="done"] [data-sc~="done"],
+.day[data-sc="fly"]  [data-sc~="fly"],
+.day[data-sc="no"]   [data-sc~="no"]{display:block}
+
 /* 餐廳卡片 */
 .eatery{margin-top:10px;border:1px solid rgba(200,160,77,.45);border-radius:10px;overflow:hidden;
   background:rgba(200,160,77,.07)}
@@ -595,8 +614,8 @@ var DATA=[
   rows:[
     {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
-    {time:'13:20<br>–14:30', act:'ADB Airport → 以弗所考古遺址', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', tags:['car:🚘 1h10'], map:drv(P.adb,P.ephSite)},
-    {time:'14:30<br>–16:30', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 16:30 一定要上路'],
+    {time:'13:20<br>–14:20', act:'ADB Airport → 以弗所考古遺址', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', tags:['car:🚘 1h'], map:drv(P.adb,P.ephSite)},
+    {time:'14:20<br>–17:00', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 16:30 一定要上路'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
        {zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
@@ -605,8 +624,8 @@ var DATA=[
        {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
      ],
      map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'16:30<br>–18:50', act:'以弗所 → Bellamaritimo Hotel（棉堡）', note:'190 km，八成走 O-31 高速公路。日落約 18:15，只有最後進村那段摸黑。<strong>中途在休息站停一次</strong>。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
-    {time:'19:00<br>起', act:'棉堡村晚餐、早休'}
+    {time:'17:00<br>–19:30', act:'以弗所 → Bellamaritimo Hotel', note:'190 km，八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
+    {time:'19:30<br>起', act:'棉堡村晚餐、早休'}
   ],
   stay:{name:'Bellamaritimo Hotel', note:'Agoda 1764630371，入住 11:00／退房 11:00'}
 },
@@ -618,23 +637,22 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'中高 · 尾段夜路到 00:45',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
-  lead:'早上從飯店走出去逛完棉堡，<strong>車整個上午不用動</strong>。下午開 232 km 回 ADB，晚班機到 ASR 再夜路進 Göreme。全天開車 4h10。',
+  lead:'早上從飯店走出去逛完棉堡遺址。下午開2小時半的車回 ADB airport，晚班機到 ASR 再夜路進 Göreme。全天開車 4h10。',
   rows:[
-    {time:'08:30<br>–09:20', act:'Bellamaritimo Hotel 早餐'},
-    {time:'09:20<br>–09:30', act:'退房、行李寄放飯店', note:'訂房頁列有<strong>行李寄存服務</strong>，走完環線回來一起拿。'},
-    {time:'09:30<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'<strong>從飯店走出去，車整晚不用動。</strong>由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
+    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李寄放飯店，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
+    {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
        {zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。'},
-       {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。可以付費下水，但這趟<strong>不泡，只拍照</strong>。'}
+       {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'}
      ],
      map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
     {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'],
      eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。'},
      map:pin(P.teras)},
     {time:'14:30<br>–14:50', act:'回飯店拿行李、取車'},
-    {time:'14:50<br>–17:30', act:'棉堡 → ADB Airport', note:'232 km，中途加油。<strong>17:00 前上路都來得及</strong>，比舊版的 16:05 硬上限寬鬆很多。', tags:['car:🚘 2h40'], map:drv(P.bella,P.adb)},
-    {time:'17:30<br>–20:00', act:'加油 / 還車 / 托運 / 安檢、吃晚餐'},
+    {time:'14:50<br>–17:20', act:'棉堡 → ADB Airport', tags:['car:🚘 2h30'], map:drv(P.bella,P.adb)},
+    {time:'17:20<br>–20:00', act:'辦理還車手續、吃晚餐'},
     {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'22:35<br>–23:15', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
     {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', hi:true, tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
@@ -647,12 +665,17 @@ var DATA=[
   day:4, date:'11/02', week:'一', theme:'gold',
   title:'Göreme 核心日 · 熱氣球 + 駱駝',
   status:'待微調', statusCls:'none',
-  fatigue:4, fatigueText:'中高／高（有飛）· 中（沒飛）',
+  fatigue:4, fatigueText:'今天飛 高 · 沒飛 中',
   img:'cappadocia-balloons.jpg', cap:'格雷梅 · 日出熱氣球',
-  lead:'<strong>12:00 之後四個 Plan 完全相同</strong>，只有上午分兩種寫法。行李全天在房間。自駕 Plan A 只有 20 分，Plan B/C/D 55 分。',
+  lead:'<strong>12:00 之後兩種情況完全相同</strong>，只有上午分兩種寫法。行李全天在房間。自駕：飛了 20 分、沒飛 55 分。',
+  sw:{label:'熱氣球', def:'fly', opts:[
+    {k:'done', t:'已經飛過', dis:true},
+    {k:'fly',  t:'今天飛'},
+    {k:'no',   t:'今天沒飛'}
+  ]},
   facts:['日落 17:41','黃金時段 16:41－17:41','自駕 20／55 分','行李全天在房間'],
   groups:[
-    {label:'上午 · Plan A（有飛）', sub:'04:00 起床', rows:[
+    {label:'上午 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
       {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。'},
       {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。業者會在前 1～2 天通知實際接送時間。'},
       {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', note:'日出 07:07。', hi:true},
@@ -660,7 +683,7 @@ var DATA=[
       {time:'08:30<br>–09:00', act:'飯店早餐'},
       {time:'09:00<br>–12:00', act:'補眠', note:'<strong>這三小時不可挪用。</strong>', hi:true, tags:['lock:不可挪用']}
     ]},
-    {label:'上午 · Plan B／C／D（沒飛）', sub:'睡飽 · 車程 35 分', alt:true, rows:[
+    {label:'上午 · 沒飛', sub:'睡飽 · 車程 35 分', alt:true, sc:'no', rows:[
       {time:'自然醒<br>–08:45', act:'睡飽'},
       {time:'08:45<br>–09:30', act:'飯店早餐 45 分'},
       {time:'09:30<br>–09:45', act:'→ Paşabağ 蘑菇谷 Monks Valley', note:'採用 15 分（實測 9.8 分 / 6.9 km）。', tags:['car:15 分'], map:drv(P.grand,P.pasabag)},
@@ -669,14 +692,15 @@ var DATA=[
       {time:'10:50<br>–11:50', act:'Zelve 露天博物館 Zelve Open Air Museum 60 分', note:'廢棄洞穴村，人比 Göreme 露天博物館少。<strong>每天開、08:00 開門。</strong>'},
       {time:'11:50<br>–12:05', act:'→ Grand Elite', note:'採用 15 分。車停飯店，走去吃午餐。', tags:['car:15 分'], map:drv(P.zelve,P.grand)}
     ]},
-    {label:'下午 · 四個 Plan 完全相同', sub:'現場零決策', rows:[
+    {label:'下午 · 兩種情況都一樣', sub:'現場零決策', rows:[
       {time:'12:00<br>–13:20', act:'Göreme 午餐 80 分', tags:['eat:午餐']},
       {time:'13:20<br>–13:30', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'採用 10 分（實測 7 分 / 1.8 km）。', tags:['car:10 分'], map:drv(P.grand,P.goreme)},
       {time:'13:30<br>–15:20', act:'Göreme 露天博物館 Göreme Open Air Museum 1h50', note:'每天開、08:00 開門。', hi:true},
       {time:'15:20<br>–15:30', act:'→ 回飯店', tags:['car:10 分'], map:drv(P.goreme,P.grand)},
       {time:'15:30<br>–16:00', act:'30 分緩衝', note:'休息、換保暖外套。'},
       {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。接送 16:00、騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41、曙暮光 18:07）。路線含 Red + Rose Valley。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
-      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'<strong>22:00 前睡。</strong>', tags:['eat:晚餐','lock:22:00 前睡']}
+      {time:'18:00<br>起', act:'Göreme 晚餐', note:'今天飛完了，<strong>今晚可以放鬆</strong>，明天睡到自然醒。', sc:'fly', tags:['eat:晚餐']},
+      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'熱氣球順延到明天，<strong>22:00 前睡</strong>——明天 04:00 可能要起床。', sc:'no', tags:['eat:晚餐','lock:22:00 前睡']}
     ]}
   ],
   stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
@@ -690,24 +714,47 @@ var DATA=[
   fatigue:4, fatigueText:'中高',
   img:'uchisar-castle.jpg', cap:'Uçhisar Castle · 鴿子谷方向',
   lead:'路線是「<strong>南下 → 北返 → 東南收尾</strong>」：Göreme → Kaymaklı（南，第一站）→ 鴿子谷 / Uçhisar（西）→ 路過 Göreme 拿行李 → Ayvalı（東南）。車程 120 分，<strong>行李一整天不上車</strong>，15:45 進 Gamirasu。',
+  sw:{label:'熱氣球', def:'done', opts:[
+    {k:'done', t:'已經飛過'},
+    {k:'fly',  t:'今天飛'},
+    {k:'no',   t:'今天沒飛'}
+  ]},
   facts:['自駕 120 分','行李寄放 Grand Elite','5 段點到點路線'],
   rows:[
-    {time:'08:00<br>–08:45', act:'Grand Elite 早餐'},
-    {time:'08:45<br>–09:00', act:'退房、行李寄放飯店', note:'行李寄放到 15:05，全天不上車。'},
-    {time:'09:00<br>–09:35', act:'→ Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，全天最長的一段。', tags:['car:35 分'], map:drv(P.grand,P.kaymakli)},
-    {time:'09:35<br>–11:05', act:'Kaymaklı 地下城 Kaymaklı Underground City 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true},
-    {time:'11:05<br>–11:45', act:'→ 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'採用 40 分、約 18 km，走 Uçhisar–Nevşehir 路，<strong>不經 Göreme</strong>。⚠️ 導航要設「觀景台」，不要設谷地中心點，那個點在谷裡、會被帶到產業道路。', tags:['car:40 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon)},
-    {time:'11:45<br>–12:45', act:'鴿子谷觀景台 Pigeon Valley Viewpoint 60 分'},
-    {time:'12:45<br>–12:50', act:'→ Uçhisar', note:'相鄰，3.9 km。', tags:['car:5 分'], map:drv(P.pigeon,P.uchisar)},
-    {time:'12:50<br>–13:50', act:'Uçhisar 午餐', tags:['eat:午餐']},
-    {time:'13:55<br>–14:55', act:'Uçhisar 城堡 Uçhisar Castle 60 分', note:'太累的話這站是<strong>唯一該砍的</strong>（省 65 分，14:00 就能進 Gamirasu）。<strong>不要砍 Kaymaklı。</strong>', map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]]},
-    {time:'14:55<br>–15:05', act:'→ Grand Elite', tags:['car:10 分'], map:drv(P.uchisar,P.grand)},
-    {time:'15:05<br>–15:15', act:'拿回寄放的行李', note:'拿了直接開往飯店門口，不再停任何景點。', hi:true},
-    {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:30 分'], map:drv(P.grand,P.gamirasu)},
-    {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。'},
-    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00，à la carte + 套餐、可配酒。<strong>在飯店吃，兩個人都能喝酒。</strong>', hi:true, tags:['eat:飯店晚餐'],
+    {time:'08:00<br>–08:45', act:'Grand Elite 早餐', sc:'done no'},
+    {time:'08:45<br>–09:00', act:'退房、行李寄放飯店', note:'行李寄放到 15:05，全天不上車。', sc:'done no'},
+    {time:'09:00<br>–09:35', act:'→ Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，全天最長的一段。', tags:['car:35 分'], map:drv(P.grand,P.kaymakli), sc:'done no'},
+    {time:'09:35<br>–11:05', act:'Kaymaklı 地下城 Kaymaklı Underground City 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, sc:'done no'},
+    {time:'11:05<br>–11:45', act:'→ 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'採用 40 分、約 18 km，走 Uçhisar–Nevşehir 路，<strong>不經 Göreme</strong>。⚠️ 導航要設「觀景台」，不要設谷地中心點，那個點在谷裡、會被帶到產業道路。', tags:['car:40 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon), sc:'done no'},
+    {time:'11:45<br>–12:45', act:'鴿子谷觀景台 Pigeon Valley Viewpoint 60 分', sc:'done no'},
+    {time:'12:45<br>–12:50', act:'→ Uçhisar', note:'相鄰，3.9 km。', tags:['car:5 分'], map:drv(P.pigeon,P.uchisar), sc:'done no'},
+    {time:'12:50<br>–13:50', act:'Uçhisar 午餐', tags:['eat:午餐'], sc:'done no'},
+    {time:'13:55<br>–14:55', act:'Uçhisar 城堡 Uçhisar Castle 60 分', note:'太累的話這站是<strong>唯一該砍的</strong>（省 65 分，14:00 就能進 Gamirasu）。<strong>不要砍 Kaymaklı。</strong>', map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]], sc:'done no'},
+    {time:'14:55<br>–15:05', act:'→ Grand Elite', tags:['car:10 分'], map:drv(P.uchisar,P.grand), sc:'done no'},
+    {time:'15:05<br>–15:15', act:'拿回寄放的行李', note:'拿了直接開往飯店門口，不再停任何景點。', hi:true, sc:'done no'},
+    {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:30 分'], map:drv(P.grand,P.gamirasu), sc:'done no'},
+    {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。', sc:'done no'},
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00。<strong>在飯店吃，兩個人都能喝酒。</strong>已經飛過了，今晚可以放鬆。', hi:true, tags:['eat:飯店晚餐'], sc:'done',
      eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
-    {time:'Plan B', act:'熱氣球在今天 → 整表後移 30 分', note:'09:30 出發 → 10:05 Kaymaklı → 15:35 拿行李 → <strong>16:15 進 Gamirasu</strong>，18:00 晚餐照樣趕得上。要刪就刪 Uçhisar Castle。'}
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐、早睡', note:'餐廳 18:00－22:00。<strong>22:00 前睡</strong>——熱氣球順延到明天，04:00 可能要起床。', hi:true, tags:['eat:飯店晚餐','lock:22:00 前睡'], sc:'no',
+     eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
+    {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。', sc:'fly'},
+    {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。接送點 Grand Elite。', sc:'fly'},
+    {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true, sc:'fly'},
+    {time:'07:30<br>–08:30', act:'香檳、證書、送回飯店', sc:'fly'},
+    {time:'08:30<br>–09:15', act:'Grand Elite 早餐', sc:'fly'},
+    {time:'09:15<br>–09:30', act:'退房、行李寄放飯店', sc:'fly'},
+    {time:'09:30<br>–10:05', act:'→ Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km。', tags:['car:🚘 35 分'], sc:'fly', map:drv(P.grand,P.kaymakli)},
+    {time:'10:05<br>–11:35', act:'Kaymaklı 地下城 Kaymaklı Underground City 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, sc:'fly'},
+    {time:'11:35<br>–12:15', act:'→ 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'⚠️ 導航要設「觀景台」，不要設谷地中心點。', tags:['car:🚘 40 分'], sc:'fly', map:drv(P.kaymakli,P.pigeon)},
+    {time:'12:15<br>–13:15', act:'鴿子谷觀景台 Pigeon Valley Viewpoint 60 分', sc:'fly'},
+    {time:'13:15<br>–13:20', act:'→ Uçhisar', tags:['car:🚘 5 分'], sc:'fly', map:drv(P.pigeon,P.uchisar)},
+    {time:'13:20<br>–14:20', act:'Uçhisar 午餐', tags:['eat:午餐'], sc:'fly'},
+    {time:'14:20<br>–14:30', act:'→ Grand Elite', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了，省下 65 分早點進 Gamirasu。鴿子谷和城堡是同一片谷地的兩個角度。', hi:true, tags:['car:🚘 10 分'], sc:'fly', map:drv(P.uchisar,P.grand)},
+    {time:'14:30<br>–14:40', act:'拿回寄放的行李', sc:'fly'},
+    {time:'14:40<br>–15:10', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:🚘 30 分'], sc:'fly', map:drv(P.grand,P.gamirasu)},
+    {time:'15:10<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。', sc:'fly'},
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00。<strong>在飯店吃，兩個人都能喝酒。</strong>飛完了，今晚可以放鬆。', hi:true, tags:['eat:飯店晚餐'], sc:'fly'}
   ],
   stay:{name:'Gamirasu Cave Hotel', note:'Hotels.com 73467533073850，入住 14:00／退房 12:30'}
 },
@@ -717,22 +764,39 @@ var DATA=[
   day:6, date:'11/04', week:'三', theme:'terra',
   title:'Avanos · Sarı Han → 回伊斯坦堡',
   status:'待微調', statusCls:'none',
-  fatigue:3, fatigueText:'中（A/B/D）· 中高（Plan C）',
+  fatigue:3, fatigueText:'中 · 今天飛的話中高',
   img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
   lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>，Avanos + Sarı Han 共約 2 小時、2 個停點。',
+  sw:{label:'熱氣球', def:'done', opts:[
+    {k:'done', t:'已經飛過'},
+    {k:'fly',  t:'今天飛'},
+    {k:'no',   t:'今天沒飛'}
+  ]},
   facts:['⚠️ 行李在車上 2 小時','⚠️ 15:35 離開 Sarı Han','16:45 前完成還車'],
   rows:[
-    {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台拍照', note:'洞穴房、泳池、露台是這間的重點。12:30 退房。'},
-    {time:'12:30<br>–13:15', act:'→ Avanos', note:'採用 45 分（實查 34 分）、24.4 km，經 Ürgüp。', tags:['car:45 分'], map:drv(P.gamirasu,P.avanos)},
-    {time:'13:15<br>–14:25', act:'Avanos 午餐 + 紅河 Kızılırmak River 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器']},
-    {time:'14:25<br>–14:35', act:'→ Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan)},
-    {time:'14:35<br>–15:20', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 45 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true},
-    {time:'15:20<br>–16:25', act:'→ Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:35 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr)},
-    {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。'},
-    {time:'16:45<br>起', act:'報到、安檢、候機'},
-    {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM。'},
-    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。晚上避免拖行李搭多段大眾交通。', hi:true},
-    {time:'Plan C', act:'熱氣球補飛在今天', note:'04:00 起床、04:40 Discovery Balloons 到 <strong>Gamirasu 接（已向業者確認可接 Ayvalı）</strong>、06:00－07:30 飛、07:30－09:00 送回，09:00 接回主線。累的話跳過 Avanos：Gamirasu → Sarı Han 直達 40 分，15:15 就能到 ASR。', map:[['跳過 Avanos · Gamirasu → Sarı Han',drv(P.gamirasu,P.sarihan)]]},
+    {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台拍照', note:'洞穴房、泳池、露台是這間的重點。12:30 退房。', sc:'done no'},
+    {time:'12:30<br>–13:15', act:'→ Avanos', note:'採用 45 分（實查 34 分）、24.4 km，經 Ürgüp。', tags:['car:45 分'], map:drv(P.gamirasu,P.avanos), sc:'done no'},
+    {time:'13:15<br>–14:25', act:'Avanos 午餐 + 紅河 Kızılırmak River 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'done no'},
+    {time:'14:25<br>–14:35', act:'→ Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan), sc:'done no'},
+    {time:'14:35<br>–15:20', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 45 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true, sc:'done no'},
+    {time:'15:20<br>–16:25', act:'→ Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:35 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr), sc:'done no'},
+    {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。', sc:'done no'},
+    {time:'16:45<br>起', act:'報到、安檢、候機', sc:'done no'},
+    {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM。', sc:'done no'},
+    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。晚上避免拖行李搭多段大眾交通。', hi:true, sc:'done no'},
+    {time:'04:00<br>–04:40', act:'起床、著裝', note:'清晨很冷，帶保暖外套。', sc:'fly'},
+    {time:'04:40<br>–06:00', act:'Discovery Balloons 到 Gamirasu 接', note:'<strong>已向業者確認可接 Ayvalı</strong>。前一天跟司機再確認一次。', hi:true, sc:'fly'},
+    {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true, sc:'fly'},
+    {time:'07:30<br>–09:00', act:'香檳、證書、送回 Gamirasu', sc:'fly'},
+    {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台、補眠', note:'04:00 起床後的 3.5 小時飯店時間正好補回來一半。12:30 退房。', sc:'fly'},
+    {time:'12:30<br>–13:10', act:'→ Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'<strong>今天跳過 Avanos</strong>，直達 24.8 km，比繞去 Avanos 還近一點。', hi:true, tags:['car:🚘 40 分'], sc:'fly', map:drv(P.gamirasu,P.sarihan)},
+    {time:'13:10<br>–14:10', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 60 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付。', hi:true, sc:'fly'},
+    {time:'14:10<br>–15:15', act:'→ Kayseri Airport ASR', note:'60.5 km，<strong>中途加油</strong>。比主線早 1 小時到機場。', tags:['car:🚘 1h05'], sc:'fly', map:drv(P.sarihan,P.asr)},
+    {time:'15:15<br>–16:45', act:'ASR 吃東西、還車、驗車', note:'確認號 637534354。跳過 Avanos 省下的時間拿來在機場吃飯。', sc:'fly'},
+    {time:'16:45<br>起', act:'報到、安檢、候機', sc:'fly'},
+    {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', tags:['TB5RZM'], sc:'fly'},
+    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。', hi:true, sc:'fly'},
+    {time:'退款', act:'申請熱氣球全額退款 USD 299.66', note:'三天都沒飛才會走到這步。<strong>保留三天的取消通知截圖</strong>，用 GetYourGuide App 申請（訂單 GYG7VKXLW35L）。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
@@ -996,7 +1060,7 @@ function rowsHtml(rows){
   var h='<ul class="tl">';
   for(var i=0;i<rows.length;i++){
     var r=rows[i];
-    h+='<li class="tl-row'+(r.hi?' hi':'')+'">'
+    h+='<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')+'>'
       +'<div class="tl-time">'+r.time+'</div><div class="tl-dot"></div>'
       +'<div class="tl-act">'+r.act+'</div>'
       +(r.note?'<div class="tl-note">'+r.note+'</div>':'')
@@ -1024,10 +1088,19 @@ function bodyHtml(d){
     }
     h+='</div>';
   }
+  if(d.sw){
+    h+='<div class="sw"><span class="sw-lab">'+d.sw.label+'</span>';
+    for(var o=0;o<d.sw.opts.length;o++){
+      var op=d.sw.opts[o];
+      h+='<button type="button" class="sw-btn" data-k="'+op.k+'"'
+        +(op.dis?' disabled title="這天不可能是這個狀態"':'')+'>'+op.t+'</button>';
+    }
+    h+='</div>';
+  }
   if(d.groups){
     for(var g=0;g<d.groups.length;g++){
       var gr=d.groups[g];
-      h+='<div class="grp'+(gr.alt?' alt':'')+'">'
+      h+='<div class="grp'+(gr.alt?' alt':'')+'"'+(gr.sc?' data-sc="'+gr.sc+'"':'')+'>'
         +'<div class="grp-head"><b>'+gr.label+'</b>'+(gr.sub?'<span>'+gr.sub+'</span>':'')+'</div>'
         +rowsHtml(gr.rows)+'</div>';
     }
@@ -1044,6 +1117,13 @@ function card(d){
   var el=document.createElement('article');
   el.className='day';
   el.setAttribute('data-day',d.day);
+  if(d.sw){
+    var saved=null;
+    try{ saved=localStorage.getItem('balloon-d'+d.day); }catch(e){}
+    var ok=false;
+    for(var q=0;q<d.sw.opts.length;q++) if(d.sw.opts[q].k===saved && !d.sw.opts[q].dis) ok=true;
+    el.setAttribute('data-sc', ok?saved:d.sw.def);
+  }
   el.style.setProperty('--acc',THEME[d.theme]||'var(--iznik-mid)');
   el.innerHTML=
     '<div class="day-head">'
@@ -1064,6 +1144,8 @@ function card(d){
 
 var list=document.getElementById('dayList');
 for(var i=0;i<DATA.length;i++) list.appendChild(card(DATA[i]));
+(function(){ var ds=list.querySelectorAll('.day[data-sc]');
+  for(var i=0;i<ds.length;i++) paintSw(ds[i]); })();
 
 /* ---------------- 展開 / 收合 ---------------- */
 function setOpen(day,open){
@@ -1087,6 +1169,23 @@ function setOpen(day,open){
     day.classList.remove('open');
   }
 }
+/* 情境切換：熱氣球飛不飛，選擇會記住 */
+list.addEventListener('click',function(e){
+  var btn=e.target.closest?e.target.closest('.sw-btn'):null;
+  if(!btn||btn.disabled) return;
+  e.stopPropagation();
+  var day=btn.closest('.day'), k=btn.getAttribute('data-k');
+  day.setAttribute('data-sc',k);
+  try{ localStorage.setItem('balloon-d'+day.getAttribute('data-day'), k); }catch(err){}
+  paintSw(day);
+  var wrap=day.querySelector('.day-wrap');
+  if(wrap && day.classList.contains('open')) wrap.style.maxHeight='none';
+});
+function paintSw(day){
+  var k=day.getAttribute('data-sc'), bs=day.querySelectorAll('.sw-btn');
+  for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on', bs[i].getAttribute('data-k')===k);
+}
+
 /* 景點說明：同一組一次只開一個，面板插在被點的那一項下面 */
 list.addEventListener('click',function(e){
   var btn=e.target.closest?e.target.closest('.spot'):null;
