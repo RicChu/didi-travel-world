@@ -514,7 +514,6 @@ var P={
   asr:'Kayseri Airport',
   ist:'Istanbul Airport',
   /* 以弗所 · Selçuk（座標取自使用者 2026-08-20 提供的 Google Maps 路線） */
-  pikan:'37.9489789,27.3671724',    /* Pikan Ephesus Boutique Hotel */
   ephSite:'37.9355518,27.3461146',  /* 以弗所考古遺址 Ephesus Archaeological Site — 停車處 */
   eTheatre:'37.9410660,27.3426916', /* 大劇院 Ephesus Ancient Greek Theatre */
   celsus:'37.9392052,27.3409200',   /* 塞爾蘇斯圖書館 Library of Celsus */
@@ -609,7 +608,7 @@ var DATA=[
     {time:'16:30<br>–18:50', act:'以弗所 → Bellamaritimo Hotel（棉堡）', note:'190 km，八成走 O-31 高速公路。日落約 18:15，只有最後進村那段摸黑。<strong>中途在休息站停一次</strong>。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
     {time:'19:00<br>起', act:'棉堡村晚餐、早休'}
   ],
-  stay:{name:'Bellamaritimo Hotel', note:'棉堡村 · 走得到石灰棚、古董池與古劇場'}
+  stay:{name:'Bellamaritimo Hotel', note:'Agoda 1764630371，雙人房 1 晚 · 有行李寄存'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
@@ -621,7 +620,8 @@ var DATA=[
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
   lead:'早上從飯店走出去逛完棉堡，<strong>車整個上午不用動</strong>。下午開 232 km 回 ADB，晚班機到 ASR 再夜路進 Göreme。全天開車 4h10。',
   rows:[
-    {time:'08:30<br>–09:30', act:'Bellamaritimo Hotel 早餐'},
+    {time:'08:30<br>–09:20', act:'Bellamaritimo Hotel 早餐'},
+    {time:'09:20<br>–09:30', act:'退房、行李寄放飯店', note:'訂房頁列有<strong>行李寄存服務</strong>，走完環線回來一起拿。'},
     {time:'09:30<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'<strong>從飯店走出去，車整晚不用動。</strong>由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
@@ -632,7 +632,7 @@ var DATA=[
     {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'],
      eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。'},
      map:pin(P.teras)},
-    {time:'14:30<br>–14:50', act:'回飯店取車'},
+    {time:'14:30<br>–14:50', act:'回飯店拿行李、取車'},
     {time:'14:50<br>–17:30', act:'棉堡 → ADB Airport', note:'232 km，中途加油。<strong>17:00 前上路都來得及</strong>，比舊版的 16:05 硬上限寬鬆很多。', tags:['car:🚘 2h40'], map:drv(P.bella,P.adb)},
     {time:'17:30<br>–20:00', act:'加油 / 還車 / 托運 / 安檢、吃晚餐'},
     {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
@@ -865,8 +865,8 @@ var PANELS={
   stay:{
     title:'4 段住宿', note:'全部已訂',
     rows:[
-      {k:'10/31–11/01', b:'Pikan Ephesus', i:'Selçuk · 1 晚',
-       em:'Agoda 訂單 1734845536 · 入住 15:00／退房 11:00 · 2026/10/30 前皆可免費取消 · 地址 1045. Sokak 42 A, Selçuk 35920 · 10/31 先進飯店放行李，再開 10 分鐘去以弗所考古遺址'},
+      {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'棉堡村 · 1 晚',
+       em:'Agoda 訂單 1764630371 · 雙人房 · 座標 37.918462, 29.115503 · 2026/10/30 前皆可免費取消 · 有行李寄存 · 走得到石灰棚 870m／古董池 1.2km／古劇場 1.5km'},
       {k:'11/01–11/03', b:'Grand Elite Cave Suites', i:'Göreme · 2 晚',
        em:'Booking.com · 入住 14:00–00:00／退房 11:00 · 座標 38.6394198, 34.8294131 · 有停車場 · 熱氣球與駱駝都在這裡接送 · 已填預估抵達 23:00–00:00'},
       {k:'11/03–11/04', b:'Gamirasu Cave Hotel · Special Class', i:'Ayvalı／Ürgüp · 1 晚',
