@@ -27,6 +27,12 @@
 | `ephesus-curetes-street.jpg` | 以弗所 克里特斯街 | `Curetes Street in Ephesus (1).jpg` | Radosław Botev | CC BY 3.0 pl |
 | `hierapolis-theatre.jpg` | 棉堡 Hierapolis 古劇場 | `Antik Tiyatro, Hierapolis, 2019 02.jpg` | Gargarapalvin | CC BY-SA 4.0 |
 | `cleopatra-pool.jpg` | 棉堡 古董池 | `Cleopatra Antique pool (15688240214).jpg` | shankar s. | CC BY 2.0 |
+| `pasabag.jpg` | Paşabağ 蘑菇谷 | `Paşabağ Vadisi.jpg` | Cobija | CC0 |
+| `zelve.jpg` | Zelve 露天博物館 | `Zelve Open Air Museum - 2014.10 - panoramio.jpg` | rheins | CC BY 3.0 |
+| `goreme-museum.jpg` | Göreme 露天博物館 | `Göreme Open Air Museum 01.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
+| `kaymakli.jpg` | Kaymaklı 地下城 | `Kaymaklı Underground City large room.JPG` | MusikAnimal | CC BY-SA 4.0 |
+| `pigeon-valley.jpg` | 鴿子谷 | `Güvercinlik Vadisi.jpg` | Cobija | CC0 |
+| `avanos.jpg` | Avanos 與紅河 | `Kızılırmak River in Avanos.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
 
