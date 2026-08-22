@@ -718,7 +718,10 @@ var DATA=[
       {time:'11:50<br>–12:05', act:'→ Grand Elite', note:'採用 15 分。車停飯店，走去吃午餐。', tags:['car:15 分'], map:drv(P.zelve,P.grand)}
     ]},
     {label:'下午 · 兩種情況都一樣', sub:'現場零決策', rows:[
-      {time:'12:00<br>–13:20', act:'Seten Restaurant 午餐', note:'從飯店走 5 分鐘。<strong>⚠️ 只有 80 分鐘</strong>——13:20 要出發去露天博物館，這種一道道上的餐廳很容易超時，<strong>進去先把菜一次點齊</strong>。', tags:['eat:午餐'],
+      {time:'12:10<br>–12:20', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'1.8 km。', tags:['car:🚘 10 分'], map:drv(P.grand,P.goreme)},
+      {time:'12:20<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum 1h40', note:'每天開、08:00 開門。', hi:true},
+      {time:'14:00<br>–14:10', act:'→ Seten Restaurant', note:'2.3 km。', tags:['car:🚘 10 分'], map:drv(P.goreme,P.seten)},
+      {time:'14:10<br>–15:30', act:'Seten Restaurant 午餐', note:'<strong>⚠️ 只有 80 分鐘</strong>——15:30 要回飯店準備駱駝，<strong>進去先把菜一次點齊</strong>。', tags:['eat:午餐'],
        eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理', img:'seten-terrace.jpg',
          d:'離 Grand Elite 382 公尺、走路 5 分鐘。<strong>兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾——比兩人各點一份肉好，能一次吃到當地最有特色的幾種。',
          dishes:[
@@ -730,10 +733,8 @@ var DATA=[
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
        map:pin(P.seten)},
-      {time:'13:20<br>–13:30', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'從餐廳直接開過去，2.3 km。', tags:['car:🚘 10 分'], map:drv(P.seten,P.goreme)},
-      {time:'13:30<br>–15:20', act:'Göreme 露天博物館 Göreme Open Air Museum 1h50', note:'每天開、08:00 開門。', hi:true},
-      {time:'15:20<br>–15:30', act:'→ 回飯店', tags:['car:10 分'], map:drv(P.goreme,P.grand)},
-      {time:'15:30<br>–16:00', act:'30 分緩衝', note:'休息、換保暖外套。'},
+      {time:'15:30<br>–15:40', act:'→ 回飯店', note:'382 公尺，開車或走路都行。', tags:['car:🚘 5 分'], map:drv(P.seten,P.grand)},
+      {time:'15:40<br>–16:00', act:'20 分緩衝', note:'休息、換保暖外套。'},
       {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。接送 16:00、騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41、曙暮光 18:07）。路線含 Red + Rose Valley。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
       {time:'18:00<br>起', act:'Göreme 晚餐', note:'今天飛完了，<strong>今晚可以放鬆</strong>，明天睡到自然醒。', sc:'fly', tags:['eat:晚餐']},
       {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'熱氣球順延到明天，<strong>22:00 前睡</strong>——明天 04:00 可能要起床。', sc:'no', tags:['eat:晚餐','lock:22:00 前睡']}
