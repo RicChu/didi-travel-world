@@ -699,13 +699,13 @@ var DATA=[
   groups:[
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
       {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。'},
-      {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。業者會在前 1～2 天通知實際接送時間。'},
+      {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。<strong>接送時間會在前一天 18:00 前用 WhatsApp 或 email 通知</strong>——11/01 傍晚人在 ADB 機場，要留意訊息。'},
       {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', note:'日出 07:07。', hi:true},
       {time:'07:30<br>–08:30', act:'香檳、證書、送回飯店'},
       {time:'08:30<br>–09:30', act:'回房補眠', note:'補一小時，09:30 跟沒飛的情況接上。'}
     ]},
     {label:'清晨 · 沒飛', sub:'睡飽', alt:true, sc:'no', rows:[
-      {time:'–09:30', act:'睡到自然醒', note:'熱氣球順延，這天早上完全不用早起。'}
+      {time:'–09:30', act:'睡到自然醒', note:'今天沒飛，早上完全不用早起。<strong>⚠️ 沒有自動順延</strong>——當下就要問業者明天有沒有位子，滿了就是全額退款、飛不成。', hi:true}
     ]},
     {label:'09:30 之後 · 兩種情況完全一樣', sub:'自駕 55 分', rows:[
       {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐']},
@@ -732,7 +732,7 @@ var DATA=[
       {time:'15:35<br>–16:00', act:'25 分緩衝', note:'休息、換保暖外套。'},
       {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41）。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
       {time:'18:00<br>起', act:'Göreme 晚餐', note:'今天飛完了，<strong>今晚可以放鬆</strong>，明天睡到自然醒。', sc:'fly', tags:['eat:晚餐']},
-      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'熱氣球順延到明天，<strong>22:00 前睡</strong>——明天 04:00 可能要起床。', sc:'no', tags:['eat:晚餐','lock:22:00 前睡']}
+      {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床；業者說沒位子就是全額退款、不用早起。', sc:'no', tags:['eat:晚餐','lock:22:00 前睡']}
     ]}
   ],
   stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
@@ -768,7 +768,7 @@ var DATA=[
     {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。', sc:'done no'},
     {time:'18:00<br>起', act:'Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00。<strong>在飯店吃，兩個人都能喝酒。</strong>已經飛過了，今晚可以放鬆。', hi:true, tags:['eat:飯店晚餐'], sc:'done',
      eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
-    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐、早睡', note:'餐廳 18:00－22:00。<strong>22:00 前睡</strong>——熱氣球順延到明天，04:00 可能要起床。', hi:true, tags:['eat:飯店晚餐','lock:22:00 前睡'], sc:'no',
+    {time:'18:00<br>起', act:'Gamirasu 飯店晚餐、早睡', note:'餐廳 18:00－22:00。若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床；沒位子就是全額退款。', hi:true, tags:['eat:飯店晚餐','lock:22:00 前睡'], sc:'no',
      eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
     {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。', sc:'fly'},
     {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。接送點 Grand Elite。', sc:'fly'},
@@ -828,7 +828,7 @@ var DATA=[
     {time:'16:45<br>起', act:'報到、安檢、候機', sc:'fly'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', tags:['TB5RZM'], sc:'fly'},
     {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。', hi:true, sc:'fly'},
-    {time:'退款', act:'申請熱氣球全額退款 USD 299.66', note:'三天都沒飛才會走到這步。<strong>保留三天的取消通知截圖</strong>，用 GetYourGuide App 申請（訂單 GYG7VKXLW35L）。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
+    {time:'退款', act:'申請熱氣球全額退款 USD 299.66', note:'沒飛成就會走到這步——業者明說隔天客滿就直接全額退款。<strong>保留取消通知截圖</strong>，用 GetYourGuide App 對訂單 GYG7VKXLW35L 確認退款。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
