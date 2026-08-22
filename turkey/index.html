@@ -634,7 +634,7 @@ var DATA=[
      ],
      map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
     {time:'17:00<br>–19:30', act:'以弗所 → Bellamaritimo Hotel', note:'190 km，八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
-    {time:'19:30<br>–21:00', act:'As Teras Mantı Evi 晚餐', tags:['eat:晚餐'],
+    {time:'19:30<br>–21:00', act:'As Teras Mantı Evi 晚餐', tags:['eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主，能品嚐到土耳其經典料理，也很適合在逛完棉堡後來這裡享用一頓輕鬆的晚餐。',
        dishes:[
@@ -666,7 +666,7 @@ var DATA=[
        {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'}
      ],
      map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
-    {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'],
+    {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'], hi:true,
      eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
        dishes:[
          ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
@@ -675,12 +675,9 @@ var DATA=[
          ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
        ]},
      map:pin(P.teras)},
-    {time:'14:30<br>–14:50', act:'回飯店拿行李、取車'},
-    {time:'14:50<br>–17:20', act:'棉堡 → ADB Airport', tags:['car:🚘 2h30'], map:drv(P.bella,P.adb)},
-    {time:'17:20<br>–20:00', act:'辦理還車手續、吃晚餐'},
-    {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
-    {time:'22:35<br>–23:15', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
-    {time:'23:15<br>–00:45', act:'夜路 → Grand Elite Cave Suites', hi:true, tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
+    {time:'14:30<br>–20:00', act:'回飯店拿行李 → ADB Airport', tags:['car:🚘 2h30'], map:drv(P.bella,P.adb)},
+    {time:'21:00<br>–22:35', act:'SunExpress ADB → ASR', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg'], hi:true,},
+    {time:'22:35<br>–23:15', act:'領行李、辦理取車手續 → Grand Elite Cave Suites', tags:['car:供應商 Rentalcars', 'car:🚘 1h30'], map:drv(P.asr,P.grand)}
   ],
   stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
 },
@@ -688,7 +685,7 @@ var DATA=[
 /* ========== DAY 04 · 11/02 ========== */
 {
   day:4, date:'11/02', week:'一', theme:'gold',
-  title:'🎈 卡帕多奇亞 Cappadocia｜奇岩與熱氣球交織的夢幻大地',
+  title:'🎈 格雷梅 Göreme｜奇岩與熱氣球交織的夢幻大地',
   status:'待微調', statusCls:'none',
   fatigue:4, fatigueText:'今天飛 高 · 沒飛 中',
   img:'cappadocia-balloons.jpg', cap:'格雷梅 · 日出熱氣球',
@@ -698,29 +695,27 @@ var DATA=[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['日落 17:41','黃金時段 16:41－17:41','自駕 20／55 分','行李全天在房間'],
+  facts:['日落 17:41','黃金時段 16:41－17:41','自駕 55 分','行李全天在房間'],
   groups:[
-    {label:'上午 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
+    {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
       {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。'},
       {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。業者會在前 1～2 天通知實際接送時間。'},
       {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', note:'日出 07:07。', hi:true},
       {time:'07:30<br>–08:30', act:'香檳、證書、送回飯店'},
-      {time:'08:30<br>–09:00', act:'飯店早餐'},
-      {time:'09:00<br>–12:00', act:'補眠', note:'<strong>這三小時不可挪用。</strong>', hi:true, tags:['lock:不可挪用']}
+      {time:'08:30<br>–09:30', act:'回房補眠', note:'補一小時，09:30 跟沒飛的情況接上。'}
     ]},
-    {label:'上午 · 沒飛', sub:'睡飽 · 車程 35 分', alt:true, sc:'no', rows:[
-      {time:'自然醒<br>–08:45', act:'睡飽'},
-      {time:'08:45<br>–09:30', act:'飯店早餐 45 分'},
-      {time:'09:30<br>–09:45', act:'→ Paşabağ 蘑菇谷 Monks Valley', note:'採用 15 分（實測 9.8 分 / 6.9 km）。', tags:['car:15 分'], map:drv(P.grand,P.pasabag)},
-      {time:'09:45<br>–10:45', act:'Paşabağ 蘑菇谷 Monks Valley 60 分', note:'最經典的多頭精靈煙囪，平地好走。<strong>這裡買的票同時含 Zelve</strong>，一張 €12 通用。', hi:true, tags:['⚠️ 票買一次就好']},
-      {time:'10:45<br>–10:50', act:'→ Zelve 露天博物館 Zelve Open Air Museum', note:'只有 1.8 km，5 分鐘。', tags:['car:5 分'], map:drv(P.pasabag,P.zelve)},
-      {time:'10:50<br>–11:50', act:'Zelve 露天博物館 Zelve Open Air Museum 60 分', note:'廢棄洞穴村，人比 Göreme 露天博物館少。<strong>每天開、08:00 開門。</strong>'},
-      {time:'11:50<br>–12:05', act:'→ Grand Elite', note:'採用 15 分。車停飯店，走去吃午餐。', tags:['car:15 分'], map:drv(P.zelve,P.grand)}
+    {label:'清晨 · 沒飛', sub:'睡飽', alt:true, sc:'no', rows:[
+      {time:'–09:30', act:'睡到自然醒', note:'熱氣球順延，這天早上完全不用早起。'}
     ]},
-    {label:'下午 · 兩種情況都一樣', sub:'現場零決策', rows:[
-      {time:'12:10<br>–12:20', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'1.8 km。', tags:['car:🚘 10 分'], map:drv(P.grand,P.goreme)},
-      {time:'12:20<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum 1h40', note:'每天開、08:00 開門。', hi:true},
-      {time:'14:00<br>–14:10', act:'→ Seten Restaurant', note:'2.3 km。', tags:['car:🚘 10 分'], map:drv(P.goreme,P.seten)},
+    {label:'09:30 之後 · 兩種情況完全一樣', sub:'自駕 55 分', rows:[
+      {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐']},
+      {time:'10:10<br>–10:25', act:'→ Paşabağ 蘑菇谷 Monks Valley', note:'6.9 km。', tags:['car:🚘 15 分'], map:drv(P.grand,P.pasabag)},
+      {time:'10:25<br>–11:15', act:'Paşabağ 蘑菇谷 Monks Valley 50 分', note:'最經典的多頭精靈煙囪，平地好走。<strong>這裡買的票同時含 Zelve</strong>，一張 €12 通用。', hi:true, tags:['⚠️ 票買一次就好']},
+      {time:'11:15<br>–11:20', act:'→ Zelve 露天博物館 Zelve Open Air Museum', note:'只有 1.8 km。', tags:['car:🚘 5 分'], map:drv(P.pasabag,P.zelve)},
+      {time:'11:20<br>–12:10', act:'Zelve 露天博物館 Zelve Open Air Museum 50 分', note:'廢棄洞穴村，人比 Göreme 露天博物館少。每天開、08:00 開門。'},
+      {time:'12:10<br>–12:30', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'8.8 km。', tags:['car:🚘 20 分'], map:drv(P.zelve,P.goreme)},
+      {time:'12:30<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum 1h30', note:'每天開、08:00 開門。', hi:true},
+      {time:'14:00<br>–14:10', act:'→ Seten Restaurant', note:'2.7 km。', tags:['car:🚘 10 分'], map:drv(P.goreme,P.seten)},
       {time:'14:10<br>–15:30', act:'Seten Restaurant 午餐', note:'<strong>⚠️ 只有 80 分鐘</strong>——15:30 要回飯店準備駱駝，<strong>進去先把菜一次點齊</strong>。', tags:['eat:午餐'],
        eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理', img:'seten-terrace.jpg',
          d:'離 Grand Elite 382 公尺、走路 5 分鐘。<strong>兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾——比兩人各點一份肉好，能一次吃到當地最有特色的幾種。',
@@ -733,9 +728,9 @@ var DATA=[
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
        map:pin(P.seten)},
-      {time:'15:30<br>–15:40', act:'→ 回飯店', note:'382 公尺，開車或走路都行。', tags:['car:🚘 5 分'], map:drv(P.seten,P.grand)},
-      {time:'15:40<br>–16:00', act:'20 分緩衝', note:'休息、換保暖外套。'},
-      {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。接送 16:00、騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41、曙暮光 18:07）。路線含 Red + Rose Valley。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
+      {time:'15:30<br>–15:35', act:'→ 回飯店', note:'0.9 km。', tags:['car:🚘 5 分'], map:drv(P.seten,P.grand)},
+      {time:'15:35<br>–16:00', act:'25 分緩衝', note:'休息、換保暖外套。'},
+      {time:'16:00<br>–17:40', act:'駱駝 · 日落場', note:'GetYourGuide t486222，含飯店接送。騎乘約 16:20－17:20，<strong>整段都在黃金時段裡</strong>（日落 17:41）。<strong>⚠️ 16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>。', hi:true, tags:['lock:永遠 11/02 16:00','⚠️ 16:15 未到要聯絡']},
       {time:'18:00<br>起', act:'Göreme 晚餐', note:'今天飛完了，<strong>今晚可以放鬆</strong>，明天睡到自然醒。', sc:'fly', tags:['eat:晚餐']},
       {time:'18:00<br>起', act:'Göreme 晚餐、早睡', note:'熱氣球順延到明天，<strong>22:00 前睡</strong>——明天 04:00 可能要起床。', sc:'no', tags:['eat:晚餐','lock:22:00 前睡']}
     ]}
