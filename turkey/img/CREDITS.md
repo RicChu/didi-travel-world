@@ -33,6 +33,8 @@
 | `kaymakli.jpg` | Kaymaklı 地下城 | `Kaymaklı Underground City large room.JPG` | MusikAnimal | CC BY-SA 4.0 |
 | `pigeon-valley.jpg` | 鴿子谷 | `Güvercinlik Vadisi.jpg` | Cobija | CC0 |
 | `avanos.jpg` | Avanos 與紅河 | `Kızılırmak River in Avanos.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
+| `balloon-ride.jpg` | 11/02 熱氣球 | `Hot air balloon start in Cappadocia 2014.jpg` | Wolfgang Moroder | CC BY-SA 3.0 |
+| `camel-ride.jpg` | 11/02 駱駝騎乘 | `Camels of Cappadocia - panoramio.jpg` | Tevfik Teker | CC BY 3.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
 
