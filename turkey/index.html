@@ -376,6 +376,13 @@ a{color:var(--iznik-blue)}
 }
 .eatery-meta span.hr{background:rgba(13,59,102,.08);color:var(--ink-soft)}
 .eatery-d{margin-top:8px;font-size:14px;line-height:1.75;color:var(--ink-soft)}
+.eatery-dish{margin-top:10px;border-top:1px dashed rgba(200,160,77,.5);padding-top:9px}
+.eatery-dish > b{display:block;font-size:12.5px;letter-spacing:.05em;color:var(--ink-mute);margin-bottom:6px}
+.eatery-dish li b{font-weight:600;color:var(--iznik-deep)}
+.eatery-dish li{display:flex;gap:7px;font-size:14px;line-height:1.6;margin-top:5px;color:var(--ink)}
+.eatery-dish li span{flex:none}
+.eatery-dish li i{font-style:normal;color:var(--ink-soft);font-size:13px}
+.eatery-dish ul{list-style:none;margin:0;padding:0}
 
 /* 點到點 Google Maps 路線 */
 .tl-maps{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
@@ -606,11 +613,12 @@ var DATA=[
 /* ========== DAY 02 · 10/31 ========== */
 {
   day:2, date:'10/31', week:'六', theme:'terra',
-  title:'伊斯坦堡機場 → 以弗所 → 棉堡',
+  title:'以弗所古城 Ephesus',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 抵達日又接夜路',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
-  lead:'國內線轉機、取車，下午看以弗所，傍晚直接開去棉堡過夜。把 190 km 挪到今天，換 11/01 輕鬆。',
+  lead:'以弗所是古代小亞細亞西部最重要的城市之一，歷史可追溯至西元前數世紀，先後受到希臘、波斯、希臘化王國及羅馬帝國統治。羅馬時期的以弗所發展成愛琴海東岸重要的商業、政治與宗教中心，人口一度達到數十萬。城市也因鄰近海港而繁榮，成為連結東西方貿易的重要據點。除了商業地位外，以弗所也是古代宗教與早期基督教的重要中心，使徒保羅曾在此傳教，《新約聖經》的〈以弗所書〉也與這座城市密切相關。隨著港口逐漸淤積、貿易衰退以及政治局勢變化，以弗所最終走向沒落，留下今日所見的古城遺跡。',
+  facts:['國內線轉機','辦理租車手續','自駕約三小時'],
   rows:[
     {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
@@ -648,7 +656,13 @@ var DATA=[
      ],
      map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
     {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'],
-     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。'},
+     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
+       dishes:[
+         ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
+         ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個，2026/07 的評論直接推薦'],
+         ['🥉','葡萄葉包飯配優格 <b>Stuffed vine leaves + yogurt</b>','當前菜，兩人分一份'],
+         ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
+       ]},
      map:pin(P.teras)},
     {time:'14:30<br>–14:50', act:'回飯店拿行李、取車'},
     {time:'14:50<br>–17:20', act:'棉堡 → ADB Airport', tags:['car:🚘 2h30'], map:drv(P.bella,P.adb)},
@@ -1054,6 +1068,14 @@ function eateryHtml(e){
     h+='</div>';
   }
   if(e.d) h+='<div class="eatery-d">'+e.d+'</div>';
+  if(e.dishes&&e.dishes.length){
+    h+='<div class="eatery-dish"><b>推薦組合</b><ul>';
+    for(var i=0;i<e.dishes.length;i++){
+      var p=e.dishes[i];
+      h+='<li><span>'+p[0]+'</span><div>'+p[1]+(p[2]?'<i> · '+p[2]+'</i>':'')+'</div></li>';
+    }
+    h+='</ul></div>';
+  }
   return h+'</div></div>';
 }
 function rowsHtml(rows){
