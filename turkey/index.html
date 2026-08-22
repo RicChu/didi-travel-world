@@ -556,6 +556,7 @@ var P={
   /* 卡帕多奇亞 */
   grand:'38.6394198,34.8294131',
   goreme:'38.6390591,34.8455787',
+  seten:'38.6412661,34.8257096',      /* Seten Restaurant Cappadocia — 11/02 午餐 */
   kaymakli:'38.4599265,34.7524882',
   pigeon:'38.6320754,34.8152333',
   pasabag:'38.6770053,34.8549063',
@@ -613,11 +614,11 @@ var DATA=[
 /* ========== DAY 02 · 10/31 ========== */
 {
   day:2, date:'10/31', week:'六', theme:'terra',
-  title:'以弗所古城 Ephesus',
+  title:'🏛️ 以弗所 Ephesus｜愛琴海畔的古文明之城',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 抵達日又接夜路',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
-  lead:'以弗所是古代小亞細亞西部最重要的城市之一，歷史可追溯至西元前數世紀，先後受到希臘、波斯、希臘化王國及羅馬帝國統治。羅馬時期的以弗所發展成愛琴海東岸重要的商業、政治與宗教中心，人口一度達到數十萬。城市也因鄰近海港而繁榮，成為連結東西方貿易的重要據點。除了商業地位外，以弗所也是古代宗教與早期基督教的重要中心，使徒保羅曾在此傳教，《新約聖經》的〈以弗所書〉也與這座城市密切相關。隨著港口逐漸淤積、貿易衰退以及政治局勢變化，以弗所最終走向沒落，留下今日所見的古城遺跡。',
+  lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','自駕約三小時'],
   rows:[
     {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
@@ -633,9 +634,9 @@ var DATA=[
      ],
      map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
     {time:'17:00<br>–19:30', act:'以弗所 → Bellamaritimo Hotel', note:'190 km，八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
-    {time:'19:30<br>–21:00', act:'As Teras Mantı Evi 晚餐', note:'先進飯店 check in，再走 5 分鐘過去。吃完早點休息。', tags:['eat:晚餐'],
+    {time:'19:30<br>–21:00', act:'As Teras Mantı Evi 晚餐', tags:['eat:晚餐'],
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
-       d:'飯店走路 5 分鐘。',
+       d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主，能品嚐到土耳其經典料理，也很適合在逛完棉堡後來這裡享用一頓輕鬆的晚餐。',
        dishes:[
          ['🥇','菠菜起司煎餅 <b>Spinach &amp; Cheese Gözleme</b>','蔬菜配起司，先點這個'],
          ['🥈','土耳其餃子 <b>Mantı</b>','這家的招牌，店名就叫 Mantı Evi（餃子屋），必吃'],
@@ -650,11 +651,12 @@ var DATA=[
 /* ========== DAY 03 · 11/01 ========== */
 {
   day:3, date:'11/01', week:'日', theme:'turq',
-  title:'棉堡 → 卡帕多奇亞',
+  title:'☁️ 棉堡 Pamukkale｜雪白山丘上的溫泉奇景',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'中高 · 尾段夜路到 00:45',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
-  lead:'早上從飯店走出去逛完棉堡遺址。下午開2小時半的車回 ADB airport，晚班機到 ASR 再夜路進 Göreme。全天開車 4h10。',
+  lead:'雪白的天然鈣華梯田層層堆疊，搭配山頂希拉波利斯古城遺跡，是土耳其最夢幻的自然與文明交會之地。',
+  facts:['國內線轉機','辦理租車、還手續','自駕約四小時'],
   rows:[
     {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李寄放飯店，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
     {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
@@ -686,11 +688,11 @@ var DATA=[
 /* ========== DAY 04 · 11/02 ========== */
 {
   day:4, date:'11/02', week:'一', theme:'gold',
-  title:'Göreme 核心日 · 熱氣球 + 駱駝',
+  title:'🎈 卡帕多奇亞 Cappadocia｜奇岩與熱氣球交織的夢幻大地',
   status:'待微調', statusCls:'none',
   fatigue:4, fatigueText:'今天飛 高 · 沒飛 中',
   img:'cappadocia-balloons.jpg', cap:'格雷梅 · 日出熱氣球',
-  lead:'<strong>12:00 之後兩種情況完全相同</strong>，只有上午分兩種寫法。行李全天在房間。自駕：飛了 20 分、沒飛 55 分。',
+  lead:'獨特的火山岩地貌、洞穴城市與滿天熱氣球，打造出世界上難以複製的奇幻景色。',
   sw:{label:'熱氣球', def:'fly', opts:[
     {k:'done', t:'已經飛過', dis:true},
     {k:'fly',  t:'今天飛'},
@@ -716,8 +718,19 @@ var DATA=[
       {time:'11:50<br>–12:05', act:'→ Grand Elite', note:'採用 15 分。車停飯店，走去吃午餐。', tags:['car:15 分'], map:drv(P.zelve,P.grand)}
     ]},
     {label:'下午 · 兩種情況都一樣', sub:'現場零決策', rows:[
-      {time:'12:00<br>–13:20', act:'Göreme 午餐 80 分', tags:['eat:午餐']},
-      {time:'13:20<br>–13:30', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'採用 10 分（實測 7 分 / 1.8 km）。', tags:['car:10 分'], map:drv(P.grand,P.goreme)},
+      {time:'12:00<br>–13:20', act:'Seten Restaurant 午餐', note:'從飯店走 5 分鐘。<strong>⚠️ 只有 80 分鐘</strong>——13:20 要出發去露天博物館，這種一道道上的餐廳很容易超時，<strong>進去先把菜一次點齊</strong>。', tags:['eat:午餐'],
+       eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理',
+         d:'離 Grand Elite 382 公尺、走路 5 分鐘。<strong>兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾——比兩人各點一份肉好，能一次吃到當地最有特色的幾種。',
+         dishes:[
+           ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
+           ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
+           ['🥉','芝麻醬舒芙蕾 <b>Tahini Soufflé</b>','留胃給它。當天若有 Apricot Parfait，兩個擇一'],
+           ['４','傳統燉肉 <b>Mutancana</b>','古老的安納托利亞菜，肉配果乾堅果與甜酸醬，跟 kebab 完全不同'],
+           ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
+           ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
+         ]},
+       map:pin(P.seten)},
+      {time:'13:20<br>–13:30', act:'→ Göreme 露天博物館 Göreme Open Air Museum', note:'從餐廳直接開過去，2.3 km。', tags:['car:🚘 10 分'], map:drv(P.seten,P.goreme)},
       {time:'13:30<br>–15:20', act:'Göreme 露天博物館 Göreme Open Air Museum 1h50', note:'每天開、08:00 開門。', hi:true},
       {time:'15:20<br>–15:30', act:'→ 回飯店', tags:['car:10 分'], map:drv(P.goreme,P.grand)},
       {time:'15:30<br>–16:00', act:'30 分緩衝', note:'休息、換保暖外套。'},
