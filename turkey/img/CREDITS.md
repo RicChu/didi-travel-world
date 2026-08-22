@@ -41,3 +41,4 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `pamukkale-travertines.jpg` | 11/01 日照 + 石灰棚東觀景台景點卡 | 使用者於 2026-08-20 提供（取代原本 Slyronit 的 CC BY-SA 4.0 照片） |
 | `cappadocia-balloons.jpg` | 11/02 日照 | 使用者於 2026-08-20 提供（取代原本 MusikAnimal 的 CC BY-SA 4.0 照片） |
 | `asteras-manti.jpg` | 10/31 As Teras Mantı Evi 餐廳卡片 | 使用者於 2026-08-22 提供 |
+| `seten-terrace.jpg` | 11/02 Seten Restaurant 餐廳卡片 | 使用者於 2026-08-22 提供 |
