@@ -277,6 +277,8 @@ details[open] .chev{transform:rotate(180deg)}
 .card-tag.c-stay{color:var(--teal);background:var(--teal-soft)}
 .card-tag.c-fly,.card-tag.c-ride{color:var(--gold-ink);background:var(--gold-soft)}
 .card-tag.c-car{color:var(--terra-ink);background:var(--terra-soft)}
+.card-tag.c-other{color:#fff;background:var(--teal)}
+.card-todo{margin-right:auto;padding:4px 8px;border:1px dashed rgba(191,98,68,.55);border-radius:999px;font-size:.66rem;font-weight:700;color:var(--terra-ink)}
 .card-icon{font-size:1.2rem;color:var(--muted)}
 .card-meta{margin:12px 0 0;color:var(--terra);font-size:.68rem;font-weight:700;letter-spacing:.12em}
 .booking-card h3{margin:14px 0 6px;font-size:1.05rem;line-height:1.35}
@@ -418,13 +420,14 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
       <div class="section-heading board-heading">
         <div>
           <p class="section-label">TRIP BOARD</p>
-          <h2 id="board-title">住宿、航班與租車</h2>
+          <h2 id="board-title">住宿、交通與預訂</h2>
         </div>
         <div class="filter-group" role="group" aria-label="篩選">
           <button class="filter active" data-filter="all" type="button">全部</button>
           <button class="filter" data-filter="stay" type="button">住宿</button>
           <button class="filter" data-filter="fly" type="button">航班</button>
           <button class="filter" data-filter="car" type="button">租車</button>
+          <button class="filter" data-filter="other" type="button">其他預訂</button>
         </div>
       </div>
       <div class="booking-grid" id="bookingGrid"></div>
@@ -541,10 +544,10 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'安安 TK025 TPE T2 → IST', note:'飛行 13 小時，05:40 抵達'},
-    {time:'23:15', act:'豬豬 TK055 SIN T1 → IST', note:'飛行 12 小時，05:50 抵達'}
+    {time:'22:00', act:'安安前往土耳其', tags:['TK025', 'TPE T2 → IST']},
+    {time:'23:15', act:'豬豬前往土耳其', tags:['TK055', 'SIN T1 → IST']}
   ],
-  stay:{name:'機上', note:'TK025 22:00 桃園 T2／TK055 23:15 樟宜 T1'}
+  stay:{name:'飛航中', note:''}
 },
 
 /* ========== DAY 02 · 10/31 ========== */
@@ -557,7 +560,7 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','自駕約三小時'],
   rows:[
-    {time:'05:50<br>–12:10', act:'Turkish Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
+    {time:'05:50<br>–12:10', act:'✈️ 轉機 Turkish · Airlines IST → ADB', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM', '⚠️ 托運行李≤15kg、手提行李≤8kg']},
     {time:'12:10<br>–13:20', act:'領行李、辦理取車手續', tags:['car:供應商 Rentalcars']},
     {time:'13:20<br>–14:20', act:'ADB Airport → 以弗所考古遺址', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', tags:['car:🚘 1h'], map:drv(P.adb,P.ephSite)},
     {time:'14:20<br>–17:00', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 16:30 一定要上路'],
@@ -570,7 +573,7 @@ var DATA=[
      ],
      map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
     {time:'17:00<br>–19:30', act:'以弗所 → Bellamaritimo Hotel', note:'190 km，八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20','⚠️ 需 HGS 通行'], map:drv(P.ephSite,P.bella)},
-    {time:'19:30<br>–21:00', act:'As Teras Mantı Evi 晚餐', tags:['eat:晚餐'], hi:true,
+    {time:'19:30<br>–21:00', act:'🍛 As Teras Mantı Evi', tags:['eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主，能品嚐到土耳其經典料理，也很適合在逛完棉堡後來這裡享用一頓輕鬆的晚餐。',
        dishes:[
@@ -602,8 +605,8 @@ var DATA=[
        {zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'}
      ],
      map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
-    {time:'13:30<br>–14:30', act:'Teras restaurant 午餐', tags:['eat:午餐'], hi:true,
-     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', price:'₺400–1,200', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
+    {time:'13:30<br>–14:30', act:'🍛 Teras restaurant', tags:['eat:午餐'], hi:true,
+     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
        dishes:[
          ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
          ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個，2026/07 的評論直接推薦'],
@@ -643,7 +646,7 @@ var DATA=[
     ]},
     {label:'卡帕多奇亞紅線自駕', rows:[
       {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', note:'最經典的多頭精靈煙囪，平地好走。', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.grand,P.pasabag),
-     sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。這裡買的票同時含 Zelve，一張 €12 通用。'},
+     sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。這裡買的票同時含 Zelve，一張票通用。'},
     },
       {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', note:'廢棄洞穴村，人比 Göreme 露天博物館少。',hi:true, tags:['car:🚘 5 min', '停留 50 min'], map:drv(P.pasabag,P.zelve),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。每天開、08:00 開門。'},
@@ -651,7 +654,7 @@ var DATA=[
       {time:'12:10<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum', note:'每天開、08:00 開門。', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。每天開、08:00 開門。'},
     },
-      {time:'14:10<br>–15:30', act:'Seten Restaurant 午餐', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.seten),
+      {time:'14:10<br>–15:30', act:'🍛 Seten Restaurant', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.seten),
        eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理', img:'seten-terrace.jpg',
          d:'離飯店走路約10分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
          dishes:[
@@ -667,8 +670,8 @@ var DATA=[
       {time:'16:00<br>–17:40', act:'駱駝騎乘之旅', hi:true, tags:['含飯店接送'],
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'GetYourGuide t486222，含飯店接送。16:00 接、騎乘約 16:20－17:20，路線含 Red + Rose Valley（<strong>不含 Ortahisar</strong>）。11/02 日落 17:41，整段都在黃金時段裡。⚠️ <strong>16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。'},
     },
-      {time:'19:00<br>–20:45', act:'Topdeck Cave 晚餐', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','lock:⚠️ 須訂位'], map:wlk(P.grand,P.topdeck),
-       eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', price:'約 ₺600–1,400 / 人', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
+      {time:'19:00<br>–20:45', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','lock:⚠️ 須訂位'], map:wlk(P.grand,P.topdeck),
+       eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
          d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。⚠️ <strong>店裡只有 12 個位子</strong>，沒訂位常被回絕。',
          dishes:[
            ['🥇','綜合 Meze 拼盤 <b>Mixed Meze</b>','第一必點，一次吃到多種土耳其冷前菜，通常附麵包'],
@@ -773,7 +776,7 @@ var DATA=[
     {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。', sc:'done no'},
     {time:'16:45<br>起', act:'報到、安檢、候機', sc:'done no'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM。', sc:'done no'},
-    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。晚上避免拖行李搭多段大眾交通。', hi:true, sc:'done no'},
+    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客。晚上避免拖行李搭多段大眾交通。', hi:true, sc:'done no'},
     {time:'04:00<br>–04:40', act:'起床、著裝', note:'清晨很冷，帶保暖外套。', sc:'fly'},
     {time:'04:40<br>–06:00', act:'Discovery Balloons 到 Gamirasu 接', note:'<strong>已向業者確認可接 Ayvalı</strong>。前一天跟司機再確認一次。', hi:true, sc:'fly'},
     {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true, sc:'fly'},
@@ -787,8 +790,8 @@ var DATA=[
     {time:'15:15<br>–16:45', act:'ASR 吃東西、還車、驗車', note:'確認號 637534354。跳過 Avanos 省下的時間拿來在機場吃飯。', sc:'fly'},
     {time:'16:45<br>起', act:'報到、安檢、候機', sc:'fly'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', tags:['TB5RZM'], sc:'fly'},
-    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客，實付 NT$1,620。', hi:true, sc:'fly'},
-    {time:'退款', act:'申請熱氣球全額退款 USD 299.66', note:'沒飛成就會走到這步——業者明說隔天客滿就直接全額退款。<strong>保留取消通知截圖</strong>，用 GetYourGuide App 對訂單 GYG7VKXLW35L 確認退款。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
+    {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客。', hi:true, sc:'fly'},
+    {time:'退款', act:'申請熱氣球全額退款', note:'沒飛成就會走到這步——業者明說隔天客滿就直接全額退款。<strong>保留取消通知截圖</strong>，用 GetYourGuide App 對訂單 GYG7VKXLW35L 確認退款。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
     {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
@@ -811,12 +814,12 @@ var DATA=[
     {time:'12:15<br>–12:45', act:'→ 加拉達 Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘。', map:trn(P.boris,P.galata)},
     {time:'12:45<br>–13:45', act:'加拉達 Galata / Karaköy 街區散步', note:'低強度看港口、坡道、咖啡店與街區。上坡太累就只走 Karaköy 平地。', map:wlk(P.galata,P.karakoy)},
     {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃。<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'],
-     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', price:'₺220–300 / 份', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
+     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
      map:wlk(P.karakoy,P.balik)},
     {time:'14:30<br>–16:00', act:'加拉達橋 Galata Bridge + Eminönü 海邊散步', note:'看點是城市日常——橋上釣魚、橋下餐廳、金角灣與舊城天際線同時出現。不追求景點數量。', map:wlk(P.balik,P.eminonu,[P.gBridge])},
     {time:'16:00<br>–17:30', act:'香料市集 Spice Bazaar（Mısır Çarşısı）', note:'比大巴札更偏氣味與食物記憶。人多時注意包包。', map:wlk(P.eminonu,P.spice)},
     {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'],
-     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', price:'約 ₺400–700 / 人', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
+     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
      map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
     {time:'刪減', act:'若前一晚抵達太晚', note:'保留 Boris\'in Yeri + Karaköy / Galata + Balık Dürüm，Spice Bazaar 與 Suat Usta 擇一或延後。'}
   ],
@@ -835,10 +838,10 @@ var DATA=[
   rows:[
     {time:'08:30<br>–09:00', act:'→ 蘇丹艾哈邁德廣場 Sultanahmet Square', note:'直接步行。早點出門避開旅行團。', map:wlk(P.basil,P.blueMosque)},
     {time:'09:00<br>–09:45', act:'蘇丹艾哈邁德廣場 Sultanahmet Square + 藍色清真寺 Blue Mosque', note:'六座宣禮塔與藍色磁磚是特色。注意服裝規則。'},
-    {time:'10:00<br>–11:30', act:'聖索菲亞 Hagia Sophia（Ayasofya）', note:'重點是巨大穹頂與不同宗教層次共存。<strong>官方售票 €25 / 人</strong>。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, tags:['官方票 €25'], map:wlk(P.blueMosque,P.hagia)},
-    {time:'11:45<br>–12:45', act:'地下水宮殿 Basilica Cistern（Yerebatan Sarnıcı）', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。<strong>官方票 ₺1,950 / 人</strong>（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', tags:['官方票 ₺1,950'], map:wlk(P.hagia,P.cistern)},
+    {time:'10:00<br>–11:30', act:'聖索菲亞 Hagia Sophia（Ayasofya）', note:'重點是巨大穹頂與不同宗教層次共存。門票在官方售票系統購買。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, map:wlk(P.blueMosque,P.hagia)},
+    {time:'11:45<br>–12:45', act:'地下水宮殿 Basilica Cistern（Yerebatan Sarnıcı）', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。門票在官方售票系統購買（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', map:wlk(P.hagia,P.cistern)},
     {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。', hi:true, tags:['eat:拍照小點'],
-     eatery:{name:'Seven Hills Restaurant', en:'Sultanahmet 屋頂', price:'正餐常見 ₺1,000+ / 人', hours:'12:00–23:00（早餐至 12:00）', d:'主目標是屋頂視角，不是吃正餐。只點飲料 / 甜點 / 湯品 / 小菜。'},
+     eatery:{name:'Seven Hills Restaurant', en:'Sultanahmet 屋頂', hours:'12:00–23:00（早餐至 12:00）', d:'主目標是屋頂視角，不是吃正餐。只點飲料 / 甜點 / 湯品 / 小菜。'},
      map:wlk(P.cistern,P.sevenHills)},
     {time:'13:45<br>–14:15', act:'Arasta 市集 Arasta Bazaar 周邊短走或直接轉場', note:'不硬塞第二餐；Seven Hills 只點很少的話，用飲料 / 小點墊胃。', map:wlk(P.sevenHills,P.arasta)},
     {time:'14:15<br>–16:15', act:'大巴札 Grand Bazaar（Kapalıçarşı）', note:'偏工藝、金飾與觀光商品。週五營業。', map:wlk(P.arasta,P.grandBazaar)},
@@ -870,7 +873,7 @@ var DATA=[
     {time:'17:30<br>–18:30', act:'超市伴手禮採買', note:'Şok İstanbul Sirkeci，離飯店近，營業一～日 09:00－21:00。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾 / 杜拜巧克力、GODIVA、開心果、烤肉調味包。買完直接回飯店。', hi:true, map:[['Şok İstanbul Sirkeci',pin(P.sok)]]},
     {time:'18:30<br>–19:15', act:'回飯店分裝戰利品', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。巧克力避免熱源、餅乾防壓、咖啡粉用夾鏈袋再包一層。11/08 早上不要再重整。', map:wlk(P.sok,P.basil)},
     {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐'],
-     eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', price:'約 ₺1,500–2,000+ / 人', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
+     eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
      map:wlk(P.basil,P.olden)},
     {time:'睡前', act:'把行李整理完畢', note:'11/08 只回飯店拿了就走。', hi:true}
   ],
@@ -891,7 +894,7 @@ var DATA=[
     {time:'09:00<br>–10:45', act:'Topkapı 皇宮 Topkapı Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。', hi:true, map:wlk(P.basil,P.topkapi)},
     {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.topkapi,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.topkapi,P.lunchB)]]},
     {time:'12:10<br>–13:00', act:'回飯店拿行李、等 Klook 送機', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>確認 Klook 憑證與司機聯絡資訊。', map:wlk(P.lunchA,P.basil)},
-    {time:'13:00<br>–14:30', act:'Basilissis Hotel → Istanbul Airport', note:'Klook 送機已訂 13:00，實付 NT$1,620。依塞車約 45－90 分。<strong>13:00 不再往後延</strong>；回程日不搭多段大眾交通。', hi:true, tags:['lock:13:00 不延後']},
+    {time:'13:00<br>–14:30', act:'Basilissis Hotel → Istanbul Airport', note:'Klook 送機已訂 13:00。依塞車約 45－90 分。<strong>13:00 不再往後延</strong>；回程日不搭多段大眾交通。', hi:true, tags:['lock:13:00 不延後']},
     {time:'14:30<br>起', act:'報到、安檢、出境、登機', note:'預留 2.5－3 小時。<strong>不退稅。</strong>'},
     {time:'17:15', act:'安安 TK124 IST → 桃園', note:'11/09 08:45 抵達。'},
     {time:'18:30', act:'豬豬 TK208 IST → 樟宜'},
@@ -922,13 +925,13 @@ var PANELS={
     title:'4 段住宿', note:'全部已訂',
     rows:[
       {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'棉堡村 · 1 晚',
-       em:'Agoda 訂單 1764630371 · 雙人房 · 入住 11:00／退房 11:00 · 座標 37.918462, 29.115503 · 2026/10/30 前皆可免費取消 · 有行李寄存 · 走得到石灰棚 870m／古董池 1.2km／古劇場 1.5km'},
+       em:'Agoda · 雙人房 · 入住 11:00／退房 11:00'},
       {k:'11/01–11/03', b:'Grand Elite Cave Suites', i:'Göreme · 2 晚',
-       em:'Booking.com · 入住 14:00–00:00／退房 11:00 · 座標 38.6394198, 34.8294131 · 有停車場 · 熱氣球與駱駝都在這裡接送 · 已填預估抵達 23:00–00:00'},
-      {k:'11/03–11/04', b:'Gamirasu Cave Hotel · Special Class', i:'Ayvalı／Ürgüp · 1 晚',
-       em:'Hotels.com 73467533073850 · 15:45 抵達（可入住 14:00）／退房 12:30 · 入住時付款 · 餐廳 18:00–22:00 · 地址 Davutlu Ayvalı Köyü Yolu No:101'},
+       em:'Booking · 雙人房 · 入住 14:00–00:00／退房 11:00 · 熱氣球與駱駝都在這裡接送'},
+      {k:'11/03–11/04', b:'Gamirasu Cave Hotel', i:'Ayvalı／Ürgüp · 1 晚',
+       em:'Hotels · 雙人房 · 入住 14:00／退房 12:30 · 入住時付款'},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
-       em:'Hotels.com 73473369372843 · 標準雙床房 · 入住 14:00／退房 12:00 · 評分 8.4（56 則）· 地址 Güzelsanatlar Sk. 4, Fatih · 步行可進舊城核心'}
+       em:'Hotels · 雙床房 · 入住 14:00／退房 12:00'}
     ]
   },
   fly:{
@@ -936,14 +939,14 @@ var PANELS={
     rows:[
       {k:'10/30', b:'去程 · 台北／新加坡 → 伊斯坦堡',
        i:'安安 TK025 22:00 桃園 T2 → 10/31 05:40 IST<br>豬豬 TK055 23:15 樟宜 T1 → 10/31 05:50 IST',
-       em:'安安訂位代號 UQE3KZ · 國際線托運 23kg／手提 8kg／個人物品 4kg · 08:15 在入境後公共區域集合'},
-      {k:'10/31', b:'TK2320 · IST → ADB（Izmir）', i:'11:00 → 12:10，1h10',
+       em:'安安訂位代號 UQE3KZ · 國際線托運 23kg／手提 8kg／個人物品 4kg'},
+      {k:'10/31', b:'Turkish Airlines · IST → ADB', i:'TK2320 · 11:00 → 12:10，1h10',
        em:'土耳其航空，訂位代號 TB5RZM · 托運 15kg／手提 8kg',
        w:'入境、領行李、重新托運；報到櫃台 10:15 關'},
-      {k:'11/01', b:'SunExpress · ADB → ASR（Kayseri）', i:'21:00 → 22:35，1h35 直飛',
-       em:'SunValue · 航班 XQ9238 · 訂位代號 D438G7 · 每人托運 15kg + 手提 8kg，皆含在票價內'},
-      {k:'11/04', b:'TK2017 · ASR → IST', i:'18:40 → 20:20，1h40',
-       em:'土耳其航空，訂位代號 TB5RZM · EcoFly 托運 15kg'},
+      {k:'11/01', b:'SunExpress · ADB → ASR', i:'XQ9238 · 21:00 → 22:35，1h35',
+       em:'SunValue · 訂位代號 D438G7  · 每人托運 15kg ／ 手提 8kg'},
+      {k:'11/04', b:'Turkish Airlines · ASR → IST', i:'TK2017 · 18:40 → 20:20，1h40',
+       em:'土耳其航空，訂位代號 TB5RZM · 每人托運 15kg ／ 手提 8kg'},
       {k:'11/08', b:'回程 · 伊斯坦堡 → 台北／新加坡',
        i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
        em:'目標 14:30 前抵達 IST'}
@@ -962,6 +965,36 @@ var PANELS={
       {k:'11/01–11/04', b:'AVEC · Opel Crossland 或相似車款', i:'11/01 23:00 ASR 取車 → 11/04 16:30 ASR 還車',
        em:'Rentalcars 確認號 637534354 · +90 352 353 3800 · 5 座 4 門／2 大行李 · 深夜取車時間已對齊 22:35 抵達 · 三天總車程 120＋75 分',
        w:'掀背車，取車當場確認有後車廂遮蔽板（11/04 行李要在車上約 2 小時）'}
+    ]
+  },
+  /* 體驗、門票、餐廳訂位。訂好後把 todo 拿掉、補上訂單編號 */
+  other:{
+    rows:[
+      {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Grand Elite 接送 · 2 人',
+       em:'GetYourGuide 訂單 GYG7VKXLW35L · 接送時間於前一天 18:00 前以 WhatsApp 或 email 通知',
+       w:'停飛不會自動順延，當下要問業者隔天有沒有位子；客滿就是全額退款'},
+      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Grand Elite 接送 · 2 人 · 1 小時',
+       em:'GetYourGuide · Highline Cappadocia Travel · 英語導覽 · 路線 Red + Rose Valley（不含 Ortahisar）· 接送時間由業者於活動前 1–2 天聯絡 · 結束後送回原地',
+       w:'票券在 10/30 扣款成功後才會出現在 GetYourGuide App'},
+      {k:'11/02 19:00', tag:'餐廳', todo:true, b:'Topdeck Cave Restaurant', i:'2 人',
+       em:'Hafız Abdullah Efendi Sk. No 15, Göreme · +90 384 271 24 74 或 Instagram 私訊',
+       w:'店裡只有 12 個位子，沒訂位常被回絕'},
+      {k:'11/03 18:00', tag:'餐廳', todo:true, b:'Gamirasu Cave Hotel 餐廳', i:'2 人 · 不含在房價內，另外付費',
+       em:'餐廳 18:00–22:00 · à la carte 加套餐、可配酒 · 素食可事先講'},
+      {k:'11/06 上午', tag:'門票', todo:true, b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
+       em:'門票只含 2 樓，1 樓為禮拜區',
+       w:'週五中午禮拜時段不對非禮拜者開放；注意服裝規定'},
+      {k:'11/06 上午', tag:'門票', todo:true, b:'地下水宮殿 Basilica Cistern', i:'官方售票系統 · 日間場',
+       em:'夜間場 19:30–22:00 另計價，不需要'},
+      {k:'11/06 13:00', tag:'餐廳', todo:true, b:'Seven Hills Restaurant', i:'屋頂拍照小點 · 只點飲料、甜點或小菜',
+       em:'確認能否少量點餐、有無低消與訂位規則'},
+      {k:'11/07 12:00', tag:'體驗', todo:true, b:'Acemoglu 15 世紀土耳其浴', i:'Klook · 公共池或半私人',
+       em:'Şehzadebaşı Cd., Fatih · Vezneciler 地鐵站步行 1 分鐘 · 體驗約 45 分鐘',
+       w:'需提前 10 分鐘抵達，遲到或未出席可能不退款'},
+      {k:'11/07 晚上', tag:'餐廳', todo:true, b:'Olden 1772', i:'2 人',
+       em:'Sirkeci／Fatih · 可能另加 10% 服務費與 cover charge'},
+      {k:'11/08 09:00', tag:'門票', todo:true, b:'托普卡匹皇宮 Topkapı Palace', i:'只走本館 · 開門即進、10:45 前離開',
+       em:'只買本館的票須現場購買；線上只能買本館＋後宮＋伊蓮娜教堂聯票'}
     ]
   }
 };
@@ -1311,19 +1344,22 @@ var BOARD=[];
 function addCards(rows,cat,tag,cls,icon,metaSuffix){
   for(var i=0;i<rows.length;i++){
     var r=rows[i];
-    BOARD.push({cat:cat,tag:tag,cls:cls,icon:icon,meta:r.k+(metaSuffix||''),title:r.b,i:r.i,em:r.em,w:r.w});
+    BOARD.push({cat:cat,tag:r.tag||tag,cls:cls,icon:icon,meta:r.k+(metaSuffix||''),title:r.b,i:r.i,em:r.em,w:r.w,todo:r.todo});
   }
 }
 addCards(PANELS.stay.rows,'stay','住宿','c-stay','⌂');
 addCards(PANELS.fly.rows,'fly','航班','c-fly','✦');
 addCards(PANELS.fly.subRows,'fly','接送','c-ride','⇄',' · KLOOK');
 addCards(PANELS.car.rows,'car','租車','c-car','◈');
+addCards(PANELS.other.rows,'other','','c-other','✧');
 (function(){
   var h='';
   for(var i=0;i<BOARD.length;i++){
     var c=BOARD[i];
     h+='<article class="booking-card" data-cat="'+c.cat+'">'
-      +'<div class="card-top"><span class="card-tag '+c.cls+'">'+c.tag+'</span><span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
+      +'<div class="card-top"><span class="card-tag '+c.cls+'">'+c.tag+'</span>'
+      +(c.todo?'<span class="card-todo">尚未預訂</span>':'')
+      +'<span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
       +'<p class="card-meta">'+c.meta+'</p>'
       +'<h3>'+c.title+'</h3>'
       +(c.i?'<p class="ci">'+c.i+'</p>':'')
