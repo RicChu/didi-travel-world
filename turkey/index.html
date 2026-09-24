@@ -501,7 +501,7 @@ var P={
   hTheatre:'37.9267772,29.1290471', /* Hierapolis 古劇場 */
   cleopatra:'37.9261476,29.1255078',/* 古董池 Cleopatra Antique Pools */
   /* 卡帕多奇亞 */
-  henna:'38.642261,34.828308',        /* Henna Hotel - Adults Only — 11/01–11/04 連住 3 晚，Göreme 鎮中心 */
+  henna:'38.642261,34.828308',        /* Henna Hotel — 11/01–11/04 連住 3 晚，Göreme 鎮中心 */
   goreme:'38.6390591,34.8455787',
   seten:'38.6412661,34.8257096',      /* Seten Restaurant Cappadocia — 11/02 午餐 */
   topdeck:'38.6417558,34.8276558',    /* Topdeck Cave Restaurant — 11/02 晚餐 */
@@ -625,7 +625,7 @@ var DATA=[
     {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
     {time:'22:35<br>–23:15', act:'🚘 → 格雷梅飯店', tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
   ],
-  stay:{name:'Henna Hotel - Adults Only', note:'Trip.com 1616333679658299，連住 3 晚；⚠️ 入住時間寫 14:00–00:00，00:45 才到要先通知飯店'}
+  stay:{name:'Henna Hotel', note:'Trip.com，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 04 · 11/02 ========== */
@@ -644,12 +644,17 @@ var DATA=[
   facts:['熱氣球','駱駝', '卡帕多奇亞紅線'],
   groups:[
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
-      {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['供應商 Cappadocia Discovery Balloons', '含飯店接送', '茶點', '香檳'],
-     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。日出 07:07，飛行約 1 小時。<strong>接送時間會在前一天 18:00 前用 WhatsApp 或 email 通知</strong>——11/01 傍晚人在 ADB 機場，要留意訊息。⚠️ 停飛<strong>不會自動順延</strong>，當下就要問業者隔天有沒有位子，滿了就是全額退款。'},
+      {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['含飯店接送', '茶點', '香檳'],
+     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg'},
     },
+      {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐'],
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}},
     ]},
     {label:'清晨 · 沒飛', sub:'睡飽', alt:true, sc:'no', rows:[
-      {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐']},
+      {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐'],
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}},
     ]},
     {label:'卡帕多奇亞紅線自駕', rows:[
       {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.henna,P.pasabag),
@@ -688,7 +693,7 @@ var DATA=[
       {time:'20:45<br>以後', act:'回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
   ],
-  stay:{name:'Henna Hotel - Adults Only', note:'續住第 2 晚'}
+  stay:{name:'Henna Hotel', note:'續住第 2 晚'}
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -707,12 +712,17 @@ var DATA=[
   facts:['卡帕多奇亞綠線','連住第 3 晚 · 不用搬家','行李整天不用動'],
   groups:[
     {label:'清晨 · 已經飛過或沒飛', sub:'睡飽，08:00 早餐', sc:'done no', rows:[
-      {time:'08:00<br>–09:00', act:'Henna 早餐', note:'連住，<strong>不用退房也不用寄放行李</strong>。'}
+      {time:'08:00<br>–09:00', act:'飯店早餐', tags:['eat:早餐'],
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}}
     ]},
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
-      {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['供應商 Cappadocia Discovery Balloons', '含飯店接送', '茶點', '香檳'],
-     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。日出 07:07，飛行約 1 小時。<strong>接送時間會在前一天 18:00 前用 WhatsApp 或 email 通知</strong>——11/01 傍晚人在 ADB 機場，要留意訊息。⚠️ 停飛<strong>不會自動順延</strong>，當下就要問業者隔天有沒有位子，滿了就是全額退款。'},
+      {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['含飯店接送', '茶點', '香檳'],
+     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg'},
     },
+      {time:'08:30<br>–09:00', act:'飯店早餐', tags:['eat:早餐'],
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}}
     ]},
     {label:'綠線自駕', sub:'09:00 出發', sc:'done no', rows:[
       {time:'09:00<br>–11:05', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
@@ -762,7 +772,7 @@ var DATA=[
       {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐、早睡', note:'若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐','lock:22:00 前睡'], sc:'no'},
       {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐', note:'飛完了，今晚可以放鬆。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐'], sc:'fly'},    ]}
   ],
-  stay:{name:'Henna Hotel - Adults Only', note:'續住第 3 晚，不用搬家'}
+  stay:{name:'Henna Hotel', note:'續住第 3 晚，不用搬家'}
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -780,7 +790,9 @@ var DATA=[
   ]},
   facts:['⚠️ 行李在車上 4 小時','⚠️ 15:25 離開 Sarı Han','16:45 前完成還車'],
   rows:[
-    {time:'09:00<br>–12:00', act:'Henna 早餐、屋頂露台、整理行李', note:'退房 <strong>12:00</strong>。屋頂露台可以再看一次熱氣球。', sc:'done no'},
+    {time:'09:00<br>–12:00', act:'飯店早餐', tags:['eat:早餐'], sc:'done no',
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}},
     {time:'12:00<br>–12:15', act:'🚘 → Avanos', note:'Göreme 鎮中心出發只要 <strong>12 分、9.5 km</strong>（原本從 Ayvalı 出發要 34 分）。', tags:['car:🚘 12 分'], map:drv(P.henna,P.avanos), sc:'done no'},
     {time:'12:15<br>–14:00', act:'Avanos 午餐 + 紅河 Kızılırmak River 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'done no',
      sight:{zh:'Avanos 與紅河', en:'Kızılırmak River', img:'avanos.jpg', d:'以陶藝聞名的小鎮，土耳其最長的河 Kızılırmak（紅河）從鎮中穿過，紅色的河泥就是製陶的原料。可以看陶藝示範，但<strong>不要買陶器</strong>——當天要接托運只有 15kg 的國內線。'},
@@ -798,7 +810,9 @@ var DATA=[
     {time:'04:40<br>–06:00', act:'Discovery Balloons 到 Henna 接', note:'Göreme 鎮中心是標準接送範圍，<strong>不用特別安排</strong>。前一天跟司機再確認一次。', hi:true, sc:'fly'},
     {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true, sc:'fly'},
     {time:'07:30<br>–09:00', act:'香檳、證書、送回 Henna', sc:'fly'},
-    {time:'09:00<br>–12:00', act:'Henna 早餐、補眠、整理行李', note:'04:00 起床後的 3 小時飯店時間正好補回來一半。退房 12:00。', sc:'fly'},
+    {time:'09:00<br>–12:00', act:'Henna 早餐、補眠、整理行李', note:'04:00 起床後的 3 小時飯店時間正好補回來一半。退房 12:00。', tags:['eat:早餐'], sc:'fly',
+       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價（每房 2 客）', img:'henna-breakfast.jpg', pos:'50% 45%',
+         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。11/02、11/03、11/04 三天都含早餐。'}},
     {time:'12:00<br>–12:15', act:'🚘 → Avanos', note:'Göreme 出發只要 12 分，<strong>補飛日也不用跳過 Avanos 了</strong>（原本從 Ayvalı 出發要 34 分才跳過）。', tags:['car:🚘 12 分'], map:drv(P.henna,P.avanos), sc:'fly'},
     {time:'12:15<br>–13:30', act:'Avanos 午餐 + 紅河河邊散步', note:'比主線短 30 分。<strong>不要買陶器。</strong>', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'fly'},
     {time:'13:30<br>–13:40', act:'🚘 → Sarı Han 商隊驛站 Sarıhan Caravanserai', tags:['car:🚘 10 分'], map:drv(P.avanos,P.sarihan), sc:'fly', map:drv(P.henna,P.sarihan)},
@@ -945,7 +959,7 @@ var PANELS={
     rows:[
       {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'棉堡村 · 1 晚',
        em:'Agoda · 雙人房 · 入住 11:00／退房 11:00'},
-      {k:'11/01–11/04', b:'Henna Hotel - Adults Only', i:'Göreme 鎮中心 · <em>連住 3 晚</em>',
+      {k:'11/01–11/04', b:'Henna Hotel', i:'Göreme 鎮中心 · <em>連住 3 晚</em>',
        em:'Trip.com 1616333679658299 · 豪華房 1 張大床 · 含早餐 · 入住 14:00–00:00／退房 12:00 · 熱氣球與駱駝都在這裡接送 · Konak Sk. no:2/A',
        w:'11/01 是 00:45 才到，超過 00:00 的入住時間，要先通知飯店'},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
