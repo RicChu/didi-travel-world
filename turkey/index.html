@@ -210,6 +210,13 @@ details[open] .chev{transform:rotate(180deg)}
 .tl-row.now.up .tl-card::before{animation:none;background:#fff}
 
 /* 景點說明 */
+/* 單一景點卡：跟餐廳卡一樣直接展開，不用再點一次 */
+.sightc{margin-top:12px;overflow:hidden;border:1px solid rgba(35,77,73,.28);border-radius:14px;background:rgba(220,233,228,.4)}
+.sightc-fig{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--paper-strong)}
+.sightc-body{padding:13px 14px 14px}
+.sightc-name{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--ink)}
+.sightc-en{display:block;margin-top:2px;font-family:"DM Sans","Noto Sans TC",sans-serif;font-size:.74rem;color:var(--muted)}
+.sightc-d{margin-top:9px;font-size:.88rem;line-height:1.75}
 .tl-spots{margin-top:12px;padding:12px;border-radius:13px;background:rgba(35,77,73,.05)}
 .spots-head{margin-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--teal)}
 .spot{display:flex;align-items:center;gap:10px;width:100%;margin-top:6px;padding:10px 12px;text-align:left;cursor:pointer;border:1px solid var(--line);border-radius:11px;background:#fffdf8}
@@ -504,6 +511,7 @@ var P={
   zelve:'38.6657426,34.8652932',
   devrent:'38.6750753,34.8843370',
   uchisar:'38.6304425,34.8053230',
+  seki:'38.6300930,34.8075940',       /* Seki Restaurant & Lounge（Argos in Cappadocia）— 11/03 午餐 */
   gamirasu:'38.5456235,34.8705660',
   sarihan:'38.7118040,34.9091913',
   avanos:'38.718737,34.846866',     /* Avanos 鎮中心，不是行政區中心點 */
@@ -546,8 +554,8 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'安安前往土耳其', tags:['TK025', 'TPE T2 → IST']},
-    {time:'23:15', act:'豬豬前往土耳其', tags:['TK055', 'SIN T1 → IST']}
+    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', '22:00 → 05:40']},
+    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', '23:15 → 05:50']}
   ],
   stay:{name:'飛航中', note:''}
 },
@@ -562,9 +570,8 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','自駕約三小時'],
   rows:[
-    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM'], note:'領行李、辦理取車手續'},
-    {time:'13:20<br>–14:20', act:'🚘 前往以弗所考古遺址', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', tags:['car:🚘 1h'], map:drv(P.adb,P.ephSite)},
-    {time:'14:20<br>–17:00', act:'以弗所考古遺址 Ephesus Archaeological Site', hi:true, tags:['⚠️ 16:30 一定要上路'],
+    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
+    {time:'13:20<br>–16:30', act:'🚘 → 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
        {zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
@@ -572,8 +579,8 @@ var DATA=[
        {zh:'音樂廳', en:'Odeon', img:'ephesus-odeon.jpg', d:'約 1,500 席的小型半圓劇場，用於戲劇與音樂演出。靠近上入口，是走回停車處前的最後一站。'},
        {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
      ],
-     map:[['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'17:00<br>–19:30', act:'🚘 前往飯店', note:'190 km，八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
+     map:[[null,drv(P.adb,P.ephSite)],['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
+    {time:'17:00<br>–19:30', act:'🚘 → 棉堡飯店', note:'八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
     {time:'19:30<br>–21:00', act:'🍛 As Teras Mantı Evi', tags:['eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主，能品嚐到土耳其經典料理，也很適合在逛完棉堡後來這裡享用一頓輕鬆的晚餐。',
@@ -585,7 +592,7 @@ var DATA=[
        ]},
      map:pin(P.asteras)}
   ],
-  stay:{name:'Bellamaritimo Hotel', note:'Agoda 1764630371，入住 11:00／退房 11:00'}
+  stay:{name:'Bellamaritimo Hotel', note:'Agoda，入住 11:00／退房 11:00'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
@@ -598,7 +605,7 @@ var DATA=[
   lead:'雪白的天然鈣華梯田層層堆疊，搭配山頂希拉波利斯古城遺跡，是土耳其最夢幻的自然與文明交會之地。',
   facts:['國內線轉機','辦理租車、還手續','自駕約四小時'],
   rows:[
-    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李寄放飯店，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
+    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李放置車上、車停留於飯店停車場，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
     {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
@@ -610,16 +617,16 @@ var DATA=[
      eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
        dishes:[
          ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
-         ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個，2026/07 的評論直接推薦'],
+         ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個'],
          ['🥉','葡萄葉包飯配優格 <b>Stuffed vine leaves + yogurt</b>','當前菜，兩人分一份'],
          ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
        ]},
      map:pin(P.teras)},
-    {time:'14:30<br>–20:00', act:'🚘 回飯店拿行李 → ADB Airport', tags:['car:🚘 2h30'], map:drv(P.bella,P.adb)},
-    {time:'21:00<br>–22:35', act:'✈️ 轉機 ADB → ASR', tags:['SunExpress', 'XQ9238', '21:00 → 22:35', '訂位代號 D438G7', '⚠️ 托運行李≤15kg、手提行李≤8kg'], hi:true,},
-    {time:'22:35<br>–23:15', act:'🚘 機場 → Grand Elite Cave Suites', tags:['car:供應商 Rentalcars', 'car:🚘 1h30'], map:drv(P.asr,P.grand)}
+    {time:'14:30<br>–20:00', act:'🚘 → 機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
+    {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
+    {time:'22:35<br>–23:15', act:'🚘 → 格雷梅飯店', tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
   ],
-  stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
+  stay:{name:'Grand Elite Cave Suites', note:'Booking，入住 14:00'}
 },
 
 /* ========== DAY 04 · 11/02 ========== */
@@ -646,13 +653,13 @@ var DATA=[
       {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐']},
     ]},
     {label:'卡帕多奇亞紅線自駕', rows:[
-      {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', note:'最經典的多頭精靈煙囪，平地好走。', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.grand,P.pasabag),
-     sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。這裡買的票同時含 Zelve，一張票通用。'},
+      {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.grand,P.pasabag),
+     sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
     },
-      {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', note:'廢棄洞穴村，人比 Göreme 露天博物館少。',hi:true, tags:['car:🚘 5 min', '停留 50 min'], map:drv(P.pasabag,P.zelve),
+      {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min'], map:drv(P.pasabag,P.zelve),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。每天開、08:00 開門。'},
     },
-      {time:'12:10<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum', note:'每天開、08:00 開門。', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
+      {time:'12:10<br>–14:00', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。每天開、08:00 開門。'},
     },
       {time:'14:10<br>–15:30', act:'🍛 Seten Restaurant Cappadocia', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.seten),
@@ -667,23 +674,22 @@ var DATA=[
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
        map:pin(P.seten)},
-      {time:'15:30<br>–15:35', act:'→ 回飯店', tags:['car:🚘 5 分'], map:drv(P.seten,P.grand)},
-      {time:'16:00<br>–17:40', act:'駱駝騎乘之旅', hi:true, tags:['含飯店接送'],
-     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'GetYourGuide t486222，含飯店接送。16:00 接、騎乘約 16:20－17:20，路線含 Red + Rose Valley（<strong>不含 Ortahisar</strong>）。11/02 日落 17:41，整段都在黃金時段裡。⚠️ <strong>16:15 還沒接到就用票券上的 WhatsApp 聯絡</strong>，最晚 16:40 開始仍在光線內。'},
+      {time:'15:30<br>–17:40', act:'🚘 → 回飯店 · 駱駝騎乘之旅', hi:true, tags:['car:🚘 5 分','含飯店接送'], map:drv(P.seten,P.grand),
+     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg'},
     },
-      {time:'19:00<br>–20:45', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','lock:⚠️ 須訂位'], map:wlk(P.grand,P.topdeck),
+      {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.grand,P.topdeck),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
-         d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。⚠️ <strong>店裡只有 12 個位子</strong>，沒訂位常被回絕。',
+         d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。',
          dishes:[
            ['🥇','綜合 Meze 拼盤 <b>Mixed Meze</b>','第一必點，一次吃到多種土耳其冷前菜，通常附麵包'],
            ['🥈','羊膝 <b>Lamb Shank</b>','主餐第一名，慢燉到骨肉分離'],
            ['🥉','羊肉串 / 羊肉料理','兩人都吃羊就再加一份；不想重複改點牛肉'],
            ['４','每日自製甜點','現場問當天供應什麼，南瓜甜點或米布丁類都可以試']
          ]}},
-      {time:'20:45<br>以後', act:'走回飯店、早睡', note:'走路 4 分鐘，天黑後不用開車。⚠️ 不管今天有沒有飛，都要當作明天 04:00 可能要起床來睡。', map:wlk(P.topdeck,P.grand)},
+      {time:'20:45<br>以後', act:'回飯店休息', map:wlk(P.topdeck,P.grand)},
     ]}
   ],
-  stay:{name:'Grand Elite Cave Suites', note:'Booking.com，入住 14:00／退房 11:00'}
+  stay:{name:'Grand Elite Cave Suites', note:'續住'}
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -693,71 +699,69 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'補飛 高 · 其他 中高',
   img:'uchisar-castle.jpg', cap:'烏奇薩 · 城堡與鴿子谷',
-  lead:'鑿進地底八層的避難城市、谷壁上滿是鴿子洞的山谷，還有整塊巨岩挖成的城堡——這天把卡帕多奇亞往地下和往高處的兩個方向都走過一次，傍晚落腳在 Ayvalı 的洞穴飯店。',
+  lead:'鑿進地底八層的避難城市、谷壁上滿是鴿子洞的山谷，還有整塊巨岩挖成的城堡——這天把卡帕多奇亞往地下和往高處的兩個方向都走過一次。',
   sw:{label:'熱氣球', def:'done', opts:[
     {k:'done', t:'已經飛過'},
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['南下 → 北返 → 東南收尾','自駕 120 分','行李寄放 Grand Elite、全天不上車','搬去 Gamirasu'],
+  facts:['卡帕多奇亞綠線','高級洞穴飯店', '換飯店'],
   groups:[
     {label:'清晨 · 已經飛過或沒飛', sub:'睡飽，08:00 早餐', sc:'done no', rows:[
-      {time:'08:00<br>–08:45', act:'Grand Elite 早餐'},
-      {time:'08:45<br>–09:00', act:'退房、行李寄放飯店', note:'行李寄放到 15:05，全天不上車。'}
+      {time:'08:00<br>–09:00', act:'飯店早餐、退房、行李寄放飯店'}
     ]},
-    {label:'清晨 · 今天補飛', sub:'04:00 起床', alt:true, sc:'fly', rows:[
-      {time:'04:00<br>–04:30', act:'起床、著裝', note:'清晨很冷，帶保暖外套。'},
-      {time:'04:30<br>–06:00', act:'接送、集合、茶點', note:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。接送點 Grand Elite。'},
-      {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true},
-      {time:'07:30<br>–08:30', act:'香檳、證書、送回飯店'},
-      {time:'08:30<br>–09:15', act:'Grand Elite 早餐'},
-      {time:'09:15<br>–09:30', act:'退房、行李寄放飯店'}
+    {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
+      {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['供應商 Cappadocia Discovery Balloons', '含飯店接送', '茶點', '香檳'],
+     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。日出 07:07，飛行約 1 小時。<strong>接送時間會在前一天 18:00 前用 WhatsApp 或 email 通知</strong>——11/01 傍晚人在 ADB 機場，要留意訊息。⚠️ 停飛<strong>不會自動順延</strong>，當下就要問業者隔天有沒有位子，滿了就是全額退款。'},
+    },
     ]},
     {label:'綠線自駕 + 搬家', sub:'09:00 出發', sc:'done no', rows:[
-      {time:'09:00<br>–09:35', act:'→ Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，全天最長的一段。', tags:['car:🚘 35 分'], map:drv(P.grand,P.kaymakli)},
-      {time:'09:35<br>–11:05', act:'Kaymaklı 地下城 Kaymaklı Underground City 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true,
-     sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。通道低矮，穿好走的鞋。'},
+      {time:'09:00<br>–11:05', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.grand,P.kaymakli),
+     sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。'},
     },
-      {time:'11:05<br>–11:45', act:'→ 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'採用 40 分、約 18 km，走 Uçhisar–Nevşehir 路，<strong>不經 Göreme</strong>。⚠️ 導航要設「觀景台」，不要設谷地中心點，那個點在谷裡、會被帶到產業道路。', tags:['car:🚘 40 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon)},
-      {time:'11:45<br>–12:45', act:'鴿子谷觀景台 Pigeon Valley Viewpoint 60 分',
+      {time:'11:05<br>–12:45', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 1h','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。⚠️ 導航要設<strong>觀景台</strong>，不要設谷地中心點——那個點在谷裡，會被帶到產業道路。'},
     },
-      {time:'12:45<br>–12:50', act:'→ Uçhisar', note:'相鄰，3.9 km。', tags:['car:🚘 5 分'], map:drv(P.pigeon,P.uchisar)},
-      {time:'12:50<br>–13:50', act:'🍛 Uçhisar 午餐', tags:['eat:午餐']},
-      {time:'13:55<br>–14:55', act:'Uçhisar 城堡 Uçhisar Castle 60 分', note:'太累的話這站是<strong>唯一該砍的</strong>（省 65 分，14:00 就能進 Gamirasu）。<strong>不要砍 Kaymaklı。</strong>', map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]],
+      {time:'12:45<br>–13:50', act:'🍛 🚘 → Seki Restaurant & Lounge', hi:true, tags:['car:🚘 5 分','eat:午餐'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
+       eatery:{name:'Seki Restaurant & Lounge', en:'Argos in Cappadocia · Kayabaş Sk. No:23, Uçhisar', hours:'每天 08:00–24:00', img:'seki-terrace.jpg',
+         d:'米其林推薦餐廳，蓋在修道院遺構改建的 Argos 飯店裡，露台正對<strong>鴿子谷與艾爾吉耶斯山</strong>。安納托利亞菜配地中海做法，附設酒窖。離 Uçhisar 城堡約 200 公尺、走路 2 分鐘。<strong>建議兩人點法：</strong>蜜漬南瓜 ＋ 紙包烤牛肉乾 ＋ 26 小時羊肩 ＋ 烤蘋果甜點，一輪四道走完前菜到甜點。',
+         dishes:[
+           ['🥇','26 小時低溫羊肩 <b>26-hour Sous-vide Lamb Shoulder</b>','主菜。配李子泥、菇類與骨髓醬汁，是目前品鑑菜單的主角。只能選一道就選這個'],
+           ['🥈','蜜漬南瓜 <b>Confit Pumpkin</b>','前菜。配芝麻醬、芝麻與核桃，米其林指南特別點名的一道'],
+           ['🥉','紙包烤牛肉乾 <b>Beef Pastrami Grilled in Parchment Paper</b>','熱前菜。搭番茄、檸檬與香草，四道裡最有土耳其味的'],
+           ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
+         ]},
+      },
+      {time:'13:55<br>–14:55', act:'Uçhisar Castle', tags:['彈性 · 有餘力再去'], map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]],
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。'},
     },
-      {time:'14:55<br>–15:05', act:'→ Grand Elite', tags:['car:🚘 10 分'], map:drv(P.uchisar,P.grand)},
-      {time:'15:05<br>–15:15', act:'拿回寄放的行李', note:'拿了直接開往飯店門口，不再停任何景點。', hi:true},
-      {time:'15:15<br>–15:45', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:🚘 30 分'], map:drv(P.grand,P.gamirasu)},
-      {time:'15:45<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。'}
+      {time:'14:55<br>–17:30', act:'🚘 → 回 Grand Elite 拿行李 → Gamirasu 入住', hi:true, tags:['car:🚘 10 分 + 30 分'], map:[['自駕 · Uçhisar → Grand Elite',drv(P.uchisar,P.grand)],['自駕 · Grand Elite → Gamirasu',drv(P.grand,P.gamirasu)]]}
     ]},
     {label:'綠線自駕 + 搬家', sub:'補飛版 · 09:30 出發，不上 Uçhisar 城堡', alt:true, sc:'fly', rows:[
-      {time:'09:30<br>–10:05', act:'→ Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km。', tags:['car:🚘 35 分'], map:drv(P.grand,P.kaymakli)},
-      {time:'10:05<br>–11:35', act:'Kaymaklı 地下城 Kaymaklı Underground City 1.5 小時', note:'<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true,
+      {time:'09:30<br>–11:35', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，10:05 到。<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.grand,P.kaymakli),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。通道低矮，穿好走的鞋。'},
     },
-      {time:'11:35<br>–12:15', act:'→ 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'⚠️ 導航要設「觀景台」，不要設谷地中心點。', tags:['car:🚘 40 分'], map:drv(P.kaymakli,P.pigeon)},
-      {time:'12:15<br>–13:15', act:'鴿子谷觀景台 Pigeon Valley Viewpoint 60 分',
+      {time:'11:35<br>–13:15', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'12:15 到。⚠️ 導航要設「觀景台」，不要設谷地中心點。', hi:true, tags:['car:🚘 40 分','停留 1h','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。⚠️ 導航要設<strong>觀景台</strong>，不要設谷地中心點——那個點在谷裡，會被帶到產業道路。'},
     },
-      {time:'13:15<br>–13:20', act:'→ Uçhisar', tags:['car:🚘 5 分'], map:drv(P.pigeon,P.uchisar)},
-      {time:'13:20<br>–14:20', act:'🍛 Uçhisar 午餐', tags:['eat:午餐']},
-      {time:'14:20<br>–14:30', act:'→ Grand Elite', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了，省下 65 分早點進 Gamirasu。鴿子谷和城堡是同一片谷地的兩個角度。', hi:true, tags:['car:🚘 10 分'], map:drv(P.uchisar,P.grand)},
-      {time:'14:30<br>–14:40', act:'拿回寄放的行李'},
-      {time:'14:40<br>–15:10', act:'→ Gamirasu Cave Hotel', note:'採用 30 分、21.3 km。', tags:['car:🚘 30 分'], map:drv(P.grand,P.gamirasu)},
-      {time:'15:10<br>–17:30', act:'入住、泳池、露台', note:'日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。'}
+      {time:'13:15<br>–14:20', act:'🍛 🚘 → Seki Restaurant & Lounge 午餐', note:'相鄰，3.9 km，13:20 到。露台看鴿子谷。', hi:true, tags:['car:🚘 5 分','eat:午餐'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
+       eatery:{name:'Seki Restaurant & Lounge', en:'Argos in Cappadocia · Kayabaş Sk. No:23, Uçhisar', hours:'每天 08:00–24:00', img:'seki-terrace.jpg',
+         d:'蓋在修道院遺構改建的 Argos 飯店裡，露台正對<strong>鴿子谷與艾爾吉耶斯山</strong>。安納托利亞菜配地中海做法，附設酒窖。離 Uçhisar 城堡約 200 公尺、走路 2 分鐘。建議先電話訂位 <strong>+90 384 219 31 30</strong>。<strong>建議兩人點法：</strong>蜜漬南瓜 ＋ 紙包烤牛肉乾 ＋ 26 小時羊肩 ＋ 烤蘋果甜點，一輪四道走完前菜到甜點。',
+         dishes:[
+           ['🥇','26 小時低溫羊肩 <b>26-hour Sous-vide Lamb Shoulder</b>','主菜。配李子泥、菇類與骨髓醬汁，是目前品鑑菜單的主角。只能選一道就選這個'],
+           ['🥈','蜜漬南瓜 <b>Confit Pumpkin</b>','前菜。配芝麻醬、芝麻與核桃，米其林指南特別點名的一道'],
+           ['🥉','紙包烤牛肉乾 <b>Beef Pastrami Grilled in Parchment Paper</b>','熱前菜。搭番茄、檸檬與香草，四道裡最有土耳其味的'],
+           ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
+         ]},
+      },
+      {time:'14:20<br>–17:30', act:'🚘 → 回 Grand Elite 拿行李 → Gamirasu 入住、泳池、露台', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了，省下 65 分早點進 Gamirasu。鴿子谷和城堡是同一片谷地的兩個角度。14:30 到 Grand Elite 拿行李，14:40 出發、15:10 抵達 Gamirasu（30 分、21.3 km）。日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。', hi:true, tags:['car:🚘 10 分 + 30 分'], map:[['自駕 · Uçhisar → Grand Elite',drv(P.uchisar,P.grand)],['自駕 · Grand Elite → Gamirasu',drv(P.grand,P.gamirasu)]]}
     ]},
     {label:'晚上 · Gamirasu', rows:[
-      {time:'18:00<br>起', act:'🍛 Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00。<strong>在飯店吃，兩個人都能喝酒。</strong>已經飛過了，今晚可以放鬆。', hi:true, tags:['eat:飯店晚餐'], sc:'done',
-     eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
-      {time:'18:00<br>起', act:'🍛 Gamirasu 飯店晚餐、早睡', note:'餐廳 18:00－22:00。若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床；沒位子就是全額退款。', hi:true, tags:['eat:飯店晚餐','lock:22:00 前睡'], sc:'no',
-     eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
-      {time:'18:00<br>起', act:'🍛 Gamirasu 飯店晚餐', note:'餐廳 18:00－22:00。<strong>在飯店吃，兩個人都能喝酒。</strong>飛完了，今晚可以放鬆。', hi:true, tags:['eat:飯店晚餐'], sc:'fly',
-     eatery:{name:'Gamirasu Cave Hotel 餐廳', en:'Ayvalı, Ürgüp', hours:'18:00–22:00', d:'à la carte 加套餐、可配酒。在飯店吃，兩個人都能喝酒。'}},
-    ]}
+      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], sc:'done'},
+      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], hi:true, sc:'no'},
+      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], hi:true, sc:'fly'},    ]}
   ],
-  stay:{name:'Gamirasu Cave Hotel', note:'Hotels.com 73467533073850，入住 14:00／退房 12:30'}
+  stay:{name:'Gamirasu Cave Hotel', note:'Hotels，入住 14:00／退房 12:30'}
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -988,9 +992,10 @@ var PANELS={
       {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Grand Elite 接送 · 2 人 · 1 小時',
        em:'GetYourGuide · Highline Cappadocia Travel · 英語導覽 · 路線 Red + Rose Valley（不含 Ortahisar）· 接送時間由業者於活動前 1–2 天聯絡 · 結束後送回原地',
        w:'票券在 10/30 扣款成功後才會出現在 GetYourGuide App'},
-      {k:'11/02 19:00', tag:'餐廳', todo:true, b:'Topdeck Cave Restaurant', i:'2 人',
-       em:'Hafız Abdullah Efendi Sk. No 15, Göreme · +90 384 271 24 74 或 Instagram 私訊',
-       w:'店裡只有 12 個位子，沒訂位常被回絕'},
+      {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant', i:'2 人 · <em>已訂位 18:30</em>',
+       em:'Hafız Abdullah Efendi Sk. No 15, Göreme · +90 384 271 24 74 · Grand Elite 走路 4 分'},
+      {k:'11/03 12:45', tag:'餐廳', todo:true, b:'Seki Restaurant & Lounge', i:'2 人 · Uçhisar · 午餐',
+       em:'Argos in Cappadocia 飯店內 · Kayabaş Sk. No:23 · +90 384 219 31 30 · 每天 08:00–24:00 · 露台正對鴿子谷'},
       {k:'11/03 18:00', tag:'餐廳', todo:true, b:'Gamirasu Cave Hotel 餐廳', i:'2 人 · 不含在房價內，另外付費',
        em:'餐廳 18:00–22:00 · à la carte 加套餐、可配酒 · 素食可事先講'},
       {k:'11/06 上午', tag:'門票', todo:true, b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
@@ -1032,15 +1037,14 @@ function tagOf(r,prefix){
   for(var i=0;i<t.length;i++) if(t[i].indexOf(prefix)===0) return t[i].slice(prefix.length);
   return null;
 }
-function kindOf(r){
-  if(r.eatery||tagOf(r,'eat:')!==null) return 'eat';
-  if(r.sight||r.spots) return 'sight';
-  var act=plain(r.act);
-  if(act.indexOf('→')>-1||/^[🚘🚶✈️]/.test(act)) return 'move';
-  var car=tagOf(r,'car:');
-  if(car&&/🚘|🚶/.test(car)) return 'move';   /* 有車程標籤就是移動，即使標了 hi */
-  if(r.hi) return 'sight';
-  return '';
+/* 一列可以同時是移動和景點（例如「開 15 分 → 逛 50 分」寫在同一列），所以回傳陣列。
+   圓點顏色取最後一個，也就是這一列真正的目的。 */
+function kindsOf(r){
+  var ks=[], act=plain(r.act), car=tagOf(r,'car:');
+  if(act.indexOf('→')>-1||/^(?:🚘|🚶|✈)/.test(act)||(car&&/🚘|🚶/.test(car))) ks.push('move');
+  if(r.eatery||tagOf(r,'eat:')!==null) ks.push('eat');
+  else if(r.sight||r.spots||(r.hi&&!ks.length)) ks.push('sight');
+  return ks;
 }
 var PILL={sight:'景點', move:'移動', eat:'用餐'};
 
@@ -1135,17 +1139,33 @@ function eateryHtml(e){
   return h+'</div></div>';
 }
 
+/* r.sight：{zh, en, d, img} —— 單一景點，直接攤開，不像 spots 需要再點一次 */
+function sightHtml(x){
+  if(!x) return '';
+  var h='<div class="sightc">';
+  if(x.img) h+='<img class="sightc-fig" loading="lazy" decoding="async" src="'+IMG+x.img
+    +'" alt="'+escAttr(x.zh)+'" onerror="this.style.display=\'none\'">';
+  h+='<div class="sightc-body"><div class="sightc-name">'+x.zh
+    +(x.en?'<span class="sightc-en">'+x.en+'</span>':'')+'</div>'
+    +(x.d?'<div class="sightc-d">'+x.d+'</div>':'')
+    +'</div></div>';
+  return h;
+}
 var CHEV='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 function rowHtml(r){
-  var k=kindOf(r);
-  var pill=k?(k==='eat'?(tagOf(r,'eat:')||PILL.eat):PILL[k]):'';
+  var ks=kindsOf(r), pills='';
+  for(var n=0;n<ks.length;n++){
+    var lab=(ks[n]==='eat')?(tagOf(r,'eat:')||PILL.eat):PILL[ks[n]];
+    pills+='<span class="tl-pill k-'+ks[n]+'">'+lab+'</span>';
+  }
+  var k=ks.length?ks[ks.length-1]:'';
   var body=(r.note?'<div class="tl-note">'+r.note+'</div>':'')
     +eateryHtml(r.eatery)
     +spotsHtml(r.spots)
-    +(r.sight?spotsHtml([r.sight],{head:'📷 點開看照片與說明',single:true}):'')
+    +sightHtml(r.sight)
     +mapsHtml(r.map);
   var sum='<span class="tl-head"><span class="tl-act">'+r.act+'</span>'+tagsHtml(r.tags)+'</span>'
-    +'<span class="tl-side">'+(pill?'<span class="tl-pill k-'+k+'">'+pill+'</span>':'')+(body?CHEV:'')+'</span>';
+    +'<span class="tl-side">'+pills+(body?CHEV:'')+'</span>';
   var kc=k?' k-'+k:'';
   var cardHtml=body
     ?'<details class="tl-card'+kc+'"><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'

@@ -84,8 +84,8 @@
 
 | # | 段落（點到點） | 時間 | 判斷重點 |
 |---|------|------|----------|
-| W1 | [**Grand Elite → Topdeck Cave Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.6417558,34.8276558&travelmode=walking) | **步行 4 分**（約 0.3 km） | 19:00 訂位。⚠️ 只有 12 個位子，一定要事先訂 |
-| W2 | [**Topdeck Cave → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6417558,34.8276558&destination=38.6394198,34.8294131&travelmode=walking) | **步行 4 分** | 20:45 走回，天黑後不用開車，兩人都能喝酒 |
+| W1 | [**Grand Elite → Topdeck Cave Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.6417558,34.8276558&travelmode=walking) | **步行 4 分**（約 0.3 km） | ✅ 已訂位 **18:30**、2 人 |
+| W2 | [**Topdeck Cave → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6417558,34.8276558&destination=38.6394198,34.8294131&travelmode=walking) | **步行 4 分** | 20:15 走回，天黑後不用開車，兩人都能喝酒 |
 
 ### 11/03（二）Grand Elite → Kaymaklı → 鴿子谷 → Uçhisar → 拿行李 → Gamirasu
 
