@@ -31,13 +31,13 @@
 | 以弗所步行環線（回到停車處） | [遺址入口 → 大劇院 → 塞爾蘇斯圖書館 → 哈德良神廟 → 音樂廳 → 回遺址入口](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9355518,27.3461146&waypoints=37.9410660,27.3426916%7C37.9392052,27.3409200%7C37.9385230,27.3420025%7C37.9368337,27.3449823&travelmode=walking) | 遺址入口、大劇院 Great Theatre、塞爾蘇斯圖書館 Library of Celsus、哈德良神廟 Temple of Hadrian、音樂廳 Odeon | 15:10～17:40，走完回到停車處。串起這幾點的主街是克里特斯街 Curetes Street。冬季 18:00 關門，17:40 前往出口移動 |
 | 以弗所 → 飯店 | [Ephesus Archaeological Site → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9489789,27.3671724&travelmode=driving) | 以弗所考古遺址、Pikan Ephesus | 表定 **10 分**（實算 5 分 / 3.5 km）。18:30 晚餐在飯店附近的 Selçuk 街上 |
 
-### 11/01（日）Pikan Ephesus → Pamukkale → ADB → ASR → Grand Elite
+### 11/01（日）Pikan Ephesus → Pamukkale → ADB → ASR → Henna
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 白天自駕與還車 | [Pikan Ephesus → 棉堡石灰棚 → Hierapolis → Theatre → Antique Pool → ADB](https://www.google.com/maps/dir/?api=1&origin=37.948976,27.367237&destination=Izmir%20Adnan%20Menderes%20Airport&waypoints=37.924483,29.119012%7C37.930954,29.126363%7C37.926772,29.129177%7C37.926095,29.125591&travelmode=driving) | Pikan Ephesus、棉堡石灰棚、Hierapolis、劇場、**Cleopatra Antique Pool 泡澡**、ADB | 單日約 430 公里的 V 字形折返。**08:30 出發**；Selçuk → 棉堡 2h20（實測 1h55）、棉堡 → ADB 2h40（實測 2h13）。**已排古董池泡澡，需帶泳衣**，泡池冬季 17:00 關門故排 14:00。**16:05 為離開棉堡的硬性上限**，表定 15:35 出發、18:15 抵達 ADB |
 | 飛機端點 | [ADB](https://www.google.com/maps/search/?api=1&query=Izmir%20Adnan%20Menderes%20Airport) / [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri%20Airport) | Izmir Adnan Menderes Airport、Kayseri Airport | 21:00 ADB → 22:35 ASR |
-| ASR 深夜取車後自駕 | [Kayseri Airport → Grand Elite Cave Suites](https://www.google.com/maps/dir/?api=1&origin=Kayseri%20Airport&destination=38.6394198,34.8294131&travelmode=driving) | ASR、Grand Elite Cave Suites | 這段是深夜路線，重點是租車櫃台營業、航班延誤與駕駛疲勞 |
+| ASR 深夜取車後自駕 | [Kayseri Airport → Henna Hotel - Adults Only](https://www.google.com/maps/dir/?api=1&origin=Kayseri%20Airport&destination=38.642261,34.828308&travelmode=driving) | ASR、Henna Hotel - Adults Only | 這段是深夜路線，重點是租車櫃台營業、航班延誤與駕駛疲勞 |
 
 ### 卡帕多奇亞三天的精確座標
 
@@ -45,7 +45,7 @@
 
 | 點位 | 座標（OSM 實查 2026-08-19） | 用途 |
 |------|------|------|
-| Grand Elite Cave Suites | `38.6394198, 34.8294131` | 11/01～11/03 住宿、熱氣球接送點、11/03 行李寄放點 |
+| Henna Hotel - Adults Only | `38.642261, 34.828308` | 11/01～11/03 住宿、熱氣球接送點、11/03 行李寄放點 |
 | Göreme Open Air Museum | `38.6390591, 34.8455787` | 11/02 下午 |
 | Kaymaklı 地下城 | `38.4599265, 34.7524882` | 11/03 第一站 |
 | **鴿子谷觀景台** | `38.6320754, 34.8152333` | 11/03。⚠️ 導航要設**觀景台**，不要設「Güvercinlik Vadisi」谷地中心點（`38.6303780, 34.8130694`）——那個點在谷裡，導航會把你帶到產業道路 |
@@ -53,11 +53,12 @@
 | Zelve 露天博物館 | `38.6657426, 34.8652932` | **11/02 上午（Plan B/C/D）**，離 Paşabağ 只有 1.8 km |
 | Devrent 想像谷 | `38.6750753, 34.8843370` | 未排入，離 Zelve 4.4 km |
 | Uçhisar Castle | `38.6304425, 34.8053230` | 11/03 |
-| Gamirasu Cave Hotel | `38.5456235, 34.8705660` | 11/03～11/04 住宿（Ayvalı） |
+| ~~Gamirasu Cave Hotel~~ | `38.5456235, 34.8705660` | **2026-09-25 作廢**，改住 Henna 連住三晚 |
+| **Henna Hotel - Adults Only** | `38.642261, 34.828308` | **11/01～11/04 連住三晚**，Göreme 鎮中心 Konak Sk. no:2/A |
 | Sarı Han 商隊驛站 | `38.7118040, 34.9091913` | 11/04 |
 | Kayseri Airport ASR | `38.7704, 35.4954` | 11/04 還車 |
 
-### 11/02（一）Grand Elite → 熱氣球 → 露天博物館 → 駱駝
+### 11/02（一）Henna → 熱氣球 → 露天博物館 → 駱駝
 
 > 全天五段自駕，共約 **55 分**，四個 Plan 完全相同（10:10 之後不再分飛不飛）。行李全天在房間內。晚餐 Topdeck Cave 走路 4 分鐘，**天黑後不用開車**。
 
@@ -65,63 +66,62 @@
 
 | # | 段落（點到點） | 車程 | 判斷重點 |
 |---|------|------|----------|
-| A1 | [**Grand Elite → Paşabağ 蘑菇谷**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.6770053,34.8549063&travelmode=driving) | **15 分**（實測 9.8 分 / 6.9 km） | 10:10 出發、10:25 到，逛到 11:15。最經典的多頭精靈煙囪，平地好走 |
+| A1 | [**Henna → Paşabağ 蘑菇谷**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6770053,34.8549063&travelmode=driving) | **15 分**（實測 9.8 分 / 6.9 km） | 10:10 出發、10:25 到，逛到 11:15。最經典的多頭精靈煙囪，平地好走 |
 | A2 | [**Paşabağ → Zelve 露天博物館**](https://www.google.com/maps/dir/?api=1&origin=38.6770053,34.8549063&destination=38.6657426,34.8652932&travelmode=driving) | **5 分**（實測 3.9 分 / **1.8 km**） | 11:15 出發、11:20 到，逛到 12:10。廢棄洞穴村，人比 Göreme 露天博物館少很多。✅ **官方是同一個景點「ZELVE-PAŞABAĞLAR」，票在 Paşabağ 買一次就通用**（€12），**每天開、08:00 開門** |
 | A3 | [**Zelve → Göreme Open Air Museum**](https://www.google.com/maps/dir/?api=1&origin=38.6657426,34.8652932&destination=38.6390591,34.8455787&travelmode=driving) | **20 分** | 12:10 出發、12:30 進館，逛到 14:00 |
 | A4 | [**Göreme Open Air Museum → Seten Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.6390591,34.8455787&destination=38.6412661,34.8257096&travelmode=driving) | **10 分** | 14:00 出發、14:10 到，午餐吃到 15:30 |
-| A5 | [**Seten Restaurant → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6412661,34.8257096&destination=38.6394198,34.8294131&travelmode=driving) | **5 分** | 15:30 出發、15:35 到，車停飯店等 16:00 駱駝接送 |
-| A2′ | **備援（幾乎不會用到）**：[Zelve → Devrent 想像谷](https://www.google.com/maps/dir/?api=1&origin=38.6657426,34.8652932&destination=38.6750753,34.8843370&travelmode=driving) | **6 分**（實測 5.8 分 / 4.4 km） | ✅ **Zelve 開放時間已官方查證（每天開、08:00 開門），原本的「怕沒開」風險已解除**，這條保留純粹當保險：真的遇到臨時封閉就往東開去 Devrent，逛 45 分，再走 [Devrent → Grand Elite](https://www.google.com/maps/dir/?api=1&origin=38.6750753,34.8843370&destination=38.6394198,34.8294131&travelmode=driving)（**20 分**，實測 14.7 分 / 12 km），一樣 12:05 前回鎮上。**先寫好就不算現場決策** |
+| A5 | [**Seten Restaurant → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6412661,34.8257096&destination=38.642261,34.828308&travelmode=driving) | **5 分** | 15:30 出發、15:35 到，車停飯店等 16:00 駱駝接送 |
+| A2′ | **備援（幾乎不會用到）**：[Zelve → Devrent 想像谷](https://www.google.com/maps/dir/?api=1&origin=38.6657426,34.8652932&destination=38.6750753,34.8843370&travelmode=driving) | **6 分**（實測 5.8 分 / 4.4 km） | ✅ **Zelve 開放時間已官方查證（每天開、08:00 開門），原本的「怕沒開」風險已解除**，這條保留純粹當保險：真的遇到臨時封閉就往東開去 Devrent，逛 45 分，再走 [Devrent → Henna](https://www.google.com/maps/dir/?api=1&origin=38.6750753,34.8843370&destination=38.642261,34.828308&travelmode=driving)（**20 分**，實測 14.7 分 / 12 km），一樣 12:05 前回鎮上。**先寫好就不算現場決策** |
 | — | Zelve 正常開的話**不加** Devrent | — | 行程夠滿了，加了會變成「要不要再跑一個」的現場決策 |
 
 **接送段（不自駕）**
 
 | # | 段落（點到點） | 車程 | 判斷重點 |
 |---|------|------|----------|
-| — | 熱氣球（接送，不自駕）：[Cappadocia Discovery Balloons](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Discovery%20Balloons) | — | 已訂 11/02 06:00，Grand Elite 接送。飛了 = 04:30～08:30；沒飛 = 這格空著，睡飽後 09:30 早餐。兩條線都在 **10:10 出發**走 A1～A5 |
-| — | 駱駝（接送，不自駕，GetYourGuide `t486222`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Camel%20Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Grand Elite 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
+| — | 熱氣球（接送，不自駕）：[Cappadocia Discovery Balloons](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Discovery%20Balloons) | — | 已訂 11/02 06:00，Henna 接送。飛了 = 04:30～08:30；沒飛 = 這格空著，睡飽後 09:30 早餐。兩條線都在 **10:10 出發**走 A1～A5 |
+| — | 駱駝（接送，不自駕，GetYourGuide `t486222`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Camel%20Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Henna 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
 
 **晚餐（步行，不自駕）**
 
 | # | 段落（點到點） | 時間 | 判斷重點 |
 |---|------|------|----------|
-| W1 | [**Grand Elite → Topdeck Cave Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.6417558,34.8276558&travelmode=walking) | **步行 4 分**（約 0.3 km） | ✅ 已訂位 **18:30**、2 人 |
-| W2 | [**Topdeck Cave → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6417558,34.8276558&destination=38.6394198,34.8294131&travelmode=walking) | **步行 4 分** | 20:15 走回，天黑後不用開車，兩人都能喝酒 |
+| W1 | [**Henna → Topdeck Cave Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6417558,34.8276558&travelmode=walking) | **步行 4 分**（約 0.3 km） | ✅ 已訂位 **18:30**、2 人 |
+| W2 | [**Topdeck Cave → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6417558,34.8276558&destination=38.642261,34.828308&travelmode=walking) | **步行 4 分** | 20:15 走回，天黑後不用開車，兩人都能喝酒 |
 
-### 11/03（二）Grand Elite → Kaymaklı → 鴿子谷 → Uçhisar → 拿行李 → Gamirasu
+### 11/03（二）Henna → Kaymaklı → 鴿子谷 → Uçhisar → 回 Henna
 
-> 路線是「**南下 → 北返 → 東南收尾**」：Göreme（中）→ **Kaymaklı（南，第一站）** → 鴿子谷 / Uçhisar（西，Göreme 後院）→ 路過 Göreme 拿行李 → Ayvalı（東南）。
+> 路線是「**南下 → 北返 → 回鎮上**」：Göreme（中）→ **Kaymaklı（南，第一站）** → 鴿子谷 / Uçhisar（西，Göreme 後院）→ 回 Göreme。
 >
-> **⚠️ 09:00 退房後行李寄放 Grand Elite，全天不上車**，15:05 路過飯店拿回（寄放約 6 小時，要跟飯店講 09:00 不是退房期限 11:00）。這是刻意的：Kayseri 段租的 Opel Crossland 是掀背車，兩個 26 / 28 吋箱子放後車廂會從後窗看得到，而 Kaymaklı 是全天停最久（1.5h）、離飯店最遠（32 km）的點。
+> **✅ 2026-09-25 起改住 Henna 連住三晚，這天不用退房、不用寄放行李、不用折返。** 行李整天在房間，車上只放小包、水、零食。
 >
-> 車程總計 **120 分**（35 + 40 + 5 + 10 + 30）。舊版「行李直接上車不折返」是 85 分——多的 35 分就是「行李不上車」的價碼。
+> 車程總計 **86 分**（35 + 40 + 5 + 6）。舊版要回頭拿行李再開 30 分去 Ayvalı，改成連住後那 35 分直接省掉。
 
 | # | 段落（點到點） | 車程 | 時間 | 判斷重點 |
 |---|------|------|------|----------|
-| 1 | [**Grand Elite → Kaymaklı 地下城**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.4599265,34.7524882&travelmode=driving) | **35 分** | 09:00～09:35 | 32 km，全天最長的一段，放在最有精神的時候。⚠️ **唯一還沒用 Google 直接量過的路段**（OSRM 推估 27～29 分），出發前補查一次。✅ Kaymaklı 開放時間已官方查證：**每天開、08:00 開門**（09:35 進場沒問題） |
+| 1 | [**Henna → Kaymaklı 地下城**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.4599265,34.7524882&travelmode=driving) | **35 分** | 09:00～09:35 | 32 km，全天最長的一段，放在最有精神的時候。⚠️ **唯一還沒用 Google 直接量過的路段**（OSRM 推估 27～29 分），出發前補查一次。✅ Kaymaklı 開放時間已官方查證：**每天開、08:00 開門**（09:35 進場沒問題） |
 | 2 | [**Kaymaklı 地下城 → 鴿子谷觀景台**](https://www.google.com/maps/dir/?api=1&origin=38.4599265,34.7524882&destination=38.6320754,34.8152333&travelmode=driving) | **40 分** | 11:05～11:45 | 約 18 km，走 Uçhisar–Nevşehir 路，**不經 Göreme**。反向已實測 28 分 |
 | 3 | [**鴿子谷觀景台 → Uçhisar Castle**](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.6304425,34.8053230&travelmode=driving) | **5 分** | 12:45～12:50 | 相鄰，3.9 km。中間插 Uçhisar 午餐 12:50～13:50，Castle 13:55～14:55 |
-| 4 | [**Uçhisar Castle → Grand Elite**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.6394198,34.8294131&travelmode=driving) | **10 分**（實測約 9 分） | 14:55～15:05 | **回來拿寄放的行李**，15:05～15:15 領行李上車 |
-| 5 | [**Grand Elite → Gamirasu Cave Hotel**](https://www.google.com/maps/dir/?api=1&origin=38.6394198,34.8294131&destination=38.5456235,34.8705660&travelmode=driving) | **30 分** | 15:15～15:45 | 21.3 km。**跟 Kaymaklı → Gamirasu 一樣長**（OSRM 27.1 vs 27.4 分），所以回頭拿行李沒有讓收尾變遠 |
+| 4 | [**Uçhisar Castle → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.642261,34.828308&travelmode=driving) | **6 分** | 15:05 出發、15:15 到 | 3.8 km，回鎮上就結束了，行李不用動 |
 
-**Plan B（熱氣球在 11/03）**：以上五段順序完全不變，**整體往後平移 30 分鐘**——09:30 出發、10:05 Kaymaklı、15:35 拿行李、**16:15 進 Gamirasu**，18:00 晚餐照樣趕得上。
+**Plan B（熱氣球在 11/03）**：以上四段順序完全不變，**整體往後平移 30 分鐘**——09:30 出發、10:05 Kaymaklı、鴿子谷縮成 40 分以對上 **13:00 Seki 訂位**，14:10 回到 Henna。
 
-**縮短版（太累時）**：砍 **Uçhisar Castle**（省 65 分，14:00 就能進 Gamirasu）——第 3 段直接接第 4 段 [鴿子谷觀景台 → Grand Elite](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.6394198,34.8294131&travelmode=driving)（約 10 分）。**不要砍 Kaymaklı**：它是這天唯一不能在別天補的點，而且已經放在最有精神的時段；鴿子谷和 Uçhisar Castle 是同一片谷地的兩個角度，砍一個不會少看什麼。
+**縮短版（太累時）**：砍 **Uçhisar Castle**（省 65 分，14:00 就回得到飯店）——第 3 段直接接 [鴿子谷觀景台 → Henna](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.642261,34.828308&travelmode=driving)。
 
 **地下城選 Kaymaklı 不選 Derinkuyu**：Derinkuyu 更深更震撼，但要再往南多開 10 公里。
 
-### 11/04（三）Gamirasu → Avanos → Sarı Han 商隊驛站 → ASR → Istanbul
+### 11/04（三）Henna → Avanos → Sarı Han 商隊驛站 → ASR → Istanbul
 
 > 目前狀態：已成形。**Avanos 陶藝與 Paşabağ 已取消**，改排 **Sarı Han 商隊驛站**（1249 年塞爾柱商隊旅館，離 Avanos 約 6～8 km、往 ASR 方向）。理由：陶藝重點是買陶器，而當天要先過一段托運僅 15kg 的國內線；Sarı Han 不增加行李，且補上全程唯一缺席的塞爾柱時期建築。航班 TK2017 ASR → IST 已開票。
 >
 > 車程已實查（OSRM，並以已由 Google Maps 實測的 Avanos→ASR 校準）。Sarı Han 座標 38.7118, 34.90919，在 Avanos 正東 5.8 km、往 ASR 方向。開放 **每天 09:00–18:00**，無另列冬季時間。
 
-> ⚠️ **這是三天裡唯一行李必須待在車上的一天**（12:30 退房後無處可放，Avanos + Sarı Han 共約 2 小時 2 個停點）。取車當天的後車廂防護清單見 [租車預訂.md](./租車預訂.md)。
+> ⚠️ **這是唯一行李必須待在車上的一天**（12:00 退房後無處可放，Avanos + Sarı Han 兩個停點共約 2 小時 45 分）。取車當天的後車廂防護清單見 [租車預訂.md](./租車預訂.md)。
 
 **主線（四個 Plan 共用）— 點到點**
 
 | # | 段落（點到點） | 車程 | 時間 | 判斷重點 |
 |---|------|------|------|----------|
-| 1 | [**Gamirasu → Avanos**](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=38.718737,34.846866&travelmode=driving) | **45 分**（實查 34 分） | 12:30～13:15 | 24.4 km，經 Ürgüp。12:30 退房出發 |
+| 1 | [**Henna → Avanos**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.718737,34.846866&travelmode=driving) | **12 分**（OSRM 11 分 ×1.08） | 12:00 出發、12:15 到 | 9.5 km。改住 Göreme 鎮中心後，這段從 45 分縮成 12 分 |
 | 2 | [**Avanos → Sarı Han 商隊驛站**](https://www.google.com/maps/dir/?api=1&origin=38.718737,34.846866&destination=38.7118040,34.9091913&travelmode=driving) | **10 分**（實查 7 分） | 14:25～14:35 | 7.0 km，在 Avanos 正東、往 ASR 方向，**不是繞路**。Avanos 13:15～14:25 河邊午餐，**不買陶器** |
 | 3 | [**Sarı Han → Kayseri Airport ASR**](https://www.google.com/maps/dir/?api=1&origin=38.7118040,34.9091913&destination=Kayseri%20Airport&travelmode=driving) | **1h05**（實查 53 分） | 15:20～16:25 | 60.5 km，中途加油。Sarı Han 14:35～15:20（09:00–18:00 開放）；**15:35 為離開 Sarı Han 的硬性上限**；16:25～16:45 還車 |
 
@@ -129,15 +129,15 @@
 
 | # | 段落 | 車程 | 判斷重點 |
 |---|------|------|----------|
-| — | 熱氣球（接送，不自駕）：**Gamirasu 接** | — | ✅ **已向 Discovery Balloons 確認可接 Ayvalı**；04:40 接、06:00～07:30 飛、09:00 送回。Ayvalı 不在 Göreme 一般接送範圍，跟司機再確認一次 |
-| 1' | 接回主線第 1 段（09:00～12:30 在飯店休息，12:30 退房照走） | — | 04:00 起床後的 3.5 小時飯店時間正好補回來一半 |
-| 1'' | 累的話跳過 Avanos：[**Gamirasu → Sarı Han**](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=38.7118040,34.9091913&travelmode=driving) | **40 分**（OSRM 27.1 分 / 24.8 km ×1.08 = 29 分） | 比去 Avanos 還近一點。13:10 到 Sarı Han → 14:10 上路 → 15:15 到 ASR，提早 1 小時到機場，在 ASR 吃東西 |
+| — | 熱氣球（接送，不自駕）：**Henna 接** | — | Göreme 鎮中心是標準接送範圍，**不用特別安排**；04:40 接、06:00～07:30 飛、09:00 送回。仍建議前一天跟司機確認會合點 |
+| 1' | 接回主線第 1 段（09:00～12:00 在飯店休息，12:00 退房照走） | — | 04:00 起床後的 3 小時飯店時間正好補回來一半 |
+| 1'' | 累的話**不必跳過 Avanos**，只要縮成 1h15（12:15～13:30）| — | 從 Göreme 出發只要 12 分，13:40 就能進 Sarı Han，15:45 到 ASR，比主線早 30 分 |
 
 **雨天 / 時間吃緊備案**
 
 | 段落 | Google Maps | 判斷重點 |
 |------|-------------|----------|
-| 跳過 Avanos 與 Sarı Han | [Gamirasu → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=38.5456235,34.8705660&destination=Kayseri%20Airport&waypoints=38.583396,34.896916%7C38.630051,34.911603&travelmode=driving) | Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR |
+| 跳過 Avanos 與 Sarı Han | [Henna → Mustafapaşa → Ürgüp → Kayseri Airport](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=Kayseri%20Airport&waypoints=38.583396,34.896916%7C38.630051,34.911603&travelmode=driving) | Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR |
 
 **其餘段落**
 

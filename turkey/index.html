@@ -393,7 +393,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
       </div>
       <div class="hero-stats" aria-label="行程摘要">
         <button type="button" data-go="days"><strong>11</strong><span>天</span></button>
-        <button type="button" data-go="stay"><strong>4</strong><span>段住宿</span></button>
+        <button type="button" data-go="stay"><strong>3</strong><span>段住宿</span></button>
         <button type="button" data-go="fly"><strong>5</strong><span>段航程</span></button>
         <button type="button" data-go="car"><strong>2</strong><span>段租車</span></button>
       </div>
@@ -501,7 +501,7 @@ var P={
   hTheatre:'37.9267772,29.1290471', /* Hierapolis 古劇場 */
   cleopatra:'37.9261476,29.1255078',/* 古董池 Cleopatra Antique Pools */
   /* 卡帕多奇亞 */
-  grand:'38.6394198,34.8294131',
+  henna:'38.642261,34.828308',        /* Henna Hotel - Adults Only — 11/01–11/04 連住 3 晚，Göreme 鎮中心 */
   goreme:'38.6390591,34.8455787',
   seten:'38.6412661,34.8257096',      /* Seten Restaurant Cappadocia — 11/02 午餐 */
   topdeck:'38.6417558,34.8276558',    /* Topdeck Cave Restaurant — 11/02 晚餐 */
@@ -512,7 +512,6 @@ var P={
   devrent:'38.6750753,34.8843370',
   uchisar:'38.6304425,34.8053230',
   seki:'38.6300930,34.8075940',       /* Seki Restaurant & Lounge（Argos in Cappadocia）— 11/03 午餐 */
-  gamirasu:'38.5456235,34.8705660',
   sarihan:'38.7118040,34.9091913',
   avanos:'38.718737,34.846866',     /* Avanos 鎮中心，不是行政區中心點 */
   mustafapasa:'38.583396,34.896916',
@@ -624,9 +623,9 @@ var DATA=[
      map:pin(P.teras)},
     {time:'14:30<br>–20:00', act:'🚘 → 機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
     {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
-    {time:'22:35<br>–23:15', act:'🚘 → 格雷梅飯店', tags:['car:🚘 1h30'], map:drv(P.asr,P.grand)}
+    {time:'22:35<br>–23:15', act:'🚘 → 格雷梅飯店', tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
   ],
-  stay:{name:'Grand Elite Cave Suites', note:'Booking，入住 14:00'}
+  stay:{name:'Henna Hotel - Adults Only', note:'Trip.com 1616333679658299，連住 3 晚；⚠️ 入住時間寫 14:00–00:00，00:45 才到要先通知飯店'}
 },
 
 /* ========== DAY 04 · 11/02 ========== */
@@ -653,7 +652,7 @@ var DATA=[
       {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐']},
     ]},
     {label:'卡帕多奇亞紅線自駕', rows:[
-      {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.grand,P.pasabag),
+      {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.henna,P.pasabag),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
     },
       {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min'], map:drv(P.pasabag,P.zelve),
@@ -664,7 +663,7 @@ var DATA=[
     },
       {time:'14:10<br>–15:30', act:'🍛 Seten Restaurant Cappadocia', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.seten),
        eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理', img:'seten-terrace.jpg',
-         d:'離飯店走路約10分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
+         d:'不接受訂位，離飯店走路約10分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
          dishes:[
            ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
            ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
@@ -674,10 +673,10 @@ var DATA=[
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
        map:pin(P.seten)},
-      {time:'15:30<br>–17:40', act:'🚘 → 回飯店 · 駱駝騎乘之旅', hi:true, tags:['car:🚘 5 分','含飯店接送'], map:drv(P.seten,P.grand),
+      {time:'15:30<br>–17:40', act:'🚘 → 回飯店 · 駱駝騎乘之旅', hi:true, tags:['car:🚘 5 分','含飯店接送'], map:drv(P.seten,P.henna),
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg'},
     },
-      {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.grand,P.topdeck),
+      {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.henna,P.topdeck),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
          d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。',
          dishes:[
@@ -686,10 +685,10 @@ var DATA=[
            ['🥉','羊肉串 / 羊肉料理','兩人都吃羊就再加一份；不想重複改點牛肉'],
            ['４','每日自製甜點','現場問當天供應什麼，南瓜甜點或米布丁類都可以試']
          ]}},
-      {time:'20:45<br>以後', act:'回飯店休息', map:wlk(P.topdeck,P.grand)},
+      {time:'20:45<br>以後', act:'回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
   ],
-  stay:{name:'Grand Elite Cave Suites', note:'續住'}
+  stay:{name:'Henna Hotel - Adults Only', note:'續住第 2 晚'}
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -699,24 +698,24 @@ var DATA=[
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'補飛 高 · 其他 中高',
   img:'uchisar-castle.jpg', cap:'烏奇薩 · 城堡與鴿子谷',
-  lead:'鑿進地底八層的避難城市、谷壁上滿是鴿子洞的山谷，還有整塊巨岩挖成的城堡——這天把卡帕多奇亞往地下和往高處的兩個方向都走過一次。',
+  lead:'鑿進地底八層的避難城市、谷壁上滿是鴿子洞的山谷，還有整塊巨岩挖成的城堡——這天把卡帕多奇亞往地下和往高處的兩個方向都走過一次，傍晚回到 Göreme 鎮上，<strong>行李整天不用動</strong>。',
   sw:{label:'熱氣球', def:'done', opts:[
     {k:'done', t:'已經飛過'},
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['卡帕多奇亞綠線','高級洞穴飯店', '換飯店'],
+  facts:['卡帕多奇亞綠線','連住第 3 晚 · 不用搬家','行李整天不用動'],
   groups:[
     {label:'清晨 · 已經飛過或沒飛', sub:'睡飽，08:00 早餐', sc:'done no', rows:[
-      {time:'08:00<br>–09:00', act:'飯店早餐、退房、行李寄放飯店'}
+      {time:'08:00<br>–09:00', act:'Henna 早餐', note:'連住，<strong>不用退房也不用寄放行李</strong>。'}
     ]},
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
       {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['供應商 Cappadocia Discovery Balloons', '含飯店接送', '茶點', '香檳'],
      sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。日出 07:07，飛行約 1 小時。<strong>接送時間會在前一天 18:00 前用 WhatsApp 或 email 通知</strong>——11/01 傍晚人在 ADB 機場，要留意訊息。⚠️ 停飛<strong>不會自動順延</strong>，當下就要問業者隔天有沒有位子，滿了就是全額退款。'},
     },
     ]},
-    {label:'綠線自駕 + 搬家', sub:'09:00 出發', sc:'done no', rows:[
-      {time:'09:00<br>–11:05', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.grand,P.kaymakli),
+    {label:'綠線自駕', sub:'09:00 出發', sc:'done no', rows:[
+      {time:'09:00<br>–11:05', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。'},
     },
       {time:'11:05<br>–12:45', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 1h','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
@@ -732,13 +731,14 @@ var DATA=[
            ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
          ]},
       },
-      {time:'14:05<br>–15:05', act:'Uçhisar Castle', tags:['彈性 · 有餘力再去'], map:[['砍這站 · 鴿子谷 → Grand Elite',drv(P.pigeon,P.grand)]],
+      {time:'14:05<br>–15:05', act:'Uçhisar Castle', tags:['彈性 · 有餘力再去'], map:[['砍這站 · 鴿子谷 → Henna Hotel',drv(P.pigeon,P.henna)]],
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。'},
     },
-      {time:'15:05<br>–17:30', act:'🚘 → 回 Grand Elite 拿行李 → Gamirasu 入住', hi:true, tags:['car:🚘 10 分 + 30 分'], map:[['自駕 · Uçhisar → Grand Elite',drv(P.uchisar,P.grand)],['自駕 · Grand Elite → Gamirasu',drv(P.grand,P.gamirasu)]]}
+      {time:'15:05<br>–15:15', act:'🚘 → 回 Henna Hotel', note:'Uçhisar → Göreme 鎮中心只要 <strong>6 分、3.8 km</strong>。<strong>今天不用搬家</strong>，行李三天都在房間。', hi:true, tags:['car:🚘 6 分'], map:drv(P.uchisar,P.henna)},
+      {time:'15:15<br>–18:00', act:'鎮上散步、屋頂露台休息', note:'連住第三晚，原本用來搬家的時間空出來了。'}
     ]},
-    {label:'綠線自駕 + 搬家', sub:'補飛版 · 09:30 出發，不上 Uçhisar 城堡', alt:true, sc:'fly', rows:[
-      {time:'09:30<br>–11:35', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，10:05 到。<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.grand,P.kaymakli),
+    {label:'綠線自駕', sub:'補飛版 · 09:30 出發，不上 Uçhisar 城堡', alt:true, sc:'fly', rows:[
+      {time:'09:30<br>–11:35', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，10:05 到。<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。通道低矮，穿好走的鞋。'},
     },
       {time:'11:35<br>–12:55', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', note:'12:15 到，逛 40 分。⚠️ 導航要設「觀景台」，不要設谷地中心點。', hi:true, tags:['car:🚘 40 分','停留 40 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
@@ -754,14 +754,15 @@ var DATA=[
            ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
          ]},
       },
-      {time:'14:00<br>–17:30', act:'🚘 → 回 Grand Elite 拿行李 → Gamirasu 入住、泳池、露台', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了，省下 65 分早點進 Gamirasu。鴿子谷和城堡是同一片谷地的兩個角度。14:10 到 Grand Elite 拿行李，14:20 出發、14:50 抵達 Gamirasu（30 分、21.3 km）。日落約 17:40。睡前把 11/04 泳池要用的泳衣、罩衫、拖鞋、防水袋先拿出來。', hi:true, tags:['car:🚘 10 分 + 30 分'], map:[['自駕 · Uçhisar → Grand Elite',drv(P.uchisar,P.grand)],['自駕 · Grand Elite → Gamirasu',drv(P.grand,P.gamirasu)]]}
+      {time:'14:00<br>–14:10', act:'🚘 → 回 Henna Hotel', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了。Uçhisar → Göreme 只要 6 分。', hi:true, tags:['car:🚘 6 分'], map:drv(P.uchisar,P.henna)},
+      {time:'14:10<br>–18:00', act:'回房補眠、屋頂露台', note:'04:00 起床，下午補回來。'}
     ]},
-    {label:'晚上 · Gamirasu', rows:[
-      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], sc:'done'},
-      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], hi:true, sc:'no'},
-      {time:'18:00<br>起', act:'🍛 飯店素食晚餐', note:'餐廳開放時間 18:00－22:00', hi:true, tags:['eat:晚餐'], hi:true, sc:'fly'},    ]}
+    {label:'晚上 · Göreme 鎮上', rows:[
+      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐', note:'連住 Henna，走路就有選擇。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐'], sc:'done'},
+      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐、早睡', note:'若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐','lock:22:00 前睡'], sc:'no'},
+      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐', note:'飛完了，今晚可以放鬆。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐'], sc:'fly'},    ]}
   ],
-  stay:{name:'Gamirasu Cave Hotel', note:'Hotels，入住 14:00／退房 12:30'}
+  stay:{name:'Henna Hotel - Adults Only', note:'續住第 3 晚，不用搬家'}
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -771,44 +772,46 @@ var DATA=[
   status:'待微調', statusCls:'none',
   fatigue:3, fatigueText:'中 · 今天飛的話中高',
   img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
-  lead:'上午在飯店休息，下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是三天裡唯一行李必須待在車上的一天</strong>，Avanos + Sarı Han 共約 2 小時、2 個停點。',
+  lead:'上午在 Henna 吃早餐、上屋頂露台，12:00 退房後下午 Avanos + Sarı Han 順路收尾，壓力主要來自 18:40 的航班。⚠️ <strong>這是唯一行李必須待在車上的一天</strong>，Avanos 與 Sarı Han 兩個停點共約 2 小時 45 分。',
   sw:{label:'熱氣球', def:'done', opts:[
     {k:'done', t:'已經飛過'},
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['⚠️ 行李在車上 2 小時','⚠️ 15:35 離開 Sarı Han','16:45 前完成還車'],
+  facts:['⚠️ 行李在車上 4 小時','⚠️ 15:25 離開 Sarı Han','16:45 前完成還車'],
   rows:[
-    {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台拍照', note:'洞穴房、泳池、露台是這間的重點。12:30 退房。', sc:'done no'},
-    {time:'12:30<br>–13:15', act:'→ Avanos', note:'採用 45 分（實查 34 分）、24.4 km，經 Ürgüp。', tags:['car:45 分'], map:drv(P.gamirasu,P.avanos), sc:'done no'},
-    {time:'13:15<br>–14:25', act:'Avanos 午餐 + 紅河 Kızılırmak River 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'done no',
+    {time:'09:00<br>–12:00', act:'Henna 早餐、屋頂露台、整理行李', note:'退房 <strong>12:00</strong>。屋頂露台可以再看一次熱氣球。', sc:'done no'},
+    {time:'12:00<br>–12:15', act:'🚘 → Avanos', note:'Göreme 鎮中心出發只要 <strong>12 分、9.5 km</strong>（原本從 Ayvalı 出發要 34 分）。', tags:['car:🚘 12 分'], map:drv(P.henna,P.avanos), sc:'done no'},
+    {time:'12:15<br>–14:00', act:'Avanos 午餐 + 紅河 Kızılırmak River 河邊散步', note:'可以看陶藝示範，但<strong>不要買陶器</strong>。伴手禮留到 11/07 伊斯坦堡超市。', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'done no',
      sight:{zh:'Avanos 與紅河', en:'Kızılırmak River', img:'avanos.jpg', d:'以陶藝聞名的小鎮，土耳其最長的河 Kızılırmak（紅河）從鎮中穿過，紅色的河泥就是製陶的原料。可以看陶藝示範，但<strong>不要買陶器</strong>——當天要接托運只有 15kg 的國內線。'},
     },
-    {time:'14:25<br>–14:35', act:'→ Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan), sc:'done no'},
-    {time:'14:35<br>–15:20', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 45 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true, sc:'done no',
+    {time:'14:00<br>–14:10', act:'🚘 → Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'採用 10 分（實查 7 分）、7 km，在 Avanos 正東、往 ASR 方向。', tags:['car:10 分'], map:drv(P.avanos,P.sarihan), sc:'done no'},
+    {time:'14:10<br>–15:10', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 60 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。', hi:true, sc:'done no',
      sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。'},
     },
-    {time:'15:20<br>–16:25', act:'→ Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:35 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr), sc:'done no'},
-    {time:'16:25<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。', sc:'done no'},
+    {time:'15:10<br>–16:15', act:'🚘 → Kayseri Airport ASR', note:'採用 1h05（實查 53 分）、60.5 km，<strong>中途加油</strong>。⚠️ <strong>15:25 是離開 Sarı Han 的硬性上限。</strong>加油要在路上完成，不要留到機場。', tags:['car:1h05','lock:15:35 上限'], map:drv(P.sarihan,P.asr), sc:'done no'},
+    {time:'16:15<br>–16:45', act:'AVEC 還車、驗車', note:'確認號 637534354。18:40 起飛，<strong>16:45 前要完成還車與驗車</strong>。', sc:'done no'},
     {time:'16:45<br>起', act:'報到、安檢、候機', sc:'done no'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', note:'訂位代號 TB5RZM。', sc:'done no'},
     {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客。晚上避免拖行李搭多段大眾交通。', hi:true, sc:'done no'},
     {time:'04:00<br>–04:40', act:'起床、著裝', note:'清晨很冷，帶保暖外套。', sc:'fly'},
-    {time:'04:40<br>–06:00', act:'Discovery Balloons 到 Gamirasu 接', note:'<strong>已向業者確認可接 Ayvalı</strong>。前一天跟司機再確認一次。', hi:true, sc:'fly'},
+    {time:'04:40<br>–06:00', act:'Discovery Balloons 到 Henna 接', note:'Göreme 鎮中心是標準接送範圍，<strong>不用特別安排</strong>。前一天跟司機再確認一次。', hi:true, sc:'fly'},
     {time:'06:00<br>–07:30', act:'格雷梅日出熱氣球飛行', hi:true, sc:'fly'},
-    {time:'07:30<br>–09:00', act:'香檳、證書、送回 Gamirasu', sc:'fly'},
-    {time:'09:00<br>–12:30', act:'Gamirasu 早餐、泳池與露台、補眠', note:'04:00 起床後的 3.5 小時飯店時間正好補回來一半。12:30 退房。', sc:'fly'},
-    {time:'12:30<br>–13:10', act:'→ Sarı Han 商隊驛站 Sarıhan Caravanserai', note:'<strong>今天跳過 Avanos</strong>，直達 24.8 km，比繞去 Avanos 還近一點。', hi:true, tags:['car:🚘 40 分'], sc:'fly', map:drv(P.gamirasu,P.sarihan)},
-    {time:'13:10<br>–14:10', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 60 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付。', hi:true, sc:'fly',
+    {time:'07:30<br>–09:00', act:'香檳、證書、送回 Henna', sc:'fly'},
+    {time:'09:00<br>–12:00', act:'Henna 早餐、補眠、整理行李', note:'04:00 起床後的 3 小時飯店時間正好補回來一半。退房 12:00。', sc:'fly'},
+    {time:'12:00<br>–12:15', act:'🚘 → Avanos', note:'Göreme 出發只要 12 分，<strong>補飛日也不用跳過 Avanos 了</strong>（原本從 Ayvalı 出發要 34 分才跳過）。', tags:['car:🚘 12 分'], map:drv(P.henna,P.avanos), sc:'fly'},
+    {time:'12:15<br>–13:30', act:'Avanos 午餐 + 紅河河邊散步', note:'比主線短 30 分。<strong>不要買陶器。</strong>', hi:true, tags:['eat:午餐','⚠️ 不買陶器'], sc:'fly'},
+    {time:'13:30<br>–13:40', act:'🚘 → Sarı Han 商隊驛站 Sarıhan Caravanserai', tags:['car:🚘 10 分'], map:drv(P.avanos,P.sarihan), sc:'fly', map:drv(P.henna,P.sarihan)},
+    {time:'13:40<br>–14:40', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai 60 分', note:'1249 年的塞爾柱商隊旅館。每天 09:00－18:00，門票金額很小、現場付。', hi:true, sc:'fly',
      sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。每天 09:00－18:00，門票金額很小、現場付；有冬季用的室內大廳。'},
     },
-    {time:'14:10<br>–15:15', act:'→ Kayseri Airport ASR', note:'60.5 km，<strong>中途加油</strong>。比主線早 1 小時到機場。', tags:['car:🚘 1h05'], sc:'fly', map:drv(P.sarihan,P.asr)},
-    {time:'15:15<br>–16:45', act:'ASR 吃東西、還車、驗車', note:'確認號 637534354。跳過 Avanos 省下的時間拿來在機場吃飯。', sc:'fly'},
+    {time:'14:40<br>–15:45', act:'🚘 → Kayseri Airport ASR', note:'60.5 km，<strong>中途加油</strong>。比主線早 30 分到機場。', tags:['car:🚘 1h05'], sc:'fly', map:drv(P.sarihan,P.asr)},
+    {time:'15:45<br>–16:45', act:'ASR 還車、驗車、候機', note:'確認號 637534354。', sc:'fly'},
     {time:'16:45<br>起', act:'報到、安檢、候機', sc:'fly'},
     {time:'18:40<br>–20:20', act:'TK2017 ASR → IST', tags:['TB5RZM'], sc:'fly'},
     {time:'20:20<br>起', act:'Klook 接機 → Basilissis Hotel', note:'已訂，經濟車型 4 人座、2 位乘客。', hi:true, sc:'fly'},
     {time:'退款', act:'申請熱氣球全額退款', note:'沒飛成就會走到這步——業者明說隔天客滿就直接全額退款。<strong>保留取消通知截圖</strong>，用 GetYourGuide App 對訂單 GYG7VKXLW35L 確認退款。', hi:true, tags:['⚠️ 別忘了'], sc:'no'},
-    {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.gamirasu,P.asr,[P.mustafapasa,P.urgup])}
+    {time:'雨天', act:'跳過 Avanos 與 Sarı Han', note:'改 Mustafapaşa 30 分短停 + Ürgüp 午餐 → ASR。', map:drv(P.henna,P.asr,[P.mustafapasa,P.urgup])}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
 },
@@ -938,14 +941,13 @@ var DATA=[
 /* ---------------- 統計明細 ---------------- */
 var PANELS={
   stay:{
-    title:'4 段住宿', note:'全部已訂',
+    title:'3 段住宿', note:'全部已訂',
     rows:[
       {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'棉堡村 · 1 晚',
        em:'Agoda · 雙人房 · 入住 11:00／退房 11:00'},
-      {k:'11/01–11/03', b:'Grand Elite Cave Suites', i:'Göreme · 2 晚',
-       em:'Booking · 雙人房 · 入住 14:00–00:00／退房 11:00 · 熱氣球與駱駝都在這裡接送'},
-      {k:'11/03–11/04', b:'Gamirasu Cave Hotel', i:'Ayvalı／Ürgüp · 1 晚',
-       em:'Hotels · 雙人房 · 入住 14:00／退房 12:30 · <em>入住時付款</em>'},
+      {k:'11/01–11/04', b:'Henna Hotel - Adults Only', i:'Göreme 鎮中心 · <em>連住 3 晚</em>',
+       em:'Trip.com 1616333679658299 · 豪華房 1 張大床 · 含早餐 · 入住 14:00–00:00／退房 12:00 · 熱氣球與駱駝都在這裡接送 · Konak Sk. no:2/A',
+       w:'11/01 是 00:45 才到，超過 00:00 的入住時間，要先通知飯店'},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
        em:'Hotels · 雙床房 · 入住 14:00／退房 12:00'}
     ]
@@ -986,14 +988,14 @@ var PANELS={
   /* 體驗、門票、餐廳訂位。訂好後把 todo 拿掉、補上訂單編號 */
   other:{
     rows:[
-      {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Grand Elite 接送',
+      {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Henna Hotel 接送',
        w:'停飛不會自動順延，當下要問業者隔天有沒有位子；客滿就是全額退款'},
-      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Grand Elite 接送',
+      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Hotel 接送',
        w:'票券在 10/30 扣款成功後才會出現在 GetYourGuide App'},
       {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant'},
       {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge'},
-      {k:'11/03 18:00', tag:'餐廳', todo:true, b:'Gamirasu Cave Hotel 餐廳', i:'2 人 · 不含在房價內，另外付費',
-       em:'餐廳 18:00–22:00 · à la carte 加套餐、可配酒 · 素食可事先講'},
+      {k:'11/03 18:00', tag:'餐廳', todo:true, b:'Göreme 鎮上晚餐', i:'2 人 · 尚未定店',
+       em:'改住 Henna 後 11/03 晚上在 Göreme 鎮中心，走路就有選擇'},
       {k:'11/06 上午', tag:'門票', todo:true, b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
        em:'門票只含 2 樓，1 樓為禮拜區',
        w:'週五中午禮拜時段不對非禮拜者開放；注意服裝規定'},
