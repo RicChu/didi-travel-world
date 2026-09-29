@@ -69,8 +69,7 @@
 | A1 | [**Henna → Paşabağ 蘑菇谷**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6770053,34.8549063&travelmode=driving) | **15 分**（實測 9.8 分 / 6.9 km） | 10:10 出發、10:25 到，逛到 11:15。最經典的多頭精靈煙囪，平地好走 |
 | A2 | [**Paşabağ → Zelve 露天博物館**](https://www.google.com/maps/dir/?api=1&origin=38.6770053,34.8549063&destination=38.6657426,34.8652932&travelmode=driving) | **5 分**（實測 3.9 分 / **1.8 km**） | 11:15 出發、11:20 到，逛到 12:10。廢棄洞穴村，人比 Göreme 露天博物館少很多。✅ **官方是同一個景點「ZELVE-PAŞABAĞLAR」，票在 Paşabağ 買一次就通用**（€12），**每天開、08:00 開門** |
 | A3 | [**Zelve → Göreme Open Air Museum**](https://www.google.com/maps/dir/?api=1&origin=38.6657426,34.8652932&destination=38.6390591,34.8455787&travelmode=driving) | **20 分** | 12:10 出發、12:30 進館，逛到 14:00 |
-| A4 | [**Göreme Open Air Museum → Seten Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.6390591,34.8455787&destination=38.6412661,34.8257096&travelmode=driving) | **10 分** | 14:00 出發、14:10 到，午餐吃到 15:30 |
-| A5 | [**Seten Restaurant → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6412661,34.8257096&destination=38.642261,34.828308&travelmode=driving) | **5 分** | 15:30 出發、15:35 到，車停飯店等 16:00 駱駝接送 |
+| A4 | [**Göreme Open Air Museum → Henna（鎮上午餐）**](https://www.google.com/maps/dir/?api=1&origin=38.6390591,34.8455787&destination=38.642261,34.828308&travelmode=driving) | **10 分** | 14:00 出發、14:10 到 | 回鎮上吃午餐，車停飯店；⚠️ 午餐尚未定店 |
 | A2′ | **備援（幾乎不會用到）**：[Zelve → Devrent 想像谷](https://www.google.com/maps/dir/?api=1&origin=38.6657426,34.8652932&destination=38.6750753,34.8843370&travelmode=driving) | **6 分**（實測 5.8 分 / 4.4 km） | ✅ **Zelve 開放時間已官方查證（每天開、08:00 開門），原本的「怕沒開」風險已解除**，這條保留純粹當保險：真的遇到臨時封閉就往東開去 Devrent，逛 45 分，再走 [Devrent → Henna](https://www.google.com/maps/dir/?api=1&origin=38.6750753,34.8843370&destination=38.642261,34.828308&travelmode=driving)（**20 分**，實測 14.7 分 / 12 km），一樣 12:05 前回鎮上。**先寫好就不算現場決策** |
 | — | Zelve 正常開的話**不加** Devrent | — | 行程夠滿了，加了會變成「要不要再跑一個」的現場決策 |
 
@@ -87,6 +86,13 @@
 |---|------|------|----------|
 | W1 | [**Henna → Topdeck Cave Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6417558,34.8276558&travelmode=walking) | **步行 4 分**（約 0.3 km） | ✅ 已訂位 **18:30**、2 人 |
 | W2 | [**Topdeck Cave → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6417558,34.8276558&destination=38.642261,34.828308&travelmode=walking) | **步行 4 分** | 20:15 走回，天黑後不用開車，兩人都能喝酒 |
+
+**晚餐（步行，不自駕）**
+
+| # | 段落（點到點） | 時間 | 判斷重點 |
+|---|------|------|----------|
+| W1 | [**Henna → Seten Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6412661,34.8257096&travelmode=walking) | **步行 8 分**（約 630 m） | 17:30 到。⚠️ **不接受訂位**，官方建議日落（17:40）前到 |
+| W2 | [**Seten → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6412661,34.8257096&destination=38.642261,34.828308&travelmode=walking) | **步行 8 分** | 走回去，天黑後不用開車 |
 
 ### 11/03（二）Henna → Kaymaklı → 鴿子谷 → Uçhisar → 回 Henna
 

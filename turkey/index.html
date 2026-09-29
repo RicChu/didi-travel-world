@@ -503,7 +503,7 @@ var P={
   /* 卡帕多奇亞 */
   henna:'38.642261,34.828308',        /* Henna Hotel — 11/01–11/04 連住 3 晚，Göreme 鎮中心 */
   goreme:'38.6390591,34.8455787',
-  seten:'38.6412661,34.8257096',      /* Seten Restaurant Cappadocia — 11/02 午餐 */
+  seten:'38.6412661,34.8257096',      /* Seten Restaurant Cappadocia — 11/03 晚餐 */
   topdeck:'38.6417558,34.8276558',    /* Topdeck Cave Restaurant — 11/02 晚餐 */
   kaymakli:'38.4599265,34.7524882',
   pigeon:'38.6320754,34.8152333',
@@ -666,19 +666,8 @@ var DATA=[
       {time:'12:10<br>–14:00', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。每天開、08:00 開門。'},
     },
-      {time:'14:10<br>–15:30', act:'🍛 Seten Restaurant Cappadocia', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.seten),
-       eatery:{name:'Seten Restaurant Cappadocia', en:'Göreme · 安納托利亞料理', img:'seten-terrace.jpg',
-         d:'不接受訂位，離飯店走路約10分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
-         dishes:[
-           ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
-           ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
-           ['🥉','芝麻醬舒芙蕾 <b>Tahini Soufflé</b>','留胃給它。當天若有 Apricot Parfait，兩個擇一'],
-           ['４','傳統燉肉 <b>Mutancana</b>','古老的安納托利亞菜，肉配果乾堅果與甜酸醬，跟 kebab 完全不同'],
-           ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
-           ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
-         ]},
-       map:pin(P.seten)},
-      {time:'15:30<br>–17:40', act:'🚘 → 回飯店 · 駱駝騎乘之旅', hi:true, tags:['car:🚘 5 分','含飯店接送'], map:drv(P.seten,P.henna),
+      {time:'14:10<br>–15:30', act:'🍛 Göreme 鎮上午餐', note:'博物館出來後回鎮上簡單吃 ⚠️ 尚未定店。晚上還有 18:30 的 Topdeck，中午不用吃太重。', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.henna)},
+      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', note:'午餐後就在鎮上，16:00 接送來飯店接。', hi:true, tags:['含飯店接送'],
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg'},
     },
       {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.henna,P.topdeck),
@@ -690,7 +679,7 @@ var DATA=[
            ['🥉','羊肉串 / 羊肉料理','兩人都吃羊就再加一份；不想重複改點牛肉'],
            ['４','每日自製甜點','現場問當天供應什麼，南瓜甜點或米布丁類都可以試']
          ]}},
-      {time:'20:45<br>以後', act:'回飯店休息', map:wlk(P.topdeck,P.henna)},
+      {time:'20:15<br>以後', act:'走回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
   ],
   stay:{name:'Henna Hotel', note:'續住第 2 晚'}
@@ -709,7 +698,7 @@ var DATA=[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['卡帕多奇亞綠線','連住第 3 晚 · 不用搬家','行李整天不用動'],
+  facts:['卡帕多奇亞綠線','連住第 3 晚'],
   groups:[
     {label:'清晨 · 已經飛過或沒飛', sub:'睡飽，08:00 早餐', sc:'done no', rows:[
       {time:'08:00<br>–09:00', act:'飯店早餐', tags:['eat:早餐'],
@@ -745,7 +734,7 @@ var DATA=[
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。'},
     },
       {time:'15:05<br>–15:15', act:'🚘 → 回 Henna Hotel', note:'Uçhisar → Göreme 鎮中心只要 <strong>6 分、3.8 km</strong>。<strong>今天不用搬家</strong>，行李三天都在房間。', hi:true, tags:['car:🚘 6 分'], map:drv(P.uchisar,P.henna)},
-      {time:'15:15<br>–18:00', act:'鎮上散步、屋頂露台休息', note:'連住第三晚，原本用來搬家的時間空出來了。'}
+      {time:'15:15<br>–17:30', act:'鎮上散步、屋頂露台休息', note:'連住第三晚，原本用來搬家的時間空出來了。17:30 走去 Seten 吃晚餐。'}
     ]},
     {label:'綠線自駕', sub:'補飛版 · 09:30 出發，不上 Uçhisar 城堡', alt:true, sc:'fly', rows:[
       {time:'09:30<br>–11:35', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', note:'採用 35 分、32 km，10:05 到。<strong>每天開、08:00 開門。</strong>通道低矮，穿好走的鞋。', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
@@ -765,12 +754,45 @@ var DATA=[
          ]},
       },
       {time:'14:00<br>–14:10', act:'🚘 → 回 Henna Hotel', note:'<strong>今天不上 Uçhisar 城堡</strong>——04:00 就起床了。Uçhisar → Göreme 只要 6 分。', hi:true, tags:['car:🚘 6 分'], map:drv(P.uchisar,P.henna)},
-      {time:'14:10<br>–18:00', act:'回房補眠、屋頂露台', note:'04:00 起床，下午補回來。'}
+      {time:'14:10<br>–17:30', act:'回房補眠、屋頂露台', note:'04:00 起床，下午補回來。17:30 走去 Seten 吃晚餐。'}
     ]},
     {label:'晚上 · Göreme 鎮上', rows:[
-      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐', note:'連住 Henna，走路就有選擇。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐'], sc:'done'},
-      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐、早睡', note:'若已確認明天補飛就 <strong>22:00 前睡</strong>，04:00 要起床。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐','lock:22:00 前睡'], sc:'no'},
-      {time:'18:00<br>起', act:'🍛 Göreme 鎮上晚餐', note:'飛完了，今晚可以放鬆。⚠️ 尚未定店。', hi:true, tags:['eat:晚餐'], sc:'fly'},    ]}
+      {time:'17:30<br>起', act:'🍛 Seten Restaurant Cappadocia', note:'走路 8 分鐘。<strong>不接受訂位</strong>，建議日落（17:40）前到，露台位子才搶得到。', hi:true, tags:['car:🚶 步行 8 分','eat:晚餐','⚠️ 不接受訂位'], sc:'done',
+       eatery:{name:'Seten Restaurant Cappadocia', en:'Çakmaklı Sk. No:40, Göreme · 安納托利亞料理', hours:'每天 12:30–22:30', img:'seten-terrace.jpg',
+         d:'米其林指南收錄。蔬果來自自家菜園，連酒都自己釀。<strong>不接受訂位</strong>，走進去候位；官方建議<strong>日落前到</strong>（11/03 日落 17:40）。離 Henna 走路約 8 分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
+         dishes:[
+           ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
+           ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
+           ['🥉','芝麻醬舒芙蕾 <b>Tahini Soufflé</b>','留胃給它。當天若有 Apricot Parfait，兩個擇一'],
+           ['４','傳統燉肉 <b>Mutancana</b>','古老的安納托利亞菜，肉配果乾堅果與甜酸醬，跟 kebab 完全不同'],
+           ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
+           ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
+         ]},
+       map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
+      {time:'17:30<br>起', act:'🍛 Seten Restaurant Cappadocia、早睡', note:'走路 8 分鐘、<strong>不接受訂位</strong>，日落前到。', hi:true, tags:['car:🚶 步行 8 分','eat:晚餐','lock:22:00 前睡'], sc:'no',
+       eatery:{name:'Seten Restaurant Cappadocia', en:'Çakmaklı Sk. No:40, Göreme · 安納托利亞料理', hours:'每天 12:30–22:30', img:'seten-terrace.jpg',
+         d:'米其林指南收錄。蔬果來自自家菜園，連酒都自己釀。<strong>不接受訂位</strong>，走進去候位；官方建議<strong>日落前到</strong>（11/03 日落 17:40）。離 Henna 走路約 8 分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
+         dishes:[
+           ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
+           ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
+           ['🥉','芝麻醬舒芙蕾 <b>Tahini Soufflé</b>','留胃給它。當天若有 Apricot Parfait，兩個擇一'],
+           ['４','傳統燉肉 <b>Mutancana</b>','古老的安納托利亞菜，肉配果乾堅果與甜酸醬，跟 kebab 完全不同'],
+           ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
+           ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
+         ]},
+       map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
+      {time:'17:30<br>起', act:'🍛 Seten Restaurant Cappadocia', note:'走路 8 分鐘、<strong>不接受訂位</strong>，日落前到。飛完了，今晚可以放鬆。', hi:true, tags:['car:🚶 步行 8 分','eat:晚餐'], sc:'fly',
+       eatery:{name:'Seten Restaurant Cappadocia', en:'Çakmaklı Sk. No:40, Göreme · 安納托利亞料理', hours:'每天 12:30–22:30', img:'seten-terrace.jpg',
+         d:'米其林指南收錄。蔬果來自自家菜園，連酒都自己釀。<strong>不接受訂位</strong>，走進去候位；官方建議<strong>日落前到</strong>（11/03 日落 17:40）。離 Henna 走路約 8 分鐘。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
+         dishes:[
+           ['🥇','卡帕多奇亞羊肉餃 <b>Cappadocian Ravioli / Mantı</b>','小型土耳其餃配羊肉、優格與香料，米其林指南也點名。只能選一道就選這個'],
+           ['🥈','陶罐烤肉 <b>Testi Kebab</b>','人在卡帕多奇亞至少要吃一次；這家的版本比一般觀光餐廳正式'],
+           ['🥉','芝麻醬舒芙蕾 <b>Tahini Soufflé</b>','留胃給它。當天若有 Apricot Parfait，兩個擇一'],
+           ['４','傳統燉肉 <b>Mutancana</b>','古老的安納托利亞菜，肉配果乾堅果與甜酸醬，跟 kebab 完全不同'],
+           ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
+           ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
+         ]},
+       map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},    ]}
   ],
   stay:{name:'Henna Hotel', note:'續住第 3 晚，不用搬家'}
 },
@@ -1008,8 +1030,9 @@ var PANELS={
        w:'票券在 10/30 扣款成功後才會出現在 GetYourGuide App'},
       {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant'},
       {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge'},
-      {k:'11/03 18:00', tag:'餐廳', todo:true, b:'Göreme 鎮上晚餐', i:'2 人 · 尚未定店',
-       em:'改住 Henna 後 11/03 晚上在 Göreme 鎮中心，走路就有選擇'},
+      {k:'11/03 17:30', tag:'餐廳', b:'Seten Restaurant Cappadocia', i:'2 人 · <em>不接受訂位</em>',
+       em:'Çakmaklı Sk. No:40, Göreme · 每天 12:30–22:30 · 米其林指南收錄 · Henna 走路 8 分',
+       w:'不收訂位，走進去候位；官方建議日落（17:40）前到'},
       {k:'11/06 上午', tag:'門票', todo:true, b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
        em:'門票只含 2 樓，1 樓為禮拜區',
        w:'週五中午禮拜時段不對非禮拜者開放；注意服裝規定'},
