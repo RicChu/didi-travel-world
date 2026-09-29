@@ -53,3 +53,5 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `topdeck-cave.jpg` | 11/02 Topdeck Cave Restaurant 餐廳卡片 | 使用者於 2026-08-31 提供 |
 | `seki-terrace.jpg` | 11/03 Seki Restaurant & Lounge 餐廳卡片 | 使用者於 2026-09-24 提供 |
 | `henna-breakfast.jpg` | 11/02–11/04 Henna Hotel 屋頂早餐卡片 | 使用者於 2026-09-25 提供 |
+| `mustafapasa.jpg` | 11/04 Mustafapaşa 希臘石屋村說明卡 | 使用者於 2026-09-29 提供 |
+| `guray-muze.jpg` | 11/04 Güray Müze 地下陶藝博物館說明卡 | 使用者於 2026-09-29 提供 |
