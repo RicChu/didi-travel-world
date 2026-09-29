@@ -671,7 +671,7 @@ var DATA=[
     },
       {time:'14:10<br>–15:30', act:'🍛 Göreme 鎮上午餐', note:'博物館出來後回鎮上簡單吃 ⚠️ 尚未定店。晚上還有 18:30 的 Topdeck，中午不用吃太重。', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.henna)},
       {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', note:'午餐後就在鎮上，16:00 接送來飯店接。', hi:true, tags:['含飯店接送'],
-     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg'},
+     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'GetYourGuide 訂單 GYG996XFQRWK。Henna 接送，騎乘約 60 分，路線含紅色山谷與玫瑰谷。結束後送回飯店。'},
     },
       {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.henna,P.topdeck),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
@@ -691,11 +691,11 @@ var DATA=[
 /* ========== DAY 05 · 11/03 ========== */
 {
   day:5, date:'11/03', week:'二', theme:'turq',
-  title:'🕳️ 地下城與鴿子谷｜往地底八層、往岩頂制高點',
+  title:'🕳️ 烏奇薩 Uçhisar｜地底八層與岩頂制高點',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:4, fatigueText:'補飛 高 · 其他 中高',
   img:'uchisar-castle.jpg', cap:'烏奇薩 · 城堡與鴿子谷',
-  lead:'鑿進地底八層的避難城市、谷壁上滿是鴿子洞的山谷，還有整塊巨岩挖成的城堡——這天把卡帕多奇亞往地下和往高處的兩個方向都走過一次。',
+  lead:'鑿進地底八層的避難城市、谷壁布滿鴿子洞的山谷，還有整塊巨岩掏空而成的城堡，把卡帕多奇亞往下與往上的兩個極端一次走完。',
   sw:{label:'熱氣球', def:'no', opts:[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
@@ -790,19 +790,19 @@ var DATA=[
 /* ========== DAY 06 · 11/04 ========== */
 {
   day:6, date:'11/04', week:'三', theme:'terra',
-  title:'Avanos · Sarı Han → 回伊斯坦堡',
-  status:'待微調', statusCls:'none',
+  title:'🏺 阿瓦諾斯 Avanos｜紅河陶土與絲路驛站',
+  status:'✅ 已定版', statusCls:'fixed',
   fatigue:3, fatigueText:'中高 · 今天飛的話高',
   img:'sarihan-caravanserai.jpg', cap:'Sarı Han 商隊驛站 · 1249 年',
-  lead:'早餐後 10:00 退房出發，一路往南再往北再往東：<strong>希臘石屋村 → 地下陶藝博物館 → 塞爾柱商隊驛站</strong>。熱氣球有沒有補飛都走同一條路線，只差早上幾點起床。',
+  lead:'希臘人留下的石屋村、紅河岸邊燒了千年的陶土小鎮，還有 1249 年的塞爾柱商隊旅館，在飛回伊斯坦堡前走完卡帕多奇亞的最後一段。',
   sw:{label:'熱氣球', def:'no', opts:[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['⚠️ 行李在車上 5 小時','⚠️ 15:00 離開 Sarı Han'],
+  facts:['⚠️ 行李在車上 5 小時','自駕約兩小時','回伊斯坦堡'],
   groups:[
     {label:'清晨 · 今天沒飛', sub:'睡飽，09:00 早餐', sc:'no', rows:[
-      {time:'09:00<br>–10:00', act:'飯店早餐', note:'睡飽再吃，吃完直接退房出發（行李前一晚已收好）。', tags:['eat:早餐'],
+      {time:'09:00<br>–10:00', act:'飯店早餐', tags:['eat:早餐'],
          eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價', img:'henna-breakfast.jpg', pos:'50% 45%',
            d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
@@ -810,7 +810,7 @@ var DATA=[
       {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['含飯店接送','茶點','香檳'],
        sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'Cappadocia Discovery Balloons，訂單 GYG7VKXLW35L。接送點 Henna，Göreme 鎮中心是標準接送範圍。'},
       },
-      {time:'08:30<br>–09:30', act:'飯店早餐', note:'熱氣球 08:30 結束就直接吃，09:30～10:00 打包退房。', tags:['eat:早餐'],
+      {time:'08:30<br>–09:30', act:'飯店早餐', tags:['eat:早餐'],
          eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心 · 已含在房價', img:'henna-breakfast.jpg', pos:'50% 45%',
            d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
@@ -831,7 +831,7 @@ var DATA=[
       },
       {time:'14:25<br>–16:15', act:'🚘 → Kayseri Airport 開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:drv(P.sarihan,P.asr)},
       {time:'18:40<br>–20:20', act:'✈️ 開塞利(ASR) → 伊斯坦堡(IST)', tags:['TK2017', '18:40 → 20:20','訂位代號 TB5RZM']},
-      {time:'20:20<br>起', act:'🚖 IST → Basilissis Hotel', note:'⚠️ <strong>原本的 Klook 接機已取消，交通待重訂。</strong>選項：機場排班計程車 / BiTaksi / Uber（約 45–90 分，依塞車）；或 Havaist 機場巴士到舊城再轉一小段。<strong>深夜拖兩個大行李，不建議多段轉乘。</strong>', hi:true, tags:['⚠️ 交通待訂'], map:[[null,drv(P.ist,P.basilissis)],['大眾運輸路線',trn(P.ist,P.basilissis)]]}
+      {time:'20:20<br>起', act:'🚖 → Basilissis Hotel', hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
@@ -927,14 +927,14 @@ var DATA=[
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
   img:'topkapi-palace.jpg', cap:'Topkapı 皇宮 · 崇敬之門',
-  lead:'不安排遠點，保留一個舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，<strong>13:00 出發前往機場</strong>，目標 14:30 前到 IST。⚠️ 機場交通已取消 Klook，待重訂。今天不安排購物。',
+  lead:'不安排遠點，保留一個舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，<strong>13:00 出發前往機場</strong>，目標 14:30 前到 IST。送機司機 13:00 到飯店。今天不安排購物。',
   facts:['Topkapi 週日 09:00 開','⚠️ 13:00 送機不延後','不退稅'],
   rows:[
     {time:'08:15<br>–08:45', act:'飯店附近輕早餐、退房寄放行李', note:'行李前一晚已整理好，早上只帶小包出門。不要吃太慢。', tags:['eat:輕早餐']},
     {time:'09:00<br>–10:45', act:'Topkapı 皇宮 Topkapı Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。', hi:true, map:wlk(P.basil,P.topkapi)},
     {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.topkapi,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.topkapi,P.lunchB)]]},
     {time:'12:10<br>–13:00', act:'回飯店拿行李、準備出發', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>⚠️ 交通方式待定，若叫車要留叫車時間。', map:wlk(P.lunchA,P.basil)},
-    {time:'13:00<br>–14:30', act:'Basilissis Hotel → Istanbul Airport', note:'⚠️ <strong>原本的 Klook 送機已取消，交通待重訂。</strong>依塞車約 45－90 分。<strong>13:00 不再往後延</strong>；回程日不搭多段大眾交通。', hi:true, tags:['lock:13:00 不延後']},
+    {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', note:'Trip.com 送機已訂，51 公里約 52 分。⚠️ <strong>免費等候只有 15 分鐘</strong>，13:00 要在飯店門口等車，不要讓司機找人。<strong>13:00 不再往後延。</strong>', hi:true, tags:['lock:13:00 不延後','Trip.com 送機']},
     {time:'14:30<br>起', act:'報到、安檢、出境、登機', note:'預留 2.5－3 小時。<strong>不退稅。</strong>'},
     {time:'17:15', act:'安安 TK124 IST → 桃園', note:'11/09 08:45 抵達。'},
     {time:'18:30', act:'豬豬 TK208 IST → 樟宜'},
@@ -990,12 +990,14 @@ var PANELS={
        i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
        em:'目標 14:30 前抵達 IST'}
     ],
-    sub:'機場往返市區（⚠️ 原 Klook 接送已取消，待重訂）',
+    sub:'機場往返市區',
     subRows:[
-      {k:'11/04', b:'IST → Basilissis Hotel', i:'20:20 抵達後出發',
-       w:'交通方式待定：計程車 / BiTaksi / Uber，或 Havaist 巴士。深夜拖行李不建議多段轉乘'},
-      {k:'11/08', b:'Basilissis Hotel → IST', i:'13:00 出發，車程 45–90 分',
-       w:'交通方式待定；13:00 不可延後，目標 14:30 前到 IST'}
+      {k:'11/04 · KLOOK', b:'IST → Basilissis Hotel', i:'20:20 抵達後出發，車程 45－90 分',
+       em:'經濟車型 4 人座（最多 3 人 / 2 件行李）· 已綁定 TK2017 · 加購舉牌服務 · 免費取消至 11/03 20:20',
+       w:'司機自航班實際抵達時間起等候 60 分鐘；領完行李到接機大廳找舉牌'},
+      {k:'11/08 · TRIP.COM', b:'Basilissis Hotel → IST', i:'13:00 出發 · 51 公里、約 52 分 · 已綁定航班 TK124',
+       em:'Trip.com 訂單 1616334355549226 · 車行追蹤碼 88B5DYZ（UNITED INNOVATION）· 先乘後付 · 免費取消至 11/08 07:00',
+       w:'⚠️ 免費等候只有 15 分鐘——13:00 在飯店門口等車'}
     ]
   },
   car:{
@@ -1013,8 +1015,9 @@ var PANELS={
     rows:[
       {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Henna Hotel 接送',
        w:'停飛不會自動順延，當下要問業者隔天有沒有位子；客滿就是全額退款'},
-      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Hotel 接送',
-       w:'票券在 10/30 扣款成功後才會出現在 GetYourGuide App'},
+      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Konak Hotel 接送 · 騎乘約 60 分',
+       em:'GetYourGuide GYG996XFQRWK · 已付款',
+       w:'接送時間由業者於活動前 1–2 天聯絡；結束後送回原接送地點'},
       {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant'},
       {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge'},
       {k:'11/03 17:30', tag:'餐廳', b:'Seten Restaurant Cappadocia', i:'2 人 · <em>不接受訂位</em>',
@@ -1404,7 +1407,7 @@ function addCards(rows,cat,tag,cls,icon,metaSuffix){
 }
 addCards(PANELS.stay.rows,'stay','住宿','c-stay','⌂');
 addCards(PANELS.fly.rows,'fly','航班','c-fly','✦');
-addCards(PANELS.fly.subRows,'fly','接送','c-ride','⇄',' · KLOOK');
+addCards(PANELS.fly.subRows,'fly','接送','c-ride','⇄');
 addCards(PANELS.car.rows,'car','租車','c-car','◈');
 addCards(PANELS.other.rows,'other','','c-other','✧');
 (function(){

@@ -27,7 +27,7 @@
 |------|-------------|----------|----------|
 | 飛機端點 | [IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) / [ADB](https://www.google.com/maps/search/?api=1&query=Izmir%20Adnan%20Menderes%20Airport) | Istanbul Airport、Izmir Adnan Menderes Airport | 已訂 TK2320 11:00 IST → 12:10 ADB；這段靠航班，不用 Google Maps 車程判斷 |
 | ADB 取車後自駕去飯店 | [ADB → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=Izmir%20Adnan%20Menderes%20Airport&destination=37.9489789,27.3671724&travelmode=driving) | ADB、Pikan Ephesus | 表定 **1h20**（實算 49 分 / 62.7 km）。**先進飯店 check-in 放行李**，14:40 抵達、入住 15:00 |
-| 飯店 → 以弗所考古遺址 | [Pikan Ephesus → Ephesus Archaeological Site](https://www.google.com/maps/dir/?api=1&origin=37.9489789,27.3671724&destination=37.9355518,27.3461146&travelmode=driving) | Pikan Ephesus、以弗所考古遺址 | 表定 **10 分**（實算 5 分 / 3.7 km）。⚠️ **停在遺址入口旁的停車場**，比下入口好停；舊版「車停下入口 + 搭計程車上上入口」已作廢 |
+| 飯店 → 以弗所考古遺址 | [Pikan Ephesus → Ephesus Archaeological Site](https://www.google.com/maps/dir/?api=1&origin=37.9489789,27.3671724&destination=37.9355518,27.3461146&travelmode=driving) | Pikan Ephesus、以弗所考古遺址 | 表定 **10 分**（實算 5 分 / 3.7 km）。⚠️ **停在遺址入口旁的停車場**，比下入口好停 |
 | 以弗所步行環線（回到停車處） | [遺址入口 → 大劇院 → 塞爾蘇斯圖書館 → 哈德良神廟 → 音樂廳 → 回遺址入口](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9355518,27.3461146&waypoints=37.9410660,27.3426916%7C37.9392052,27.3409200%7C37.9385230,27.3420025%7C37.9368337,27.3449823&travelmode=walking) | 遺址入口、大劇院 Great Theatre、塞爾蘇斯圖書館 Library of Celsus、哈德良神廟 Temple of Hadrian、音樂廳 Odeon | 15:10～17:40，走完回到停車處。串起這幾點的主街是克里特斯街 Curetes Street。冬季 18:00 關門，17:40 前往出口移動 |
 | 以弗所 → 飯店 | [Ephesus Archaeological Site → Pikan Ephesus](https://www.google.com/maps/dir/?api=1&origin=37.9355518,27.3461146&destination=37.9489789,27.3671724&travelmode=driving) | 以弗所考古遺址、Pikan Ephesus | 表定 **10 分**（實算 5 分 / 3.5 km）。18:30 晚餐在飯店附近的 Selçuk 街上 |
 
@@ -53,7 +53,6 @@
 | Zelve 露天博物館 | `38.6657426, 34.8652932` | **11/02 上午（沒飛時）**，離 Paşabağ 只有 1.8 km |
 | Devrent 想像谷 | `38.6750753, 34.8843370` | 未排入，離 Zelve 4.4 km |
 | Uçhisar Castle | `38.6304425, 34.8053230` | 11/03 |
-| ~~Gamirasu Cave Hotel~~ | `38.5456235, 34.8705660` | **2026-09-25 作廢**，改住 Henna 連住三晚 |
 | **Henna Hotel - Adults Only** | `38.642261, 34.828308` | **11/01～11/04 連住三晚**，Göreme 鎮中心 Konak Sk. no:2/A |
 | Sarı Han 商隊驛站 | `38.7118040, 34.9091913` | 11/04 |
 | Kayseri Airport ASR | `38.7704, 35.4954` | 11/04 還車 |
@@ -78,7 +77,7 @@
 | # | 段落（點到點） | 車程 | 判斷重點 |
 |---|------|------|----------|
 | — | 熱氣球（接送，不自駕）：[Cappadocia Discovery Balloons](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Discovery%20Balloons) | — | 已訂 11/02 06:00，Henna 接送。飛了 = 04:30～08:30；沒飛 = 這格空著，睡飽後 09:30 早餐。兩條線都在 **10:10 出發**走 A1～A5 |
-| — | 駱駝（接送，不自駕，GetYourGuide `t486222`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Camel%20Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Henna 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
+| — | 駱駝（接送，不自駕，GetYourGuide `GYG996XFQRWK`）：[Cappadocia Camel Ride](https://www.google.com/maps/search/?api=1&query=Cappadocia%20Camel%20Ride) | — | **16:00 接送、騎乘約 16:20～17:20**，到 Henna 接。**11/02 日落 17:41**，整段騎乘都在黃金時段。含 Red / Rose（不含 Ortahisar），**自駕全程跳過**這幾點 |
 
 **晚餐（步行，不自駕）**
 
@@ -98,9 +97,9 @@
 
 > 路線是「**南下 → 北返 → 回鎮上**」：Göreme（中）→ **Kaymaklı（南，第一站）** → 鴿子谷 / Uçhisar（西，Göreme 後院）→ 回 Göreme。
 >
-> **✅ 2026-09-25 起改住 Henna 連住三晚，這天不用退房、不用寄放行李、不用折返。** 行李整天在房間，車上只放小包、水、零食。
+> **連住 Henna 三晚，這天不用退房、不用寄放行李、不用折返。** 行李整天在房間，車上只放小包、水、零食。
 >
-> 車程總計 **86 分**（35 + 40 + 5 + 6）。舊版要回頭拿行李再開 30 分去 Ayvalı，改成連住後那 35 分直接省掉。
+> 車程總計 **86 分**（35 + 40 + 5 + 6）。連住三晚，不用回頭拿行李、不用再開一段去別的飯店。
 
 | # | 段落（點到點） | 車程 | 時間 | 判斷重點 |
 |---|------|------|------|----------|
@@ -117,7 +116,7 @@
 
 ### 11/04（三）Henna → Avanos → Sarı Han 商隊驛站 → ASR → Istanbul
 
-> 目前狀態：已成形。**Avanos 陶藝與 Paşabağ 已取消**，改排 **Sarı Han 商隊驛站**（1249 年塞爾柱商隊旅館，離 Avanos 約 6～8 km、往 ASR 方向）。理由：陶藝重點是買陶器，而當天要先過一段托運僅 15kg 的國內線；Sarı Han 不增加行李，且補上全程唯一缺席的塞爾柱時期建築。航班 TK2017 ASR → IST 已開票。
+> 目前狀態：已成形。當天最後一個點是 **Sarı Han 商隊驛站**（1249 年塞爾柱商隊旅館，離 Avanos 約 6～8 km、往 ASR 方向），補上全程唯一缺席的塞爾柱時期建築。不安排陶藝購買，因為當天要接一段托運僅 15kg 的國內線。航班 TK2017 ASR → IST 已開票。
 >
 > 車程已實查（OSRM，並以已由 Google Maps 實測的 Avanos→ASR 校準）。Sarı Han 座標 38.7118, 34.90919，在 Avanos 正東 5.8 km、往 ASR 方向。開放 **每天 09:00–18:00**，無另列冬季時間。
 
@@ -150,7 +149,7 @@
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | 飛機端點 | [ASR Kayseri Airport](https://www.google.com/maps/search/?api=1&query=Kayseri%20Airport) / [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | ASR、IST | 已訂 TK2017 18:40 ASR → 20:20 IST；目標 16:30 完成還車 / 抵達航廈。⚠️ Rentalcars 訂單上的還車時間是 **19:00**，晚於起飛時間，需與 AVEC / Rentalcars 確認可提早還車 |
-| IST → Basilissis Hotel | [Istanbul Airport → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Istanbul%20Airport&destination=41.010415,28.978109&travelmode=driving) | IST、Basilissis Hotel | Klook 接機已訂：11/04 20:20，IST → Basilissis Hotel，經濟車型 4 人座，2 位乘客，實付 NT$1,620；抵達後依司機會合資訊上車 |
+| IST → Basilissis Hotel | [Istanbul Airport → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=Istanbul%20Airport&destination=41.010415,28.978109&travelmode=driving) | IST、Basilissis Hotel | Klook 接機已訂：11/04 20:20，IST → Basilissis Hotel，經濟車型 4 人座（最多 3 人 / 2 件行李），2 位乘客，已綁定 TK2017、含舉牌服務、免費等候 60 分鐘，實付 NT$1,630，免費取消至 11/03 20:20；領完行李到接機大廳找舉牌司機 |
 
 ### 11/05（四）Basilissis Hotel → Karakoy / Galata / Eminonu → Basilissis Hotel
 
@@ -179,7 +178,7 @@
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
 | Topkapi 早場 + 午餐收尾線 | [Basilissis Hotel → Topkapi Palace → 11/08 午餐主選 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.011344,28.983203%7C41.003864,28.978764&travelmode=walking) | Basilissis、Topkapi、午餐主選 | Topkapi 週日 09:00 開，早場只走短版，不排 Harem；午餐主選用使用者提供地圖連結，若不想再吃土耳其早餐則改備案連結 |
-| Basilissis Hotel → IST | [Basilissis Hotel → Istanbul Airport](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=Istanbul%20Airport&travelmode=driving) | Basilissis Hotel、IST | Klook 送機已訂：11/08 13:00，Basilissis Hotel → IST，經濟車型 4 人座，2 位乘客，實付 NT$1,620；不退稅，目標 14:30 前抵達 IST |
+| Basilissis Hotel → IST | [Basilissis Hotel → Istanbul Airport](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=Istanbul%20Airport&travelmode=driving) | Basilissis Hotel、IST | Trip.com 送機已訂（⚠️ 與接機不同平台）：11/08 13:00，Basilissis Hotel → IST，訂單 1616334355549226、車行追蹤碼 88B5DYZ（UNITED INNOVATION），已綁定 TK124，預估 51 km / 52 分，先乘後付 TWD 1,309，免費取消至 11/08 07:00；⚠️ 免費等候僅 15 分鐘；不退稅，目標 14:30 前抵達 IST |
 | 回程機場端點 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | IST | 11/08 建議 14:30 前抵達 IST；安安 17:15 起飛，豬豬 18:30 起飛 |
 
 
