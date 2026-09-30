@@ -559,8 +559,8 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', '22:00 → 05:40']},
-    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', '23:15 → 05:50']}
+    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', '22:00 → 隔日05:40']},
+    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', '23:15 → 隔日05:50']}
   ],
   stay:{name:'飛航中', note:''}
 },
@@ -956,11 +956,9 @@ var DATA=[
     {time:'09:00<br>–10:45', act:'Topkapı 皇宮 Topkapı Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。', hi:true, map:wlk(P.basil,P.topkapi)},
     {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.topkapi,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.topkapi,P.lunchB)]]},
     {time:'12:10<br>–13:00', act:'回飯店拿行李、準備出發', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>⚠️ 交通方式待定，若叫車要留叫車時間。', map:wlk(P.lunchA,P.basil)},
-    {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', note:'Trip.com 送機已訂，51 公里約 52 分。⚠️ <strong>免費等候只有 15 分鐘</strong>，13:00 要在飯店門口等車，不要讓司機找人。<strong>13:00 不再往後延。</strong>', hi:true, tags:['lock:13:00 不延後','Trip.com 送機']},
-    {time:'14:30<br>起', act:'報到、安檢、出境、登機', note:'預留 2.5－3 小時。<strong>不退稅。</strong>'},
-    {time:'17:15', act:'安安 TK124 IST → 桃園', note:'11/09 08:45 抵達。'},
-    {time:'18:30', act:'豬豬 TK208 IST → 樟宜'},
-    {time:'刪減', act:'若前一晚很晚睡或天氣差', note:'只保留 Topkapi 早場短版 + 午餐 / 外帶 + 回飯店拿行李，13:00 送機時間不延後。'}
+    {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['lock:等候15分鐘']},
+    {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', '17:15 → 隔日08:45']},
+    {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', '18:30 → 隔日10:00']},
   ],
   stay:{name:'機上', note:'TK124 17:15 IST／TK208 18:30 IST'}
 },
@@ -971,13 +969,12 @@ var DATA=[
   title:'抵達日',
   status:'無行程可排', statusCls:'none',
   fatigue:3, fatigueText:'中',
-  lead:'長途飛行抵達與回家整理，<strong>不安排需要體力的後續行程</strong>。',
-  facts:['安安 08:45 抵達桃園 T2'],
+  lead:'長途飛行抵達與回家整理。',
   rows:[
-    {time:'08:45', act:'安安 TK124 抵達桃園 T2'},
-    {time:'白天', act:'各自回家、整理行李', note:'回家只要拆箱。'}
+    {time:'08:45', act:'安安抵達桃園'},
+    {time:'10:00', act:'豬豬抵達樟宜'},
   ],
-  stay:{name:'回家', note:'TK124 08:45 抵達桃園 T2'}
+  stay:{name:'回家', note:''}
 }
 ];
 
