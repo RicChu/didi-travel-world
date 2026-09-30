@@ -64,3 +64,16 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `spice-bazaar.jpg` | 11/07 香料市集說明卡 | 使用者於 2026-09-30 提供 |
 | `hafiz-mustafa.jpg` | 11/05 Hafız Mustafa 1864 Beyazıt 餐廳卡 | 使用者於 2026-09-30 提供 |
 | `grand-bazaar.jpg` | 11/05 大巴札說明卡 | 使用者於 2026-09-30 提供 |
+| `dolmabahce.jpg` | 11/06 多爾瑪巴切皇宮說明卡 | 使用者於 2026-09-30 提供 |
+| `ortakoy.jpg` | 11/06 奧塔科伊清真寺說明卡 | 使用者於 2026-09-30 提供 |
+| `kumpir.jpg` | 11/06 奧塔科伊 kumpir 餐廳卡 | 使用者於 2026-09-30 提供 |
+| `suat-usta.jpg` | 11/06 Suat Usta Mersin Tantuni 餐廳卡 | 使用者於 2026-09-30 提供 |
+| `balik-durum.jpg` | 11/06 Balık Dürümcü Mehmet Usta 餐廳卡 | 使用者於 2026-09-30 提供 |
+| `taksim.jpg` | 11/06 塔克辛廣場 | 使用者於 2026-09-30 提供 |
+| `istiklal.jpg` | 11/06 獨立大街 | 使用者於 2026-09-30 提供 |
+| `cicek-pasaji.jpg` | 11/06 花市拱廊 Çiçek Pasajı | 使用者於 2026-09-30 提供 |
+| `st-antoine.jpg` | 11/06 聖安東尼教堂 | 使用者於 2026-09-30 提供 |
+| `hafiz-istiklal.jpg` | 11/06 Hafız Mustafa 1864 İstiklal | 使用者於 2026-09-30 提供 |
+| `galata-tower-street.jpg` | 11/06 加拉達塔 | 使用者於 2026-09-30 提供 |
+| `kizilkayalar.jpg` | 11/06 Kızılkayalar 濕漢堡 | 使用者於 2026-09-30 提供 |
+| `galata-bridge.jpg` | 11/06 加拉達橋夜景 | 使用者於 2026-09-30 提供 |

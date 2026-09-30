@@ -553,9 +553,11 @@ var P={
   ortakoy:'41.047287,29.026772',    /* 奧塔科伊 Büyük Mecidiye Camii */
   kabatas:'41.033870,28.994202',    /* Kabataş — T1 終點、F1 纜車下站、渡輪碼頭 */
   taksim:'41.037833,28.985017',     /* 塔克辛廣場 — 獨立大街北端 */
-  tunel:'41.025850,28.974059',      /* Tünel F2 纜車下站 — 獨立大街南端，加拉達塔旁 */
+  tunel:'41.025850,28.974059',
+  stAntoine:'41.032276,28.977198',  /* 聖安東尼教堂 Sent Antuan — İstiklal Cd. No:171 */
+  cicek:'41.034100,28.977921',      /* 花市拱廊 Çiçek Pasajı — İstiklal Cd. 上 */
+  kizil:'41.036177,28.984678',      /* Kızılkayalar 濕漢堡 — Sıraselviler Cd. 2/C，塔克辛廣場旁 */      /* Tünel F2 纜車下站 — 獨立大街南端，加拉達塔旁 */
   turyol:'41.018738,28.970381',     /* Turyol 碼頭 — 博斯普魯斯遊船，加拉達橋西側 */
-  queb:'41.005757,28.980491',      /* Queb Rooftop — Byzantium Hotel 頂樓，Akbıyık Cd. No:29；門牌不在 OSM，用街道座標 */
   lunchA:'41.003864,28.978764',     /* 11/08 午餐主選 Blu Ma'Cel Breakfast */
   lunchB:'41.004331,28.975324'      /* 11/08 午餐備案 Cuppa Espresso Bakery */
 };
@@ -873,13 +875,13 @@ var DATA=[
 {
   day:7, date:'11/05', week:'四', theme:'blue',
   title:'🏛️ 舊城核心｜聖索菲亞、地下水宮殿與大巴札',
-  status:'初版', statusCls:'draft',
+  status:'✅ 已定版', statusCls:'fixed',
   fatigue:2, fatigueText:'低中',
   img:'hagia-sophia.jpg', cap:'聖索菲亞 · Sultanahmet 廣場',
   lead:'一千五百年的巨大穹頂、藏在地面下的拜占庭蓄水池、兩萬片藍色磁磚的清真寺，還有一座蓋了五百年的室內市集——全部在飯店走得到的範圍裡。',
-  facts:['全程步行'],
+  facts:['全程步行', '部分景點需包住頭髮，要帶圍巾'],
   rows:[
-    {time:'08:20<br>–09:15', act:'🚶 → 藍色清真寺 Blue Mosque', note:'<strong>免門票</strong>。⚠️ 要脫鞋、女性需包頭巾（現場有借），禮拜時段暫停開放。今天是週四，不受週五限制。', hi:true, tags:['car:🚶 步行 10 分','停留 45 分','免費'], map:wlk(P.basil,P.blueMosque),
+    {time:'08:20<br>–09:15', act:'🚶 → 藍色清真寺 Blue Mosque', hi:true, tags:['car:🚶 步行 10 分','停留 45 分','免費'], map:wlk(P.basil,P.blueMosque),
      sight:{zh:'藍色清真寺', en:'Sultanahmet Camii', img:'blue-mosque.jpg', d:'1616 年落成，六座宣禮塔是它最好認的特徵。內部超過兩萬片藍色伊茲尼克磁磚，「藍色清真寺」的名字就是從這裡來的。就在聖索菲亞正對面，兩座建築隔著廣場對望。'},
     },
     {time:'09:20<br>–11:00', act:'🍛 🚶 → Seven Hills Restaurant', hi:true, tags:['car:🚶 步行 5 分','eat:早餐'],
@@ -893,7 +895,7 @@ var DATA=[
          ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
        ]},
      map:wlk(P.blueMosque,P.sevenHills)},
-    {time:'11:05<br>–12:45', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。注意服裝規則。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30'], map:wlk(P.sevenHills,P.hagia),
+    {time:'11:05<br>–12:45', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30'], map:wlk(P.sevenHills,P.hagia),
      sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。'},
     },
     {time:'12:50<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', hi:true, tags:['car:🚶 步行 2 分','停留 1h'], map:wlk(P.hagia,P.cistern),
@@ -927,26 +929,26 @@ var DATA=[
   facts:['⚠️ 週五上午清真寺不開放遊客','T1 + F1 纜車','多爾瑪巴切週一休'],
   rows:[
     {time:'08:30<br>–09:00', act:'飯店早餐', tags:['eat:早餐']},
-    {time:'09:00<br>–11:45', act:'🚋 → 多爾瑪巴切皇宮 Dolmabahçe Sarayı', note:'Gülhane 或 Sultanahmet 上車，坐 T1 到<strong>終點 Kabataş</strong>（25 分），再走 13 分。⚠️ <strong>09:00–17:30、週一休、售票口 17:00 關</strong>，博物館卡不適用。跟隊走固定路線，兩小時剛好。', hi:true, tags:['car:🚋 T1 25 分 + 步行 13 分','停留 2h','⚠️ 博物館卡不適用'], map:[[null,trn(P.basil,P.kabatas)],['步行路線 · Kabataş → 多爾瑪巴切',wlk(P.kabatas,P.dolmabahce)]],
-     sight:{zh:'多爾瑪巴切皇宮', en:'Dolmabahçe Palace', d:'1856 年取代托卡比的新皇宮，巴洛克加新古典，285 個房間。看點是室內——<strong>4.5 噸的水晶吊燈</strong>（維多利亞女王贈）、水晶樓梯，以及<strong>阿塔圖克 1938 年逝世的房間</strong>，宮裡的時鐘全部停在 09:05。門票含 Selamlık、後宮與繪畫館。'},
+    {time:'09:00<br>–11:45', act:'🚋 → 多爾瑪巴切皇宮 Dolmabahçe Sarayı', hi:true, tags:['car:🚋 T1 25 分 + 步行 13 分','停留 2h'], map:[[null,trn(P.basil,P.kabatas)],['步行路線 · Kabataş → 多爾瑪巴切',wlk(P.kabatas,P.dolmabahce)]],
+     sight:{zh:'多爾瑪巴切皇宮', en:'Dolmabahçe Palace', img:'dolmabahce.jpg', d:'1856 年取代托卡比的新皇宮，巴洛克加新古典，285 個房間。看點是室內——<strong>4.5 噸的水晶吊燈</strong>（維多利亞女王贈）、水晶樓梯，以及<strong>阿塔圖克 1938 年逝世的房間</strong>，宮裡的時鐘全部停在 09:05。門票含 Selamlık、後宮與繪畫館。'},
     },
-    {time:'11:45<br>–13:30', act:'🚌 → 奧塔科伊 Ortaköy + kumpir 午餐', note:'沿海岸往北 2.4 公里，公車或叫車。海邊廣場一帶有很多攤，<strong>kumpir</strong>（大份烤馬鈴薯任選配料）和 waffle 是這裡的招牌。', hi:true, tags:['car:🚌 20 分','eat:午餐','停留 1h25'], map:[[null,drv(P.dolmabahce,P.ortakoy)],['大眾運輸路線',trn(P.dolmabahce,P.ortakoy)]],
-     sight:{zh:'奧塔科伊清真寺', en:'Büyük Mecidiye Camii', d:'1856 年的海濱清真寺，站在廣場上可以把清真寺與<strong>博斯普魯斯大橋</strong>放進同一個畫面，是伊斯坦堡最好認的構圖之一。'},
+    {time:'11:45<br>–13:30', act:'🍛 🚶 → 奧塔科伊清真寺 Büyük Mecidiye Camii', hi:true, tags:['car:🚶 36 分','eat:午餐','停留 1h25'], map:[[null,wlk(P.dolmabahce,P.ortakoy)],['大眾運輸路線',trn(P.dolmabahce,P.ortakoy)]],
+     sight:{zh:'奧塔科伊清真寺', en:'Büyük Mecidiye Camii', img:'ortakoy.jpg', d:'1856 年的海濱清真寺，站在廣場上可以把清真寺與<strong>博斯普魯斯大橋</strong>放進同一個畫面，是伊斯坦堡最好認的構圖之一。'},
     },
-    {time:'13:30<br>–16:00', act:'🚡 → 獨立大街 İstiklal Caddesi 走下來', note:'公車回 Kabataş（25 分）→ <strong>F1 地下纜車 3 分鐘</strong>上塔克辛廣場，不用爬坡 → 從廣場一路走到 Tünel，<strong>1.6 公里、全程行人徒步區</strong>，兩旁是十九世紀的建築、書店、唱片行與甜點店，紅色古董電車沿街跑。想吃 tantuni 的話 Suat Usta 就在北端起點附近。', hi:true, tags:['car:🚌 25 分 + 🚡 3 分','步行 1.6 km','停留 2h'],
-     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
-     map:[['大眾運輸路線 · 奧塔科伊 → Kabataş',trn(P.ortakoy,P.kabatas)],['F1 纜車 · Kabataş → Taksim',trn(P.kabatas,P.taksim)],['步行路線 · Taksim → Tünel',wlk(P.taksim,P.tunel)],['Suat Usta Tantuni',pin(P.suat)]]},
-    {time:'16:00<br>–17:20', act:'🚶 → 加拉達塔 Galata Tower', note:'Tünel 走過去只要 2 分鐘。<strong>11/06 日落約 17:15</strong>，排這個時段是為了在塔上看天色轉換。每天 08:30–23:00。', hi:true, tags:['car:🚶 步行 2 分','停留 1h10','☀️ 日落 17:15'], map:wlk(P.tunel,P.galata),
-     sight:{zh:'加拉達塔', en:'Galata Tower', img:'galata-tower.jpg', d:'1348 年熱那亞人蓋的瞭望塔，高 67 公尺。頂層一圈的觀景台看得到金角灣、舊城天際線與博斯普魯斯入口，是把前面兩天走過的地方一次連起來的地方。'},
-    },
-    {time:'17:20<br>–18:15', act:'🍛 🚶 → Balık Dürümcü Mehmet Usta 魚捲', note:'從塔下走到 Karaköy 5 分。烤鯖魚捲餅，必吃。<strong>兩人分食或外帶邊走邊吃</strong>——19:30 還有 Queb，這裡當點心就好。', hi:true, tags:['car:🚶 步行 12 分','eat:點心'],
-     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
-     map:wlk(P.galata,P.balik,[P.karakoy])},
-    {time:'18:15<br>–19:20', act:'🚶 加拉達橋 Galata Bridge 夜景 → 🚋 回飯店', note:'橋上釣魚、橋下餐廳、對岸舊城的清真寺剪影同時出現。走到 Eminönü 搭 T1 回飯店放東西。', hi:true, tags:['car:🚶 步行 + 🚋 T1 10 分'], map:[['步行路線 · 過加拉達橋',wlk(P.balik,P.eminonu,[P.gBridge])],['T1 · Eminönü → 飯店',trn(P.eminonu,P.basil)]]},
-    {time:'19:30<br>–21:00', act:'🍛 🚶 → Queb Rooftop 晚餐', note:'飯店走路 <strong>10 分鐘</strong>。⚠️ <strong>價位與是否需要訂位都還沒查證</strong>。', hi:true, tags:['car:🚶 步行 10 分','eat:晚餐'],
-     eatery:{name:'Queb Rooftop Restaurant', en:'Byzantium Hotel 頂樓 · Akbıyık Cd. No:29, Cankurtaran', hours:'每天 10:00–01:00',
-       d:'Sultanahmet 的屋頂餐廳，<strong>360 度視野</strong>——博斯普魯斯、聖索菲亞、藍色清真寺與馬爾馬拉海。位置比 Seven Hills 再往海邊一點，離 Basilissis 走路 10 分鐘。11 月屋頂是否加罩或有暖爐待現場確認。'},
-     map:[['步行路線 · Basilissis → Queb',wlk(P.basil,P.queb)],['在地圖上開啟',pin(P.queb)]]},
+    {time:'13:30<br>–19:20', act:'🚌 🚶 → 從塔克辛走到金角灣', hi:true, tags:['car:🚌 25 分','car:🚶 步行 3.1 km','eat:小吃','停留 5h50','☀️ 日落 17:15'],
+     spots:[
+       {zh:'塔克辛廣場 Taksim Meydanı', en:'', img:'taksim.jpg', d:'新城區的中心廣場，中央是 1928 年的<strong>共和國紀念碑</strong>。獨立大街的北端起點，紅色古董電車從這裡發車。'},
+       {zh:'Islak濕漢堡 Kızılkayalar Taksim', en:'', img:'kizilkayalar.jpg', d:'塔克辛廣場旁的老牌小店，招牌是 <strong>ıslak hamburger（濕漢堡）</strong>——小顆牛肉堡泡在番茄大蒜醬汁裡，擺在冒著蒸氣的玻璃櫃中保溫，麵包吸飽醬汁變得軟濕。是塔克辛的深夜名物。'},
+       {zh:'土耳其沙威瑪 Suat Usta Mersin Tantuni', en:'愛莉莎莎推薦⚠️ 彈性可刪減', img:'suat-usta.jpg', d:'tantuni 是把細切牛肉或雞肉在熱鐵板上快炒後捲進薄餅，配洋蔥、番茄與香料。就在獨立大街北段上、零繞路。'},
+       {zh:'花市拱廊 Çiçek Pasajı', en:'', img:'cicek-pasaji.jpg', d:'1876 年的新巴洛克拱廊，玻璃屋頂下兩排餐館。名字來自 1917 年後在這裡賣花的白俄移民女性。'},
+       {zh:'獨立大街 İstiklal Caddesi', en:'', way:true, img:'istiklal.jpg', d:'1.6 公里全程行人徒步區，兩旁是十九世紀的使館與商行建築、書店、唱片行、甜點店，<strong>紅色古董電車沿街跑</strong>。上面幾個點都在這條街上，順著走就會經過。'},
+       {zh:'聖安東尼教堂 Aziz Antuan Bazilikası', en:'', img:'st-antoine.jpg', d:'1912 年落成，<strong>伊斯坦堡最大的天主教堂</strong>，義大利新哥德式紅磚建築，退縮在街面後方的小中庭裡。免費進入，是這條街上最安靜的地方。'},       
+       {zh:'加拉達塔 Galata Tower', en:'⚠️ 只在外面拍照，不上塔', img:'galata-tower-street.jpg', d:'1348 年熱那亞人蓋的瞭望塔，高 67 公尺。⚠️ <strong>登塔要 €30／人，決定不上去</strong>——只在塔下拍照。最好的角度是從塔南側那幾條彩色老屋的窄巷往上看，塔會整個框在街道盡頭。<strong>日落約 17:15</strong>，那個時段的側光最好看。'},
+       {zh:'土耳其烤魚捲餅 Balık Dürümcü Mehmet Usta', en:'愛莉莎莎推薦⚠️ 彈性可刪減，需排隊一小時', img:'balik-durum.jpg', d:'Karaköy 的烤鯖魚捲餅，街頭名物。'},
+       {zh:'加拉達橋 Galata Köprüsü', en:'', img:'galata-bridge.jpg', d:'橫跨金角灣的雙層橋——<strong>上層走人與電車、橋欄邊整排釣客，下層是一整排亮著霓虹的餐廳與茶館</strong>。這個時間走過去，對岸舊城的清真寺剪影、橋下的燈與水面反光會同時出現。走到 Eminönü 搭 T1 回飯店。'}
+     ],
+     map:[['大眾運輸路線 · 奧塔科伊 → Kabataş',trn(P.ortakoy,P.kabatas)],['在地圖上開啟 · Kızılkayalar 濕漢堡',pin(P.kizil)],['步行路線 · Taksim → Tünel（獨立大街）',wlk(P.taksim,P.tunel,[P.cicek,P.stAntoine])],['步行路線 · Tünel → 加拉達塔 → Karaköy 魚捲',wlk(P.tunel,P.balik,[P.galata,P.karakoy])],['步行路線 · 過加拉達橋 → Eminönü',wlk(P.balik,P.eminonu,[P.gBridge])]]},
+    {time:'19:20<br>起', act:'🚌🚶 → 回飯店休息'},
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第3晚'}
 },
