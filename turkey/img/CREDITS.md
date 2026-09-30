@@ -77,3 +77,7 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `galata-tower-street.jpg` | 11/06 加拉達塔 | 使用者於 2026-09-30 提供 |
 | `kizilkayalar.jpg` | 11/06 Kızılkayalar 濕漢堡 | 使用者於 2026-09-30 提供 |
 | `galata-bridge.jpg` | 11/06 加拉達橋夜景 | 使用者於 2026-09-30 提供 |
+| `boris-kahvalti.jpg` | 11/07 Boris'in Yeri 早餐卡（水牛奶 kaymak 淋蜂蜜） | 使用者於 2026-10-01 提供 |
+| `vefa-bozacisi.jpg` | 11/07 Vefa Bozacısı 1876 餐廳卡 | 使用者於 2026-10-01 提供 |
+| `sunset-cruise.jpg` | 11/07 博斯普魯斯日落遊船說明卡 | 使用者於 2026-10-01 提供 |
+| `acemoglu-hamam.jpg` | 11/07 Acemoğlu 土耳其浴說明卡 | 使用者於 2026-10-01 提供 |
