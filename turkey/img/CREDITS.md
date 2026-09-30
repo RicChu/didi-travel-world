@@ -55,3 +55,5 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `henna-breakfast.jpg` | 11/02–11/04 Henna Hotel 屋頂早餐卡片 | 使用者於 2026-09-25 提供 |
 | `mustafapasa.jpg` | 11/04 Mustafapaşa 希臘石屋村說明卡 | 使用者於 2026-09-29 提供 |
 | `guray-muze.jpg` | 11/04 Güray Müze 地下陶藝博物館說明卡 | 使用者於 2026-09-29 提供 |
+| `love-valley.jpg` | 11/03 愛情谷觀景台說明卡 | 使用者於 2026-09-30 提供 |
+| `cavusin-village.jpg` | 11/03 Çavuşin 老村說明卡 | 使用者於 2026-09-30 提供 |

@@ -53,6 +53,8 @@
 | Zelve 露天博物館 | `38.6657426, 34.8652932` | **11/02 上午（沒飛時）**，離 Paşabağ 只有 1.8 km |
 | Devrent 想像谷 | `38.6750753, 34.8843370` | 未排入，離 Zelve 4.4 km |
 | Uçhisar Castle | `38.6304425, 34.8053230` | 11/03 |
+| Çavuşin 老村 | `38.670828, 34.839455` | 11/03 下午。⚠️ 教堂因修復關閉，只走村子 |
+| **愛情谷觀景台** | `38.663398, 34.829599` | 11/03 日落。OSM「Love Valley (Aşıklar Vadisi) Trail」，在 Göreme yolu 公路邊。⚠️ **不要用「Love Valley」谷地中心點**（`38.659038, 34.823152`）——那個在谷裡，導航會走產業道路（OSRM 把 2.6 km 算成 20 分） |
 | **Henna Hotel - Adults Only** | `38.642261, 34.828308` | **11/01～11/04 連住三晚**，Göreme 鎮中心 Konak Sk. no:2/A |
 | Sarı Han 商隊驛站 | `38.7118040, 34.9091913` | 11/04 |
 | Kayseri Airport ASR | `38.7704, 35.4954` | 11/04 還車 |
@@ -90,25 +92,37 @@
 
 | # | 段落（點到點） | 時間 | 判斷重點 |
 |---|------|------|----------|
-| W1 | [**Henna → Seten Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6412661,34.8257096&travelmode=walking) | **步行 8 分**（約 630 m） | 17:30 到。⚠️ **不接受訂位**，官方建議日落（17:40）前到 |
+| W1 | [**Henna → Seten Restaurant**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6412661,34.8257096&travelmode=walking) | **步行 8 分**（約 630 m） | 11/03 晚餐：**沒飛 18:15 / 補飛 17:35**（補飛趕得上日落前）。⚠️ 不接受訂位，客滿就鎮上另找 |
 | W2 | [**Seten → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6412661,34.8257096&destination=38.642261,34.828308&travelmode=walking) | **步行 8 分** | 走回去，天黑後不用開車 |
 
-### 11/03（二）Henna → Kaymaklı → 鴿子谷 → Uçhisar → 回 Henna
+### 11/03（二）Henna → Kaymaklı → 鴿子谷 → Uçhisar → Çavuşin → 愛情谷 → 回 Henna
 
-> 路線是「**南下 → 北返 → 回鎮上**」：Göreme（中）→ **Kaymaklı（南，第一站）** → 鴿子谷 / Uçhisar（西，Göreme 後院）→ 回 Göreme。
+> 路線是「**南下 → 北返 → 北上看日落**」：Göreme（中）→ **Kaymaklı（南，第一站）** → 鴿子谷 / Uçhisar（西，Göreme 後院）→ **Çavuşin（北）** → **愛情谷觀景台（北，日落）** → 回 Göreme。
 >
 > **連住 Henna 三晚，這天不用退房、不用寄放行李、不用折返。** 行李整天在房間，車上只放小包、水、零食。
 >
-> 車程總計 **86 分**（35 + 40 + 5 + 6）。連住三晚，不用回頭拿行李、不用再開一段去別的飯店。
+> 車程總計 **100 分**（35 + 40 + 5 + 15 + 5 + 5）。
 
 | # | 段落（點到點） | 車程 | 時間 | 判斷重點 |
 |---|------|------|------|----------|
-| 1 | [**Henna → Kaymaklı 地下城**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.4599265,34.7524882&travelmode=driving) | **35 分** | 09:00～09:35 | 32 km，全天最長的一段，放在最有精神的時候。⚠️ **唯一還沒用 Google 直接量過的路段**（OSRM 推估 27～29 分），出發前補查一次。✅ Kaymaklı 開放時間已官方查證：**每天開、08:00 開門**（09:35 進場沒問題） |
-| 2 | [**Kaymaklı 地下城 → 鴿子谷觀景台**](https://www.google.com/maps/dir/?api=1&origin=38.4599265,34.7524882&destination=38.6320754,34.8152333&travelmode=driving) | **40 分** | 11:05～11:45 | 約 18 km，走 Uçhisar–Nevşehir 路，**不經 Göreme**。反向已實測 28 分 |
+| 1 | [**Henna → Kaymaklı 地下城**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.4599265,34.7524882&travelmode=driving) | **35 分** | 09:30～10:05 | 32 km，全天最長的一段，放在最有精神的時候。⚠️ **唯一還沒用 Google 直接量過的路段**（OSRM 推估 27～29 分），出發前補查一次。✅ Kaymaklı 開放時間已官方查證：**每天開、08:00 開門**（09:35 進場沒問題） |
+| 2 | [**Kaymaklı 地下城 → 鴿子谷觀景台**](https://www.google.com/maps/dir/?api=1&origin=38.4599265,34.7524882&destination=38.6320754,34.8152333&travelmode=driving) | **40 分** | 11:35～12:15 | 約 18 km，走 Uçhisar–Nevşehir 路，**不經 Göreme**。反向已實測 28 分。鴿子谷只停 **30 分** |
 | 3 | [**鴿子谷觀景台 → Uçhisar Castle**](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.6304425,34.8053230&travelmode=driving) | **5 分** | 12:45～12:50 | 相鄰，3.9 km。中間插 Uçhisar 午餐 12:50～13:50，Castle 13:55～14:55 |
-| 4 | [**Uçhisar Castle → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.642261,34.828308&travelmode=driving) | **6 分** | 15:05 出發、15:15 到 | 3.8 km，回鎮上就結束了，行李不用動 |
+| 4 | [**Uçhisar Castle → Çavuşin 老村**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.670828,34.839455&travelmode=driving) | **15 分** | 15:05～15:20 | 7.4 km（OSRM 11 分）。⚠️ **Çavuşin 教堂因修復關閉**（muze.gov.tr `SectionId=CAV01` 標示 KAPALI），只走村子與崖下 |
+| 5 | [**Çavuşin → 愛情谷觀景台**](https://www.google.com/maps/dir/?api=1&origin=38.670828,34.839455&destination=38.663398,34.829599&travelmode=driving) | **5 分** | 16:20～16:25 | ✅ 已實測，1.6 km、OSRM 2.2 分、均速 43 km/h。觀景台座標 `38.663398, 34.829599` 取自 OSM「Love Valley (Aşıklar Vadisi) Trail」，在 **Göreme yolu 公路邊** |
+| 6 | [**愛情谷觀景台 → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.663398,34.829599&destination=38.642261,34.828308&travelmode=driving) | **5 分** | 17:50～17:55 | ✅ 已實測，3.0 km、OSRM 3.8 分。日落 17:40，天剛黑就到家 |
 
-**今天飛（熱氣球在 11/03）**：以上四段順序完全不變，**整體往後平移 30 分鐘**——09:30 出發、10:05 Kaymaklı、鴿子谷縮成 40 分以對上 **13:00 Seki 訂位**，14:10 回到 Henna。
+**今天飛（熱氣球在 11/03）：路線整個倒過來走**，因為 **Kaymaklı 冬季 08:00–17:00、末班入場約 16:00**，照上面的順序把它放最後會 15:45 才到。倒著走之後補眠從 1 小時變 3 小時，鴿子谷也換到日落金色時段：
+
+| # | 段落（點到點） | 車程 | 時間 |
+|---|------|------|------|
+| F1 | [**Henna → Uçhisar Castle**](https://www.google.com/maps/dir/?api=1&origin=38.642261,34.828308&destination=38.6304425,34.8053230&travelmode=driving) | **7 分** | 11:40～11:47 |
+| F2 | [**Uçhisar Castle → Seki**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.6300930,34.8075940&travelmode=walking)（步行） | **2 分** | 12:55～12:57，13:00 入座 |
+| F3 | [**Uçhisar → Kaymaklı**](https://www.google.com/maps/dir/?api=1&origin=38.6304425,34.8053230&destination=38.4599265,34.7524882&travelmode=driving) | **30 分** | 14:00～14:30 |
+| F4 | [**Kaymaklı → 鴿子谷觀景台**](https://www.google.com/maps/dir/?api=1&origin=38.4599265,34.7524882&destination=38.6320754,34.8152333&travelmode=driving) | **40 分** | 16:00～16:40，停 **30 分** |
+| F5 | [**鴿子谷 → Henna**](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.642261,34.828308&travelmode=driving) | **10 分** | 17:10～17:20 |
+
+補飛版車程 **87 分**，Uçhisar → Kaymaklı 只要 30 分 / 28.8 km，比從 Göreme 出發的 35 分還短。
 
 **縮短版（太累時）**：砍 **Uçhisar Castle**（省 65 分，14:00 就回得到飯店）——第 3 段直接接 [鴿子谷觀景台 → Henna](https://www.google.com/maps/dir/?api=1&origin=38.6320754,34.8152333&destination=38.642261,34.828308&travelmode=driving)。
 
