@@ -573,7 +573,7 @@ var DATA=[
   fatigue:5, fatigueText:'很高 · 抵達日又接夜路',
   img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
-  facts:['國內線轉機','辦理租車手續','自駕約三小時'],
+  facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
     {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
     {time:'13:20<br>–16:30', act:'🚘 → 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
@@ -608,7 +608,7 @@ var DATA=[
   fatigue:4, fatigueText:'中高 · 尾段夜路到 00:45',
   img:'pamukkale-travertines.jpg', cap:'棉堡 · 石灰棚梯田',
   lead:'雪白的天然鈣華梯田層層堆疊，搭配山頂希拉波利斯古城遺跡，是土耳其最夢幻的自然與文明交會之地。',
-  facts:['國內線轉機','辦理租車、還手續','自駕約四小時'],
+  facts:['國內線轉機','辦理租車、還手續','跨城市移動，自駕約四小時'],
   rows:[
     {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李放置車上、車停留於飯店停車場，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
     {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
@@ -646,22 +646,20 @@ var DATA=[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['熱氣球','駱駝', '卡帕多奇亞紅線'],
+  facts:['熱氣球第一次機會','駱駝', '卡帕多奇亞紅線'],
   groups:[
-    {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
+    {label:'清晨 · 飛了', sub:'04:00 起床，回來補眠', sc:'fly', rows:[
       {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', hi:true, tags:['含飯店接送', '茶點', '香檳'],
      sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg'},
     },
-      {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐'],
-       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
-         d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
+      {time:'08:30<br>–11:00', act:'回房補眠'},
     ]},
     {label:'清晨 · 沒飛', sub:'睡飽', alt:true, sc:'no', rows:[
       {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐'],
        eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
          d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
-    {label:'卡帕多奇亞紅線自駕', rows:[
+    {label:'卡帕多奇亞紅線自駕', sub:'沒飛 · 10:10 出發', sc:'no', rows:[
       {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.henna,P.pasabag),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
     },
@@ -671,8 +669,24 @@ var DATA=[
       {time:'12:10<br>–14:00', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。'},
     },
-      {time:'14:10<br>–15:30', act:'🍛 Göreme 鎮上午餐', note:'博物館出來後回鎮上簡單吃 ⚠️ 尚未定店。晚上還有 18:30 的 Topdeck，中午不用吃太重。', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.henna)},
-      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', note:'午餐後就在鎮上，16:00 接送來飯店接。', hi:true, tags:['含飯店接送'],
+      {time:'14:10<br>–15:30', act:'🍛 🚘 → Göreme 鎮上午餐及回飯店', note:'換保暖外套。', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.henna)},
+
+    ]},
+    {label:'卡帕多奇亞紅線自駕', sub:'飛了 · 睡飽再出門，景點壓縮 40 分', alt:true, sc:'fly', rows:[
+      {time:'11:15<br>–12:00', act:'🍛 Göreme 鎮上簡單吃', tags:['car:🚶 步行','eat:早午餐']},
+      {time:'12:00<br>–12:45', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票買一次就好，與 Zelve 共用'], map:drv(P.henna,P.pasabag),
+     sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
+    },
+      {time:'12:45<br>–13:20', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分'], map:drv(P.pasabag,P.zelve),
+     sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。'},
+    },
+      {time:'13:20<br>–15:10', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true, tags:['car:🚘 20 分','停留 1h30'],
+     sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。'},
+    },
+      {time:'15:10<br>–15:20', act:'🚘 → 回 Henna Hotel', note:'換保暖外套。', hi:true, tags:['car:🚘 10 分'], map:drv(P.goreme,P.henna)},
+    ]},
+    {label:'下午與晚上', rows:[
+      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', hi:true, tags:['含飯店接送'],
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'GetYourGuide 訂單 GYG996XFQRWK。Henna 接送，騎乘約 60 分，路線含紅色山谷與玫瑰谷。結束後送回飯店。'},
     },
       {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.henna,P.topdeck),
@@ -687,7 +701,7 @@ var DATA=[
       {time:'20:15<br>以後', act:'走回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
   ],
-  stay:{name:'Henna Hotel', note:'續住第 2 晚'}
+  stay:{name:'Henna Hotel', note:'Trip.com，入住 14:00／退房 12:00，續住第2晚'}
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -702,7 +716,7 @@ var DATA=[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['卡帕多奇亞綠線','連住第 3 晚'],
+  facts:['熱氣球第二次機會', '卡帕多奇亞綠線'],
   groups:[
     {label:'清晨 · 今天沒飛', sub:'睡飽，08:30 早餐', sc:'no', rows:[
       {time:'08:30<br>–09:30', act:'飯店早餐', tags:['eat:早餐'],
@@ -792,7 +806,7 @@ var DATA=[
        map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
     ]}
   ],
-  stay:{name:'Henna Hotel', note:'續住第 3 晚，不用搬家'}
+  stay:{name:'Henna Hotel', note:'Trip.com，入住 14:00／退房 12:00，續住第3晚'}
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -807,7 +821,7 @@ var DATA=[
     {k:'fly',  t:'今天飛'},
     {k:'no',   t:'今天沒飛'}
   ]},
-  facts:['⚠️ 行李在車上 5 小時','自駕約兩小時','回伊斯坦堡'],
+  facts:['熱氣球第三次機會', '國內線轉機', '跨城市移動，自駕約兩小時', '⚠️ 行李在車上 5 小時'],
   groups:[
     {label:'清晨 · 今天沒飛', sub:'睡飽，09:00 早餐', sc:'no', rows:[
       {time:'09:00<br>–10:00', act:'飯店早餐', tags:['eat:早餐'],
