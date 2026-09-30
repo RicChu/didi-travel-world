@@ -543,7 +543,7 @@ var P={
   grandBazaar:'41.010967,28.968253',/* Kapalı Çarşı */
   hafiz:'41.008550,28.968321',    /* Hafız Mustafa 1864 Beyazıt — Yeniçeriler Cd. No:39，就在大巴札旁，24 小時 */
   hamam:'41.012140,28.958548',      /* Acemoğlu Hamam */
-  vefa:'41.015318,28.958420',       /* Vefa Bozacısı 1876 */
+  vefa:'41.015318,28.958420',       /* Vefa Bozacısı */
   kadikoy:'40.991295,29.024563',
   uskudar:'41.026549,29.015132',
   sok:'41.013436,28.975343',        /* Şok İstanbul Sirkeci 分店 */
@@ -573,8 +573,8 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', '22:00 → 隔日05:40']},
-    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', '23:15 → 隔日05:50']}
+    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', 'lock:22:00 → 隔日05:40']},
+    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', 'lock:23:15 → 隔日05:50']}
   ],
   stay:{name:'機上', note:''}
 },
@@ -589,7 +589,7 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
-    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', '11:00 → 12:10', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
+    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', 'lock:11:00 → 12:10', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
     {time:'13:20<br>–16:30', act:'🚘 → 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
@@ -642,7 +642,7 @@ var DATA=[
        ]},
      map:pin(P.teras)},
     {time:'14:30<br>–20:00', act:'🚘 → İzmir Adnan Menderes Airport 伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
-    {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', tags:['XQ9238', '21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
+    {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', tags:['XQ9238', 'lock:21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
     {time:'22:35<br>–23:15', act:'🚘 → 跨城市移動，格雷梅飯店', tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
   ],
   stay:{name:'Henna Hotel', note:'Trip.com，入住 14:00／退房 12:00'}
@@ -700,10 +700,10 @@ var DATA=[
       {time:'15:10<br>–15:20', act:'🚘 → 回 Henna Hotel', note:'換保暖外套。', hi:true, tags:['car:🚘 10 分'], map:drv(P.goreme,P.henna)},
     ]},
     {label:'下午與晚上', rows:[
-      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', hi:true, tags:['含飯店接送'],
+      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', hi:true, tags:['lock:預訂 16:00', '含飯店接送'],
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'飯店接送，騎乘約 60 分，路線含紅色山谷與玫瑰谷。結束後送回飯店。'},
     },
-      {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','已訂位 18:30'], map:wlk(P.henna,P.topdeck),
+      {time:'18:30<br>–20:15', act:'🍛 Topdeck Cave', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','lock:預訂 18:30'], map:wlk(P.henna,P.topdeck),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
          d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。',
          dishes:[
@@ -750,7 +750,7 @@ var DATA=[
       {time:'11:35<br>–12:45', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','彈性可刪減','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。'},
     },
-      {time:'12:45<br>–14:00', act:'🍛 🚘 → Seki Restaurant & Lounge', hi:true, tags:['car:🚘 5 分','eat:午餐','已訂位 13:00'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
+      {time:'12:45<br>–14:00', act:'🍛 🚘 → Seki Restaurant & Lounge', hi:true, tags:['car:🚘 5 分','eat:午餐','lock:預訂 13:00'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
        eatery:{name:'Seki Restaurant & Lounge', en:'Argos in Cappadocia · Kayabaş Sk. No:23, Uçhisar', hours:'每天 08:00–24:00', img:'seki-terrace.jpg',
          d:'米其林推薦餐廳，蓋在修道院遺構改建的 Argos 飯店裡，露台正對<strong>鴿子谷與艾爾吉耶斯山</strong>。安納托利亞菜配地中海做法，附設酒窖。<strong>建議兩人點法：</strong>蜜漬南瓜 ＋ 紙包烤牛肉乾 ＋ 26 小時羊肩 ＋ 烤蘋果甜點，一輪四道走完前菜到甜點。',
          dishes:[
@@ -866,7 +866,7 @@ var DATA=[
        sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。'},
       },
       {time:'14:25<br>–16:15', act:'🚘 → Kayseri Airport 開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:drv(P.sarihan,P.asr)},
-      {time:'18:40<br>–20:20', act:'✈️ 開塞利(ASR) → 伊斯坦堡(IST)', tags:['TK2017', '18:40 → 20:20','訂位代號 TB5RZM']},
+      {time:'18:40<br>–20:20', act:'✈️ 開塞利(ASR) → 伊斯坦堡(IST)', tags:['TK2017', 'lock:18:40 → 20:20','訂位代號 TB5RZM']},
       {time:'20:20<br>起', act:'🚖 → Basilissis Hotel', hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
   ],
@@ -897,10 +897,10 @@ var DATA=[
          ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
        ]},
      map:wlk(P.blueMosque,P.sevenHills)},
-    {time:'11:05<br>–12:45', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
+    {time:'11:05<br>–12:20', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
      sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。'},
     },
-    {time:'12:50<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', hi:true, tags:['car:🚶 步行 2 分','停留 1h', 'Turkey Pass'], map:wlk(P.hagia,P.cistern),
+    {time:'12:30<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', hi:true, tags:['car:🚶 步行 2 分','停留 1h', 'lock:預訂 12:45', 'Turkey Pass'], map:wlk(P.hagia,P.cistern),
      sight:{zh:'地下水宮殿', en:'Basilica Cistern', img:'basilica-cistern.jpg', d:'六世紀查士丁尼時期的地下蓄水池，336 根柱子撐起整個空間，底部有兩顆倒置與側放的<strong>梅杜莎頭像</strong>。地面永遠濕、光線很暗。'},
     },
     {time:'13:50<br>–15:15', act:'🍛 🚶 → Hafız Mustafa 1864 Beyazıt', hi:true, tags:['car:🚶 步行 15 分','eat:甜點'],
@@ -912,7 +912,7 @@ var DATA=[
          ['🥉','土耳其紅茶 <b>Çay</b>','配甜點剛好，吃完 Şöbiyet 用它解膩']
        ]},
      map:wlk(P.cistern,P.hafiz)},
-    {time:'15:20<br>–17:30', act:'🚶 → 大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10','⚠️ 19:00 關門'], map:wlk(P.hafiz,P.grandBazaar),
+    {time:'15:20<br>–17:30', act:'🚶 → 大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10'], map:wlk(P.hafiz,P.grandBazaar),
      sight:{zh:'大巴札', en:'Kapalıçarşı / Grand Bazaar', img:'grand-bazaar.jpg', d:'十五世紀開始擴建的室內市集，六十幾條街、四千多家店，拱頂全部彩繪。偏工藝、金飾、地毯與觀光商品，人非常多，注意隨身物品。'},
     },
     {time:'17:45<br>起', act:'🚶 → 自由時間'},
@@ -959,30 +959,29 @@ var DATA=[
 {
   day:9, date:'11/07', week:'六', theme:'blue',
   title:'🚢 博斯普魯斯｜從水上看一次伊斯坦堡',
-  status:'初版', statusCls:'draft',
+  status:'✅ 已定版', statusCls:'fixed',
   fatigue:2, fatigueText:'低中',
-  lead:'昨天在岸上看過的多爾瑪巴切與奧塔科伊，今天從水上再看一次。下船就是香料市集，收尾是十五世紀的浴場與一頓慢慢吃的晚餐。',
-  facts:['⚠️ Boris\'in Yeri 只收現金','遊船 2 小時','⚠️ 上下船不同碼頭'],
+  img:'bosphorus-sunset.jpg', cap:'博斯普魯斯日落 · 奧塔科伊、大橋與少女塔',
+  lead:'上午在十五世紀的浴場泡掉前八天的路，下午逛香料市集，傍晚上船——昨天在岸上走過的多爾瑪巴切與奧塔科伊，今天從水上再看一次，而且是天色轉換的那兩小時。',
+  facts:['⚠️ 部分店家只收現金','遊船 2 小時'],
   rows:[
-    {time:'10:00<br>–11:30', act:'🍛 🚶 → Boris\'in Yeri 土耳其早餐', note:'在 Kumkapı / Fatih 方向，步行或短程叫車 30 分。這餐完成必去清單的土耳其式早餐。<strong>只收現金，出門前先備好里拉。</strong>⚠️ <strong>11:30 一定要走</strong>——浴場 12:00 的場，要提前 10 分鐘到。', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金'], map:trn(P.basil,P.boris),
+    {time:'10:00<br>–11:30', act:'🍛 🚶 → Boris\'in Yeri 土耳其早餐', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金', '愛莉莎莎推薦'], map:trn(P.basil,P.boris),
      eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', img:'boris-kahvalti.jpg', hours:'06:30–21:00', price:'只收現金，備足里拉', d:'1936 年由 Boris Bey 開的老早餐店，近百年沒換過樣子。招牌是<strong>水牛奶 kaymak 淋蜂蜜配麵包</strong>，其餘點餐參考：menemen 番茄炒蛋、sucuk 臘腸蛋、土耳其咖啡。'}},
-    {time:'12:00<br>–13:25', act:'🚶 → Acemoğlu 土耳其浴 Acemoğlu Hamamı（15 世紀）', note:'早餐走過去約 20 分，<strong>11:50 報到</strong>。<strong>訂的是 12:00 的場，療程本身 45 分鐘</strong>，加上更衣、沖洗與喝茶休息抓 1 小時 25 分。⚠️ <strong>提前 10 分鐘到，遲到或未出席可能不退款</strong>。<strong>選半私人：兩人同室</strong>。', hi:true, tags:['car:🚶 步行 20 分','lock:12:00 的場','停留 1h25 · 療程 45 分','半私人 · 兩人同室'], map:trn(P.boris,P.hamam),
-     sight:{zh:'Acemoğlu 土耳其浴', en:'Acemoğlu Hamamı · 15 世紀', img:'acemoglu-hamam.jpg', d:'征服者穆罕默德二世時期蓋的浴場，原本是給<strong>禁衛軍見習生（Acemi Oğlanlar）</strong>用的，十五世紀的石作保留至今——<strong>比 Çemberlitaş（1584）和 Cağaloğlu（1741）都早</strong>。分公共、半私人、私人三種。<strong>選半私人：可以兩人同室</strong>，不像 Çemberlitaş 或 Cağaloğlu 那種歷史浴場男女一定分開。流程是全身泥膜 → 泡沫 → 去角質（kese）。'},
+    {time:'12:00<br>–13:25', act:'🚶 → Acemoğlu 土耳其浴 Acemoğlu Hamamı', hi:true, tags:['car:🚶 步行 20 分','lock:預訂 12:00','停留 1h25 · 療程 45 分', 'Turkey Pass'], map:trn(P.boris,P.hamam),
+     sight:{zh:'Acemoğlu 土耳其浴', en:'Acemoğlu Hamamı · 15 世紀', img:'acemoglu-hamam.jpg', d:'征服者穆罕默德二世時期蓋的浴場，原本是給禁衛軍見習生（Acemi Oğlanlar）用的，十五世紀的石作保留至今。'},
     },
-    {time:'13:35<br>–14:05', act:'🍛 🚶 → Vefa Bozacısı 1876', note:'浴後走 6 分鐘喝一杯 boza。距浴場約 350 公尺。', tags:['car:🚶 步行 6 分','eat:小點'],
-     eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', img:'vefa-bozacisi.jpg', price:'平價，備現金', d:'boza（發酵小米飲，常配烤鷹嘴豆）老字號。距浴場約 350 公尺，兩人分一杯就好。'},
+    {time:'13:35<br>–14:05', act:'🍛 🚶 → Vefa Bozacısı', tags:['car:🚶 步行 6 分','eat:小點'],
+     eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', img:'vefa-bozacisi.jpg', price:'平價，備現金', d:'它創立於 1876 年，店內保留著很有年代感的傳統裝潢。這裡不是一般咖啡廳，而是專門品嚐土耳其傳統飲品、體驗當地飲食文化的老店。'},
      map:wlk(P.hamam,P.vefa)},
-    {time:'14:25<br>–15:55', act:'🚋 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'T1 約 20 分。茶、香料、土耳其軟糖、堅果。<strong>15:55 一定要走</strong>——趕 Kabataş 的船。這裡買茶葉、香料與軟糖；包裝零食、咖啡粉明天早上到 Şok 買比較便宜。', hi:true, tags:['car:🚋 T1 20 分','停留 1h30'], map:trn(P.vefa,P.spice),
+    {time:'14:25<br>–15:55', act:'🚋 → 香料市集 Spice Bazaar', hi:true, tags:['car:🚋 T1 20 分','停留 1h30'], map:trn(P.vefa,P.spice),
      sight:{zh:'香料市集', en:'Mısır Çarşısı / Spice Bazaar', img:'spice-bazaar.jpg', d:'1664 年落成的 L 形拱頂市集，本來是用埃及進口貨的關稅蓋起來的，所以土耳其文叫「埃及市集」。香料、乾果、軟糖與茶葉為主，規模比大巴札小很多，逛起來輕鬆。'},
     },
-    {time:'15:55<br>–19:00', act:'🚋 🚢 → 博斯普魯斯日落遊船 Sunset Cruise', note:'⚠️ <strong>從 Kabataş 上船、Karaköy 下船，不是原地往返</strong>。市集走到 Eminönü T1 站 6 分，T1 坐到終點 Kabataş 約 12 分，再走 2 分到碼頭——<strong>抓 25 分，16:25 到</strong>。17:00 開船、航程 2 小時、19:00 在 Karaköy 上岸。⚠️ <strong>Klook Pass 的贈品遊船要另外預約</strong>，11/07 是週六、日落場最熱門，買通票後立刻約。', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分','停留 2h','⚠️ 需預約','⚠️ 上下船不同碼頭'], map:[['大眾運輸路線 · 香料市集 → Kabataş 碼頭',trn(P.spice,P.kabatasPier)],['在地圖上開啟 · Kabataş 上船點',pin(P.kabatasPier)],['在地圖上開啟 · Karaköy 下船點',pin(P.karakoyPier)]],
-     sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 <strong>Kabataş</strong> 出發沿歐洲岸北上，經過<strong>多爾瑪巴切皇宮、奧塔科伊清真寺、魯梅利堡壘</strong>，在<strong>第二大橋（FSM）折返</strong>，沿亞洲岸南下經<strong>少女塔</strong>，最後停靠 <strong>Karaköy</strong>。多爾瑪巴切與奧塔科伊就是前一天在岸上走過的地方，今天換成水上的角度，而且是<strong>天色轉換的那兩小時</strong>。11/07 日落約 17:15，開船後半小時就進入最好看的光線。'},
+    {time:'15:55<br>–19:00', act:'🚋 🚢 → 博斯普魯斯日落遊船 Sunset Cruise', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分','lock:預訂 17:00', '停留 2h', '⚠️ 上下船不同碼頭', 'Turkey Pass'], map:[['大眾運輸路線 · 香料市集 → Kabataş 碼頭',trn(P.spice,P.kabatasPier)],['在地圖上開啟 · Kabataş 上船點',pin(P.kabatasPier)],['在地圖上開啟 · Karaköy 下船點',pin(P.karakoyPier)]],
+     sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 Kabataş出發沿歐洲岸北上，經過多爾瑪巴切皇宮、奧塔科伊清真寺、魯梅利堡壘，在第二大橋（FSM）折返，沿亞洲岸南下經少女塔，最後停靠 Karaköy。'},
     },
     {time:'19:20<br>–21:00', act:'🍛 🚶 → Olden 1772 晚餐', note:'Karaköy 下船後<strong>過加拉達橋走 13 分</strong>，或 T1 一站到 Sirkeci。歷史建築、氣氛型的收尾晚餐，這是伊斯坦堡最後一頓正餐。', hi:true, tags:['car:🚶 步行 13 分','eat:晚餐'],
-     eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
+     eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', img:'olden-1772.jpg', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
      map:[['步行路線 · 過加拉達橋 13 分',wlk(P.karakoyPier,P.olden,[P.gBridge])],['大眾運輸路線 · T1 到 Sirkeci',trn(P.karakoyPier,P.olden)]]},
-    {time:'睡前', act:'把行李整理好', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。⚠️ <strong>留一塊空位給明天早上要買的伴手禮。</strong>'},
-    {time:'刪減', act:'趕不上 15:55 的船或浴後太累', note:'先砍 Vefa Bozacısı。⚠️ <strong>遊船是預約制，錯過就沒了——15:55 離開市集是硬性上限。</strong>'}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第4晚'}
 },
@@ -1003,10 +1002,10 @@ var DATA=[
     ]},
     {label:'下午 · 回程', rows:[
       {time:'11:30<br>–12:55', act:'把伴手禮塞進行李、準備出發', note:'昨晚已經整理過，今天只要把早上買的東西塞進預留的空位。護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
-      {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['lock:僅等候15分鐘']},
+      {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['僅等候15分鐘']},
       {time:'14:00<br>起', act:'🍛 機場吃午餐', note:'今天不排市區午餐——早餐吃到 10:00、13:00 就要出發。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時，在機場吃比較不趕。', tags:['eat:午餐']},
-      {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', '17:15 → 隔日08:45']},
-      {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', '18:30 → 隔日10:00']},
+      {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', 'lock:17:15 → 隔日08:45']},
+      {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', 'lock:18:30 → 隔日10:00']},
     ]}
   ],
   stay:{name:'機上', note:''}
