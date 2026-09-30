@@ -176,7 +176,7 @@
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafız Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.008479,28.978382%7C41.008504,28.980011%7C41.005384,28.976853%7C41.006371,28.979714%7C41.010967,28.968253%7C41.016010,28.973360&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；Topkapi 移到 11/08 早場短版 |
+| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafız Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.008479,28.978382%7C41.008504,28.980011%7C41.005384,28.976853%7C41.006371,28.979714%7C41.010967,28.968253%7C41.016010,28.973360&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；托卡匹皇宮已拿掉 |
 
 ### 11/07（六）Basilissis Hotel → Hammam → Vefa Bozacisi → Kadikoy / Uskudar 或 Karakoy → Basilissis Hotel
 
@@ -191,7 +191,7 @@
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| Topkapi 早場 + 午餐收尾線 | [Basilissis Hotel → Topkapi Palace → 11/08 午餐主選 → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.011344,28.983203%7C41.003864,28.978764&travelmode=walking) | Basilissis、Topkapi、午餐主選 | Topkapi 週日 09:00 開，早場只走短版，不排 Harem；午餐主選用使用者提供地圖連結，若不想再吃土耳其早餐則改備案連結 |
+| 早餐 + 採買收尾線 | [Basilissis Hotel → 早餐主選 → Şok Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.003864,28.978764%7C41.013436,28.975343&travelmode=walking) | Basilissis、早餐主選、Şok Sirkeci | **托卡匹皇宮已拿掉**。飯店 → 早餐 12 分、早餐 → Şok 20 分、Şok → 飯店 9 分；Şok **週日 09:00–21:00** |
 | Basilissis Hotel → IST | [Basilissis Hotel → Istanbul Airport](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=Istanbul%20Airport&travelmode=driving) | Basilissis Hotel、IST | Trip.com 送機已訂（⚠️ 與接機不同平台）：11/08 13:00，Basilissis Hotel → IST，訂單 1616334355549226、車行追蹤碼 88B5DYZ（UNITED INNOVATION），已綁定 TK124，預估 51 km / 52 分，先乘後付 TWD 1,309，免費取消至 11/08 07:00；⚠️ 免費等候僅 15 分鐘；不退稅，目標 14:30 前抵達 IST |
 | 回程機場端點 | [Istanbul Airport IST](https://www.google.com/maps/search/?api=1&query=Istanbul%20Airport) | IST | 11/08 建議 14:30 前抵達 IST；安安 17:15 起飛，豬豬 18:30 起飛 |
 
@@ -221,5 +221,5 @@
 | 塔克辛廣場 | `41.037833, 28.985017` | 獨立大街北端 |
 | Tünel（F2 下站） | `41.025850, 28.974059` | 獨立大街南端，加拉達塔旁 |
 | **Kabataş İskelesi** | `41.032935, 28.994153` | 11/07 日落遊船**上船點**。T1 終點站走 162 m |
-| **Karaköy İskelesi** | `41.021429, 28.976732` | 11/07 日落遊船**下船點**。到 Şok Sirkeci：T1 一站約 10 分，或走加拉達橋 1.45 km / 19 分 |
+| **Karaköy İskelesi** | `41.021429, 28.976732` | 11/07 日落遊船**下船點**。到 Olden 1772：過加拉達橋 988 m / 13 分，或 T1 一站 |
 | Turyol 碼頭 | `41.018738, 28.970381` | 通票沒買時的遊船備案。⚠️ 在**加拉達橋西側**，不是東側的市政渡輪碼頭 |

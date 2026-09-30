@@ -962,7 +962,7 @@ var DATA=[
   status:'初版', statusCls:'draft',
   fatigue:2, fatigueText:'低中',
   lead:'昨天在岸上看過的多爾瑪巴切與奧塔科伊，今天從水上再看一次。下船就是香料市集，收尾是十五世紀的浴場與一頓慢慢吃的晚餐。',
-  facts:['⚠️ Boris\'in Yeri 只收現金','遊船 2 小時','行李今晚整理完'],
+  facts:['⚠️ Boris\'in Yeri 只收現金','遊船 2 小時','⚠️ 上下船不同碼頭'],
   rows:[
     {time:'10:15<br>–12:15', act:'🍛 🚶 → Boris\'in Yeri 土耳其早餐', note:'在 Kumkapı / Fatih 方向，步行或短程叫車 30 分。這餐完成必去清單的土耳其式早餐。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金'], map:trn(P.basil,P.boris),
      eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', img:'boris-kahvalti.jpg', hours:'06:30–21:00', price:'只收現金，備足里拉', d:'1936 年由 Boris Bey 開的老早餐店，近百年沒換過樣子。招牌是<strong>水牛奶 kaymak 淋蜂蜜配麵包</strong>，其餘點餐參考：menemen 番茄炒蛋、sucuk 臘腸蛋、土耳其咖啡。'}},
@@ -972,18 +972,17 @@ var DATA=[
     {time:'14:10<br>–14:35', act:'🍛 🚶 → Vefa Bozacısı 1876', note:'浴後走 6 分鐘喝一杯 boza。距浴場約 350 公尺。', tags:['car:🚶 步行 6 分','eat:小點'],
      eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', img:'vefa-bozacisi.jpg', price:'平價，備現金', d:'boza（發酵小米飲，常配烤鷹嘴豆）老字號。距浴場約 350 公尺，兩人分一杯就好。'},
      map:wlk(P.hamam,P.vefa)},
-    {time:'14:55<br>–15:55', act:'🚋 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'T1 約 20 分。茶、香料、土耳其軟糖、堅果。<strong>15:55 一定要走</strong>——趕 Kabataş 的船。市集賣的跟 Şok 清單有一半重疊，怕晚上來不及就在這裡先買。', hi:true, tags:['car:🚋 T1 20 分','停留 1h'], map:trn(P.vefa,P.spice),
+    {time:'14:55<br>–15:55', act:'🚋 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'T1 約 20 分。茶、香料、土耳其軟糖、堅果。<strong>15:55 一定要走</strong>——趕 Kabataş 的船。這裡買茶葉、香料與軟糖；包裝零食、咖啡粉明天早上到 Şok 買比較便宜。', hi:true, tags:['car:🚋 T1 20 分','停留 1h'], map:trn(P.vefa,P.spice),
      sight:{zh:'香料市集', en:'Mısır Çarşısı / Spice Bazaar', img:'spice-bazaar.jpg', d:'1664 年落成的 L 形拱頂市集，本來是用埃及進口貨的關稅蓋起來的，所以土耳其文叫「埃及市集」。香料、乾果、軟糖與茶葉為主，規模比大巴札小很多，逛起來輕鬆。'},
     },
     {time:'15:55<br>–19:00', act:'🚋 🚢 → 博斯普魯斯日落遊船 Sunset Cruise', note:'⚠️ <strong>從 Kabataş 上船、Karaköy 下船，不是原地往返</strong>。市集走到 Eminönü T1 站 6 分，T1 坐到終點 Kabataş 約 12 分，再走 2 分到碼頭——<strong>抓 25 分，16:25 到</strong>。17:00 開船、航程 2 小時、19:00 在 Karaköy 上岸。⚠️ <strong>Klook Pass 的贈品遊船要另外預約</strong>，11/07 是週六、日落場最熱門，買通票後立刻約。', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分','停留 2h','⚠️ 需預約','⚠️ 上下船不同碼頭'], map:[['大眾運輸路線 · 香料市集 → Kabataş 碼頭',trn(P.spice,P.kabatasPier)],['在地圖上開啟 · Kabataş 上船點',pin(P.kabatasPier)],['在地圖上開啟 · Karaköy 下船點',pin(P.karakoyPier)]],
      sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 <strong>Kabataş</strong> 出發沿歐洲岸北上，經過<strong>多爾瑪巴切皇宮、奧塔科伊清真寺、魯梅利堡壘</strong>，在<strong>第二大橋（FSM）折返</strong>，沿亞洲岸南下經<strong>少女塔</strong>，最後停靠 <strong>Karaköy</strong>。多爾瑪巴切與奧塔科伊就是前一天在岸上走過的地方，今天換成水上的角度，而且是<strong>天色轉換的那兩小時</strong>。11/07 日落約 17:15，開船後半小時就進入最好看的光線。'},
     },
-    {time:'19:20<br>–19:50', act:'🚋 → Şok 超市伴手禮採買', note:'從 Karaköy 碼頭過來：<strong>T1 一站到 Sirkeci 約 10 分</strong>，或走加拉達橋 19 分（1.45 km，夜景好但腳會累）。⚠️ <strong>營業到 21:00</strong>。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚋 T1 10 分','⚠️ 21:00 打烊'], map:[['大眾運輸路線 · Karaköy 碼頭 → Şok',trn(P.karakoyPier,P.sok)],['步行路線 · 過加拉達橋 19 分',wlk(P.karakoyPier,P.sok,[P.gBridge])],['Şok İstanbul Sirkeci',pin(P.sok)]]},
-    {time:'20:00<br>–21:30', act:'🍛 🚶 → Olden 1772 晚餐', note:'超市走 3 分鐘。歷史建築、氣氛型的收尾晚餐，這是伊斯坦堡最後一頓正餐。', hi:true, tags:['car:🚶 步行 3 分','eat:晚餐'],
+    {time:'19:20<br>–21:00', act:'🍛 🚶 → Olden 1772 晚餐', note:'Karaköy 下船後<strong>過加拉達橋走 13 分</strong>，或 T1 一站到 Sirkeci。歷史建築、氣氛型的收尾晚餐，這是伊斯坦堡最後一頓正餐。', hi:true, tags:['car:🚶 步行 13 分','eat:晚餐'],
      eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
-     map:wlk(P.sok,P.olden)},
-    {time:'睡前', act:'把行李整理完畢', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。11/08 只回飯店拿了就走。'},
-    {time:'刪減', act:'趕不上 15:55 的船或浴後太累', note:'超市在香料市集就先買掉；再不行就砍 Vefa Bozacısı。⚠️ <strong>遊船是預約制，錯過就沒了——15:55 離開市集是硬性上限。</strong><strong>行李今晚一定要整理完。</strong>'}
+     map:[['步行路線 · 過加拉達橋 13 分',wlk(P.karakoyPier,P.olden,[P.gBridge])],['大眾運輸路線 · T1 到 Sirkeci',trn(P.karakoyPier,P.olden)]]},
+    {time:'睡前', act:'把行李整理好', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。⚠️ <strong>留一塊空位給明天早上要買的伴手禮。</strong>'},
+    {time:'刪減', act:'趕不上 15:55 的船或浴後太累', note:'先砍 Vefa Bozacısı。⚠️ <strong>遊船是預約制，錯過就沒了——15:55 離開市集是硬性上限。</strong>'}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第4晚'}
 },
@@ -991,33 +990,21 @@ var DATA=[
 /* ========== DAY 10 · 11/08 ========== */
 {
   day:10, date:'11/08', week:'日', theme:'terra',
-  title:'👑 托卡匹皇宮（可選）→ 回程',
+  title:'🛍️ 最後半天｜早餐、伴手禮採買 → 回程',
   status:'初版', statusCls:'draft',
-  fatigue:2, fatigueText:'低中',
-  img:'topkapi-palace.jpg', cap:'托卡匹皇宮 · 崇敬之門',
-  lead:'最後半天留一個決定：前面已經看過烏奇薩的岩石城堡與多爾瑪巴切的水晶宮殿，還想不想再走一座皇宮。想就 09:00 開門即進，不想就在廣場邊喝茶到中午。',
-  sw:{label:'托卡匹', def:'go', opts:[
-    {k:'go',   t:'要去'},
-    {k:'skip', t:'不去'}
-  ]},
-  facts:['⚠️ 托卡比門票現場買','⚠️ 13:00 送機不延後','不退稅'],
+  fatigue:1, fatigueText:'低',
+  lead:'不再排景點。慢慢吃一頓早餐，去超市把伴手禮買齊，回飯店把東西塞進行李，13:00 上車。',
+  facts:['⚠️ 13:00 送機不延後','不退稅','Şok 週日 09:00 開'],
   groups:[
-    {label:'早上 · 要去托卡匹皇宮', sub:'09:00 開門即進', sc:'go', rows:[
-      {time:'08:00<br>–08:45', act:'🍛 飯店早餐', note:'吃快一點，08:45 就要出門。', tags:['eat:早餐']},
-      {time:'08:45<br>–11:45', act:'🚶 → 托卡匹皇宮 Topkapı Palace', note:'飯店走路 <strong>8 分鐘</strong>，09:00 開門即進，週日的隊伍這時最短。⚠️ <strong>門票現場買</strong>（₺2,750，含後宮與伊蓮娜教堂，2024 起無法只買本館）——這樣才能當天早上再決定去不去。2h45 走得完庭院＋寶物館＋後宮，但不能久留。', hi:true, tags:['car:🚶 步行 8 分','停留 2h45','⚠️ 現場買票'], map:wlk(P.basil,P.topkapi),
-     sight:{zh:'托卡匹皇宮', en:'Topkapı Palace', img:'topkapi-palace.jpg', d:'1465–1856 鄂圖曼帝國的權力中心。不是一棟建築而是<strong>四進庭院</strong>組成的園區：後宮、寶物館（托卡比匕首、86 克拉勺子鑽石）、聖物室，最後一進的露台同時看得到金角灣、博斯普魯斯與馬爾馬拉海。'},
-      },
-      {time:'11:45<br>–11:55', act:'🚶 → 回飯店', tags:['car:🚶 步行 8 分'], map:wlk(P.topkapi,P.basil)},
-    ]},
-    {label:'早上 · 不去托卡匹皇宮', sub:'省下 NT$1,786 / 人', alt:true, sc:'skip', rows:[
-      {time:'09:00<br>–09:50', act:'🍛 早餐二選一', note:'兩間都在 Sultanahmet 走路範圍內。不趕時間，慢慢吃。', tags:['eat:早餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.basil,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.basil,P.lunchB)]]},
-      {time:'10:00<br>–11:45', act:'🚶 Sultanahmet 廣場最後散步', note:'廣場、賽馬場方尖碑、Arasta 市集一帶隨意走走，找間店坐著喝茶。<strong>今天不安排購物</strong>，伴手禮 11/07 已買完。', hi:true, map:wlk(P.basil,P.arasta)},
-      {time:'11:45<br>–11:55', act:'🚶 → 回飯店', map:wlk(P.arasta,P.basil)},
+    {label:'早上 · 早餐與採買', sub:'不排景點', rows:[
+      {time:'08:45<br>–10:00', act:'🍛 🚶 → 早餐二選一', note:'兩間都在 Sultanahmet，飯店走 12 分。不趕時間，慢慢吃。', hi:true, tags:['car:🚶 步行 12 分','eat:早餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.basil,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.basil,P.lunchB)]]},
+      {time:'10:00<br>–11:20', act:'🚶 → Şok 超市伴手禮採買', note:'早餐往北走 <strong>20 分</strong>，穿過飯店一帶到 Sirkeci。<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['car:🚶 步行 20 分','停留 1h'], map:[['步行路線 · 早餐 → Şok',wlk(P.lunchA,P.sok)],['Şok İstanbul Sirkeci',pin(P.sok)]]},
+      {time:'11:20<br>–11:30', act:'🚶 → 回飯店', tags:['car:🚶 步行 9 分'], map:wlk(P.sok,P.basil)},
     ]},
     {label:'下午 · 回程', rows:[
-      {time:'12:00<br>–12:55', act:'拿行李、準備出發', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
+      {time:'11:30<br>–12:55', act:'把伴手禮塞進行李、準備出發', note:'昨晚已經整理過，今天只要把早上買的東西塞進預留的空位。護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
       {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['lock:僅等候15分鐘']},
-      {time:'14:00<br>起', act:'🍛 機場吃午餐', note:'今天不排市區午餐——托卡比走到 11:45、13:00 就要出發。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時，在機場吃比較不趕。', tags:['eat:午餐']},
+      {time:'14:00<br>起', act:'🍛 機場吃午餐', note:'今天不排市區午餐——早餐吃到 10:00、13:00 就要出發。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時，在機場吃比較不趕。', tags:['eat:午餐']},
       {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', '17:15 → 隔日08:45']},
       {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', '18:30 → 隔日10:00']},
     ]}
