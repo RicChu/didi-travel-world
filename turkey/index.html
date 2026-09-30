@@ -551,7 +551,9 @@ var P={
   topkapi:'41.011344,28.983203',
   dolmabahce:'41.038961,28.999773', /* 多爾瑪巴切皇宮 — 09:00–17:30，週一休 */
   ortakoy:'41.047287,29.026772',    /* 奧塔科伊 Büyük Mecidiye Camii */
-  kabatas:'41.033870,28.994202',    /* Kabataş — T1 終點、F1 纜車下站、渡輪碼頭 */
+  kabatas:'41.033870,28.994202',    /* Kabataş — T1 終點、F1 纜車下站 */
+  kabatasPier:'41.032935,28.994153',/* Kabataş İskelesi — 日落遊船上船點，離 T1 站 162 m */
+  karakoyPier:'41.021429,28.976732',/* Karaköy İskelesi — 日落遊船下船點 */
   taksim:'41.037833,28.985017',     /* 塔克辛廣場 — 獨立大街北端 */
   tunel:'41.025850,28.974059',
   stAntoine:'41.032276,28.977198',  /* 聖安東尼教堂 Sent Antuan — İstiklal Cd. No:171 */
@@ -970,18 +972,18 @@ var DATA=[
     {time:'14:10<br>–14:35', act:'🍛 🚶 → Vefa Bozacısı 1876', note:'浴後走 6 分鐘喝一杯 boza。距浴場約 350 公尺。', tags:['car:🚶 步行 6 分','eat:小點'],
      eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', img:'vefa-bozacisi.jpg', price:'平價，備現金', d:'boza（發酵小米飲，常配烤鷹嘴豆）老字號。距浴場約 350 公尺，兩人分一杯就好。'},
      map:wlk(P.hamam,P.vefa)},
-    {time:'14:55<br>–16:20', act:'🚋 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'T1 約 20 分。茶、香料、土耳其軟糖、堅果。⚠️ <strong>遊船若拖到 20:00 才下船，超市只剩 40 分鐘</strong>——那就在這裡多買一點，市集賣的跟 Şok 清單有一半重疊。', hi:true, tags:['car:🚋 T1 20 分','停留 1h25'], map:trn(P.vefa,P.spice),
+    {time:'14:55<br>–15:55', act:'🚋 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'T1 約 20 分。茶、香料、土耳其軟糖、堅果。<strong>15:55 一定要走</strong>——趕 Kabataş 的船。市集賣的跟 Şok 清單有一半重疊，怕晚上來不及就在這裡先買。', hi:true, tags:['car:🚋 T1 20 分','停留 1h'], map:trn(P.vefa,P.spice),
      sight:{zh:'香料市集', en:'Mısır Çarşısı / Spice Bazaar', img:'spice-bazaar.jpg', d:'1664 年落成的 L 形拱頂市集，本來是用埃及進口貨的關稅蓋起來的，所以土耳其文叫「埃及市集」。香料、乾果、軟糖與茶葉為主，規模比大巴札小很多，逛起來輕鬆。'},
     },
-    {time:'16:25<br>–19:00', act:'🚢 🚶 → 博斯普魯斯日落遊船 Sunset Cruise', note:'市集走到碼頭 <strong>5 分鐘</strong>，16:25 報到、<strong>17:00 開船、航程 2 小時</strong>。⚠️ <strong>這是 Klook Pass 的贈品遊船，要另外預約</strong>——11/07 是週六、日落場最熱門，買通票後立刻約。⚠️ <strong>Eminönü 有好幾個碼頭，實際上船點看票券</strong>。', hi:true, tags:['car:🚶 步行 5 分','停留 2h','⚠️ 需預約'], map:[[null,wlk(P.spice,P.eminonu)],['在地圖上開啟 · Eminönü 碼頭',pin(P.eminonu)]],
-     sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 Eminönü 往北開，沿途經過<strong>多爾瑪巴切皇宮、奧塔科伊清真寺、博斯普魯斯大橋與魯梅利堡壘</strong>——前一天在岸上走過的地方，今天換成水上的角度，而且是<strong>天色轉換的那兩小時</strong>。11/07 日落約 17:15，開船後半小時就進入最好看的光線。'},
+    {time:'15:55<br>–19:00', act:'🚋 🚢 → 博斯普魯斯日落遊船 Sunset Cruise', note:'⚠️ <strong>從 Kabataş 上船、Karaköy 下船，不是原地往返</strong>。市集走到 Eminönü T1 站 6 分，T1 坐到終點 Kabataş 約 12 分，再走 2 分到碼頭——<strong>抓 25 分，16:25 到</strong>。17:00 開船、航程 2 小時、19:00 在 Karaköy 上岸。⚠️ <strong>Klook Pass 的贈品遊船要另外預約</strong>，11/07 是週六、日落場最熱門，買通票後立刻約。', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分','停留 2h','⚠️ 需預約','⚠️ 上下船不同碼頭'], map:[['大眾運輸路線 · 香料市集 → Kabataş 碼頭',trn(P.spice,P.kabatasPier)],['在地圖上開啟 · Kabataş 上船點',pin(P.kabatasPier)],['在地圖上開啟 · Karaköy 下船點',pin(P.karakoyPier)]],
+     sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 <strong>Kabataş</strong> 出發沿歐洲岸北上，經過<strong>多爾瑪巴切皇宮、奧塔科伊清真寺、魯梅利堡壘</strong>，在<strong>第二大橋（FSM）折返</strong>，沿亞洲岸南下經<strong>少女塔</strong>，最後停靠 <strong>Karaköy</strong>。多爾瑪巴切與奧塔科伊就是前一天在岸上走過的地方，今天換成水上的角度，而且是<strong>天色轉換的那兩小時</strong>。11/07 日落約 17:15，開船後半小時就進入最好看的光線。'},
     },
-    {time:'19:15<br>–19:45', act:'🚶 → Şok 超市伴手禮採買', note:'下船走 9 分鐘。⚠️ <strong>營業到 21:00</strong>。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚶 步行 9 分','⚠️ 21:00 打烊'], map:[[null,wlk(P.eminonu,P.sok)],['Şok İstanbul Sirkeci',pin(P.sok)]]},
+    {time:'19:20<br>–19:50', act:'🚋 → Şok 超市伴手禮採買', note:'從 Karaköy 碼頭過來：<strong>T1 一站到 Sirkeci 約 10 分</strong>，或走加拉達橋 19 分（1.45 km，夜景好但腳會累）。⚠️ <strong>營業到 21:00</strong>。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚋 T1 10 分','⚠️ 21:00 打烊'], map:[['大眾運輸路線 · Karaköy 碼頭 → Şok',trn(P.karakoyPier,P.sok)],['步行路線 · 過加拉達橋 19 分',wlk(P.karakoyPier,P.sok,[P.gBridge])],['Şok İstanbul Sirkeci',pin(P.sok)]]},
     {time:'20:00<br>–21:30', act:'🍛 🚶 → Olden 1772 晚餐', note:'超市走 3 分鐘。歷史建築、氣氛型的收尾晚餐，這是伊斯坦堡最後一頓正餐。', hi:true, tags:['car:🚶 步行 3 分','eat:晚餐'],
      eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
      map:wlk(P.sok,P.olden)},
     {time:'睡前', act:'把行李整理完畢', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。11/08 只回飯店拿了就走。'},
-    {time:'刪減', act:'遊船拖到 20:00 或浴後太累', note:'超市在市集就先買掉；再不行就砍 Vefa Bozacısı。<strong>行李今晚一定要整理完。</strong>'}
+    {time:'刪減', act:'趕不上 15:55 的船或浴後太累', note:'超市在香料市集就先買掉；再不行就砍 Vefa Bozacısı。⚠️ <strong>遊船是預約制，錯過就沒了——15:55 離開市集是硬性上限。</strong><strong>行李今晚一定要整理完。</strong>'}
   ],
   stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第4晚'}
 },
