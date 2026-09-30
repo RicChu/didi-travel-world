@@ -159,8 +159,11 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 
 /* 情境：只顯示符合熱氣球狀態的列與區塊 */
 .tl-row[data-sc],.grp[data-sc]{display:none}
-.dp[data-sc="done"] .tl-row[data-sc~="done"],.dp[data-sc="fly"] .tl-row[data-sc~="fly"],.dp[data-sc="no"] .tl-row[data-sc~="no"]{display:grid}
-.dp[data-sc="done"] .grp[data-sc~="done"],.dp[data-sc="fly"] .grp[data-sc~="fly"],.dp[data-sc="no"] .grp[data-sc~="no"]{display:block}
+/* 情境鍵：新增 sw 選項時要同步加進下面兩行，否則該群組永遠不顯示 */
+.dp[data-sc="done"] .tl-row[data-sc~="done"],.dp[data-sc="fly"] .tl-row[data-sc~="fly"],.dp[data-sc="no"] .tl-row[data-sc~="no"],
+.dp[data-sc="go"] .tl-row[data-sc~="go"],.dp[data-sc="skip"] .tl-row[data-sc~="skip"]{display:grid}
+.dp[data-sc="done"] .grp[data-sc~="done"],.dp[data-sc="fly"] .grp[data-sc~="fly"],.dp[data-sc="no"] .grp[data-sc~="no"],
+.dp[data-sc="go"] .grp[data-sc~="go"],.dp[data-sc="skip"] .grp[data-sc~="skip"]{display:block}
 
 /* ---------- 時間軸 ---------- */
 .grp{margin-top:26px}
@@ -538,7 +541,7 @@ var P={
   sevenHills:'41.006371,28.979714',
   arasta:'41.004927,28.977902',
   grandBazaar:'41.010967,28.968253',/* Kapalı Çarşı */
-  hafiz:'41.016010,28.973360',
+  hafiz:'41.008550,28.968321',    /* Hafız Mustafa 1864 Beyazıt — Yeniçeriler Cd. No:39，就在大巴札旁，24 小時 */
   hamam:'41.012140,28.958548',      /* Acemoğlu Hamam */
   vefa:'41.015318,28.958420',       /* Vefa Bozacısı 1876 */
   kadikoy:'40.991295,29.024563',
@@ -546,6 +549,13 @@ var P={
   sok:'41.013436,28.975343',        /* Şok İstanbul Sirkeci 分店 */
   olden:'41.014927,28.974103',
   topkapi:'41.011344,28.983203',
+  dolmabahce:'41.038961,28.999773', /* 多爾瑪巴切皇宮 — 09:00–17:30，週一休 */
+  ortakoy:'41.047287,29.026772',    /* 奧塔科伊 Büyük Mecidiye Camii */
+  kabatas:'41.033870,28.994202',    /* Kabataş — T1 終點、F1 纜車下站、渡輪碼頭 */
+  taksim:'41.037833,28.985017',     /* 塔克辛廣場 — 獨立大街北端 */
+  tunel:'41.025850,28.974059',      /* Tünel F2 纜車下站 — 獨立大街南端，加拉達塔旁 */
+  turyol:'41.018738,28.970381',     /* Turyol 碼頭 — 博斯普魯斯遊船，加拉達橋西側 */
+  queb:'41.005757,28.980491',      /* Queb Rooftop — Byzantium Hotel 頂樓，Akbıyık Cd. No:29；門牌不在 OSM，用街道座標 */
   lunchA:'41.003864,28.978764',     /* 11/08 午餐主選 Blu Ma'Cel Breakfast */
   lunchB:'41.004331,28.975324'      /* 11/08 午餐備案 Cuppa Espresso Bakery */
 };
@@ -562,7 +572,7 @@ var DATA=[
     {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', '22:00 → 隔日05:40']},
     {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', '23:15 → 隔日05:50']}
   ],
-  stay:{name:'飛航中', note:''}
+  stay:{name:'機上', note:''}
 },
 
 /* ========== DAY 02 · 10/31 ========== */
@@ -663,7 +673,7 @@ var DATA=[
       {time:'10:10<br>–11:15', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.henna,P.pasabag),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
     },
-      {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min'], map:drv(P.pasabag,P.zelve),
+      {time:'11:15<br>–12:10', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min', '彈性可刪減'], map:drv(P.pasabag,P.zelve),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。'},
     },
       {time:'12:10<br>–14:00', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
@@ -677,7 +687,7 @@ var DATA=[
       {time:'12:00<br>–12:45', act:'→ Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票買一次就好，與 Zelve 共用'], map:drv(P.henna,P.pasabag),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。'},
     },
-      {time:'12:45<br>–13:20', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分'], map:drv(P.pasabag,P.zelve),
+      {time:'12:45<br>–13:20', act:'→ Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分','彈性可刪減'], map:drv(P.pasabag,P.zelve),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。'},
     },
       {time:'13:20<br>–15:10', act:'→ Göreme 露天博物館 Göreme Open Air Museum', hi:true, tags:['car:🚘 20 分','停留 1h30'],
@@ -733,7 +743,7 @@ var DATA=[
       {time:'09:30<br>–11:35', act:'🚘 → Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。'},
     },
-      {time:'11:35<br>–12:45', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
+      {time:'11:35<br>–12:45', act:'🚘 → 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','彈性可刪減','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。'},
     },
       {time:'12:45<br>–14:00', act:'🍛 🚘 → Seki Restaurant & Lounge', hi:true, tags:['car:🚘 5 分','eat:午餐','已訂位 13:00'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
@@ -749,7 +759,7 @@ var DATA=[
       {time:'14:05<br>–15:05', act:'Uçhisar城堡 Uçhisar Castle', tags:['彈性 · 有餘力再去'], map:[['砍這站 · Seki → Çavuşin',drv(P.seki,P.cavusin)]],
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。'},
     },
-      {time:'15:05<br>–16:20', act:'🚘 → Çavuşin 老村 Çavuşin Old Village', hi:true, tags:['car:🚘 15 分','停留 1h'], map:drv(P.uchisar,P.cavusin),
+      {time:'15:05<br>–16:20', act:'🚘 → Çavuşin 老村 Çavuşin Old Village', hi:true, tags:['car:🚘 15 分','停留 1h','彈性可刪減'], map:drv(P.uchisar,P.cavusin),
      sight:{zh:'Çavuşin 老村', en:'Çavuşin Old Village', img:'cavusin-village.jpg', d:'1960 年代落石後整村遷走，斷面直接裸露在崖壁上——一格格的房間、階梯與壁龕都還在，沒有修復也沒有圍欄。⚠️ <strong>Çavuşin 教堂因修復關閉</strong>，只走村子與崖下。'},
     },
       {time:'16:20<br>–17:50', act:'🚘 → 愛情谷觀景台 Love Valley Panorama', hi:true, tags:['car:🚘 5 分','停留 1h25','⚠️ 導航設公路邊觀景台'], map:[[null,drv(P.cavusin,P.lovevalley)],['在地圖上開啟 · 觀景台',pin(P.lovevalley)]],
@@ -856,111 +866,157 @@ var DATA=[
       {time:'20:20<br>起', act:'🚖 → Basilissis Hotel', hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
   ],
-  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00'}
 },
 
 /* ========== DAY 07 · 11/05 ========== */
 {
   day:7, date:'11/05', week:'四', theme:'blue',
-  title:'城市暖身 · 土耳其早餐與 Karaköy',
+  title:'🏛️ 舊城核心｜聖索菲亞、地下水宮殿與大巴札',
   status:'初版', statusCls:'draft',
   fatigue:2, fatigueText:'低中',
-  img:'galata-tower.jpg', cap:'加拉達塔 · 從 Karaköy 望去',
-  lead:'前一晚才回到伊斯坦堡，這天只做城市暖身與短距離散步，以步行、T1 電車和短程叫車銜接。目標是補齊必去清單裡的<strong>土耳其式早餐</strong>與 Karaköy / Beyoğlu 街頭美食。',
-  facts:['行李全放飯店','⚠️ Boris\'in Yeri 只收現金'],
+  img:'hagia-sophia.jpg', cap:'聖索菲亞 · Sultanahmet 廣場',
+  lead:'一千五百年的巨大穹頂、藏在地面下的拜占庭蓄水池、兩萬片藍色磁磚的清真寺，還有一座蓋了五百年的室內市集——全部在飯店走得到的範圍裡。',
+  facts:['全程步行'],
   rows:[
-    {time:'上午', act:'起床、整理小包', note:'上午不要太早出門。飯店早餐可略過或只喝飲料。'},
-    {time:'10:30<br>–11:00', act:'→ Boris\'in Yeri', note:'在 Kumkapı / Fatih 方向，離飯店較近；可步行、短程叫車或搭大眾交通。', map:trn(P.basil,P.boris)},
-    {time:'11:00<br>–12:15', act:'Boris\'in Yeri 土耳其早餐', note:'這餐完成必去清單的土耳其式早餐——1876 年這區的老早餐店，主打傳統早餐與乳製品，也好拍。點餐參考：蜂蜜牛奶、<em>kaymak</em>、土耳其咖啡、<em>sucuk</em> 臘腸、<em>menemen</em> 番茄炒蛋。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['eat:早餐','⚠️ 只收現金'],
-     eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', price:'只收現金，備足里拉', d:'1876 年的老早餐店，主打傳統早餐與乳製品。點餐參考：蜂蜜牛奶、kaymak、土耳其咖啡、sucuk 臘腸、menemen 番茄炒蛋。'}},
-    {time:'12:15<br>–12:45', act:'→ 加拉達 Galata / Karaköy', note:'早餐後轉往新城區，建議叫車或 T1 轉乘。', map:trn(P.boris,P.galata)},
-    {time:'12:45<br>–13:45', act:'加拉達 Galata / Karaköy 街區散步', note:'低強度看港口、坡道、咖啡店與街區。上坡太累就只走 Karaköy 平地。', map:wlk(P.galata,P.karakoy)},
-    {time:'13:45<br>–14:30', act:'Balık Dürümcü Mehmet Usta 魚捲', note:'必吃。<strong>建議兩人分食或外帶邊走邊吃</strong>，排隊太長就只買一份。', tags:['eat:輕午餐'],
-     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
-     map:wlk(P.karakoy,P.balik)},
-    {time:'14:30<br>–16:00', act:'加拉達橋 Galata Bridge + Eminönü 海邊散步', note:'看點是城市日常——橋上釣魚、橋下餐廳、金角灣與舊城天際線同時出現。不追求景點數量。', map:wlk(P.balik,P.eminonu,[P.gBridge])},
-    {time:'16:00<br>–17:30', act:'香料市集 Spice Bazaar（Mısır Çarşısı）', note:'比大巴札更偏氣味與食物記憶。人多時注意包包。', map:wlk(P.eminonu,P.spice)},
-    {time:'晚上', act:'Suat Usta Mersin Tantuni 晚餐候選', note:'去 Taksim / Beyoğlu 最順。若白天已吃太多，<strong>直接順延到 11/07</strong>。晚上回程建議 T1 或叫車，不走人少小巷。', tags:['eat:晚餐候選'],
-     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
-     map:[['去 Suat Usta',trn(P.spice,P.suat)],['回飯店',trn(P.suat,P.basil)]]},
-    {time:'刪減', act:'若前一晚抵達太晚', note:'保留 Boris\'in Yeri + Karaköy / Galata + Balık Dürüm，Spice Bazaar 與 Suat Usta 擇一或延後。'}
+    {time:'08:20<br>–09:15', act:'🚶 → 藍色清真寺 Blue Mosque', note:'<strong>免門票</strong>。⚠️ 要脫鞋、女性需包頭巾（現場有借），禮拜時段暫停開放。今天是週四，不受週五限制。', hi:true, tags:['car:🚶 步行 10 分','停留 45 分','免費'], map:wlk(P.basil,P.blueMosque),
+     sight:{zh:'藍色清真寺', en:'Sultanahmet Camii', img:'blue-mosque.jpg', d:'1616 年落成，六座宣禮塔是它最好認的特徵。內部超過兩萬片藍色伊茲尼克磁磚，「藍色清真寺」的名字就是從這裡來的。就在聖索菲亞正對面，兩座建築隔著廣場對望。'},
+    },
+    {time:'09:20<br>–11:00', act:'🍛 🚶 → Seven Hills Restaurant', hi:true, tags:['car:🚶 步行 5 分','eat:早餐'],
+     eatery:{name:'Seven Hills Restaurant', en:'Sultanahmet 屋頂', hours:'早餐08:30-12:00，午晚餐 12:00–23:00', img:'sevenhills-breakfast.jpg',
+       d:'屋頂正對聖索菲亞與藍色清真寺。<strong>點傳統早餐套餐 Breakfast Set Menu</strong>，一套就涵蓋下面全部，附一杯現榨果汁與<strong>無限續杯的土耳其紅茶</strong>。',
+       dishes:[
+         ['🥇','土耳其現炒烘蛋 <b>Menemen</b>','套餐裡最厲害的一道，滑嫩香濃，拿現烤麵包沾著吃'],
+         ['🥈','現烤麵包 4～5 款 + 在地炸物','剛出爐、麥香濃，配熱食一起上'],
+         ['🥉','土耳其在地起司拼盤 + 火腿','香氣濃郁、口感滑順，是套餐的主體之一'],
+         ['４','時令水果、沙拉、堅果','現切清甜，用來解膩'],
+         ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
+       ]},
+     map:wlk(P.blueMosque,P.sevenHills)},
+    {time:'11:05<br>–12:45', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。注意服裝規則。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30'], map:wlk(P.sevenHills,P.hagia),
+     sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。'},
+    },
+    {time:'12:50<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', hi:true, tags:['car:🚶 步行 2 分','停留 1h'], map:wlk(P.hagia,P.cistern),
+     sight:{zh:'地下水宮殿', en:'Basilica Cistern', img:'basilica-cistern.jpg', d:'六世紀查士丁尼時期的地下蓄水池，336 根柱子撐起整個空間，底部有兩顆倒置與側放的<strong>梅杜莎頭像</strong>。地面永遠濕、光線很暗。'},
+    },
+    {time:'13:50<br>–15:15', act:'🍛 🚶 → Hafız Mustafa 1864 Beyazıt', hi:true, tags:['car:🚶 步行 15 分','eat:甜點'],
+     eatery:{name:'Hafız Mustafa 1864 Beyazıt', en:'Yeniçeriler Cd. No:39, Beyazıt · 大巴札旁', hours:'24 小時', img:'hafiz-mustafa.jpg',
+       d:'1864 年的土耳其甜點老店，<strong>Beyazıt 分店就在大巴札西側出口旁</strong>，逛完直接走過去。也有伴手禮櫃。<strong>建議兩人點法：</strong>開心果 Şöbiyet ＋ Kazandibi ＋ 兩杯紅茶，一甜一奶香，用茶解膩。',
+       dishes:[
+         ['🥇','開心果酥皮 <b>Fıstıklı Şöbiyet</b>','開心果版的高級酥皮甜點——外皮酥、裡面是開心果與奶油餡。比普通 baklava 更值得第一次吃，只點一樣就點這個'],
+         ['🥈','焦糖奶布丁 <b>Kazandibi</b>','牛奶布丁類，表面焦糖化。不想一路吃糖漿甜點就點這個，奶香為主、不會甜到爆'],
+         ['🥉','土耳其紅茶 <b>Çay</b>','配甜點剛好，吃完 Şöbiyet 用它解膩']
+       ]},
+     map:wlk(P.cistern,P.hafiz)},
+    {time:'15:20<br>–17:30', act:'🚶 → 大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10','⚠️ 19:00 關門'], map:wlk(P.hafiz,P.grandBazaar),
+     sight:{zh:'大巴札', en:'Kapalıçarşı / Grand Bazaar', img:'grand-bazaar.jpg', d:'十五世紀開始擴建的室內市集，六十幾條街、四千多家店，拱頂全部彩繪。偏工藝、金飾、地毯與觀光商品，人非常多，注意隨身物品。'},
+    },
+    {time:'17:45<br>起', act:'🚶 → 自由時間'},
   ],
-  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第2晚'}
 },
 
 /* ========== DAY 08 · 11/06 ========== */
 {
   day:8, date:'11/06', week:'五', theme:'blue',
-  title:'Sultanahmet 舊城核心',
+  title:'👑 新城軸線｜多爾瑪巴切、奧塔科伊與獨立大街',
   status:'初版', statusCls:'draft',
   fatigue:3, fatigueText:'中',
-  img:'hagia-sophia.jpg', cap:'聖索菲亞 · Sultanahmet 廣場',
-  lead:'舊城景點密集、排隊與步行會累，但不用換城市。重點是<strong>控制排隊時間</strong>，不要把大景點和兩個市集全塞滿。Topkapi 排在 11/08 早場短版。',
-  facts:['全程步行','Grand Bazaar 固定這天','門票走官方售票系統'],
+  img:'galata-tower.jpg', cap:'加拉達塔 · 從 Karaköy 望去',
+  lead:'同一個帝國三百年後把自己蓋成歐洲的樣子——水晶吊燈與巴洛克立面取代了岩石與磁磚。一路從海邊的新皇宮走到山丘上的行人大街，最後在加拉達塔看日落。',
+  facts:['⚠️ 週五上午清真寺不開放遊客','T1 + F1 纜車','多爾瑪巴切週一休'],
   rows:[
-    {time:'08:30<br>–09:00', act:'→ 蘇丹艾哈邁德廣場 Sultanahmet Square', note:'直接步行。早點出門避開旅行團。', map:wlk(P.basil,P.blueMosque)},
-    {time:'09:00<br>–09:45', act:'蘇丹艾哈邁德廣場 Sultanahmet Square + 藍色清真寺 Blue Mosque', note:'六座宣禮塔與藍色磁磚是特色。注意服裝規則。'},
-    {time:'10:00<br>–11:30', act:'聖索菲亞 Hagia Sophia（Ayasofya）', note:'重點是巨大穹頂與不同宗教層次共存。門票在官方售票系統購買。1 樓為禮拜區不開放，門票僅含 2 樓；週五中午禮拜時段不對非禮拜者開放。', hi:true, map:wlk(P.blueMosque,P.hagia)},
-    {time:'11:45<br>–12:45', act:'地下水宮殿 Basilica Cistern（Yerebatan Sarnıcı）', note:'古代地下蓄水系統，和地面上的宗教建築形成很強對比。門票在官方售票系統購買（日間場）。離飯店很近，可依排隊情況和聖索菲亞對調。', map:wlk(P.hagia,P.cistern)},
-    {time:'13:00<br>–13:45', act:'Seven Hills Restaurant 拍照小點', note:'主目標是 Sultanahmet <strong>屋頂視角</strong>——聖索菲亞、藍色清真寺與海景一次收進來。偏貴，<strong>不當正式午餐</strong>，只點飲料 / 甜點 / 湯品 / 小菜。', hi:true, tags:['eat:拍照小點'],
-     eatery:{name:'Seven Hills Restaurant', en:'Sultanahmet 屋頂', hours:'12:00–23:00（早餐至 12:00）', d:'主目標是屋頂視角，不是吃正餐。只點飲料 / 甜點 / 湯品 / 小菜。'},
-     map:wlk(P.cistern,P.sevenHills)},
-    {time:'13:45<br>–14:15', act:'Arasta 市集 Arasta Bazaar 周邊短走或直接轉場', note:'不硬塞第二餐；Seven Hills 只點很少的話，用飲料 / 小點墊胃。', map:wlk(P.sevenHills,P.arasta)},
-    {time:'14:15<br>–16:15', act:'大巴札 Grand Bazaar（Kapalıçarşı）', note:'偏工藝、金飾與觀光商品。週五營業。', map:wlk(P.arasta,P.grandBazaar)},
-    {time:'16:15<br>–17:15', act:'Hafiz Mustafa 1864 Sirkeci 甜點茶點', note:'點 1～2 份招牌甜點分食，配土耳其茶或咖啡。', tags:['eat:甜點'],
-     eatery:{name:'Hafiz Mustafa 1864', en:'Sirkeci 分店', hours:'24 小時', d:'土耳其甜點、茶與咖啡，也有伴手禮櫃。點 1～2 份分食即可。'},
-     map:wlk(P.grandBazaar,P.hafiz)},
-    {time:'傍晚<br>起', act:'加拉達橋 Galata Bridge / Karaköy 晚餐與短散步', note:'若 11/05 已走過 Galata，改 Sirkeci / 舊城附近晚餐。去 Karaköy 可搭 T1 或叫車，<strong>晚上不帶護照與大量現金</strong>。', tags:['eat:晚餐'], map:[['走去 Karaköy',wlk(P.hafiz,P.karakoy,[P.gBridge])],['回飯店',trn(P.karakoy,P.basil)]]},
-    {time:'刪減', act:'排隊太久或天氣差', note:'下午仍優先保留 Grand Bazaar；天氣差則優先保留室內的地下水宮殿與市集。'}
+    {time:'08:30<br>–09:00', act:'飯店早餐', tags:['eat:早餐']},
+    {time:'09:00<br>–11:45', act:'🚋 → 多爾瑪巴切皇宮 Dolmabahçe Sarayı', note:'Gülhane 或 Sultanahmet 上車，坐 T1 到<strong>終點 Kabataş</strong>（25 分），再走 13 分。⚠️ <strong>09:00–17:30、週一休、售票口 17:00 關</strong>，博物館卡不適用。跟隊走固定路線，兩小時剛好。', hi:true, tags:['car:🚋 T1 25 分 + 步行 13 分','停留 2h','⚠️ 博物館卡不適用'], map:[[null,trn(P.basil,P.kabatas)],['步行路線 · Kabataş → 多爾瑪巴切',wlk(P.kabatas,P.dolmabahce)]],
+     sight:{zh:'多爾瑪巴切皇宮', en:'Dolmabahçe Palace', d:'1856 年取代托卡比的新皇宮，巴洛克加新古典，285 個房間。看點是室內——<strong>4.5 噸的水晶吊燈</strong>（維多利亞女王贈）、水晶樓梯，以及<strong>阿塔圖克 1938 年逝世的房間</strong>，宮裡的時鐘全部停在 09:05。門票含 Selamlık、後宮與繪畫館。'},
+    },
+    {time:'11:45<br>–13:30', act:'🚌 → 奧塔科伊 Ortaköy + kumpir 午餐', note:'沿海岸往北 2.4 公里，公車或叫車。海邊廣場一帶有很多攤，<strong>kumpir</strong>（大份烤馬鈴薯任選配料）和 waffle 是這裡的招牌。', hi:true, tags:['car:🚌 20 分','eat:午餐','停留 1h25'], map:[[null,drv(P.dolmabahce,P.ortakoy)],['大眾運輸路線',trn(P.dolmabahce,P.ortakoy)]],
+     sight:{zh:'奧塔科伊清真寺', en:'Büyük Mecidiye Camii', d:'1856 年的海濱清真寺，站在廣場上可以把清真寺與<strong>博斯普魯斯大橋</strong>放進同一個畫面，是伊斯坦堡最好認的構圖之一。'},
+    },
+    {time:'13:30<br>–16:00', act:'🚡 → 獨立大街 İstiklal Caddesi 走下來', note:'公車回 Kabataş（25 分）→ <strong>F1 地下纜車 3 分鐘</strong>上塔克辛廣場，不用爬坡 → 從廣場一路走到 Tünel，<strong>1.6 公里、全程行人徒步區</strong>，兩旁是十九世紀的建築、書店、唱片行與甜點店，紅色古董電車沿街跑。想吃 tantuni 的話 Suat Usta 就在北端起點附近。', hi:true, tags:['car:🚌 25 分 + 🚡 3 分','步行 1.6 km','停留 2h'],
+     eatery:{name:'Suat Usta Mersin Tantuni', en:'Taksim / Beyoğlu', hours:'約 11:00–03:00', d:'tantuni 類街食，輕鬆晚餐或宵夜。只有 Taksim / Beyoğlu 一帶，接舊城動線不順。'},
+     map:[['大眾運輸路線 · 奧塔科伊 → Kabataş',trn(P.ortakoy,P.kabatas)],['F1 纜車 · Kabataş → Taksim',trn(P.kabatas,P.taksim)],['步行路線 · Taksim → Tünel',wlk(P.taksim,P.tunel)],['Suat Usta Tantuni',pin(P.suat)]]},
+    {time:'16:00<br>–17:20', act:'🚶 → 加拉達塔 Galata Tower', note:'Tünel 走過去只要 2 分鐘。<strong>11/06 日落約 17:15</strong>，排這個時段是為了在塔上看天色轉換。每天 08:30–23:00。', hi:true, tags:['car:🚶 步行 2 分','停留 1h10','☀️ 日落 17:15'], map:wlk(P.tunel,P.galata),
+     sight:{zh:'加拉達塔', en:'Galata Tower', img:'galata-tower.jpg', d:'1348 年熱那亞人蓋的瞭望塔，高 67 公尺。頂層一圈的觀景台看得到金角灣、舊城天際線與博斯普魯斯入口，是把前面兩天走過的地方一次連起來的地方。'},
+    },
+    {time:'17:20<br>–18:15', act:'🍛 🚶 → Balık Dürümcü Mehmet Usta 魚捲', note:'從塔下走到 Karaköy 5 分。烤鯖魚捲餅，必吃。<strong>兩人分食或外帶邊走邊吃</strong>——19:30 還有 Queb，這裡當點心就好。', hi:true, tags:['car:🚶 步行 12 分','eat:點心'],
+     eatery:{name:'Sokak Lezzeti Tarihi Balık Dürümcü Mehmet Usta', en:'Karaköy', hours:'約 09:00–00:30', d:'烤鯖魚捲餅。兩人分食或外帶邊走邊吃，尖峰可能排隊。'},
+     map:wlk(P.galata,P.balik,[P.karakoy])},
+    {time:'18:15<br>–19:20', act:'🚶 加拉達橋 Galata Bridge 夜景 → 🚋 回飯店', note:'橋上釣魚、橋下餐廳、對岸舊城的清真寺剪影同時出現。走到 Eminönü 搭 T1 回飯店放東西。', hi:true, tags:['car:🚶 步行 + 🚋 T1 10 分'], map:[['步行路線 · 過加拉達橋',wlk(P.balik,P.eminonu,[P.gBridge])],['T1 · Eminönü → 飯店',trn(P.eminonu,P.basil)]]},
+    {time:'19:30<br>–21:00', act:'🍛 🚶 → Queb Rooftop 晚餐', note:'飯店走路 <strong>10 分鐘</strong>。⚠️ <strong>價位與是否需要訂位都還沒查證</strong>。', hi:true, tags:['car:🚶 步行 10 分','eat:晚餐'],
+     eatery:{name:'Queb Rooftop Restaurant', en:'Byzantium Hotel 頂樓 · Akbıyık Cd. No:29, Cankurtaran', hours:'每天 10:00–01:00',
+       d:'Sultanahmet 的屋頂餐廳，<strong>360 度視野</strong>——博斯普魯斯、聖索菲亞、藍色清真寺與馬爾馬拉海。位置比 Seven Hills 再往海邊一點，離 Basilissis 走路 10 分鐘。11 月屋頂是否加罩或有暖爐待現場確認。'},
+     map:[['步行路線 · Basilissis → Queb',wlk(P.basil,P.queb)],['在地圖上開啟',pin(P.queb)]]},
   ],
-  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第3晚'}
 },
 
 /* ========== DAY 09 · 11/07 ========== */
 {
   day:9, date:'11/07', week:'六', theme:'blue',
-  title:'土耳其浴 · 生活街區 · 伴手禮',
+  title:'🚢 博斯普魯斯｜從水上看一次伊斯坦堡',
   status:'初版', statusCls:'draft',
-  fatigue:3, fatigueText:'低中／中',
-  lead:'早餐與土耳其浴偏放鬆，下午<strong>生活街區擇一即可</strong>。這天早餐改輕量。傍晚先完成超市伴手禮，晚上以 Olden 1772 作近距離晚餐。',
-  facts:['土耳其浴 11:30 開始','超市 09:00－21:00','行李今晚整理完'],
+  fatigue:2, fatigueText:'低中',
+  lead:'昨天在岸上看過的多爾瑪巴切與奧塔科伊，今天從水上再看一次。下船就是香料市集，收尾是十五世紀的浴場與一頓慢慢吃的晚餐。',
+  facts:['⚠️ Boris\'in Yeri 只收現金','遊船 1.5 小時','行李今晚整理完'],
   rows:[
-    {time:'09:30<br>–10:30', act:'輕早餐 / 咖啡', note:'今天不要吃太重。選飯店附近或浴場附近即可。', tags:['eat:輕早餐']},
-    {time:'11:20', act:'土耳其浴提前 10 分鐘抵達', note:'<strong>遲到或未出席可能不退款。</strong>Acemoglu 在 Fatih 的 Şehzadebaşı Cd.，Vezneciler 地鐵站步行 1 分鐘。', tags:['⚠️ 不可遲到'], map:wlk(P.basil,P.hamam)},
-    {time:'11:30<br>–13:30', act:'Acemoğlu 土耳其浴 Acemoğlu Hamamı（15 世紀）', note:'必做項目。公共池是男女混浴、同時段最多 8 人、全部由女性工作人員服務。體驗約 45 分鐘。', hi:true},
-    {time:'13:30<br>–14:15', act:'Vefa Bozacısı boza', note:'1876 年開業的老字號，主打 <em>boza</em>（發酵小米飲，常配烤鷹嘴豆）。距浴場約 350 公尺。兩人分一杯就好，不必當正餐。', tags:['eat:老字號'],
+    {time:'10:15<br>–12:15', act:'🍛 🚶 → Boris\'in Yeri 土耳其早餐', note:'在 Kumkapı / Fatih 方向，步行或短程叫車 30 分。這餐完成必去清單的土耳其式早餐。<strong>只收現金，出門前先備好里拉。</strong>', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金'], map:trn(P.basil,P.boris),
+     eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', price:'只收現金，備足里拉', d:'1876 年的老早餐店，主打傳統早餐與乳製品。點餐參考：蜂蜜牛奶、kaymak、土耳其咖啡、sucuk 臘腸、menemen 番茄炒蛋。'}},
+    {time:'12:15<br>–14:30', act:'🚢 🚶 → 博斯普魯斯遊船 Bosphorus Cruise', note:'走 25 分到碼頭，13:00 開船。⚠️ 碼頭在<strong>加拉達橋西側</strong>，不是東側的市政渡輪碼頭。Turyol，<strong>約 1.5 小時來回、每小時一班</strong>，現場買票。⚠️ 市政 Şehir Hatları 的短程遊船<strong>只在夏季營運</strong>，11 月要搭 Turyol 或 Dentur，冬季班次較少，建議提早到碼頭確認。', hi:true, tags:['car:🚶 步行 25 分','停留 1h30','⚠️ 現場買票'], map:[['步行路線 · Boris → Turyol 碼頭',wlk(P.boris,P.turyol)],['在地圖上開啟 · Turyol 碼頭',pin(P.turyol)]],
+     sight:{zh:'博斯普魯斯遊船', en:'Bosphorus Cruise', d:'從 Eminönü 往北開到第二座大橋再折返。沿途會經過<strong>多爾瑪巴切皇宮、奧塔科伊清真寺、博斯普魯斯大橋與魯梅利堡壘</strong>——昨天在岸上走過的地方，今天換成水上的角度。'},
+    },
+    {time:'14:35<br>–15:40', act:'🚶 → 香料市集 Spice Bazaar（Mısır Çarşısı）', note:'下船走 5 分鐘就到。比大巴札更偏氣味與食物記憶——茶、香料、土耳其軟糖、堅果。人多時注意包包。', hi:true, tags:['car:🚶 步行 5 分','停留 1h5'], map:wlk(P.turyol,P.spice),
+     sight:{zh:'香料市集', en:'Mısır Çarşısı / Spice Bazaar', img:'spice-bazaar.jpg', d:'1664 年落成的 L 形拱頂市集，本來是用埃及進口貨的關稅蓋起來的，所以土耳其文叫「埃及市集」。香料、乾果、軟糖與茶葉為主，規模比大巴札小很多，逛起來輕鬆。'},
+    },
+    {time:'15:50<br>–18:30', act:'🚋 → Acemoğlu 土耳其浴 Acemoğlu Hamamı（15 世紀）', note:'Şehzadebaşı Cd.，Vezneciler 地鐵站走路 1 分、T1 Laleli 站 5 分。⚠️ <strong>提前 10 分鐘到，遲到或未出席可能不退款</strong>。⚠️ <strong>公共池為男女混浴、同時段最多 8 人、全部由女性工作人員服務</strong>；不接受混浴就改半私人。體驗約 45 分鐘，每小時一班。', hi:true, tags:['car:🚋 T1 + 步行','停留 2h','⚠️ 公共池為混浴'], map:trn(P.spice,P.hamam)},
+    {time:'18:30<br>–19:05', act:'🍛 🚶 → Vefa Bozacısı 1876', note:'浴後走 6 分鐘喝一杯 boza。距浴場約 350 公尺。', tags:['car:🚶 步行 6 分','eat:小點'],
      eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', price:'平價，備現金', d:'boza（發酵小米飲，常配烤鷹嘴豆）老字號。距浴場約 350 公尺，兩人分一杯就好。'},
      map:wlk(P.hamam,P.vefa)},
-    {time:'14:15<br>–17:30', act:'生活街區擇一', note:'<strong>選項一 Kadıköy + Üsküdar（亞洲側）</strong>：從 Eminönü / Karaköy 搭渡輪約 20－30 分，市場、咖啡店、海邊與通勤渡輪能看到伊斯坦堡日常；Üsküdar 補海峽夕陽視角。<strong>選項二 Karaköy / Galata</strong>：浴後很累或天氣差就留歐洲側，少移動、晚餐方便。（Balat / Fener 彩色街區為第三備案。）', hi:true, map:[['亞洲側 · Kadıköy + Üsküdar',trn(P.vefa,P.uskudar,[P.eminonu,P.kadikoy])],['歐洲側 · Karaköy / Galata',trn(P.vefa,P.galata,[P.karakoy])]]},
-    {time:'17:30<br>–18:30', act:'超市伴手禮採買', note:'Şok İstanbul Sirkeci，離飯店近，營業一～日 09:00－21:00。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾 / 杜拜巧克力、GODIVA、開心果、烤肉調味包。買完直接回飯店。', hi:true, map:[['Şok İstanbul Sirkeci',pin(P.sok)]]},
-    {time:'18:30<br>–19:15', act:'回飯店分裝戰利品', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。巧克力避免熱源、餅乾防壓、咖啡粉用夾鏈袋再包一層。11/08 早上不要再重整。', map:wlk(P.sok,P.basil)},
-    {time:'晚上', act:'Olden 1772 晚餐候選', note:'在 Sirkeci / Fatih 一帶，離飯店近。若 11/05 沒吃 Suat Usta，也可以今晚改吃。<strong>晚上不帶護照與大量現金。</strong>', tags:['eat:晚餐'],
+    {time:'19:20<br>–19:50', act:'🚋 → 超市伴手禮採買', note:'Şok İstanbul Sirkeci，離飯店近，<strong>營業到 21:00</strong>。買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['⚠️ 21:00 打烊'], map:[[null,trn(P.vefa,P.sok)],['Şok İstanbul Sirkeci',pin(P.sok)]]},
+    {time:'20:00<br>–21:30', act:'🍛 🚶 → Olden 1772 晚餐', note:'歷史建築、氣氛型的收尾晚餐，離飯店與超市都很近。', hi:true, tags:['car:🚶 步行 3 分','eat:晚餐'],
      eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', hours:'約 09:00–01:00（廚房 00:00 關）', d:'歷史建築、氣氛型的收尾晚餐。可能另加 10% 服務費與 cover charge，多數來源建議訂位。'},
-     map:wlk(P.basil,P.olden)},
-    {time:'睡前', act:'把行李整理完畢', note:'11/08 只回飯店拿了就走。', hi:true}
+     map:wlk(P.sok,P.olden)},
+    {time:'睡前', act:'把行李整理完畢', note:'易碎、易壓、會融的先分開，<strong>分散到兩個行李箱</strong>。11/08 只回飯店拿了就走。'},
+    {time:'刪減', act:'浴後太累', note:'砍 Vefa Bozacısı 和 Olden 1772，超市買完直接回飯店叫外送或在 Sirkeci 隨便吃。<strong>行李今晚一定要整理完</strong>。'}
   ],
-  stay:{name:'Basilissis Hotel', note:'Hotels.com 73473369372843，入住 14:00／退房 12:00'}
+  stay:{name:'Basilissis Hotel', note:'Hotels.com，入住 14:00／退房 12:00，續住第4晚'}
 },
 
 /* ========== DAY 10 · 11/08 ========== */
 {
   day:10, date:'11/08', week:'日', theme:'terra',
-  title:'Topkapi 早場 → 回程',
+  title:'👑 托卡匹皇宮（可選）→ 回程',
   status:'初版', statusCls:'draft',
-  fatigue:3, fatigueText:'中',
-  img:'topkapi-palace.jpg', cap:'Topkapı 皇宮 · 崇敬之門',
-  lead:'不安排遠點，保留一個舊城收尾。安安 17:15 起飛、豬豬 18:30 起飛，<strong>13:00 出發前往機場</strong>，目標 14:30 前到 IST。送機司機 13:00 到飯店。今天不安排購物。',
-  facts:['Topkapi 週日 09:00 開','⚠️ 13:00 送機不延後','不退稅'],
-  rows:[
-    {time:'08:15<br>–08:45', act:'飯店附近輕早餐、退房寄放行李', note:'行李前一晚已整理好，早上只帶小包出門。不要吃太慢。', tags:['eat:輕早餐']},
-    {time:'09:00<br>–10:45', act:'Topkapı 皇宮 Topkapı Palace 早場短版', note:'週日 09:00 開門即進。<strong>只走主庭院、寶物與海景重點區，不排 Harem</strong>，10:45 必須離開。', hi:true, map:wlk(P.basil,P.topkapi)},
-    {time:'11:00<br>–12:00', act:'午餐二選一', note:'主選；若不想再吃土耳其早餐就改備案。<strong>午餐不可拖延</strong>，排隊或上菜慢就改外帶 / 咖啡小點，保留 12:10 回飯店。', tags:['eat:午餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.topkapi,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.topkapi,P.lunchB)]]},
-    {time:'12:10<br>–13:00', act:'回飯店拿行李、準備出發', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>⚠️ 交通方式待定，若叫車要留叫車時間。', map:wlk(P.lunchA,P.basil)},
-    {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['lock:僅等候15分鐘']},
-    {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', '17:15 → 隔日08:45']},
-    {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', '18:30 → 隔日10:00']},
+  fatigue:2, fatigueText:'低中',
+  img:'topkapi-palace.jpg', cap:'托卡匹皇宮 · 崇敬之門',
+  lead:'最後半天留一個決定：前面已經看過烏奇薩的岩石城堡與多爾瑪巴切的水晶宮殿，還想不想再走一座皇宮。想就 09:00 開門即進，不想就在廣場邊喝茶到中午。',
+  sw:{label:'托卡匹', def:'go', opts:[
+    {k:'go',   t:'要去'},
+    {k:'skip', t:'不去'}
+  ]},
+  facts:['⚠️ 托卡比門票現場買','⚠️ 13:00 送機不延後','不退稅'],
+  groups:[
+    {label:'早上 · 要去托卡匹皇宮', sub:'09:00 開門即進', sc:'go', rows:[
+      {time:'08:00<br>–08:45', act:'🍛 飯店早餐', note:'吃快一點，08:45 就要出門。', tags:['eat:早餐']},
+      {time:'08:45<br>–11:45', act:'🚶 → 托卡匹皇宮 Topkapı Palace', note:'飯店走路 <strong>8 分鐘</strong>，09:00 開門即進，週日的隊伍這時最短。⚠️ <strong>門票現場買</strong>（₺2,750，含後宮與伊蓮娜教堂，2024 起無法只買本館）——這樣才能當天早上再決定去不去。2h45 走得完庭院＋寶物館＋後宮，但不能久留。', hi:true, tags:['car:🚶 步行 8 分','停留 2h45','⚠️ 現場買票'], map:wlk(P.basil,P.topkapi),
+     sight:{zh:'托卡匹皇宮', en:'Topkapı Palace', img:'topkapi-palace.jpg', d:'1465–1856 鄂圖曼帝國的權力中心。不是一棟建築而是<strong>四進庭院</strong>組成的園區：後宮、寶物館（托卡比匕首、86 克拉勺子鑽石）、聖物室，最後一進的露台同時看得到金角灣、博斯普魯斯與馬爾馬拉海。'},
+      },
+      {time:'11:45<br>–11:55', act:'🚶 → 回飯店', tags:['car:🚶 步行 8 分'], map:wlk(P.topkapi,P.basil)},
+    ]},
+    {label:'早上 · 不去托卡匹皇宮', sub:'省下 NT$1,786 / 人', alt:true, sc:'skip', rows:[
+      {time:'09:00<br>–09:50', act:'🍛 早餐二選一', note:'兩間都在 Sultanahmet 走路範圍內。不趕時間，慢慢吃。', tags:['eat:早餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.basil,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.basil,P.lunchB)]]},
+      {time:'10:00<br>–11:45', act:'🚶 Sultanahmet 廣場最後散步', note:'廣場、賽馬場方尖碑、Arasta 市集一帶隨意走走，找間店坐著喝茶。<strong>今天不安排購物</strong>，伴手禮 11/07 已買完。', hi:true, map:wlk(P.basil,P.arasta)},
+      {time:'11:45<br>–11:55', act:'🚶 → 回飯店', map:wlk(P.arasta,P.basil)},
+    ]},
+    {label:'下午 · 回程', rows:[
+      {time:'12:00<br>–12:55', act:'拿行李、準備出發', note:'護照、錢、信用卡、手機、藥品隨身。<strong>行李不要臨時重整。</strong>⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
+      {time:'13:00<br>–14:00', act:'🚖 Basilissis Hotel → Istanbul Airport', hi:true, tags:['lock:僅等候15分鐘']},
+      {time:'14:00<br>起', act:'🍛 機場吃午餐', note:'今天不排市區午餐——托卡比走到 11:45、13:00 就要出發。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時，在機場吃比較不趕。', tags:['eat:午餐']},
+      {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', tags:['TK124', '17:15 → 隔日08:45']},
+      {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', tags:['TK208', '18:30 → 隔日10:00']},
+    ]}
   ],
-  stay:{name:'機上', note:'TK124 17:15 IST／TK208 18:30 IST'}
+  stay:{name:'機上', note:''}
 },
 
 /* ========== DAY 11 · 11/09 ========== */

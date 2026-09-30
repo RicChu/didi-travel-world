@@ -176,7 +176,7 @@
 
 | 段落 | Google Maps | 包含點位 | 判斷重點 |
 |------|-------------|----------|----------|
-| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafiz Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.008479,28.978382%7C41.008504,28.980011%7C41.005384,28.976853%7C41.006371,28.979714%7C41.010967,28.968253%7C41.016010,28.973360&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；Topkapi 移到 11/08 早場短版 |
+| 舊城步行主線 | [Basilissis Hotel → Basilica Cistern → Hagia Sophia → Blue Mosque → Seven Hills Restaurant → Grand Bazaar → Hafız Mustafa 1864 Sirkeci → Basilissis Hotel](https://www.google.com/maps/dir/?api=1&origin=41.010415,28.978109&destination=41.010415,28.978109&waypoints=41.008479,28.978382%7C41.008504,28.980011%7C41.005384,28.976853%7C41.006371,28.979714%7C41.010967,28.968253%7C41.016010,28.973360&travelmode=walking) | Basilissis、地下水宮殿、聖索菲亞、藍色清真寺、Seven Hills、Grand Bazaar、Hafiz Mustafa | 這是 Basilissis 的最大優勢，早上可步行進舊城核心避人潮；14:15～16:15 固定 Grand Bazaar；Topkapi 移到 11/08 早場短版 |
 
 ### 11/07（六）Basilissis Hotel → Hammam → Vefa Bozacisi → Kadikoy / Uskudar 或 Karakoy → Basilissis Hotel
 
@@ -209,3 +209,15 @@
 4. 每天出門前只看當天同區域的點，避免行程太散
 
 如果想做更完整的地圖路線，可以再建立 [Google My Maps](https://www.google.com/maps/d/)，把每天用不同顏色分層。
+
+### 伊斯坦堡新增點位（2026-09-30）
+
+| 點位 | 座標 | 備註 |
+|------|------|------|
+
+| 多爾瑪巴切皇宮 | `41.038961, 28.999773` | 11/06。09:00–17:30，週一休，售票口 17:00 關 |
+| 奧塔科伊 Büyük Mecidiye Camii | `41.047287, 29.026772` | 11/06 午餐 kumpir |
+| Kabataş | `41.033870, 28.994202` | T1 終點、F1 纜車下站、渡輪碼頭 |
+| 塔克辛廣場 | `41.037833, 28.985017` | 獨立大街北端 |
+| Tünel（F2 下站） | `41.025850, 28.974059` | 獨立大街南端，加拉達塔旁 |
+| Turyol 碼頭 | `41.018738, 28.970381` | 11/07 博斯普魯斯遊船。⚠️ 在**加拉達橋西側**，不是東側的市政渡輪碼頭 |

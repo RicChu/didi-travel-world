@@ -57,3 +57,10 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `guray-muze.jpg` | 11/04 Güray Müze 地下陶藝博物館說明卡 | 使用者於 2026-09-29 提供 |
 | `love-valley.jpg` | 11/03 愛情谷觀景台說明卡 | 使用者於 2026-09-30 提供 |
 | `cavusin-village.jpg` | 11/03 Çavuşin 老村說明卡 | 使用者於 2026-09-30 提供 |
+| `sevenhills-breakfast.jpg` | 11/05 Seven Hills 屋頂早餐餐廳卡 | 使用者於 2026-09-30 提供 |
+| `basilica-cistern.jpg` | 11/05 地下水宮殿說明卡 | 使用者於 2026-09-30 提供 |
+| `blue-mosque.jpg` | 11/05 藍色清真寺說明卡 | 使用者於 2026-09-30 提供 |
+| `hagia-sophia-rooftop.jpg` | 11/05 聖索菲亞說明卡（自 Seven Hills 屋頂拍） | 使用者於 2026-09-30 提供 |
+| `spice-bazaar.jpg` | 11/07 香料市集說明卡 | 使用者於 2026-09-30 提供 |
+| `hafiz-mustafa.jpg` | 11/05 Hafız Mustafa 1864 Beyazıt 餐廳卡 | 使用者於 2026-09-30 提供 |
+| `grand-bazaar.jpg` | 11/05 大巴札說明卡 | 使用者於 2026-09-30 提供 |
