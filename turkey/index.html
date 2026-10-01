@@ -221,6 +221,12 @@ details[open] .chev{transform:rotate(180deg)}
 .sightc-name{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--ink)}
 .sightc-en{display:block;margin-top:2px;font-family:"DM Sans","Noto Sans TC",sans-serif;font-size:.74rem;color:var(--muted)}
 .sightc-d{margin-top:9px;font-size:.88rem;line-height:1.75}
+/* sight 加 side:true → 文字在左、圖片在右 */
+.sightc.side{display:flex;align-items:stretch;gap:0}
+.sightc.side .sightc-body{order:1;flex:1 1 auto;min-width:0;align-self:center;padding:11px 12px}
+.sightc.side .sightc-name{font-size:1rem}
+.sightc.side .sightc-d{margin-top:6px;font-size:.84rem;line-height:1.65}
+.sightc.side .sightc-fig{order:2;flex:0 0 34%;width:34%;min-width:86px;max-width:220px;aspect-ratio:3/4;align-self:stretch}
 .tl-spots{margin-top:12px;padding:12px;border-radius:13px;background:rgba(35,77,73,.05)}
 .spots-head{margin-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--teal)}
 .spot{display:flex;align-items:center;gap:10px;width:100%;margin-top:6px;padding:10px 12px;text-align:left;cursor:pointer;border:1px solid var(--line);border-radius:11px;background:#fffdf8}
@@ -677,7 +683,7 @@ var DATA=[
   groups:[
     {label:'清晨 · 飛了', sub:'04:00 起床，回來補眠', sc:'fly', rows:[
       {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', book:'exp-balloon', hi:true, tags:['含飯店接送', '茶點', '香檳'],
-     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg'},
+     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', side:true},
     },
       {time:'08:30<br>–11:00', act:'回房補眠'},
     ]},
@@ -750,7 +756,7 @@ var DATA=[
     ]},
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
       {time:'04:30<br>–08:30', act:'Göreme 日出熱氣球飛行', book:'exp-balloon', hi:true, tags:['含飯店接送', '茶點', '香檳'],
-     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg'},
+     sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', side:true},
     },
       {time:'08:30<br>–11:30', act:'回房補眠'},
     ]},
@@ -1247,7 +1253,7 @@ function eateryHtml(e){
 /* r.sight：{zh, en, d, img} —— 單一景點，直接攤開，不像 spots 需要再點一次 */
 function sightHtml(x){
   if(!x) return '';
-  var h='<div class="sightc">';
+  var h='<div class="sightc'+(x.side?' side':'')+'">';
   if(x.img) h+='<img class="sightc-fig" loading="lazy" decoding="async" src="'+IMG+x.img
     +'" alt="'+escAttr(x.zh)+'" onerror="this.style.display=\'none\'">';
   h+='<div class="sightc-body"><div class="sightc-name">'+x.zh
