@@ -222,11 +222,12 @@ details[open] .chev{transform:rotate(180deg)}
 .sightc-en{display:block;margin-top:2px;font-family:"DM Sans","Noto Sans TC",sans-serif;font-size:.74rem;color:var(--muted)}
 .sightc-d{margin-top:9px;font-size:.88rem;line-height:1.75}
 /* sight 加 side:true → 文字在左、圖片在右 */
-.sightc.side{display:flex;align-items:stretch;gap:0}
-.sightc.side .sightc-body{order:1;flex:1 1 auto;min-width:0;align-self:center;padding:11px 12px}
-.sightc.side .sightc-name{font-size:1rem}
-.sightc.side .sightc-d{margin-top:6px;font-size:.84rem;line-height:1.65}
-.sightc.side .sightc-fig{order:2;flex:0 0 40%;width:40%;min-width:96px;max-width:240px;align-self:stretch}
+/* side 版：沒有卡片外框與底色，只有描述文字＋右邊一張有框的圖 */
+.sightc.side{display:flex;align-items:stretch;gap:12px;border:0;border-radius:0;background:transparent;overflow:visible}
+.sightc.side .sightc-name{display:none}
+.sightc.side .sightc-body{order:1;flex:1 1 auto;min-width:0;align-self:center;padding:0}
+.sightc.side .sightc-d{margin-top:0;font-size:.86rem;line-height:1.7}
+.sightc.side .sightc-fig{order:2;flex:0 0 40%;width:40%;min-width:96px;max-width:240px;align-self:stretch;border:1px solid rgba(35,77,73,.28);border-radius:12px}
 .tl-spots{margin-top:12px;padding:12px;border-radius:13px;background:rgba(35,77,73,.05)}
 .spots-head{margin-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--teal)}
 .spot{display:flex;align-items:center;gap:10px;width:100%;margin-top:6px;padding:10px 12px;text-align:left;cursor:pointer;border:1px solid var(--line);border-radius:11px;background:#fffdf8}
