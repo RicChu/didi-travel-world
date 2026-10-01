@@ -161,10 +161,12 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* 情境鍵：新增 sw 選項時要同步加進下面兩行，否則該群組永遠不顯示 */
 .dp[data-sc="done"] .tl-row[data-sc~="done"],.dp[data-sc="fly"] .tl-row[data-sc~="fly"],.dp[data-sc="no"] .tl-row[data-sc~="no"],
 .dp[data-sc="go"] .tl-row[data-sc~="go"],.dp[data-sc="skip"] .tl-row[data-sc~="skip"],
-.dp[data-sc="matbah"] .tl-row[data-sc~="matbah"],.dp[data-sc="poika"] .tl-row[data-sc~="poika"]{display:grid}
+.dp[data-sc="sul"] .tl-row[data-sc~="sul"],.dp[data-sc="topkapi"] .tl-row[data-sc~="topkapi"],
+.dp[data-sc="gulhane"] .tl-row[data-sc~="gulhane"]{display:grid}
 .dp[data-sc="done"] .grp[data-sc~="done"],.dp[data-sc="fly"] .grp[data-sc~="fly"],.dp[data-sc="no"] .grp[data-sc~="no"],
 .dp[data-sc="go"] .grp[data-sc~="go"],.dp[data-sc="skip"] .grp[data-sc~="skip"],
-.dp[data-sc="matbah"] .grp[data-sc~="matbah"],.dp[data-sc="poika"] .grp[data-sc~="poika"]{display:block}
+.dp[data-sc="sul"] .grp[data-sc~="sul"],.dp[data-sc="topkapi"] .grp[data-sc~="topkapi"],
+.dp[data-sc="gulhane"] .grp[data-sc~="gulhane"]{display:block}
 
 /* ---------- 時間軸 ---------- */
 .grp{margin-top:26px}
@@ -603,6 +605,7 @@ var PN={
   stAntoine:'Sent Antuan Kilisesi',
   cicek:'Cicek Pasaji',
   kizil:'Kizilkayalar Taksim',
+  gulhane:'Gulhane Parki',
   suleymaniye:'Suleymaniye Camii',
   rustempasa:'Rustem Pasa Camii',
   poika:'Poika Breakfast Cafe',
@@ -689,6 +692,7 @@ var P={
   cicek:'41.034100,28.977921',      /* 花市拱廊 Çiçek Pasajı — İstiklal Cd. 上 */
   kizil:'41.036177,28.984678',      /* Kızılkayalar 濕漢堡 — Sıraselviler Cd. 2/C，塔克辛廣場旁 */      /* Tünel F2 纜車下站 — 獨立大街南端，加拉達塔旁 */
   turyol:'41.018738,28.970381',     /* Turyol 碼頭 — 博斯普魯斯遊船，加拉達橋西側 */
+  gulhane:'41.013026,28.980902',      /* 居爾哈尼公園 — 飯店走 6 分，原托卡匹外苑 */
   suleymaniye:'41.016229,28.963955',/* 蘇萊曼尼耶清真寺 — 米馬爾·錫南 1557，伊斯坦堡最大，不是藍色清真寺 */
   rustempasa:'41.017665,28.968699', /* 魯斯坦帕夏清真寺 — Hasırcılar Cd. 62，藏在市集街樓上 */
   poika:'41.008427,28.975075',      /* Poiká Breakfast & Cafe — Hacı Tahsin Bey Sk. 9/A，⚠️ 週日只到 12:30 */
@@ -1131,28 +1135,46 @@ var DATA=[
   fatigue:1, fatigueText:'低',
   lead:'不再排景點。慢慢吃一頓早餐，去超市把伴手禮買齊，回飯店把東西塞進行李，13:00 上車。',
   facts:['⚠️ 13:00 送機不延後','不退稅','Şok 週日 09:00 開'],
-  sw:{label:'午餐', def:'matbah', opts:[
-    {k:'matbah', t:'Matbah'},
-    {k:'poika',  t:'Poiká'}
+  sw:{label:'上午', def:'sul', opts:[
+    {k:'sul',     t:'蘇萊曼尼耶'},
+    {k:'topkapi', t:'托卡匹'},
+    {k:'gulhane', t:'居爾哈尼'}
   ]},
   groups:[
     {label:'早上 · 早餐與採買', sub:'不排景點', rows:[
       {time:'08:00<br>–08:45', act:'飯店早餐、打包、退房', note:'⚠️ <strong>提早退房，行李寄放櫃台</strong>——這樣中午不用趕回來打包，最後一餐才吃得下。', tags:['eat:早餐']},
-      {time:'08:45<br>–09:50', act:'蘇萊曼尼耶清真寺 Süleymaniye', note:'飯店走 <strong>22 分</strong>，一路往上。免費，要脫鞋、女性包頭巾。', hi:true, tags:['car:🚶 22 分','停留 40 分','免費'], map:gm('suleymaniye'),
+      /* ───── 版本 1 · 蘇萊曼尼耶 + Tahtakale 市集街 ───── */
+      {time:'08:45<br>–09:50', act:'蘇萊曼尼耶清真寺 Süleymaniye', sc:'sul', note:'飯店走 <strong>22 分</strong>，一路往上。免費，要脫鞋、女性包頭巾。', hi:true, tags:['car:🚶 22 分','停留 40 分','免費'], map:gm('suleymaniye'),
        sight:{zh:'蘇萊曼尼耶清真寺', en:'Süleymaniye Camii · 1557', img:'suleymaniye.jpg', side:true, d:'<strong>米馬爾·錫南</strong>為蘇萊曼大帝蓋的，是<strong>伊斯坦堡最大的清真寺</strong>。蓋在第三座山丘上，中庭外緣就能俯瞰金角灣與對岸的加拉達塔。四根宣禮塔、十根陽台，代表他是鄂圖曼第四位、建國後第十位蘇丹。⚠️ 跟藍色清真寺是不同的兩座。'},
       },
-      {time:'10:05<br>–10:20', act:'魯斯坦帕夏清真寺 Rüstem Paşa', note:'一路下坡 13 分。入口藏在市集街的樓梯上，很容易走過頭。<strong>裡面很小，看磁磚 15 分鐘就夠。</strong>', hi:true, tags:['car:🚶 13 分 · 下坡','停留 15 分','免費'], map:gm('rustempasa'),
+      {time:'10:05<br>–10:20', act:'魯斯坦帕夏清真寺 Rüstem Paşa', sc:'sul', note:'一路下坡 13 分。入口藏在市集街的樓梯上，很容易走過頭。<strong>裡面很小，看磁磚 15 分鐘就夠。</strong>', hi:true, tags:['car:🚶 13 分 · 下坡','停留 15 分','免費'], map:gm('rustempasa'),
        sight:{zh:'魯斯坦帕夏清真寺', en:'Rüstem Paşa Camii · 1563', img:'rustem-pasa.jpg', side:true, d:'錫南的小作品，藏在 Hasırcılar 市集街的二樓。裡面<strong>整面牆都是伊茲尼克磁磚</strong>，密度是全伊斯坦堡最高的，比藍色清真寺更集中。從街上看完全看不出來，要找樓梯上去。'},
       },
-      {time:'10:20<br>–10:35', act:'Hasırcılar 街 · Tahtakale 市集街', tags:['car:🚶 13 分'], map:gm('rustempasa'),
+      {time:'10:20<br>–10:35', act:'Hasırcılar 街 · Tahtakale 市集街', sc:'sul', tags:['car:🚶 13 分'], map:gm('rustempasa'),
        sight:{zh:'Hasırcılar 街', en:'Tahtakale 市集街', img:'hasircilar.jpg', side:true, d:'本地人的五金、咖啡磨豆、乾貨與廚具街，拱頂下兩排老店，跟香料市集完全不同的氣味。魯斯坦帕夏就在這條街的樓上。順著走就到 Sirkeci。'},
       },
-      {time:'10:35<br>–11:20', act:'Şok 超市伴手禮採買', note:'<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['停留 45 分'], map:gm('sok')},
-      {time:'11:20<br>–11:30', act:'回飯店把戰利品塞進行李', tags:['car:🚶 9 分'], map:gm('basil')},
-      {time:'11:30<br>–12:50', act:'午餐選項 · Matbah Restaurant', sc:'matbah', note:'有 <strong>1 小時 20 分</strong>，吃宮廷菜夠從容。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。建議先訂位（+90 212 514 61 51）。', hi:true, tags:['car:🚶 4 分','eat:午餐','停留 1h20','⚠️ 12:50 必須離開'], map:gm('matbah'),
+      {time:'10:35<br>–11:20', act:'Şok 超市伴手禮採買', sc:'sul', note:'<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['停留 45 分'], map:gm('sok')},
+
+      /* ───── 版本 2 · 托卡匹皇宮 ───── */
+      {time:'08:45<br>–10:45', act:'托卡匹皇宮 Topkapı Sarayı', sc:'topkapi', note:'飯店走 <strong>7 分</strong>，<strong>09:00 開門即進</strong>，週日的隊伍這時最短。⚠️ <strong>門票現場買</strong>（₺2,750／人，含後宮與伊蓮娜教堂，2024 起無法只買本館）。⚠️ <strong>週二休館</strong>，11/08 是週日沒問題。', hi:true, tags:['car:🚶 7 分','停留 1h45','⚠️ 現場買票 ₺2,750'], map:gm('topkapi'),
+       sight:{zh:'托卡匹皇宮', en:'Topkapı Sarayı Müzesi · 1465–1856', img:'topkapi-palace.jpg', side:true, d:'鄂圖曼帝國的權力中心，不是一棟建築而是<strong>四進庭院</strong>組成的園區：後宮、寶物館（托卡比匕首、86 克拉勺子鑽石）、聖物室。最後一進的露台同時看得到金角灣、博斯普魯斯與馬爾馬拉海。⚠️ <strong>1h45 只走得完庭院＋寶物館</strong>，後宮要再加 40 分。'},
+      },
+      {time:'11:00<br>–11:40', act:'Şok 超市伴手禮採買', sc:'topkapi', note:'托卡匹走過來 <strong>16 分</strong>。<strong>週日 09:00–21:00。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚶 16 分','停留 40 分'], map:gm('sok')},
+
+      /* ───── 版本 3 · 居爾哈尼公園 ───── */
+      {time:'08:45<br>–10:15', act:'居爾哈尼公園 Gülhane Parkı', sc:'gulhane', note:'飯店走 <strong>6 分</strong>，是三個版本裡最近的。免費，公園裡有咖啡座。', hi:true, tags:['car:🚶 6 分','停留 1h25','免費'], map:gm('gulhane'),
+       sight:{zh:'居爾哈尼公園', en:'Gülhane Parkı', side:true, d:'原本是<strong>托卡匹皇宮的外苑</strong>，1912 年才開放成公園。大片草地與老梧桐林蔭道，沿著皇宮外牆走，北端的高處可以看到金角灣與博斯普魯斯交會。園內有 Beltur 咖啡座。<strong>這是三個版本裡最輕鬆的一個</strong>——離飯店最近、全程平路、不用門票。'},
+      },
+      {time:'10:30<br>–11:20', act:'Şok 超市伴手禮採買', sc:'gulhane', note:'公園走過來 <strong>13 分</strong>。<strong>週日 09:00–21:00。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚶 13 分','停留 50 分'], map:gm('sok')},
+
+      /* ───── 三個版本共用 ───── */
+      {time:'11:20<br>–11:30', act:'回飯店把戰利品塞進行李', sc:'sul gulhane', tags:['car:🚶 9 分'], map:gm('basil')},
+      {time:'11:40<br>–11:50', act:'回飯店把戰利品塞進行李', sc:'topkapi', tags:['car:🚶 9 分'], map:gm('basil')},
+      {time:'11:30<br>–12:50', act:'午餐 · Matbah 或 Poiká', sc:'sul gulhane', note:'兩間都在飯店走路 6 分鐘內，<strong>當天想吃哪個再決定</strong>。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 4–6 分','eat:午餐','停留 1h20','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · Matbah Restaurant',gm('matbah')],['在地圖上開啟 · Poiká Breakfast & Cafe',gm('poika')]],
+       sight:{zh:'Matbah 或 Poiká', en:'當天再選', side:true, d:'<strong>Matbah Restaurant</strong>（Caferiye Sk. 6/1，走 4 分）——鄂圖曼宮廷菜，每天 09:00–22:30，4.5 分／1,390 則。建議先訂位（+90 212 514 61 51）。<br><strong>Poiká Breakfast &amp; Cafe</strong>（Hacı Tahsin Bey Sk. 9/A，走 6 分）——專做早餐，4.6 分／2,131 則。⚠️ <strong>週日只開到 12:30</strong>，選它就是吃到 12:30 準時走。'},
+      },
+      {time:'11:55<br>–12:50', act:'午餐 · Matbah', sc:'topkapi', note:'這版只有 <strong>55 分鐘</strong>，而且 <strong>Poiká 週日 12:30 就打烊</strong>、來不及——只能選 Matbah，<strong>一定要先訂位</strong>（+90 212 514 61 51）。⚠️ <strong>12:50 一定要走</strong>。', hi:true, tags:['car:🚶 4 分','eat:午餐','停留 55 分','⚠️ 12:50 必須離開'], map:gm('matbah'),
        eatery:{name:'Matbah Restaurant', en:'Caferiye Sk. 6/1 · 鄂圖曼宮廷菜', hours:'每天 09:00–22:30', price:'4.5 分／1,390 則', d:'從古文獻復原的鄂圖曼宮廷菜，就在聖索菲亞旁邊。飯店走 <strong>4 分鐘</strong>（263 m）。'}},
-      {time:'11:30<br>–12:30', act:'午餐選項 · Poiká Breakfast & Cafe', sc:'poika', note:'⚠️ <strong>週日只開到 12:30</strong>，所以這個版本吃 1 小時、12:30 準時走。', hi:true, tags:['car:🚶 6 分','eat:午餐','停留 1h','⚠️ 週日 12:30 打烊'], map:gm('poika'),
-       eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則', d:'專做早餐的店，飯店走 <strong>6 分鐘</strong>。'}},
     ]},
     {label:'下午 · 回程', rows:[
       {time:'12:55', act:'回飯店拿行李到門口等車', note:'護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>送機免費等候只有 15 分鐘。</strong>'},
