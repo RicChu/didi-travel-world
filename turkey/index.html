@@ -597,12 +597,12 @@ var DATA=[
   title:'🏛️ 以弗所 Ephesus｜愛琴海畔的古文明之城',
   status:'✅ 已定版', statusCls:'fixed',
   fatigue:5, fatigueText:'很高 · 抵達日又接夜路',
-  img:'ephesus-celsus-library.jpg', cap:'以弗所 · 塞爾蘇斯圖書館',
+  img:'ephesus-terrace-houses.jpg', cap:'以弗所 · 坡上住宅 Yamaç Evler',
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
     {time:'05:50<br>–13:20', act:'✈️ 國內轉機', book:['tk2320','car-adb'], tags:['lock:11:00 → 12:10', 'TK2320', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
-    {time:'13:20<br>–16:30', act:'🚘 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
+    {time:'13:20<br>–16:30', act:'🚘 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁，行李留在車上。', hi:true, tags:['car:🚘 1h','停留 2h40'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
        {zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
@@ -611,7 +611,7 @@ var DATA=[
        {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
      ],
      map:[[null,drv(P.adb,P.ephSite)],['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'17:00<br>–19:30', act:'🚘 跨城市移動，棉堡飯店', book:'stay-bella', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
+    {time:'17:00<br>–19:30', act:'🚘 跨城市移動，飯店Check in', book:'stay-bella', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
     {time:'19:30<br>–21:00', act:'🍛 As Teras Mantı Evi', tags:['eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主。',
@@ -635,8 +635,8 @@ var DATA=[
   lead:'雪白的天然鈣華梯田層層堆疊，搭配山頂希拉波利斯古城遺跡，是土耳其最夢幻的自然與文明交會之地。',
   facts:['國內線轉機','辦理租車、還手續','跨城市移動，自駕約四小時'],
   rows:[
-    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行李放置車上、車停留於飯店停車場，<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池'},
-    {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', note:'由下往上看石灰棚梯田，爬升約 135 m，部分區域要赤腳走。', hi:true,
+    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池。'},
+    {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
        {zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。'},
@@ -644,7 +644,7 @@ var DATA=[
      ],
      map:[['步行環線 · 從飯店出發回飯店',wlk(P.bella,P.bella,[P.pamEast,P.hTheatre,P.cleopatra])]]},
     {time:'13:30<br>–14:30', act:'🍛 Teras restaurant', tags:['eat:午餐'], hi:true,
-     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', hours:'09:00–23:00', img:'teras-restaurant.jpg', d:'露台面對石灰棚，離飯店 490 公尺、走路 7 分鐘。',
+     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', hours:'09:00–23:00', img:'teras-restaurant.jpg',
        dishes:[
          ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
          ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個'],
