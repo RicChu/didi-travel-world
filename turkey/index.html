@@ -160,12 +160,21 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-sc],.grp[data-sc]{display:none}
 /* 第二層切換（sw2／data-sc2）：與第一層獨立，同樣要在下面登記鍵名 */
 .tl-row[data-sc2]{display:none}
-.dp[data-sc2="kofte"] .tl-row[data-sc2~="kofte"],.dp[data-sc2="poika"] .tl-row[data-sc2~="poika"]{display:grid}
+.dp[data-sc2="kofte"] .tl-row[data-sc2~="kofte"]:not([data-sc]),
+.dp[data-sc2="poika"] .tl-row[data-sc2~="poika"]:not([data-sc]){display:grid}
+/* 同時掛 sc 與 sc2 的列：兩層都要對上才顯示 */
+.tl-row[data-sc][data-sc2]{display:none}
+.dp[data-sc="sul"][data-sc2="kofte"] .tl-row[data-sc~="sul"][data-sc2~="kofte"],
+.dp[data-sc="gulhane"][data-sc2="kofte"] .tl-row[data-sc~="gulhane"][data-sc2~="kofte"],
+.dp[data-sc="topkapi"][data-sc2="kofte"] .tl-row[data-sc~="topkapi"][data-sc2~="kofte"],
+.dp[data-sc="sul"][data-sc2="poika"] .tl-row[data-sc~="sul"][data-sc2~="poika"],
+.dp[data-sc="gulhane"][data-sc2="poika"] .tl-row[data-sc~="gulhane"][data-sc2~="poika"],
+.dp[data-sc="topkapi"][data-sc2="poika"] .tl-row[data-sc~="topkapi"][data-sc2~="poika"]{display:grid}
 /* 情境鍵：新增 sw 選項時要同步加進下面兩行，否則該群組永遠不顯示 */
-.dp[data-sc="done"] .tl-row[data-sc~="done"],.dp[data-sc="fly"] .tl-row[data-sc~="fly"],.dp[data-sc="no"] .tl-row[data-sc~="no"],
-.dp[data-sc="go"] .tl-row[data-sc~="go"],.dp[data-sc="skip"] .tl-row[data-sc~="skip"],
-.dp[data-sc="sul"] .tl-row[data-sc~="sul"],.dp[data-sc="topkapi"] .tl-row[data-sc~="topkapi"],
-.dp[data-sc="gulhane"] .tl-row[data-sc~="gulhane"]{display:grid}
+.dp[data-sc="done"] .tl-row[data-sc~="done"]:not([data-sc2]),.dp[data-sc="fly"] .tl-row[data-sc~="fly"]:not([data-sc2]),.dp[data-sc="no"] .tl-row[data-sc~="no"]:not([data-sc2]),
+.dp[data-sc="go"] .tl-row[data-sc~="go"]:not([data-sc2]),.dp[data-sc="skip"] .tl-row[data-sc~="skip"]:not([data-sc2]),
+.dp[data-sc="sul"] .tl-row[data-sc~="sul"]:not([data-sc2]),.dp[data-sc="topkapi"] .tl-row[data-sc~="topkapi"]:not([data-sc2]),
+.dp[data-sc="gulhane"] .tl-row[data-sc~="gulhane"]:not([data-sc2]){display:grid}
 .dp[data-sc="done"] .grp[data-sc~="done"],.dp[data-sc="fly"] .grp[data-sc~="fly"],.dp[data-sc="no"] .grp[data-sc~="no"],
 .dp[data-sc="go"] .grp[data-sc~="go"],.dp[data-sc="skip"] .grp[data-sc~="skip"],
 .dp[data-sc="sul"] .grp[data-sc~="sul"],.dp[data-sc="topkapi"] .grp[data-sc~="topkapi"],
@@ -1158,32 +1167,28 @@ var DATA=[
        sight:{zh:'魯斯坦帕夏清真寺', en:'Rüstem Paşa Camii · 1563', img:'rustem-pasa.jpg', side:true, d:'錫南的小作品，藏在 Hasırcılar 市集街的二樓。裡面<strong>整面牆都是伊茲尼克磁磚</strong>，密度是全伊斯坦堡最高的，比藍色清真寺更集中。從街上看完全看不出來，要找樓梯上去。'},
       },
       {time:'10:20<br>–10:35', act:'Hasırcılar 街 · Tahtakale 市集街', sc:'sul', tags:['car:🚶 13 分'], map:gm('rustempasa'),
-       sight:{zh:'Hasırcılar 街', en:'Tahtakale 市集街', img:'hasircilar.jpg', side:true, d:'本地人的五金、咖啡磨豆、乾貨與廚具街，拱頂下兩排老店，跟香料市集完全不同的氣味。魯斯坦帕夏就在這條街的樓上。順著走就到 Sirkeci。'},
+       sight:{zh:'Hasırcılar 街', en:'Tahtakale 市集街', img:'hasircilar.jpg', side:true, d:'本地人的五金、咖啡磨豆、乾貨與廚具街，拱頂下兩排老店，跟香料市集完全不同的氣味。魯斯坦帕夏就在這條街的樓上。順著走就到餐廳。'},
       },
-      {time:'10:35<br>–11:20', act:'Şok 超市伴手禮採買', sc:'sul', note:'<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['停留 45 分'], map:gm('sok')},
 
-      /* ───── 版本 2 · 托卡匹皇宮 ───── */
-      {time:'08:45<br>–11:15', act:'托卡匹皇宮 Topkapı Sarayı', sc:'topkapi', note:'飯店走 <strong>7 分</strong>，<strong>09:00 開門即進</strong>，週日的隊伍這時最短。⚠️ <strong>門票現場買</strong>（₺2,750／人，含後宮與伊蓮娜教堂，2024 起無法只買本館）。⚠️ <strong>週二休館</strong>，11/08 是週日沒問題。<strong>這版不排超市，整個上午都給皇宮。</strong>', hi:true, tags:['car:🚶 7 分','停留 2h15','⚠️ 現場買票 ₺2,750','⚠️ 這版不採買'], map:gm('topkapi'),
-       sight:{zh:'托卡匹皇宮', en:'Topkapı Sarayı Müzesi · 1465–1856', img:'topkapi-palace.jpg', side:true, d:'鄂圖曼帝國的權力中心，不是一棟建築而是<strong>四進庭院</strong>組成的園區：後宮、寶物館（托卡比匕首、86 克拉勺子鑽石）、聖物室。最後一進的露台同時看得到金角灣、博斯普魯斯與馬爾馬拉海。有 <strong>2h15</strong>：四進庭院＋寶物館走得完，<strong>想看後宮就要省掉其中一進</strong>。'},
+      /* ───── 版本 2 · 托卡匹皇宮（不採買，皇宮逛到飽） ───── */
+      {time:'08:45<br>–11:30', act:'托卡匹皇宮 Topkapı Sarayı', sc:'topkapi', note:'飯店走 <strong>7 分</strong>，<strong>09:00 開門即進</strong>，週日的隊伍這時最短。⚠️ <strong>門票現場買</strong>（₺2,750／人，含後宮與伊蓮娜教堂，2024 起無法只買本館）。⚠️ <strong>週二休館</strong>，11/08 是週日沒問題。<strong>這版不排超市，整個上午都給皇宮。</strong>', hi:true, tags:['car:🚶 7 分','停留 2h30','⚠️ 現場買票 ₺2,750','⚠️ 這版不採買'], map:gm('topkapi'),
+       sight:{zh:'托卡匹皇宮', en:'Topkapı Sarayı Müzesi · 1465–1856', img:'topkapi-palace.jpg', side:true, d:'鄂圖曼帝國的權力中心，不是一棟建築而是<strong>四進庭院</strong>組成的園區：後宮、寶物館（托卡比匕首、86 克拉勺子鑽石）、聖物室。最後一進的露台同時看得到金角灣、博斯普魯斯與馬爾馬拉海。有 <strong>2h30</strong>，<strong>四進庭院＋寶物館＋後宮都走得完</strong>。'},
       },
 
       /* ───── 版本 3 · 居爾哈尼公園 ───── */
-      {time:'08:45<br>–10:15', act:'居爾哈尼公園 Gülhane Parkı', sc:'gulhane', note:'飯店走 <strong>6 分</strong>，是三個版本裡最近的。免費，公園裡有咖啡座。', hi:true, tags:['car:🚶 6 分','停留 1h25','免費'], map:gm('gulhane'),
+      {time:'08:45<br>–10:35', act:'居爾哈尼公園 Gülhane Parkı', sc:'gulhane', note:'飯店走 <strong>6 分</strong>，是三個版本裡最近的。免費，<strong>中間在園內的 Beltur 咖啡座坐一下</strong>。', hi:true, tags:['car:🚶 6 分','停留 1h45','免費'], map:gm('gulhane'),
        sight:{zh:'居爾哈尼公園', en:'Gülhane Parkı', side:true, d:'原本是<strong>托卡匹皇宮的外苑</strong>，1912 年才開放成公園。大片草地與老梧桐林蔭道，沿著皇宮外牆走，北端的高處可以看到金角灣與博斯普魯斯交會。園內有 Beltur 咖啡座。<strong>這是三個版本裡最輕鬆的一個</strong>——離飯店最近、全程平路、不用門票。'},
       },
-      {time:'10:30<br>–11:20', act:'Şok 超市伴手禮採買', sc:'gulhane', note:'公園走過來 <strong>13 分</strong>。<strong>週日 09:00–21:00。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。', hi:true, tags:['car:🚶 13 分','停留 50 分'], map:gm('sok')},
 
-      /* ───── 三個版本共用 ───── */
-      {time:'11:20<br>–11:30', act:'回飯店把戰利品塞進行李', sc:'sul gulhane', tags:['car:🚶 9 分'], map:gm('basil')},
-      {time:'11:15<br>–11:25', act:'回飯店', sc:'topkapi', note:'⚠️ <strong>這版沒有採買</strong>——伴手禮要在前幾天或機場買。', tags:['car:🚶 8 分'], map:gm('basil')},
-      {time:'11:30<br>–12:50', act:'午餐 · 科夫塔肉丸', sc2:'kofte', note:'⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 6 分','eat:午餐','⚠️ 12:50 必須離開'], map:gm('kofteci'),
+      /* ───── 午餐：先吃飯，採買放後面看時間 ───── */
+      {time:'10:55<br>–12:05', act:'午餐 · 科夫塔肉丸', sc:'sul gulhane', sc2:'kofte', note:'⚠️ <strong>12:05 前吃完</strong>，後面才來得及補採買。', hi:true, tags:['car:🚶 20 分','eat:午餐','停留 1h10'], map:gm('kofteci'),
        eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，<strong>菜單極短、點完就上</strong>，是最不會卡時間的選擇。',
          dishes:[
            ['🥇','烤肉丸 <b>Izgara Köfte</b>','招牌必點。炭烤肉丸配麵包或米飯，第一次來就點這個'],
            ['🥈','白豆沙拉 <b>Piyaz</b>','白豆、洋蔥與香草，配肉丸解膩，當地吃法就是這兩樣一起'],
            ['🥉','鹹優格飲 <b>Ayran</b>','微酸帶鹹，配烤肉的標準組合']
          ]}},
-      {time:'11:30<br>–12:30', act:'午餐 · Poiká Breakfast & Cafe', sc2:'poika', note:'⚠️ <strong>週日只開到 12:30</strong>，所以吃 1 小時、12:30 準時走。', hi:true, tags:['car:🚶 6 分','eat:早午餐','⚠️ 週日 12:30 打烊'], map:gm('poika'),
+      {time:'10:55<br>–12:05', act:'午餐 · Poiká Breakfast & Cafe', sc:'sul gulhane', sc2:'poika', note:'⚠️ <strong>週日只開到 12:30</strong>，這個時段剛好。<strong>12:05 前吃完</strong>，後面才來得及補採買。', hi:true, tags:['car:🚶 20 分','eat:早午餐','停留 1h10','⚠️ 週日 12:30 打烊'], map:gm('poika'),
        eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', img:'poika.jpg', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則 · 飯店走 6 分', d:'專做早餐與早午餐的店。<strong>兩人建議點：土耳其早餐拼盤 ＋ 起司菠菜歐姆蛋 ＋ 兩杯飲料</strong>，傳統與西式各吃到一種。',
          dishes:[
            ['🥇','土耳其早餐拼盤 <b>Turkish Breakfast</b>','起司、橄欖、抹醬、麵包一整盤。<b>兩人分一份就夠</b>，不夠再加'],
@@ -1192,6 +1197,27 @@ var DATA=[
            ['４','優格穀物碗 <b>Granola Bowl</b>','不想再吃麵包時的清爽選項'],
            ['＋','抹茶拿鐵 / 土耳其紅茶','想換口味就點抹茶拿鐵，店裡也有咖啡與果昔']
          ]}},
+      {time:'11:45<br>–12:45', act:'午餐 · 科夫塔肉丸', sc:'topkapi', sc2:'kofte', note:'這版不採買，所以可以晚一點吃、吃久一點。', hi:true, tags:['car:🚶 11 分','eat:午餐','停留 1h'], map:gm('kofteci'),
+       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，<strong>菜單極短、點完就上</strong>，是最不會卡時間的選擇。',
+         dishes:[
+           ['🥇','烤肉丸 <b>Izgara Köfte</b>','招牌必點。炭烤肉丸配麵包或米飯，第一次來就點這個'],
+           ['🥈','白豆沙拉 <b>Piyaz</b>','白豆、洋蔥與香草，配肉丸解膩，當地吃法就是這兩樣一起'],
+           ['🥉','鹹優格飲 <b>Ayran</b>','微酸帶鹹，配烤肉的標準組合']
+         ]}},
+      {time:'11:45<br>–12:25', act:'午餐 · Poiká Breakfast & Cafe', sc:'topkapi', sc2:'poika', note:'⚠️ <strong>週日 12:30 打烊</strong>，這版 11:45 才到、只吃得到 40 分鐘——<strong>想好好吃就選科夫塔肉丸</strong>。', hi:true, tags:['car:🚶 11 分','eat:早午餐','停留 40 分','⚠️ 週日 12:30 打烊'], map:gm('poika'),
+       eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', img:'poika.jpg', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則 · 飯店走 6 分', d:'專做早餐與早午餐的店。<strong>兩人建議點：土耳其早餐拼盤 ＋ 起司菠菜歐姆蛋 ＋ 兩杯飲料</strong>，傳統與西式各吃到一種。',
+         dishes:[
+           ['🥇','土耳其早餐拼盤 <b>Turkish Breakfast</b>','起司、橄欖、抹醬、麵包一整盤。<b>兩人分一份就夠</b>，不夠再加'],
+           ['🥈','起司菠菜歐姆蛋 <b>Cheese &amp; Spinach Omelette</b>','店裡的熱門品項，配拼盤剛好一鹹一輕'],
+           ['🥉','土耳其番茄炒蛋 <b>Menemen</b>','小鍋上桌配麵包。想吃鹹食又不想太油膩就選這道，跟歐姆蛋二選一'],
+           ['４','優格穀物碗 <b>Granola Bowl</b>','不想再吃麵包時的清爽選項'],
+           ['＋','抹茶拿鐵 / 土耳其紅茶','想換口味就點抹茶拿鐵，店裡也有咖啡與果昔']
+         ]}},
+
+      /* ───── 採買：只有版本 1、3 有，而且是彈性的 ───── */
+      {time:'12:20<br>–12:42', act:'Şok 超市伴手禮採買', sc:'sul gulhane', note:'餐廳走 <strong>13 分</strong>。<strong>週日 09:00–21:00。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>吃飯拖到就直接回飯店，這站可以砍</strong>。', hi:true, tags:['car:🚶 13 分','停留 22 分','彈性可刪減'], map:gm('sok')},
+      {time:'12:42<br>–12:51', act:'回飯店', sc:'sul gulhane', tags:['car:🚶 9 分'], map:gm('basil')},
+      {time:'12:45<br>–12:51', act:'回飯店', sc:'topkapi', note:'⚠️ <strong>這版沒有採買</strong>——伴手禮要在前幾天或機場買。', tags:['car:🚶 6 分'], map:gm('basil')},
     ]},
     {label:'下午 · 回程', rows:[
       {time:'12:55', act:'回飯店拿行李到門口等車', note:'護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>送機免費等候只有 15 分鐘。</strong>'},
