@@ -63,12 +63,16 @@ didi-travel-world/
 - 背景色、字型、色彩 token 需與最新子頁面對齊
 - 卡片 `.trip-card-hero-bg` 放**封面照片**（`img/<trip>-cover.jpg`），上面疊一層該趟旅行主題色的半透明色罩；最底層保留原本的純漸層當作照片載入失敗時的 fallback
 - 目前對齊花東縱谷風格：背景 `#ede8dd`、字型 `PingFang TC`、`Georgia serif`、forest green 系
+- `.bg-turkey` 的色罩與 fallback 漸層跟著土耳其頁的「大巴札」主色走（`#501823` → `#6e2230` → `#a8533a`）
 
 每次新增旅遊計劃後，若新計劃風格與現有總覽差異明顯，需同步更新總覽配色。
 
 ## 設計慣例
 
 - 每趟旅行有獨立的**色彩主題**（CSS variables）
+- 土耳其頁配色為「大巴札」：地毯紅 `--terra:#6e2230`、綠松石 `--teal:#2f6e74`、銅金 `--gold:#c49a3f`、紙色 `--paper:#f4eee3`。
+  **所有衍生色（hero 漸層、底色暈染、卡片底與邊框、時間軸交通色條）都已收成 `:root` 的 token，換配色只動那一塊**，不要在規則裡寫死顏色。
+  註：`DATA[].theme`（`gold`/`terra`/`turq`/`blue`）是舊欄位，目前沒有任何 CSS 或程式讀它。
 - 每日投影片以 `data-day` attribute 區分，搭配 `[data-day="N"]` CSS selector 套用主題色
 - 時間軸三欄佈局：`[time 60px] [4px gap] [line/dot] [4px gap] [card]`，`.tl` padding-left:77px；`.tl-time` width:60px left:-77px；`.tl-dot` left:-13px；`.tl::before` left:64px。這樣可容納 `11:30–12:30` 等較長時間文字，且三欄完全不重疊。
 - 子頁面返回按鈕使用 `.app-topbar > .back-btn` 結構，嵌入 `.app` flex 流（非 `position:fixed`），避免覆蓋內容

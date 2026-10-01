@@ -3,34 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5efe5">
+<meta name="theme-color" content="#f4eee3">
 <title>2026 土耳其 9 日 · 行程</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1e2a2a; --muted:#6f7874;
-  --paper:#f5efe5; --paper-strong:#ebe1d2; --card:#fffdf8;
-  --teal:#234d49; --teal-soft:#dce9e4;
-  --terra:#bf6244; --terra-soft:#f2ddd4; --terra-ink:#9d4b33;
-  --gold:#ba8a42; --gold-soft:#f4e8cc; --gold-ink:#74571f;
+  /* 配色：大巴札 —— 地毯紅為主，土耳其綠松石為輔，銅金點綴 */
+  --ink:#2e1a1f; --muted:#756467;
+  --paper:#f4eee3; --paper-strong:#e8dfd1; --card:#fffcf6;
+  --teal:#2f6e74; --teal-soft:#dfecec;
+  --terra:#6e2230; --terra-soft:#f3e0e2; --terra-ink:#6e2230;
+  --gold:#c49a3f; --gold-soft:#f7edd4; --gold-ink:#7e6322;
   /* 由主色衍生出來的次要色：集中在這裡，換配色時才不會有寫死的顏色換不到 */
-  --on-dark:#fffaf1;        /* 深色底上的字 */
-  --hero-a:rgba(25,58,56,.98); --hero-b:rgba(35,77,73,.88);
-  --scrim:rgba(19,53,51,.62); --scrim-strong:rgba(19,53,51,.74);
-  --kicker:#d8c8ad; --warm:#e8a46d;
-  --pill:#d9b86e; --pill-on:#f08a67;
-  --ink-soft:#516663; --ink-body:#4c5654; --ink-note:#5d6866; --ink-sub:#3e5552;
-  --dot:#b9bfbb; --bar-stay:#cfd6d2; --fly:#3f7fa6;
-  --stroke:#f2d7aa;
-  --wash-a:rgba(191,98,68,.12); --wash-b:rgba(35,77,73,.08);
-  --focus:rgba(191,98,68,.38);
-  --tint:rgba(35,77,73,.07); --tint-soft:rgba(35,77,73,.05);
-  --edge:rgba(35,77,73,.28); --sight-bg:rgba(220,233,228,.4);
-  --edge-gold:rgba(186,138,66,.38); --eatery-bg:rgba(244,232,204,.35);
-  --line:rgba(30,42,42,.13);
-  --shadow:0 20px 55px rgba(61,49,34,.1);
+  --on-dark:#fdf6ec;        /* 深色底上的字 */
+  --hero-a:rgba(80,24,35,.97); --hero-b:rgba(168,83,58,.86);
+  --scrim:rgba(66,20,29,.64); --scrim-strong:rgba(66,20,29,.78);
+  --kicker:#e0bda0; --warm:#d9a05c;
+  --pill:#c49a3f; --pill-on:#a8533a;
+  --ink-soft:#5e4a4e; --ink-body:#54474a; --ink-note:#5f5053; --ink-sub:#452f34;
+  --dot:#c4b4b6; --bar-stay:#d6c9ca; --fly:#2f5d8f;
+  --stroke:#e3c08d;
+  --wash-a:rgba(110,34,48,.10); --wash-b:rgba(47,110,116,.08);
+  --focus:rgba(110,34,48,.38);
+  --tint:rgba(47,110,116,.08); --tint-soft:rgba(47,110,116,.05);
+  --edge:rgba(47,110,116,.28); --sight-bg:rgba(223,236,236,.5);
+  --edge-gold:rgba(196,154,63,.42); --eatery-bg:rgba(247,237,212,.45);
+  --line:rgba(46,26,31,.14);
+  --shadow:0 20px 55px rgba(61,34,38,.12);
   --safe-t:env(safe-area-inset-top,0px);
   --safe-b:env(safe-area-inset-bottom,0px);
   --serif:Georgia,"Noto Serif TC","Songti TC",serif;
@@ -75,9 +76,9 @@ strong{font-weight:700}
   box-shadow:0 0 0 46px rgba(255,250,241,.04),0 0 0 92px rgba(255,250,241,.035);
 }
 .hero::after{
-  content:"";position:absolute;width:110px;height:138px;right:86px;top:62px;opacity:.7;
+  content:"";position:absolute;width:116px;height:134px;right:86px;top:62px;opacity:.7;
   background:linear-gradient(145deg,var(--warm),var(--terra));
-  clip-path:polygon(50% 0,87% 17%,100% 57%,70% 100%,30% 100%,0 57%,13% 17%);
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
 }
 .hero-topline,.hero-copy,.route-line{position:relative;z-index:1}
 .hero-topline{display:flex;align-items:center;justify-content:space-between;gap:16px}
