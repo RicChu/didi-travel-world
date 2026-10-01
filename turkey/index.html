@@ -179,6 +179,8 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-way="drive"]::before{background:var(--terra)}
 .tl-row[data-way="walk"]::before{background:var(--gold)}
 .tl-row[data-way="transit"]::before{background:var(--teal)}
+.tl-row[data-way="stay"]::before,
+.tl-row[data-way="hotel"]::before{background:#cfd6d2}
 .tl-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:32px;position:relative}
 .tl-time{padding-top:15px;color:var(--muted);font-size:.74rem;font-weight:700;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums}
 .tl-card{position:relative;border:1px solid var(--line);border-radius:15px;background:#fffdf8;transition:border-color .2s ease,box-shadow .2s ease}
@@ -190,7 +192,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-card.k-move::before{background:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .tl-card.k-eat::before{background:var(--terra);box-shadow:0 0 0 1px var(--terra)}
 /* 有交通方式的列：圓點換成帶 emoji 的圓章，外圈顏色＝該交通方式的色條顏色 */
-.tl-row[data-way] .tl-card::before{
+.tl-row[data-way]:not([data-way="stay"]) .tl-card::before{
   box-sizing:border-box;left:-30px;top:15px;width:22px;height:22px;
   display:flex;align-items:center;justify-content:center;
   border:2px solid var(--card);border-radius:50%;
@@ -200,6 +202,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-way="drive"] .tl-card::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--terra)}
 .tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--gold)}
 .tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px var(--teal)}
+.tl-row[data-way="hotel"] .tl-card::before{content:"\1F3E8";box-shadow:0 0 0 1.5px #b9bfbb}
 details.tl-card[open]{border-color:rgba(35,77,73,.35);box-shadow:0 8px 20px rgba(35,77,73,.07)}
 .tl-sum{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;list-style:none}
 details .tl-sum{cursor:pointer}
@@ -399,7 +402,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .tl-row[data-way]::before{left:51px}
   .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
   .tl-card::before{left:-22px}
-  .tl-row[data-way] .tl-card::before{left:-25px}
+  .tl-row[data-way]:not([data-way="stay"]) .tl-card::before{left:-25px}
   .tl-time{font-size:.68rem}
   .tl-sum{padding:13px 12px}
   .tl-act{font-size:.93rem}
@@ -649,7 +652,7 @@ var DATA=[
      sight:{zh:'音樂廳', en:'Odeon', img:'ephesus-odeon.jpg', side:true, d:'約 1,500 席的小型半圓劇場，用於戲劇與音樂演出。靠近上入口，是走回停車處前的最後一站。'},
     },
     {time:'17:00<br>–19:30', act:'Bellamaritimo Hotel', book:'stay-bella', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
-    {time:'19:30<br>–21:00', act:'🍛 As Teras Mantı Evi', tags:['eat:晚餐'], hi:true,
+    {time:'19:30<br>–21:00', act:'🍛 🚶 → As Teras Mantı Evi', tags:['car:🚶 步行 5 分','eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主。',
        dishes:[
@@ -658,7 +661,7 @@ var DATA=[
          ['🥉','開心果 <b>Künefe with ground pistachio</b>','飯後甜點，兩人分一份'],
          ['＋','葡萄葉包飯 <b>Yaprak Sarma</b>','還吃得下再加']
        ]},
-     map:pin(P.asteras)}
+     map:[[null,wlk(P.bella,P.asteras)],['在地圖上開啟 · As Teras Mantı Evi',pin(P.asteras)]]}
   ]
 },
 
@@ -1366,7 +1369,17 @@ function wayOf(r){
     if(bk[j].indexOf('ride-')===0||bk[j].indexOf('car-')===0) return 'drive';
   }
   if(/轉機|航班|起飛|登機/.test(src)) return 'fly';
-  return '';
+  if(/飯店|回房|Check in|check in/.test(src)) return 'hotel';
+  /* 沒明講交通方式時，用地圖連結的 travelmode 推：wlk→步行、drv→自駕、trn→大眾運輸 */
+  var m=r.map;
+  if(m){
+    var arr=(typeof m==='string')?[[null,m]]:m, md;
+    for(var k=0;k<arr.length;k++){
+      md=mapMode(arr[k][1]);
+      if(md==='walk'||md==='drive'||md==='transit') return md;
+    }
+  }
+  return 'stay';   /* 其餘一律灰線，讓時間軸不要斷掉 */
 }
 function rowHtml(r){
   var ks=kindsOf(r), pills='';
