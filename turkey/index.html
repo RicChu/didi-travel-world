@@ -158,6 +158,9 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 
 /* 情境：只顯示符合熱氣球狀態的列與區塊 */
 .tl-row[data-sc],.grp[data-sc]{display:none}
+/* 第二層切換（sw2／data-sc2）：與第一層獨立，同樣要在下面登記鍵名 */
+.tl-row[data-sc2]{display:none}
+.dp[data-sc2="kofte"] .tl-row[data-sc2~="kofte"],.dp[data-sc2="poika"] .tl-row[data-sc2~="poika"]{display:grid}
 /* 情境鍵：新增 sw 選項時要同步加進下面兩行，否則該群組永遠不顯示 */
 .dp[data-sc="done"] .tl-row[data-sc~="done"],.dp[data-sc="fly"] .tl-row[data-sc~="fly"],.dp[data-sc="no"] .tl-row[data-sc~="no"],
 .dp[data-sc="go"] .tl-row[data-sc~="go"],.dp[data-sc="skip"] .tl-row[data-sc~="skip"],
@@ -1140,6 +1143,10 @@ var DATA=[
     {k:'topkapi', t:'托卡匹'},
     {k:'gulhane', t:'居爾哈尼'}
   ]},
+  sw2:{label:'午餐', def:'kofte', opts:[
+    {k:'kofte', t:'科夫塔肉丸'},
+    {k:'poika', t:'Poiká'}
+  ]},
   groups:[
     {label:'早上 · 早餐與採買', sub:'不排景點', rows:[
       {time:'08:00<br>–08:45', act:'飯店早餐、打包、退房', note:'⚠️ <strong>提早退房，行李寄放櫃台</strong>——這樣中午不用趕回來打包，最後一餐才吃得下。', tags:['eat:早餐']},
@@ -1170,12 +1177,22 @@ var DATA=[
       /* ───── 三個版本共用 ───── */
       {time:'11:20<br>–11:30', act:'回飯店把戰利品塞進行李', sc:'sul gulhane', tags:['car:🚶 9 分'], map:gm('basil')},
       {time:'11:40<br>–11:50', act:'回飯店把戰利品塞進行李', sc:'topkapi', tags:['car:🚶 9 分'], map:gm('basil')},
-      {time:'11:30<br>–12:50', act:'午餐 · 科夫塔肉丸 或 Poiká', sc:'sul gulhane', note:'兩間都在飯店走路 6 分鐘內，<strong>當天想吃哪個再決定</strong>。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 6 分','eat:午餐','停留 1h20','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · 科夫塔肉丸',gm('kofteci')],['在地圖上開啟 · Poiká',gm('poika')]],
-       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，菜單極短——<strong>köfte、piyaz（白豆沙拉）、ayran</strong>，點完就上。'}},
-      {time:'（替代）', act:'午餐 · Poiká Breakfast & Cafe', sc:'sul gulhane', note:'⚠️ <strong>週日只開到 12:30</strong>，選它就是 11:30 吃到 12:30 準時走。', tags:['car:🚶 6 分','eat:午餐','⚠️ 週日 12:30 打烊'], map:gm('poika'),
-       eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', img:'poika.jpg', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則', d:'專做早餐的店，飯店走 <strong>6 分鐘</strong>。'}},
-      {time:'11:55<br>–12:50', act:'午餐 · 科夫塔肉丸', sc:'topkapi', note:'這版只有 <strong>55 分鐘</strong>，<strong>Poiká 週日 12:30 就打烊、來不及</strong>。肉丸店菜單短、上菜快，正好適合趕時間。⚠️ <strong>12:50 一定要走</strong>。', hi:true, tags:['car:🚶 6 分','eat:午餐','停留 55 分','⚠️ 12:50 必須離開'], map:gm('kofteci'),
-       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，菜單極短——<strong>köfte、piyaz（白豆沙拉）、ayran</strong>，點完就上，<strong>是三個方案裡最快的一個</strong>。'}},
+      {time:'11:30<br>–12:50', act:'午餐 · 科夫塔肉丸', sc2:'kofte', note:'⚠️ <strong>托卡匹版要 11:55 才開始</strong>，只有 55 分——肉丸店上菜快，剛好。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 6 分','eat:午餐','⚠️ 12:50 必須離開'], map:gm('kofteci'),
+       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，<strong>菜單極短、點完就上</strong>，是最不會卡時間的選擇。',
+         dishes:[
+           ['🥇','烤肉丸 <b>Izgara Köfte</b>','招牌必點。炭烤肉丸配麵包或米飯，第一次來就點這個'],
+           ['🥈','白豆沙拉 <b>Piyaz</b>','白豆、洋蔥與香草，配肉丸解膩，當地吃法就是這兩樣一起'],
+           ['🥉','鹹優格飲 <b>Ayran</b>','微酸帶鹹，配烤肉的標準組合']
+         ]}},
+      {time:'11:30<br>–12:30', act:'午餐 · Poiká Breakfast & Cafe', sc2:'poika', note:'⚠️ <strong>週日只開到 12:30</strong>，所以吃 1 小時、12:30 準時走。⚠️ <strong>托卡匹版 11:55 才開始，只剩 35 分，那版不要選這間。</strong>', hi:true, tags:['car:🚶 6 分','eat:早午餐','⚠️ 週日 12:30 打烊'], map:gm('poika'),
+       eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', img:'poika.jpg', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則 · 飯店走 6 分', d:'專做早餐與早午餐的店。<strong>兩人建議點：土耳其早餐拼盤 ＋ 起司菠菜歐姆蛋 ＋ 兩杯飲料</strong>，傳統與西式各吃到一種。',
+         dishes:[
+           ['🥇','土耳其早餐拼盤 <b>Turkish Breakfast</b>','起司、橄欖、抹醬、麵包一整盤。<b>兩人分一份就夠</b>，不夠再加'],
+           ['🥈','起司菠菜歐姆蛋 <b>Cheese &amp; Spinach Omelette</b>','店裡的熱門品項，配拼盤剛好一鹹一輕'],
+           ['🥉','土耳其番茄炒蛋 <b>Menemen</b>','小鍋上桌配麵包。想吃鹹食又不想太油膩就選這道，跟歐姆蛋二選一'],
+           ['４','優格穀物碗 <b>Granola Bowl</b>','不想再吃麵包時的清爽選項'],
+           ['＋','抹茶拿鐵 / 土耳其紅茶','想換口味就點抹茶拿鐵，店裡也有咖啡與果昔']
+         ]}},
     ]},
     {label:'下午 · 回程', rows:[
       {time:'12:55', act:'回飯店拿行李到門口等車', note:'護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>送機免費等候只有 15 分鐘。</strong>'},
@@ -1537,7 +1554,7 @@ function rowHtml(r){
     ?'<details class="tl-card'+kc+'" open><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'
     :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>';
   var way=wayOf(r), mark=(way==='stay')?markOf(r):'';
-  return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')
+  return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')+(r.sc2?' data-sc2="'+r.sc2+'"':'')
     +(way?' data-way="'+way+'"':'')+(mark?' data-mark="'+mark+'"':'')+'>'
     +'<div class="tl-time">'+r.time+'</div>'+cardHtml+'</li>';
 }
@@ -1579,6 +1596,14 @@ function panelHtml(d,idx){
       var op=d.sw.opts[o];
       tools+='<button type="button" class="sw-btn" data-k="'+op.k+'"'
         +(op.dis?' disabled title="這天不可能是這個狀態"':'')+'>'+op.t+'</button>';
+    }
+    tools+='</div>';
+  }
+  if(d.sw2){
+    tools+='<div class="sw"><span class="sw-lab">'+d.sw2.label+'</span>';
+    for(var o2=0;o2<d.sw2.opts.length;o2++){
+      var op2=d.sw2.opts[o2];
+      tools+='<button type="button" class="sw-btn sw2-btn" data-k2="'+op2.k+'">'+op2.t+'</button>';
     }
     tools+='</div>';
   }
@@ -1634,9 +1659,15 @@ var ACTIVE=0;
       for(var q=0;q<d.sw.opts.length;q++) if(d.sw.opts[q].k===saved&&!d.sw.opts[q].dis) ok=true;
       el.setAttribute('data-sc',ok?saved:d.sw.def);
     }
+    if(d.sw2){
+      var saved2=null, ok2=false;
+      try{ saved2=localStorage.getItem('balloon2-d'+d.day); }catch(e){}
+      for(var q2=0;q2<d.sw2.opts.length;q2++) if(d.sw2.opts[q2].k===saved2) ok2=true;
+      el.setAttribute('data-sc2',ok2?saved2:d.sw2.def);
+    }
     el.innerHTML=panelHtml(d,i);
     box.appendChild(el);
-    if(d.sw) paintSw(el);
+    if(d.sw||d.sw2) paintSw(el);
   }
   rail.innerHTML=tabs;
 })();
@@ -1694,8 +1725,12 @@ document.addEventListener('keydown',function(e){
 
 /* 面板內的點擊：情境切換、全部展開、景點說明、上下一天 */
 function paintSw(dp){
-  var k=dp.getAttribute('data-sc'), bs=dp.querySelectorAll('.sw-btn');
-  for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on',bs[i].getAttribute('data-k')===k);
+  var k=dp.getAttribute('data-sc'), k2=dp.getAttribute('data-sc2'), bs=dp.querySelectorAll('.sw-btn');
+  for(var i=0;i<bs.length;i++){
+    var b=bs[i];
+    if(b.hasAttribute('data-k2')) b.classList.toggle('on',b.getAttribute('data-k2')===k2);
+    else b.classList.toggle('on',b.getAttribute('data-k')===k);
+  }
 }
 box.addEventListener('click',function(e){
   /* 標籤列的地圖連結在 <summary> 裡，點了會連帶把該列收合——攔下來自己開新分頁 */
@@ -1703,6 +1738,15 @@ box.addEventListener('click',function(e){
   if(lk){ e.preventDefault(); window.open(lk.href,'_blank','noopener'); return; }
   var dp=e.target.closest('.dp');
   if(!dp) return;
+
+  var sw2=e.target.closest('.sw2-btn');
+  if(sw2){
+    var k2=sw2.getAttribute('data-k2');
+    dp.setAttribute('data-sc2',k2);
+    try{ localStorage.setItem('balloon2-d'+dp.getAttribute('data-day'),k2); }catch(err){}
+    paintSw(dp);
+    return;
+  }
 
   var sw=e.target.closest('.sw-btn');
   if(sw){
