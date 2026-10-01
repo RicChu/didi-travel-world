@@ -180,7 +180,9 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-way="walk"]::before{background:var(--gold)}
 .tl-row[data-way="transit"]::before{background:var(--teal)}
 .tl-row[data-way="stay"]::before,
-.tl-row[data-way="hotel"]::before{background:#cfd6d2}
+.tl-row[data-way="hotel"]::before,
+.tl-row[data-way="eat"]::before,
+.tl-row[data-way="sight"]::before{background:#cfd6d2}
 .tl-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:32px;position:relative}
 .tl-time{padding-top:15px;color:var(--muted);font-size:.74rem;font-weight:700;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums}
 .tl-card{position:relative;border:1px solid var(--line);border-radius:15px;background:#fffdf8;transition:border-color .2s ease,box-shadow .2s ease}
@@ -203,6 +205,8 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--gold)}
 .tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px var(--teal)}
 .tl-row[data-way="hotel"] .tl-card::before{content:"\1F3E8";box-shadow:0 0 0 1.5px #b9bfbb}
+.tl-row[data-way="eat"] .tl-card::before{content:"\1F37D\FE0F";box-shadow:0 0 0 1.5px #b9bfbb}
+.tl-row[data-way="sight"] .tl-card::before{content:"\1F4CD";box-shadow:0 0 0 1.5px #b9bfbb}
 details.tl-card[open]{border-color:rgba(35,77,73,.35);box-shadow:0 8px 20px rgba(35,77,73,.07)}
 .tl-sum{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;list-style:none}
 details .tl-sum{cursor:pointer}
@@ -1362,6 +1366,10 @@ var WAY=[['✈',"fly"],['🚘',"drive"],['🚖',"drive"],['🚗',"drive"],
          ['🚶',"walk"],['🚋',"transit"],['🚌',"transit"],['🚡',"transit"],['🚢',"transit"]];
 function wayOf(r){
   var src=(tagOf(r,'car:')||'')+' '+(r.act||'');
+  /* 停留型優先：這一列的重點是「到了之後做什麼」，不是怎麼過去 */
+  if(r.eatery||tagOf(r,'eat:')) return 'eat';
+  if(r.sight) return 'sight';
+  if(/飯店|回房|Check in|check in/.test(r.act||'')) return 'hotel';
   for(var i=0;i<WAY.length;i++) if(src.indexOf(WAY[i][0])>-1) return WAY[i][1];
   var bk=r.book?(typeof r.book==='string'?[r.book]:r.book):[];
   for(var j=0;j<bk.length;j++){
