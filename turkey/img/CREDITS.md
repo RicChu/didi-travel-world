@@ -90,3 +90,6 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `suleymaniye.jpg` | 11/08 蘇萊曼尼耶清真寺 | 使用者於 2026-10-01 提供 |
 | `rustem-pasa.jpg` | 11/08 魯斯坦帕夏清真寺 | 使用者於 2026-10-01 提供 |
 | `hasircilar.jpg` | 11/08 Hasırcılar 街 · Tahtakale 市集街 | 使用者於 2026-10-01 提供 |
+| `kofteci.jpg` | 11/08 Tarihi Sultanahmet Köftecisi Selim Usta | 使用者於 2026-10-01 提供 |
+| `hafiz-sultanahmet.jpg` | 11/08 Hafız Mustafa 1864 Sultanahmet 分店 | 使用者於 2026-10-01 提供 |
+| `poika.jpg` | 11/08 Poiká Breakfast & Cafe | 使用者於 2026-10-01 提供 |

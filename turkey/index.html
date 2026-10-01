@@ -609,7 +609,8 @@ var PN={
   suleymaniye:'Suleymaniye Camii',
   rustempasa:'Rustem Pasa Camii',
   poika:'Poika Breakfast Cafe',
-  matbah:'Matbah Restaurant Istanbul',
+  kofteci:'Tarihi Sultanahmet Koftecisi Selim Usta',
+  hafizSultan:'Hafiz Mustafa 1864 Sultanahmet',
   lunchA:'Blu MaCel Breakfast',
   lunchB:'Cuppa Espresso Bakery'
 };
@@ -696,7 +697,8 @@ var P={
   suleymaniye:'41.016229,28.963955',/* 蘇萊曼尼耶清真寺 — 米馬爾·錫南 1557，伊斯坦堡最大，不是藍色清真寺 */
   rustempasa:'41.017665,28.968699', /* 魯斯坦帕夏清真寺 — Hasırcılar Cd. 62，藏在市集街樓上 */
   poika:'41.008427,28.975075',      /* Poiká Breakfast & Cafe — Hacı Tahsin Bey Sk. 9/A，⚠️ 週日只到 12:30 */
-  matbah:'41.009276,28.979114',     /* Matbah Restaurant — Caferiye Sk. 6/1，鄂圖曼宮廷菜 */
+  kofteci:'41.008008,28.976907',    /* Tarihi Sultanahmet Köftecisi Selim Usta — Divanyolu Cd. 12 */
+  hafizSultan:'41.008055,28.976629',/* Hafız Mustafa 1864 Sultanahmet — 就在科夫塔肉丸隔壁 24 m */
   lunchA:'41.003864,28.978764',     /* 11/08 早餐備案 Blu Ma'Cel Breakfast */
   lunchB:'41.004331,28.975324'      /* 11/08 午餐備案 Cuppa Espresso Bakery */
 };
@@ -1170,11 +1172,14 @@ var DATA=[
       /* ───── 三個版本共用 ───── */
       {time:'11:20<br>–11:30', act:'回飯店把戰利品塞進行李', sc:'sul gulhane', tags:['car:🚶 9 分'], map:gm('basil')},
       {time:'11:40<br>–11:50', act:'回飯店把戰利品塞進行李', sc:'topkapi', tags:['car:🚶 9 分'], map:gm('basil')},
-      {time:'11:30<br>–12:50', act:'午餐 · Matbah 或 Poiká', sc:'sul gulhane', note:'兩間都在飯店走路 6 分鐘內，<strong>當天想吃哪個再決定</strong>。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 4–6 分','eat:午餐','停留 1h20','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · Matbah Restaurant',gm('matbah')],['在地圖上開啟 · Poiká Breakfast & Cafe',gm('poika')]],
-       sight:{zh:'Matbah 或 Poiká', en:'當天再選', side:true, d:'<strong>Matbah Restaurant</strong>（Caferiye Sk. 6/1，走 4 分）——鄂圖曼宮廷菜，每天 09:00–22:30，4.5 分／1,390 則。建議先訂位（+90 212 514 61 51）。<br><strong>Poiká Breakfast &amp; Cafe</strong>（Hacı Tahsin Bey Sk. 9/A，走 6 分）——專做早餐，4.6 分／2,131 則。⚠️ <strong>週日只開到 12:30</strong>，選它就是吃到 12:30 準時走。'},
-      },
-      {time:'11:55<br>–12:50', act:'午餐 · Matbah', sc:'topkapi', note:'這版只有 <strong>55 分鐘</strong>，而且 <strong>Poiká 週日 12:30 就打烊</strong>、來不及——只能選 Matbah，<strong>一定要先訂位</strong>（+90 212 514 61 51）。⚠️ <strong>12:50 一定要走</strong>。', hi:true, tags:['car:🚶 4 分','eat:午餐','停留 55 分','⚠️ 12:50 必須離開'], map:gm('matbah'),
-       eatery:{name:'Matbah Restaurant', en:'Caferiye Sk. 6/1 · 鄂圖曼宮廷菜', hours:'每天 09:00–22:30', price:'4.5 分／1,390 則', d:'從古文獻復原的鄂圖曼宮廷菜，就在聖索菲亞旁邊。飯店走 <strong>4 分鐘</strong>（263 m）。'}},
+      {time:'11:30<br>–12:50', act:'午餐 · 科夫塔肉丸 或 Poiká', sc:'sul gulhane', note:'兩個方案都在飯店走路 6 分鐘內，<strong>當天想吃哪個再決定</strong>。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 6 分','eat:午餐','停留 1h20','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · 科夫塔肉丸',gm('kofteci')],['在地圖上開啟 · Hafız Mustafa',gm('hafizSultan')],['在地圖上開啟 · Poiká',gm('poika')]],
+       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，菜單極短——<strong>köfte、piyaz（白豆沙拉）、ayran</strong>，點完就上。⚠️ <strong>吃完甜點直接去隔壁的 Hafız Mustafa，只有 24 公尺。</strong>'}},
+      {time:'（同上）', act:'甜點 · Hafız Mustafa 1864', sc:'sul gulhane', tags:['car:🚶 隔壁 24 m','eat:甜點'], map:gm('hafizSultan'),
+       eatery:{name:'Hafız Mustafa 1864', en:'Sultanahmet 分店', img:'hafiz-sultanahmet.jpg', price:'科夫塔肉丸隔壁', d:'1864 年的甜點老店。肉丸店菜單短、吃得快，省下來的時間剛好走 24 公尺到隔壁吃一份 <strong>Şöbiyet</strong> 或 <strong>Kazandibi</strong> 配紅茶。'}},
+      {time:'（替代）', act:'午餐 · Poiká Breakfast & Cafe', sc:'sul gulhane', note:'⚠️ <strong>週日只開到 12:30</strong>，選它就是 11:30 吃到 12:30 準時走。', tags:['car:🚶 6 分','eat:午餐','⚠️ 週日 12:30 打烊'], map:gm('poika'),
+       eatery:{name:'Poiká Breakfast & Cafe', en:'Hacı Tahsin Bey Sk. 9/A', img:'poika.jpg', hours:'⚠️ 週日 08:00–12:30', price:'4.6 分／2,131 則', d:'專做早餐的店，飯店走 <strong>6 分鐘</strong>。'}},
+      {time:'11:55<br>–12:50', act:'午餐 · 科夫塔肉丸 + Hafız Mustafa', sc:'topkapi', note:'這版只有 <strong>55 分鐘</strong>，<strong>Poiká 週日 12:30 就打烊、來不及</strong>。肉丸店菜單短、上菜快，正好適合趕時間，吃完走 24 公尺到隔壁吃甜點。⚠️ <strong>12:50 一定要走</strong>。', hi:true, tags:['car:🚶 6 分','eat:午餐','停留 55 分','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · 科夫塔肉丸',gm('kofteci')],['在地圖上開啟 · Hafız Mustafa',gm('hafizSultan')]],
+       eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店，菜單極短——<strong>köfte、piyaz（白豆沙拉）、ayran</strong>，點完就上，<strong>是三個方案裡最快的一個</strong>。甜點走隔壁 Hafız Mustafa（24 公尺）。'}},
     ]},
     {label:'下午 · 回程', rows:[
       {time:'12:55', act:'回飯店拿行李到門口等車', note:'護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>送機免費等候只有 15 分鐘。</strong>'},
