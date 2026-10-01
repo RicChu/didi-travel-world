@@ -174,10 +174,10 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl::before{content:"";position:absolute;left:63px;top:20px;bottom:20px;width:1px;background:var(--line)}
 /* 交通方式色條：疊在時間軸那條線上，顏色由 data-way 決定 */
 .tl-row[data-way]::before{content:"";position:absolute;left:62px;top:0;bottom:-12px;width:3px;border-radius:2px;opacity:.85}
-.tl-row[data-way="fly"]::before{background:var(--gold)}
-.tl-row[data-way="drive"]::before{background:var(--teal)}
-.tl-row[data-way="walk"]::before{background:var(--terra)}
-.tl-row[data-way="transit"]::before{background:#3f7fa6}
+.tl-row[data-way="fly"]::before{background:#3f7fa6}
+.tl-row[data-way="drive"]::before{background:var(--terra)}
+.tl-row[data-way="walk"]::before{background:var(--gold)}
+.tl-row[data-way="transit"]::before{background:var(--teal)}
 .tl-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:32px;position:relative}
 .tl-time{padding-top:15px;color:var(--muted);font-size:.74rem;font-weight:700;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums}
 .tl-card{position:relative;border:1px solid var(--line);border-radius:15px;background:#fffdf8;transition:border-color .2s ease,box-shadow .2s ease}
@@ -195,10 +195,10 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
   border:2px solid var(--card);border-radius:50%;
   background:var(--card);font-size:11px;line-height:1;
 }
-.tl-row[data-way="fly"] .tl-card::before{content:"\2708\FE0F";box-shadow:0 0 0 1.5px var(--gold)}
-.tl-row[data-way="drive"] .tl-card::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--teal)}
-.tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--terra)}
-.tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px #3f7fa6}
+.tl-row[data-way="fly"] .tl-card::before{content:"\2708\FE0F";box-shadow:0 0 0 1.5px #3f7fa6}
+.tl-row[data-way="drive"] .tl-card::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--terra)}
+.tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--gold)}
+.tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px var(--teal)}
 details.tl-card[open]{border-color:rgba(35,77,73,.35);box-shadow:0 8px 20px rgba(35,77,73,.07)}
 .tl-sum{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;list-style:none}
 details .tl-sum{cursor:pointer}
