@@ -179,10 +179,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-row[data-way="drive"]::before{background:var(--terra)}
 .tl-row[data-way="walk"]::before{background:var(--gold)}
 .tl-row[data-way="transit"]::before{background:var(--teal)}
-.tl-row[data-way="stay"]::before,
-.tl-row[data-way="hotel"]::before,
-.tl-row[data-way="eat"]::before,
-.tl-row[data-way="sight"]::before{background:#cfd6d2}
+.tl-row[data-way="stay"]::before{background:#cfd6d2}
 .tl-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:32px;position:relative}
 .tl-time{padding-top:15px;color:var(--muted);font-size:.74rem;font-weight:700;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums}
 .tl-card{position:relative;border:1px solid var(--line);border-radius:15px;background:#fffdf8;transition:border-color .2s ease,box-shadow .2s ease}
@@ -194,19 +191,23 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-card.k-move::before{background:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .tl-card.k-eat::before{background:var(--terra);box-shadow:0 0 0 1px var(--terra)}
 /* 有交通方式的列：圓點換成帶 emoji 的圓章，外圈顏色＝該交通方式的色條顏色 */
-.tl-row[data-way]:not([data-way="stay"]) .tl-card::before{
+.tl-row[data-way]:not([data-way="stay"]) .tl-card::before,
+.tl-row[data-mark] .tl-card::before{
   box-sizing:border-box;left:-30px;top:15px;width:22px;height:22px;
   display:flex;align-items:center;justify-content:center;
   border:2px solid var(--card);border-radius:50%;
   background:var(--card);font-size:11px;line-height:1;
 }
+/* 沒有交通方式的停留列：圓章外圈用灰色 */
+.tl-row[data-mark] .tl-card::before{box-shadow:0 0 0 1.5px #b9bfbb}
 .tl-row[data-way="fly"] .tl-card::before{content:"\2708\FE0F";box-shadow:0 0 0 1.5px #3f7fa6}
 .tl-row[data-way="drive"] .tl-card::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--terra)}
 .tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--gold)}
 .tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px var(--teal)}
-.tl-row[data-way="hotel"] .tl-card::before{content:"\1F3E8";box-shadow:0 0 0 1.5px #b9bfbb}
-.tl-row[data-way="eat"] .tl-card::before{content:"\1F37D\FE0F";box-shadow:0 0 0 1.5px #b9bfbb}
-.tl-row[data-way="sight"] .tl-card::before{content:"\1F4CD";box-shadow:0 0 0 1.5px #b9bfbb}
+/* 類型 emoji 覆蓋交通 emoji；外圈顏色仍沿用該列的交通方式 */
+.tl-row[data-mark="hotel"] .tl-card::before{content:"\1F3E8"}
+.tl-row[data-mark="eat"] .tl-card::before{content:"\1F37D\FE0F"}
+.tl-row[data-mark="sight"] .tl-card::before{content:"\1F4CD"}
 details.tl-card[open]{border-color:rgba(35,77,73,.35);box-shadow:0 8px 20px rgba(35,77,73,.07)}
 .tl-sum{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;list-style:none}
 details .tl-sum{cursor:pointer}
@@ -406,7 +407,8 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .tl-row[data-way]::before{left:51px}
   .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
   .tl-card::before{left:-22px}
-  .tl-row[data-way]:not([data-way="stay"]) .tl-card::before{left:-25px}
+  .tl-row[data-way]:not([data-way="stay"]) .tl-card::before,
+  .tl-row[data-mark] .tl-card::before{left:-25px}
   .tl-time{font-size:.68rem}
   .tl-sum{padding:13px 12px}
   .tl-act{font-size:.93rem}
@@ -1366,10 +1368,6 @@ var WAY=[['✈',"fly"],['🚘',"drive"],['🚖',"drive"],['🚗',"drive"],
          ['🚶',"walk"],['🚋',"transit"],['🚌',"transit"],['🚡',"transit"],['🚢',"transit"]];
 function wayOf(r){
   var src=(tagOf(r,'car:')||'')+' '+(r.act||'');
-  /* 停留型優先：這一列的重點是「到了之後做什麼」，不是怎麼過去 */
-  if(r.eatery||tagOf(r,'eat:')) return 'eat';
-  if(r.sight) return 'sight';
-  if(/飯店|回房|Check in|check in/.test(r.act||'')) return 'hotel';
   for(var i=0;i<WAY.length;i++) if(src.indexOf(WAY[i][0])>-1) return WAY[i][1];
   var bk=r.book?(typeof r.book==='string'?[r.book]:r.book):[];
   for(var j=0;j<bk.length;j++){
@@ -1377,7 +1375,6 @@ function wayOf(r){
     if(bk[j].indexOf('ride-')===0||bk[j].indexOf('car-')===0) return 'drive';
   }
   if(/轉機|航班|起飛|登機/.test(src)) return 'fly';
-  if(/飯店|回房|Check in|check in/.test(src)) return 'hotel';
   /* 沒明講交通方式時，用地圖連結的 travelmode 推：wlk→步行、drv→自駕、trn→大眾運輸 */
   var m=r.map;
   if(m){
@@ -1388,6 +1385,14 @@ function wayOf(r){
     }
   }
   return 'stay';   /* 其餘一律灰線，讓時間軸不要斷掉 */
+}
+/* 圓章上的 emoji：這一列「是什麼」。沒有就沿用交通方式的 emoji。
+   跟色條（交通方式）分開，這樣景點與景點之間怎麼移動仍然看得出來。 */
+function markOf(r){
+  if(r.eatery||tagOf(r,'eat:')) return 'eat';
+  if(r.sight) return 'sight';
+  if(/飯店|回房|Check in|check in/.test(r.act||'')) return 'hotel';
+  return '';
 }
 function rowHtml(r){
   var ks=kindsOf(r), pills='';
@@ -1412,9 +1417,9 @@ function rowHtml(r){
   var cardHtml=body
     ?'<details class="tl-card'+kc+'" open><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'
     :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>';
-  var way=wayOf(r);
+  var way=wayOf(r), mark=markOf(r);
   return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')
-    +(way?' data-way="'+way+'"':'')+'>'
+    +(way?' data-way="'+way+'"':'')+(mark?' data-mark="'+mark+'"':'')+'>'
     +'<div class="tl-time">'+r.time+'</div>'+cardHtml+'</li>';
 }
 function rowsHtml(rows){
