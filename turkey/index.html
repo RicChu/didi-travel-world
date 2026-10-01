@@ -431,14 +431,16 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .note-box small{margin-top:0}
   .dp-meta{margin-top:0;width:100%}
   .day-hero{margin-top:18px;border-radius:14px}
-  .grp-head{margin-left:68px}
-  .tl::before{left:53px}
-  .tl-row[data-way]::before{left:51px}
-  .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
-  .tl-card::before{left:-22px}
+  /* 時間軸左欄：時間 37px ＋ 20px 的線／圓章區，卡片從 57px 開始（桌機是 82px）。
+     圓章縮到 17px 才塞得進那 20px，而且兩側都還留得出空隙。 */
+  .grp-head{margin-left:58px}
+  .tl::before{left:47px}
+  .tl-row[data-way]::before{left:45px}
+  .tl-row{grid-template-columns:37px minmax(0,1fr);gap:21px}
+  .tl-card::before{left:-15px}
   .tl-row[data-way]:not([data-way="stay"]) .tl-card::before,
-  .tl-row[data-mark] .tl-card::before{left:-25px}
-  .tl-time{font-size:.68rem}
+  .tl-row[data-mark] .tl-card::before{left:-18.5px;width:16px;height:16px;font-size:9px}
+  .tl-time{font-size:.62rem}
   .tl-sum{padding:13px 12px}
   .tl-act{font-size:.93rem}
   .tl-note{font-size:.82rem}
