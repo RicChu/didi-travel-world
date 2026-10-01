@@ -188,6 +188,17 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .tl-card.k-sight::before{background:var(--teal);box-shadow:0 0 0 1px var(--teal)}
 .tl-card.k-move::before{background:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .tl-card.k-eat::before{background:var(--terra);box-shadow:0 0 0 1px var(--terra)}
+/* 有交通方式的列：圓點換成帶 emoji 的圓章，外圈顏色＝該交通方式的色條顏色 */
+.tl-row[data-way] .tl-card::before{
+  box-sizing:border-box;left:-30px;top:15px;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--card);border-radius:50%;
+  background:var(--card);font-size:11px;line-height:1;
+}
+.tl-row[data-way="fly"] .tl-card::before{content:"\2708\FE0F";box-shadow:0 0 0 1.5px var(--gold)}
+.tl-row[data-way="drive"] .tl-card::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--teal)}
+.tl-row[data-way="walk"] .tl-card::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--terra)}
+.tl-row[data-way="transit"] .tl-card::before{content:"\1F68B";box-shadow:0 0 0 1.5px #3f7fa6}
 details.tl-card[open]{border-color:rgba(35,77,73,.35);box-shadow:0 8px 20px rgba(35,77,73,.07)}
 .tl-sum{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;list-style:none}
 details .tl-sum{cursor:pointer}
@@ -387,6 +398,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .tl-row[data-way]::before{left:52px}
   .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
   .tl-card::before{left:-22px}
+  .tl-row[data-way] .tl-card::before{left:-25px}
   .tl-time{font-size:.68rem}
   .tl-sum{padding:13px 12px}
   .tl-act{font-size:.93rem}
