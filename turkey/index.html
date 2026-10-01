@@ -172,6 +172,12 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .grp.alt .grp-head b{color:var(--gold)}
 .tl{position:relative;display:grid;gap:12px;margin:18px 0 0;padding:0;list-style:none}
 .tl::before{content:"";position:absolute;left:63px;top:20px;bottom:20px;width:1px;background:var(--line)}
+/* 交通方式色條：疊在時間軸那條線上，顏色由 data-way 決定 */
+.tl-row[data-way]::before{content:"";position:absolute;left:62px;top:0;bottom:-12px;width:3px;border-radius:2px;opacity:.85}
+.tl-row[data-way="fly"]::before{background:var(--gold)}
+.tl-row[data-way="drive"]::before{background:var(--teal)}
+.tl-row[data-way="walk"]::before{background:var(--terra)}
+.tl-row[data-way="transit"]::before{background:#3f7fa6}
 .tl-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:32px;position:relative}
 .tl-time{padding-top:15px;color:var(--muted);font-size:.74rem;font-weight:700;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums}
 .tl-card{position:relative;border:1px solid var(--line);border-radius:15px;background:#fffdf8;transition:border-color .2s ease,box-shadow .2s ease}
@@ -378,6 +384,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .day-hero{margin-top:18px;border-radius:14px}
   .grp-head{margin-left:68px}
   .tl::before{left:53px}
+  .tl-row[data-way]::before{left:52px}
   .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
   .tl-card::before{left:-22px}
   .tl-time{font-size:.68rem}
@@ -1310,6 +1317,14 @@ function bookHtml(id){
   return '';
 }
 var CHEV='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+/* 交通方式：先看 car: 標籤，沒有就看 act 的 emoji */
+var WAY=[['✈',"fly"],['🚘',"drive"],['🚖',"drive"],['🚗',"drive"],
+         ['🚶',"walk"],['🚋',"transit"],['🚌',"transit"],['🚡',"transit"],['🚢',"transit"]];
+function wayOf(r){
+  var src=(tagOf(r,'car:')||'')+' '+(r.act||'');
+  for(var i=0;i<WAY.length;i++) if(src.indexOf(WAY[i][0])>-1) return WAY[i][1];
+  return '';
+}
 function rowHtml(r){
   var ks=kindsOf(r), pills='';
   for(var n=0;n<ks.length;n++){
@@ -1333,7 +1348,9 @@ function rowHtml(r){
   var cardHtml=body
     ?'<details class="tl-card'+kc+'" open><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'
     :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>';
-  return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')+'>'
+  var way=wayOf(r);
+  return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')
+    +(way?' data-way="'+way+'"':'')+'>'
     +'<div class="tl-time">'+r.time+'</div>'+cardHtml+'</li>';
 }
 function rowsHtml(rows){
