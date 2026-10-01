@@ -1386,8 +1386,9 @@ function wayOf(r){
   }
   return 'stay';   /* 其餘一律灰線，讓時間軸不要斷掉 */
 }
-/* 圓章上的 emoji：這一列「是什麼」。沒有就沿用交通方式的 emoji。
-   跟色條（交通方式）分開，這樣景點與景點之間怎麼移動仍然看得出來。 */
+/* 圓章 emoji 以「怎麼過去的」優先——走過去就是 🚶、開過去就是 🚘。
+   只有完全沒有自己移動的列（業者接送、待在原地）才退回用類型 emoji，
+   因為那種列本來就沒有交通可以表示。類型另有右側的色標可看。 */
 function markOf(r){
   if(r.eatery||tagOf(r,'eat:')) return 'eat';
   if(r.sight) return 'sight';
@@ -1417,7 +1418,7 @@ function rowHtml(r){
   var cardHtml=body
     ?'<details class="tl-card'+kc+'" open><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'
     :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>';
-  var way=wayOf(r), mark=markOf(r);
+  var way=wayOf(r), mark=(way==='stay')?markOf(r):'';
   return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')
     +(way?' data-way="'+way+'"':'')+(mark?' data-mark="'+mark+'"':'')+'>'
     +'<div class="tl-time">'+r.time+'</div>'+cardHtml+'</li>';
