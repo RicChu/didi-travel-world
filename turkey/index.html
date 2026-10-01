@@ -536,6 +536,72 @@ function pin(q){return 'https://www.google.com/maps/search/?api=1&query='+enc(q)
 /* 常用點位 —— 座標一律經 OSM／Overpass 實查（2026-08-20），不用地名字串，
    因為地名會被地圖服務解成別的地方（例如 "Grand Bazaar Istanbul" 會指到加拿大）。
    只有三個機場保留名稱：IATA 級機場不會歧義，且用名稱才會導到航廈而不是跑道。 */
+/* 每個點的 Google Maps 地名——連結用地名而不是純座標，開起來看得到店名／景點名，可以直接核對對不對 */
+var PN={
+  adb:'Izmir Adnan Menderes Airport',
+  asr:'Kayseri Airport',
+  ist:'Istanbul Airport',
+  ephSite:'Ephesus Archaeological Site',
+  eTheatre:'Great Theatre of Ephesus',
+  celsus:'Library of Celsus',
+  hadrian:'Temple of Hadrian',
+  odeon:'Odeon of Ephesus',
+  bella:'Bellamaritimo Hotel',
+  asteras:'As Teras Mantı Evi',
+  teras:'Teras Restaurant Pamukkale',
+  pamEast:'Pamukkale Travertines',
+  hTheatre:'Hierapolis Ancient Theatre',
+  cleopatra:'Cleopatra Antique Pool',
+  henna:'Henna Hotel Cappadocia',
+  goreme:'Göreme Open Air Museum',
+  topdeck:'Topdeck Cave Restaurant',
+  kaymakli:'Kaymakli Underground City',
+  pigeon:'Pigeon Valley Göreme',
+  pasabag:'Pasabag Monks Valley',
+  zelve:'Zelve Open Air Museum',
+  uchisar:'Uchisar Castle',
+  seten:'Seten Restaurant Cappadocia',
+  cavusin:'Cavusin Village',
+  lovevalley:'Love Valley Cappadocia',
+  seki:'Seki Restaurant Argos in Cappadocia',
+  sarihan:'Sarihan Caravanserai',
+  mustafapasa:'Mustafapasa Sinasos',
+  guray:'Guray Muze',
+  chezgalip:'Chez Galip Hair Museum',
+  mcdonalds:'McDonalds Avanos',
+  basil:'Basilissis Hotel Istanbul',
+  boris:'Borisin Yeri',
+  galata:'Galata Kulesi',
+  karakoy:'Karakoy',
+  balik:'Balik Durumcu Mehmet Usta',
+  gBridge:'Galata Koprusu',
+  eminonu:'Eminonu',
+  spice:'Misir Carsisi Spice Bazaar',
+  suat:'Suat Usta Mersin Tantuni',
+  blueMosque:'Sultan Ahmet Camii',
+  hagia:'Ayasofya Hagia Sophia',
+  cistern:'Yerebatan Sarnici',
+  busforus:'BUSFORUS Sultanahmet Meydani Duragi',
+  sevenHills:'Seven Hills Restaurant Istanbul',
+  grandBazaar:'Kapalicarsi Grand Bazaar',
+  hafiz:'Hafiz Mustafa 1864 Beyazit',
+  hamam:'Acemoglu Historical Hammam',
+  vefa:'Vefa Bozacisi',
+  sok:'SOK Market Sirkeci',
+  olden:'Olden 1772',
+  dolmabahce:'Dolmabahce Sarayi',
+  ortakoy:'Ortakoy Buyuk Mecidiye Camii',
+  kabatas:'Kabatas',
+  kabatasPier:'Kabatas Iskelesi',
+  karakoyPier:'Karakoy Iskelesi',
+  taksim:'Taksim Meydani',
+  tunel:'Tunel',
+  stAntoine:'Sent Antuan Kilisesi',
+  cicek:'Cicek Pasaji',
+  kizil:'Kizilkayalar Taksim',
+  lunchA:'Blu MaCel Breakfast',
+  lunchB:'Cuppa Espresso Bakery'
+};
 var P={
   adb:'Izmir Adnan Menderes Airport',
   asr:'Kayseri Airport',
@@ -640,24 +706,24 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
-    {time:'05:50<br>–13:20', act:'國內轉機', book:['tk2320','car-adb'], tags:['lock:11:00 → 12:10', 'TK2320', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
-    {time:'13:20<br>–14:20', act:'以弗所考古遺址 Ephesus', note:'停車場在遺址入口旁，<strong>行李留在車上</strong>。', hi:true, tags:['car:🚘 1h'], map:drv(P.adb,P.ephSite)},
-    {time:'14:20<br>–14:55', act:'大劇院 Great Theatre', hi:true, tags:['停留 35 分'], map:wlk(P.ephSite,P.eTheatre),
+    {time:'05:50<br>–13:20', act:'國內轉機', book:['tk2320','car-adb']},
+    {time:'13:20<br>–14:20', act:'以弗所考古遺址 Ephesus', hi:true, tags:['car:🚘 1h'], map:gm('ephSite')},
+    {time:'14:20<br>–14:55', act:'大劇院 Great Theatre', hi:true, tags:['car:🚶 8 分','停留 35 分'], map:gm('eTheatre'),
      sight:{zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', side:true, d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
     },
-    {time:'14:55<br>–15:35', act:'塞爾蘇斯圖書館 Library of Celsus', hi:true, tags:['car:🚶 3 分','停留 40 分'], map:wlk(P.eTheatre,P.celsus),
+    {time:'14:55<br>–15:35', act:'塞爾蘇斯圖書館 Library of Celsus', hi:true, tags:['car:🚶 3 分','停留 40 分'], map:gm('celsus'),
      sight:{zh:'塞爾蘇斯圖書館', en:'Library of Celsus', img:'ephesus-celsus-library.jpg', side:true, d:'約西元 125 年落成，藏書近 12,000 卷。雙層大理石立面是以弗所的招牌畫面，館主 Celsus 的石棺就埋在建築底下。'},
     },
     {time:'15:35<br>–15:50', act:'克里特斯街 Curetes Street', tags:['car:🚶 沿路經過'],
      sight:{zh:'克里特斯街', en:'Curetes Street', img:'ephesus-curetes-street.jpg', side:true, d:'串起全城的主街，兩旁是浴場、商店與噴泉遺跡。從圖書館往上走就會經過，不用另外排時間。'},
     },
-    {time:'15:50<br>–16:10', act:'哈德良神廟 Temple of Hadrian', hi:true, tags:['停留 20 分'], map:wlk(P.celsus,P.hadrian),
+    {time:'15:50<br>–16:10', act:'哈德良神廟 Temple of Hadrian', hi:true, tags:['car:🚶 3 分','停留 20 分'], map:gm('hadrian'),
      sight:{zh:'哈德良神廟', en:'Temple of Hadrian', img:'ephesus-temple-hadrian.jpg', side:true, d:'西元 2 世紀的科林斯式神廟，4 世紀整修過。門楣與拱心石的浮雕保存得很完整，是全城細節最好看的一處。'},
     },
-    {time:'16:10<br>–16:30', act:'音樂廳 Odeon', note:'看完直接走回停車處。', hi:true, tags:['car:🚶 5 分','停留 20 分'], map:[[null,wlk(P.hadrian,P.odeon)],['步行路線 · 回到停車處',wlk(P.odeon,P.ephSite)]],
+    {time:'16:10<br>–16:30', act:'音樂廳 Odeon', note:'看完直接走回停車處。', hi:true, tags:['car:🚶 5 分','停留 20 分'], map:[['在地圖上開啟 · '+PN.odeon,gm('odeon')],['在地圖上開啟 · '+PN.ephSite,gm('ephSite')]],
      sight:{zh:'音樂廳', en:'Odeon', img:'ephesus-odeon.jpg', side:true, d:'約 1,500 席的小型半圓劇場，用於戲劇與音樂演出。靠近上入口，是走回停車處前的最後一站。'},
     },
-    {time:'17:00<br>–19:30', act:'Bellamaritimo Hotel', book:'stay-bella', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
+    {time:'17:00<br>–19:30', act:'Bellamaritimo Hotel', book:'stay-bella', hi:true, tags:['car:🚘 2h20'], map:gm('bella')},
     {time:'19:30<br>–21:00', act:'As Teras Mantı Evi', tags:['car:🚶 步行 5 分','eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主。',
@@ -667,7 +733,7 @@ var DATA=[
          ['🥉','開心果 <b>Künefe with ground pistachio</b>','飯後甜點，兩人分一份'],
          ['＋','葡萄葉包飯 <b>Yaprak Sarma</b>','還吃得下再加']
        ]},
-     map:[[null,wlk(P.bella,P.asteras)],['在地圖上開啟 · As Teras Mantı Evi',pin(P.asteras)]]}
+     map:gm('asteras')}
   ]
 },
 
@@ -682,13 +748,13 @@ var DATA=[
   facts:['國內線轉機','辦理租車、還手續','跨城市移動，自駕約四小時'],
   rows:[
     {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行程出發需帶泳衣、盥洗用品等，體驗古董池。'},
-    {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分','⚠️ 部分區域須赤腳'], map:wlk(P.bella,P.pamEast),
+    {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分','⚠️ 部分區域須赤腳'], map:gm('pamEast'),
      sight:{zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', side:true, d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。飯店走過來 870 公尺、爬升約 58 公尺。'},
     },
-    {time:'10:10<br>–11:20', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 20 分','停留 50 分'], map:wlk(P.pamEast,P.hTheatre),
+    {time:'10:10<br>–11:20', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 20 分','停留 50 分'], map:gm('hTheatre'),
      sight:{zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', side:true, d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。爬升約 135 公尺，是這段最累的一段。'},
     },
-    {time:'11:20<br>–13:30', act:'古董池 Cleopatra Antique Pools', note:'<strong>要帶泳衣與盥洗用品。</strong>', hi:true, tags:['car:🚶 15 分','停留 1h55'], map:[[null,wlk(P.hTheatre,P.cleopatra)],['步行路線 · 回飯店',wlk(P.cleopatra,P.bella)]],
+    {time:'11:20<br>–13:30', act:'古董池 Cleopatra Antique Pools', note:'<strong>要帶泳衣與盥洗用品。</strong>', hi:true, tags:['car:🚶 15 分','停留 1h55'], map:[['在地圖上開啟 · '+PN.cleopatra,gm('cleopatra')],['在地圖上開啟 · '+PN.bella,gm('bella')]],
      sight:{zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', side:true, d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'},
     },
     {time:'13:30<br>–14:30', act:'Teras restaurant', tags:['car:🚶 步行 7 分','eat:午餐'], hi:true,
@@ -699,10 +765,10 @@ var DATA=[
          ['🥉','葡萄葉包飯配優格 <b>Stuffed vine leaves + yogurt</b>','當前菜，兩人分一份'],
          ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
        ]},
-     map:pin(P.teras)},
-    {time:'14:30<br>–20:00', act:'伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
-    {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', tags:['XQ9238', 'lock:21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
-    {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
+     map:gm('teras')},
+    {time:'14:30<br>–20:00', act:'伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:gm('adb')},
+    {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', hi:true,},
+    {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
   ]
 },
 
@@ -732,36 +798,36 @@ var DATA=[
          d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'卡帕多奇亞紅線自駕', sub:'沒飛 · 10:10 出發', sc:'no', rows:[
-      {time:'10:10<br>–11:15', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:drv(P.henna,P.pasabag),
+      {time:'10:10<br>–11:15', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 min','停留 50 min', '⚠️ 票買一次就好，與Zelv共用'], map:gm('pasabag'),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。', side:true},
     },
-      {time:'11:15<br>–12:10', act:'Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min', '彈性可刪減'], map:drv(P.pasabag,P.zelve),
+      {time:'11:15<br>–12:10', act:'Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 min', '停留 50 min', '彈性可刪減'], map:gm('zelve'),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。', side:true},
     },
       {time:'12:10<br>–14:00', act:'Göreme 露天博物館 Göreme Open Air Museum', hi:true ,tags:['car:🚘 20 min', '停留 1h30min'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。', side:true},
     },
-      {time:'14:10<br>–15:30', act:'Göreme 鎮上午餐及回飯店', note:'換保暖外套。', tags:['car:🚘 10 分', 'eat:午餐'], map:drv(P.goreme,P.henna)},
+      {time:'14:10<br>–15:30', act:'Göreme 鎮上午餐及回飯店', note:'換保暖外套。', tags:['car:🚘 10 分', 'eat:午餐'], map:gm('henna')},
 
     ]},
     {label:'卡帕多奇亞紅線自駕', sub:'飛了 · 睡飽再出門，景點壓縮 40 分', alt:true, sc:'fly', rows:[
       {time:'11:15<br>–12:00', act:'Göreme 鎮上簡單吃', tags:['car:🚶 步行','eat:早午餐']},
-      {time:'12:00<br>–12:45', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票買一次就好，與 Zelve 共用'], map:drv(P.henna,P.pasabag),
+      {time:'12:00<br>–12:45', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票買一次就好，與 Zelve 共用'], map:gm('pasabag'),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。', side:true},
     },
-      {time:'12:45<br>–13:20', act:'Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分','彈性可刪減'], map:drv(P.pasabag,P.zelve),
+      {time:'12:45<br>–13:20', act:'Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分','彈性可刪減'], map:gm('zelve'),
      sight:{zh:'Zelve 露天博物館', en:'Zelve Open Air Museum', img:'zelve.jpg', d:'整片山谷都是鑿進岩壁的房舍與教堂，是真正住過人的洞穴村，人比 Göreme 露天博物館少很多。', side:true},
     },
       {time:'13:20<br>–15:10', act:'Göreme 露天博物館 Göreme Open Air Museum', hi:true, tags:['car:🚘 20 分','停留 1h30'],
      sight:{zh:'Göreme 露天博物館', en:'Göreme Open Air Museum', img:'goreme-museum.jpg', d:'聯合國教科文組織世界遺產，卡帕多奇亞基督教修道社群最主要的遺址。園區內有<strong>三十多座岩鑿教堂與禮拜堂</strong>，部分內部保有九到十一世紀的濕壁畫。', side:true},
     },
-      {time:'15:10<br>–15:20', act:'回 Henna Hotel', note:'換保暖外套。', hi:true, tags:['car:🚘 10 分'], map:drv(P.goreme,P.henna)},
+      {time:'15:10<br>–15:20', act:'回 Henna Hotel', note:'換保暖外套。', hi:true, tags:['car:🚘 10 分'], map:gm('henna')},
     ]},
     {label:'下午與晚上', rows:[
-      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', book:'exp-camel', hi:true, tags:['lock:預訂 16:00', '含飯店接送'],
+      {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', book:'exp-camel',
      sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'飯店接送，騎乘約 60 分，路線含紅色山谷與玫瑰谷。結束後送回飯店。', side:true},
     },
-      {time:'18:30<br>–20:15', act:'Topdeck Cave', book:'eat-topdeck', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐','lock:預訂 18:30'], map:wlk(P.henna,P.topdeck),
+      {time:'18:30<br>–20:15', act:'Topdeck Cave', book:'eat-topdeck', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐'], map:gm('topdeck'),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
          d:'開在老闆 Mustafa 一家人的自宅一樓，那個洞穴空間原本是馬廄；菜由他自己做、自己端上桌。菜單每天換，大致是 12 道冷前菜、5 道熱前菜、當日例湯與 5～6 道主餐，有素食。',
          dishes:[
@@ -800,13 +866,13 @@ var DATA=[
       {time:'08:30<br>–11:30', act:'回房補眠'},
     ]},
     {label:'綠線自駕', sub:'09:30 出發', sc:'no', rows:[
-      {time:'09:30<br>–11:35', act:'Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:drv(P.henna,P.kaymakli),
+      {time:'09:30<br>–11:35', act:'Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 35 分','停留 1h30'], map:gm('kaymakli'),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。', side:true},
     },
-      {time:'11:35<br>–12:45', act:'鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','彈性可刪減','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
+      {time:'11:35<br>–12:45', act:'鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','彈性可刪減','⚠️ 導航設觀景台'], map:gm('pigeon'),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。', side:true},
     },
-      {time:'12:45<br>–14:00', act:'Seki Restaurant & Lounge', book:'eat-seki', hi:true, tags:['car:🚘 5 分','eat:午餐','lock:預訂 13:00'], map:[[null,drv(P.pigeon,P.seki)],['在地圖上開啟',pin(P.seki)]],
+      {time:'12:45<br>–14:00', act:'Seki Restaurant & Lounge', book:'eat-seki', hi:true, tags:['car:🚘 5 分','eat:午餐'], map:gm('seki'),
        eatery:{name:'Seki Restaurant & Lounge', en:'Argos in Cappadocia · Kayabaş Sk. No:23, Uçhisar', hours:'每天 08:00–24:00', img:'seki-terrace.jpg',
          d:'米其林推薦餐廳，蓋在修道院遺構改建的 Argos 飯店裡，露台正對<strong>鴿子谷與艾爾吉耶斯山</strong>。安納托利亞菜配地中海做法，附設酒窖。<strong>建議兩人點法：</strong>蜜漬南瓜 ＋ 紙包烤牛肉乾 ＋ 26 小時羊肩 ＋ 烤蘋果甜點，一輪四道走完前菜到甜點。',
          dishes:[
@@ -816,22 +882,22 @@ var DATA=[
            ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
          ]},
       },
-      {time:'14:05<br>–15:05', act:'Uçhisar城堡 Uçhisar Castle', tags:['彈性 · 有餘力再去'], map:[['砍這站 · Seki → Çavuşin',drv(P.seki,P.cavusin)]],
+      {time:'14:05<br>–15:05', act:'Uçhisar城堡 Uçhisar Castle', tags:['car:🚘 2 分','彈性 · 有餘力再去'], map:gm('cavusin'),
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。', side:true},
     },
-      {time:'15:05<br>–16:20', act:'Çavuşin 老村 Çavuşin Old Village', hi:true, tags:['car:🚘 15 分','停留 1h','彈性可刪減'], map:drv(P.uchisar,P.cavusin),
+      {time:'15:05<br>–16:20', act:'Çavuşin 老村 Çavuşin Old Village', hi:true, tags:['car:🚘 15 分','停留 1h','彈性可刪減'], map:gm('cavusin'),
      sight:{zh:'Çavuşin 老村', en:'Çavuşin Old Village', img:'cavusin-village.jpg', d:'1960 年代落石後整村遷走，斷面直接裸露在崖壁上——一格格的房間、階梯與壁龕都還在，沒有修復也沒有圍欄。⚠️ <strong>Çavuşin 教堂因修復關閉</strong>，只走村子與崖下。', side:true},
     },
-      {time:'16:20<br>–17:50', act:'愛情谷觀景台 Love Valley Panorama', hi:true, tags:['car:🚘 5 分','停留 1h25','⚠️ 導航設公路邊觀景台'], map:[[null,drv(P.cavusin,P.lovevalley)],['在地圖上開啟 · 觀景台',pin(P.lovevalley)]],
+      {time:'16:20<br>–17:50', act:'愛情谷觀景台 Love Valley Panorama', hi:true, tags:['car:🚘 5 分','停留 1h25','⚠️ 導航設公路邊觀景台'], map:gm('lovevalley'),
      sight:{zh:'愛情谷觀景台', en:'Love Valley Panorama', img:'love-valley.jpg', d:'成片十幾公尺高的錐狀岩柱，是卡帕多奇亞最上鏡的地貌，<strong>駱駝走的紅谷與玫瑰谷都沒有</strong>。觀景台在 Göreme–Avanos 公路邊，可以往下走進谷裡的步道。⚠️ 導航設<strong>公路邊的觀景台</strong>，不要設谷地中心點——那個點在谷裡，會被帶到產業道路。', side:true},
     },
-      {time:'17:50<br>–17:55', act:'回飯店附近停車', hi:true, tags:['car:🚘 5 分'], map:drv(P.lovevalley,P.henna)},
+      {time:'17:50<br>–17:55', act:'回飯店附近停車', hi:true, tags:['car:🚘 5 分'], map:gm('henna')},
     ]},
     {label:'綠線自駕', sub:'補飛版 · 補眠到 11:30', alt:true, sc:'fly', rows:[
-      {time:'11:40<br>–12:50', act:'Uçhisar Castle', hi:true, tags:['car:🚘 7 分','停留 1h'], map:drv(P.henna,P.uchisar),
+      {time:'11:40<br>–12:50', act:'Uçhisar Castle', hi:true, tags:['car:🚘 7 分','停留 1h'], map:gm('uchisar'),
      sight:{zh:'Uçhisar 城堡', en:'Uçhisar Castle', img:'uchisar-castle.jpg', d:'卡帕多奇亞三大城堡之一，整塊巨岩鑿成，是這一帶的制高點，可以看到整片鴿子谷。', side:true},
     },
-      {time:'12:55<br>–14:00', act:'Seki Restaurant & Lounge 午餐', book:'eat-seki',  hi:true, tags:['car:🚶 步行 2 分','eat:午餐','已訂位 13:00'], map:[['步行路線 · 城堡 → Seki',wlk(P.uchisar,P.seki)],['在地圖上開啟',pin(P.seki)]],
+      {time:'12:55<br>–14:00', act:'Seki Restaurant & Lounge 午餐', book:'eat-seki',  hi:true, tags:['car:🚶 步行 2 分','eat:午餐','已訂位 13:00'], map:gm('seki'),
        eatery:{name:'Seki Restaurant & Lounge', en:'Argos in Cappadocia · Kayabaş Sk. No:23, Uçhisar', hours:'每天 08:00–24:00', img:'seki-terrace.jpg',
          d:'米其林推薦餐廳，蓋在修道院遺構改建的 Argos 飯店裡，露台正對<strong>鴿子谷與艾爾吉耶斯山</strong>。安納托利亞菜配地中海做法，附設酒窖。<strong>建議兩人點法：</strong>蜜漬南瓜 ＋ 紙包烤牛肉乾 ＋ 26 小時羊肩 ＋ 烤蘋果甜點，一輪四道走完前菜到甜點。',
          dishes:[
@@ -841,13 +907,13 @@ var DATA=[
            ['４','炙烤蘋果 <b>Charred Apple Dessert</b>','甜點。烤蘋果、肉桂、酸櫻桃與凝脂奶油，偏秋冬味，11 月正合適']
          ]},
       },
-      {time:'14:00<br>–16:00', act:'Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 30 分','停留 1h30'], map:drv(P.uchisar,P.kaymakli),
+      {time:'14:00<br>–16:00', act:'Kaymaklı 地下城 Kaymaklı Underground City', hi:true, tags:['car:🚘 30 分','停留 1h30'], map:gm('kaymakli'),
      sight:{zh:'Kaymaklı 地下城', en:'Kaymaklı Underground City', img:'kaymakli.jpg', d:'西元八世紀基督徒為了躲避侵擾而開鑿，拜占庭時期持續擴建。<strong>開放四層</strong>，每層都繞著通風井配置——一樓有馬廄、二樓有教堂與洗禮池、三樓是儲藏室與榨酒榨油處。', side:true},
     },
-      {time:'16:00<br>–17:10', act:'鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
+      {time:'16:00<br>–17:10', act:'鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','⚠️ 導航設觀景台'], map:gm('pigeon'),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。', side:true},
     },
-      {time:'17:10<br>–17:20', act:'回飯店附近停車', hi:true, tags:['car:🚘 10 分'], map:drv(P.pigeon,P.henna)},
+      {time:'17:10<br>–17:20', act:'回飯店附近停車', hi:true, tags:['car:🚘 10 分'], map:gm('henna')},
     ]},
     {label:'晚上 · Göreme 鎮上', rows:[
       {time:'18:15<br>起', act:'Seten Restaurant Cappadocia', tags:['car:🚶 步行 8 分','eat:晚餐','彈性 · 不接受訂位'], sc:'no',
@@ -861,7 +927,7 @@ var DATA=[
            ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
-       map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
+       map:gm('seten')},
       {time:'17:35<br>起', act:'Seten Restaurant Cappadocia', tags:['car:🚶 步行 8 分','eat:晚餐','彈性 · 不接受訂位'], sc:'fly',
        eatery:{name:'Seten Restaurant Cappadocia', en:'Çakmaklı Sk. No:40, Göreme · 安納托利亞料理', hours:'每天 12:30–22:30', img:'seten-terrace.jpg',
          d:'米其林指南收錄。蔬果來自自家菜園，連酒都自己釀。<strong>建議兩人點法：</strong>Seten Salad ＋ Şefin Ezmesi ＋ 卡帕多奇亞餃 ＋ Testi Kebab ＋ 芝麻醬舒芙蕾，能一次吃到當地最有特色的幾種。',
@@ -873,7 +939,7 @@ var DATA=[
            ['５','<b>Seten Salad</b>','不想整餐都是肉就點這個，強調當地食材'],
            ['６','<b>Şefin Ezmesi</b>（辣番茄核桃醬）','mezze 類，配 Hummus、Fıstıklı Girit Ezme 一起']
          ]},
-       map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
+       map:gm('seten')},
     ]}
   ]
 },
@@ -906,21 +972,21 @@ var DATA=[
            d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'10:00 退房出發 · 往機場收尾', rows:[
-      {time:'10:00<br>–11:20', act:'Mustafapaşa 希臘石屋村 Sinasos', hi:true, tags:['car:🚘 19 分','停留 1h'], map:drv(P.henna,P.mustafapasa),
+      {time:'10:00<br>–11:20', act:'Mustafapaşa 希臘石屋村 Sinasos', hi:true, tags:['car:🚘 19 分','停留 1h'], map:gm('mustafapasa'),
        sight:{zh:'Mustafapaşa 希臘石屋村', en:'Sinasos', img:'mustafapasa.jpg', d:'1924 人口交換前是希臘正教社區，當時叫 <strong>Sinasos</strong>。18–19 世紀在外經商致富的居民回鄉蓋了近 700 棟石造宅邸，雕花門面、拱窗、新古典立面——<strong>是「蓋」出來的，不是鑿出來的</strong>，跟前兩天看的洞穴系統完全不同。現存 93 棟登錄古蹟、約 30 座教堂與禮拜堂，看點是聖君士坦丁與海倫娜教堂與石雕宅邸街區。', side:true},
       },
-      {time:'11:20<br>–12:30', act:'Güray Müze 地下陶藝博物館', hi:true, tags:['car:🚘 24 分','停留 45 分'], map:drv(P.mustafapasa,P.guray),
+      {time:'11:20<br>–12:30', act:'Güray Müze 地下陶藝博物館', hi:true, tags:['car:🚘 24 分','停留 45 分'], map:gm('guray'),
        sight:{zh:'Güray Müze 地下陶藝博物館', en:'Güray Müze', img:'guray-muze.jpg', side:true, d:'<strong>世界第一座地下陶藝博物館</strong>，鑿在地下 20 公尺、1,600 平方公尺。分古代館（含西臺時期陶器）、現代館與藝廊，現場有製陶示範。'},
       },
-      {time:'12:30<br>–13:05', act:'麥當勞 午餐', note:'Avanos 鎮中心。接下來還有驛站與機場，這餐求快。', tags:['car:🚘 8 分','eat:午餐'], map:drv(P.guray,P.mcdonalds)},
-      {time:'13:05<br>–13:45', act:'Chez Galip 頭髮博物館', note:'鎮中心一帶都是陶藝工坊與石屋老街，走過去就會經過 <strong>Avanos 老街</strong>。', hi:true, tags:['car:🚶 10 分','停留 30 分'], map:[[null,wlk(P.mcdonalds,P.chezgalip)],['在地圖上開啟 · Chez Galip',pin(P.chezgalip)]],
+      {time:'12:30<br>–13:05', act:'麥當勞 午餐', note:'Avanos 鎮中心。接下來還有驛站與機場，這餐求快。', tags:['car:🚘 8 分','eat:午餐'], map:gm('mcdonalds')},
+      {time:'13:05<br>–13:45', act:'Chez Galip 頭髮博物館', note:'鎮中心一帶都是陶藝工坊與石屋老街，走過去就會經過 <strong>Avanos 老街</strong>。', hi:true, tags:['car:🚶 10 分','停留 30 分'], map:gm('chezgalip'),
        sight:{zh:'Chez Galip 頭髮博物館', en:'Hair Museum', side:true, d:'陶藝工坊的地下室掛滿超過 <strong>16,000 名女性的髮束</strong>，每束都附姓名地址，是卡帕多奇亞最有名的怪地方。樓上就是 Galip 的陶藝工坊，可以看拉坯。'},
       },
-      {time:'13:45<br>–14:25', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai', hi:true, tags:['car:🚘 8 分','停留 30 分', 'lock:⚠️ 15:00 前離開'], map:drv(P.mcdonalds,P.sarihan),
+      {time:'13:45<br>–14:25', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai', hi:true, tags:['car:🚘 8 分','停留 30 分'], map:gm('sarihan'),
        sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。', side:true},
       },
-      {time:'14:25<br>–16:15', act:'開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:drv(P.sarihan,P.asr)},
-      {time:'18:40<br>–20:20', act:'國內轉機', book:'fly-tk2017', tags:['TK2017', 'lock:18:40 → 20:20','訂位代號 TB5RZM']},
+      {time:'14:25<br>–16:15', act:'開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:gm('asr')},
+      {time:'18:40<br>–20:20', act:'國內轉機', book:'fly-tk2017'},
       {time:'20:20<br>起', act:'Basilissis Hotel', book:['ride-in','stay-basilissis'], hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
   ]
@@ -936,7 +1002,7 @@ var DATA=[
   lead:'一千五百年的巨大穹頂、藏在地面下的拜占庭蓄水池、兩萬片藍色磁磚的清真寺，還有一座蓋了五百年的室內市集——全部在飯店走得到的範圍裡。',
   facts:['全程步行', '部分景點需包住頭髮，要帶圍巾'],
   rows:[
-    {time:'08:20<br>–09:15', act:'藍色清真寺 Blue Mosque', hi:true, tags:['car:🚶 步行 10 分','停留 45 分','免費'], map:wlk(P.basil,P.blueMosque),
+    {time:'08:20<br>–09:15', act:'藍色清真寺 Blue Mosque', hi:true, tags:['car:🚶 步行 10 分','停留 45 分','免費'], map:gm('blueMosque'),
      sight:{zh:'藍色清真寺', en:'Sultanahmet Camii', img:'blue-mosque.jpg', d:'1616 年落成，六座宣禮塔是它最好認的特徵。內部超過兩萬片藍色伊茲尼克磁磚，「藍色清真寺」的名字就是從這裡來的。就在聖索菲亞正對面，兩座建築隔著廣場對望。', side:true},
     },
     {time:'09:20<br>–11:00', act:'Seven Hills Restaurant', book:'eat-sevenhills', hi:true, tags:['car:🚶 步行 5 分','eat:早餐'],
@@ -949,11 +1015,11 @@ var DATA=[
          ['４','時令水果、沙拉、堅果','現切清甜，用來解膩'],
          ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
        ]},
-     map:wlk(P.blueMosque,P.sevenHills)},
-    {time:'11:05<br>–12:20', act:'聖索菲亞 Hagia Sophia', book:'tkt-hagia', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
+     map:gm('sevenHills')},
+    {time:'11:05<br>–12:20', act:'聖索菲亞 Hagia Sophia', book:'tkt-hagia', hi:true, tags:['car:🚶 步行 4 分','停留 1h30'], map:gm('hagia'),
      sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。', side:true},
     },
-    {time:'12:30<br>–13:50', act:'地下水宮殿 Basilica Cistern', book:'tkt-cistern', hi:true, tags:['car:🚶 步行 4 分','lock:12:45 集合出發','Turkey Pass'], map:[['步行路線 · 聖索菲亞 → 集合點',wlk(P.hagia,P.busforus)],['在地圖上開啟 · BUSFORUS Sultanahmet 站',pin(P.busforus)],['在地圖上開啟 · 地下水宮殿',pin(P.cistern)]],
+    {time:'12:30<br>–13:50', act:'地下水宮殿 Basilica Cistern', book:'tkt-cistern', hi:true, tags:['car:🚶 步行 4 分'], map:[['在地圖上開啟 · '+PN.busforus,gm('busforus')],['在地圖上開啟 · '+PN.cistern,gm('cistern')]],
      sight:{zh:'地下水宮殿', en:'Basilica Cistern', img:'basilica-cistern.jpg', d:'六世紀查士丁尼時期的地下蓄水池，336 根柱子撐起整個空間，底部有兩顆倒置與側放的<strong>梅杜莎頭像</strong>。地面永遠濕、光線很暗。', side:true},
     },
     {time:'13:50<br>–15:15', act:'Hafız Mustafa 1864 Beyazıt', hi:true, tags:['car:🚶 步行 15 分','eat:甜點'],
@@ -964,8 +1030,8 @@ var DATA=[
          ['🥈','焦糖奶布丁 <b>Kazandibi</b>','牛奶布丁類，表面焦糖化。不想一路吃糖漿甜點就點這個，奶香為主、不會甜到爆'],
          ['🥉','土耳其紅茶 <b>Çay</b>','配甜點剛好，吃完 Şöbiyet 用它解膩']
        ]},
-     map:wlk(P.cistern,P.hafiz)},
-    {time:'15:20<br>–17:30', act:'大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10'], map:wlk(P.hafiz,P.grandBazaar),
+     map:gm('hafiz')},
+    {time:'15:20<br>–17:30', act:'大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10'], map:gm('grandBazaar'),
      sight:{zh:'大巴札', en:'Kapalıçarşı / Grand Bazaar', img:'grand-bazaar.jpg', d:'十五世紀開始擴建的室內市集，六十幾條街、四千多家店，拱頂全部彩繪。偏工藝、金飾、地毯與觀光商品，人非常多，注意隨身物品。', side:true},
     },
   ]
@@ -982,23 +1048,23 @@ var DATA=[
   facts:['⚠️ 週五上午清真寺不開放遊客','⚠️ 多爾瑪巴切週一休'],
   rows:[
     {time:'08:30<br>–09:00', act:'飯店早餐', tags:['eat:早餐']},
-    {time:'09:00<br>–11:45', act:'多爾瑪巴切皇宮 Dolmabahçe Sarayı', book:'tkt-dolmabahce', hi:true, tags:['car:🚋 T1 25 分 + 步行 13 分','停留 2h', 'Turkey Pass'], map:[[null,trn(P.basil,P.kabatas)],['步行路線 · Kabataş → 多爾瑪巴切',wlk(P.kabatas,P.dolmabahce)]],
+    {time:'09:00<br>–11:45', act:'多爾瑪巴切皇宮 Dolmabahçe Sarayı', book:'tkt-dolmabahce', hi:true, tags:['car:🚋 T1 25 分 + 步行 13 分','停留 2h'], map:[['在地圖上開啟 · '+PN.kabatas,gm('kabatas')],['在地圖上開啟 · '+PN.dolmabahce,gm('dolmabahce')]],
      sight:{zh:'多爾瑪巴切皇宮', en:'Dolmabahçe Palace', img:'dolmabahce.jpg', d:'1856 年取代托卡比的新皇宮，巴洛克加新古典，285 個房間。看點是室內——<strong>4.5 噸的水晶吊燈</strong>（維多利亞女王贈）、水晶樓梯，以及<strong>阿塔圖克 1938 年逝世的房間</strong>，宮裡的時鐘全部停在 09:05。門票含 Selamlık、後宮與繪畫館。', side:true},
     },
-    {time:'11:45<br>–13:30', act:'奧塔科伊清真寺 Büyük Mecidiye Camii', hi:true, tags:['car:🚶 36 分','eat:午餐','停留 1h25', '免費'], map:[[null,wlk(P.dolmabahce,P.ortakoy)],['大眾運輸路線',trn(P.dolmabahce,P.ortakoy)]],
+    {time:'11:45<br>–13:30', act:'奧塔科伊清真寺 Büyük Mecidiye Camii', hi:true, tags:['car:🚶 36 分','eat:午餐','停留 1h25', '免費'], map:gm('ortakoy'),
      sight:{zh:'奧塔科伊清真寺', en:'Büyük Mecidiye Camii', img:'ortakoy.jpg', d:'1856 年的海濱清真寺，站在廣場上可以把清真寺與<strong>博斯普魯斯大橋</strong>放進同一個畫面，是伊斯坦堡最好認的構圖之一。', side:true},
     },
-    {time:'13:30<br>–13:55', act:'塔克辛廣場 Taksim', tags:['car:🚌 25 分'], map:trn(P.ortakoy,P.taksim)},
+    {time:'13:30<br>–13:55', act:'塔克辛廣場 Taksim', tags:['car:🚌 25 分'], map:gm('taksim')},
     {time:'13:55<br>–14:20', act:'塔克辛廣場 Taksim Meydanı', hi:true, tags:['car:🚶 2 分','停留 25 分'],
      sight:{zh:'塔克辛廣場', en:'Taksim Meydanı', img:'taksim.jpg', side:true, d:'新城區的中心廣場，中央是 1928 年的<strong>共和國紀念碑</strong>。獨立大街的北端起點，紅色古董電車從這裡發車。'},
     },
-    {time:'14:20<br>–14:45', act:'Islak 濕漢堡 Kızılkayalar', tags:['car:🚶 2 分','eat:小吃'], map:pin(P.kizil),
+    {time:'14:20<br>–14:45', act:'Islak 濕漢堡 Kızılkayalar', tags:['car:🚶 2 分','eat:小吃'], map:gm('kizil'),
      sight:{zh:'Islak 濕漢堡', en:'Kızılkayalar Taksim', img:'kizilkayalar.jpg', side:true, d:'塔克辛廣場旁的老牌小店，招牌是 <strong>ıslak hamburger（濕漢堡）</strong>——小顆牛肉堡泡在番茄大蒜醬汁裡，擺在冒著蒸氣的玻璃櫃中保溫，麵包吸飽醬汁變得軟濕。是塔克辛的深夜名物。'},
     },
-    {time:'14:45<br>–15:15', act:'Suat Usta Mersin Tantuni', tags:['car:🚶 5 分','eat:小吃','彈性可刪減'], map:pin(P.suat),
+    {time:'14:45<br>–15:15', act:'Suat Usta Mersin Tantuni', tags:['car:🚶 5 分','eat:小吃','彈性可刪減'], map:gm('suat'),
      sight:{zh:'土耳其沙威瑪 Suat Usta', en:'愛莉莎莎推薦', img:'suat-usta.jpg', side:true, d:'tantuni 是把細切牛肉或雞肉在熱鐵板上快炒後捲進薄餅，配洋蔥、番茄與香料。就在獨立大街北段上、零繞路。⚠️ 剛吃完濕漢堡，吃不下就跳過。'},
     },
-    {time:'15:15<br>–16:00', act:'獨立大街 İstiklal Caddesi', hi:true, tags:['car:🚶 步行 1.6 km'], map:wlk(P.taksim,P.tunel,[P.cicek,P.stAntoine]),
+    {time:'15:15<br>–16:00', act:'獨立大街 İstiklal Caddesi', hi:true, tags:['car:🚶 步行 1.6 km'], map:gm('tunel'),
      sight:{zh:'獨立大街', en:'İstiklal Caddesi', img:'istiklal.jpg', side:true, d:'1.6 公里全程行人徒步區，兩旁是十九世紀的使館與商行建築、書店、唱片行、甜點店，<strong>紅色古董電車沿街跑</strong>。下面兩個點都在這條街上，順著走就會經過。'},
     },
     {time:'16:00<br>–16:25', act:'花市拱廊 Çiçek Pasajı', hi:true, tags:['car:🚶 沿獨立大街','停留 25 分'],
@@ -1007,13 +1073,13 @@ var DATA=[
     {time:'16:25<br>–16:50', act:'聖安東尼教堂 Aziz Antuan', hi:true, tags:['car:🚶 5 分','停留 25 分','免費'],
      sight:{zh:'聖安東尼教堂', en:'Aziz Antuan Bazilikası', img:'st-antoine.jpg', side:true, d:'1912 年落成，<strong>伊斯坦堡最大的天主教堂</strong>，義大利新哥德式紅磚建築，退縮在街面後方的小中庭裡。免費進入，是這條街上最安靜的地方。'},
     },
-    {time:'16:50<br>–17:45', act:'加拉達塔 Galata Tower', hi:true, tags:['car:🚶 12 分','停留 55 分','⚠️ 只在外面拍照','☀️ 日落 17:15'], map:wlk(P.tunel,P.galata),
+    {time:'16:50<br>–17:45', act:'加拉達塔 Galata Tower', hi:true, tags:['car:🚶 12 分','停留 55 分','⚠️ 只在外面拍照','☀️ 日落 17:15'], map:gm('galata'),
      sight:{zh:'加拉達塔', en:'Galata Tower', img:'galata-tower-street.jpg', side:true, d:'1348 年熱那亞人蓋的瞭望塔，高 67 公尺。⚠️ <strong>登塔要 €30／人，決定不上去</strong>——只在塔下拍照。最好的角度是從塔南側那幾條彩色老屋的窄巷往上看，塔會整個框在街道盡頭。<strong>日落約 17:15</strong>，那個時段的側光最好看。'},
     },
-    {time:'17:45<br>–18:45', act:'烤魚捲餅 Balık Dürümcü', tags:['car:🚶 8 分','eat:小吃','彈性可刪減','⚠️ 需排隊一小時'], map:wlk(P.galata,P.balik,[P.karakoy]),
+    {time:'17:45<br>–18:45', act:'烤魚捲餅 Balık Dürümcü', tags:['car:🚶 8 分','eat:小吃','彈性可刪減','⚠️ 需排隊一小時'], map:gm('balik'),
      sight:{zh:'土耳其烤魚捲餅', en:'Balık Dürümcü Mehmet Usta · 愛莉莎莎推薦', img:'balik-durum.jpg', side:true, d:'Karaköy 的烤鯖魚捲餅，街頭名物。⚠️ 要排一小時，<strong>不想等就直接過橋</strong>。'},
     },
-    {time:'18:45<br>–19:20', act:'加拉達橋 Galata Köprüsü', note:'走到 Eminönü 搭 T1 回飯店。', hi:true, tags:['car:🚶 步行 10 分'], map:wlk(P.balik,P.eminonu,[P.gBridge]),
+    {time:'18:45<br>–19:20', act:'加拉達橋 Galata Köprüsü', note:'走到 Eminönü 搭 T1 回飯店。', hi:true, tags:['car:🚶 步行 10 分'], map:gm('eminonu'),
      sight:{zh:'加拉達橋', en:'Galata Köprüsü', img:'galata-bridge.jpg', side:true, d:'橫跨金角灣的雙層橋——<strong>上層走人與電車、橋欄邊整排釣客，下層是一整排亮著霓虹的餐廳與茶館</strong>。這個時間走過去，對岸舊城的清真寺剪影、橋下的燈與水面反光會同時出現。'},
     },
   ]
@@ -1029,23 +1095,23 @@ var DATA=[
   lead:'上午在十五世紀的浴場泡掉前八天的路，下午逛香料市集，傍晚上船——昨天在岸上走過的多爾瑪巴切與奧塔科伊，今天從水上再看一次，而且是天色轉換的那兩小時。',
   facts:['⚠️ 部分店家只收現金','遊船 2 小時'],
   rows:[
-    {time:'10:00<br>–11:30', act:'Boris\'in Yeri 土耳其早餐', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金', '愛莉莎莎推薦'], map:trn(P.basil,P.boris),
+    {time:'10:00<br>–11:30', act:'Boris\'in Yeri 土耳其早餐', hi:true, tags:['car:🚶 步行 30 分','eat:早餐','⚠️ 只收現金', '愛莉莎莎推薦'], map:gm('boris'),
      eatery:{name:'Boris\'in Yeri', en:'Kumkapı / Fatih', img:'boris-kahvalti.jpg', hours:'06:30–21:00', price:'只收現金，備足里拉', d:'1936 年由 Boris Bey 開的老早餐店，近百年沒換過樣子。招牌是<strong>水牛奶 kaymak 淋蜂蜜配麵包</strong>，其餘點餐參考：menemen 番茄炒蛋、sucuk 臘腸蛋、土耳其咖啡。'}},
-    {time:'12:00<br>–13:25', act:'Acemoğlu 土耳其浴 Acemoğlu Hamamı', book:'exp-hamam', hi:true, tags:['car:🚶 步行 20 分','lock:預訂 12:00','停留 1h25 · 療程 45 分', 'Turkey Pass'], map:trn(P.boris,P.hamam),
+    {time:'12:00<br>–13:25', act:'Acemoğlu 土耳其浴 Acemoğlu Hamamı', book:'exp-hamam', hi:true, tags:['car:🚶 步行 20 分', '停留 1h25 · 療程 45 分'], map:gm('hamam'),
      sight:{zh:'Acemoğlu 土耳其浴', en:'Acemoğlu Hamamı · 15 世紀', img:'acemoglu-hamam.jpg', d:'征服者穆罕默德二世時期蓋的浴場，原本是給禁衛軍見習生（Acemi Oğlanlar）用的，十五世紀的石作保留至今。', side:true},
     },
     {time:'13:35<br>–14:05', act:'Vefa Bozacısı', tags:['car:🚶 步行 6 分','eat:小點'],
      eatery:{name:'Vefa Bozacısı 1876', en:'Vefa, Fatih', img:'vefa-bozacisi.jpg', price:'平價，備現金', d:'它創立於 1876 年，店內保留著很有年代感的傳統裝潢。這裡不是一般咖啡廳，而是專門品嚐土耳其傳統飲品、體驗當地飲食文化的老店。'},
-     map:wlk(P.hamam,P.vefa)},
-    {time:'14:25<br>–15:55', act:'香料市集 Spice Bazaar', hi:true, tags:['car:🚋 T1 20 分','停留 1h30'], map:trn(P.vefa,P.spice),
+     map:gm('vefa')},
+    {time:'14:25<br>–15:55', act:'香料市集 Spice Bazaar', hi:true, tags:['car:🚋 T1 20 分','停留 1h30'], map:gm('spice'),
      sight:{zh:'香料市集', en:'Mısır Çarşısı / Spice Bazaar', img:'spice-bazaar.jpg', d:'1664 年落成的 L 形拱頂市集，本來是用埃及進口貨的關稅蓋起來的，所以土耳其文叫「埃及市集」。香料、乾果、軟糖與茶葉為主，規模比大巴札小很多，逛起來輕鬆。', side:true},
     },
-    {time:'15:55<br>–19:00', act:'博斯普魯斯日落遊船 Sunset Cruise', book:'exp-cruise', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分','lock:預訂 17:00', '停留 2h', 'Turkey Pass'], map:[['大眾運輸路線 · 香料市集 → Kabataş 碼頭',trn(P.spice,P.kabatasPier)],['在地圖上開啟 · Kabataş 上船點',pin(P.kabatasPier)],['在地圖上開啟 · Karaköy 下船點',pin(P.karakoyPier)]],
+    {time:'15:55<br>–19:00', act:'博斯普魯斯日落遊船 Sunset Cruise', book:'exp-cruise', hi:true, tags:['car:🚋 T1 到 Kabataş 25 分', '停留 2h'], map:[['在地圖上開啟 · '+PN.kabatasPier,gm('kabatasPier')],['在地圖上開啟 · '+PN.karakoyPier,gm('karakoyPier')]],
      sight:{zh:'博斯普魯斯日落遊船', en:'Sunset Bosphorus Cruise · 17:00 開船', img:'sunset-cruise.jpg', d:'從 Kabataş出發沿歐洲岸北上，經過多爾瑪巴切皇宮、奧塔科伊清真寺、魯梅利堡壘，在第二大橋（FSM）折返，沿亞洲岸南下經少女塔，最後停靠 Karaköy。', side:true},
     },
-    {time:'20:00<br>–21:40', act:'Olden 1772 晚餐', book:'eat-olden', hi:true, tags:['car:🚶 步行 13 分', 'lock:訂位 20:00','eat:晚餐'],
+    {time:'20:00<br>–21:40', act:'Olden 1772 晚餐', book:'eat-olden', hi:true, tags:['car:🚶 步行 13 分','eat:晚餐'],
      eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', img:'olden-1772.jpg', hours:'約 09:00–01:00', price:'兩人約 ₺6,800（≈NT$4,400）＋10% 服務費', d:'1772 年的 Muhsinzade Han 客棧改建，挑高中庭配水晶吊燈。', dishes:[['🥇','<b>Kuzu Ön Kol</b> 慢烤羊肩','這道是兩人份，不用一人各點一份主餐'],['🥈','<b>Levrek Ceviche</b> 鱸魚醃生魚','冷前菜，鱸魚配紅洋蔥與石榴柑橘醬，兩人分一份'],['🥉','甜點現場看','菜單上的甜點不固定，點完主餐再問']]},
-     map:pin(P.olden)},
+     map:gm('olden')},
   ]
 },
 
@@ -1059,9 +1125,9 @@ var DATA=[
   facts:['⚠️ 13:00 送機不延後','不退稅','Şok 週日 09:00 開'],
   groups:[
     {label:'早上 · 早餐與採買', sub:'不排景點', rows:[
-      {time:'08:45<br>–10:00', act:'早餐二選一', note:'兩間都在 Sultanahmet，飯店走 12 分。不趕時間，慢慢吃。', hi:true, tags:['car:🚶 步行 12 分','eat:早餐'], map:[['主選 · Blu Ma\'Cel Breakfast',wlk(P.basil,P.lunchA)],['備案 · Cuppa Espresso Bakery',wlk(P.basil,P.lunchB)]]},
-      {time:'10:00<br>–11:20', act:'Şok 超市伴手禮採買', note:'早餐往北走 <strong>20 分</strong>，穿過飯店一帶到 Sirkeci。<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['car:🚶 步行 20 分','停留 1h'], map:[['步行路線 · 早餐 → Şok',wlk(P.lunchA,P.sok)],['Şok İstanbul Sirkeci',pin(P.sok)]]},
-      {time:'11:20<br>–11:30', act:'回飯店', tags:['car:🚶 步行 9 分'], map:wlk(P.sok,P.basil)},
+      {time:'08:45<br>–10:00', act:'早餐二選一', note:'兩間都在 Sultanahmet，飯店走 12 分。不趕時間，慢慢吃。', hi:true, tags:['car:🚶 步行 12 分','eat:早餐'], map:[['在地圖上開啟 · '+PN.lunchA,gm('lunchA')],['在地圖上開啟 · '+PN.lunchB,gm('lunchB')]]},
+      {time:'10:00<br>–11:20', act:'Şok 超市伴手禮採買', note:'早餐往北走 <strong>20 分</strong>，穿過飯店一帶到 Sirkeci。<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['car:🚶 步行 20 分','停留 1h'], map:gm('sok')},
+      {time:'11:20<br>–11:30', act:'回飯店', tags:['car:🚶 步行 9 分'], map:gm('basil')},
     ]},
     {label:'下午 · 回程', rows:[
       {time:'11:30<br>–12:55', act:'把伴手禮塞進行李、準備出發', note:'昨晚已經整理過，今天只要把早上買的東西塞進預留的空位。護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
@@ -1230,6 +1296,14 @@ var MAP_ICON={
   pin:'<svg viewBox="0 0 24 24"><path d="M12 21s6.5-6.1 6.5-11a6.5 6.5 0 1 0-13 0C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg>'
 };
 /* r.map 可以是一個網址字串（標籤依交通方式自動帶入），或 [[標籤, 網址], ...]。 */
+/* 地圖連結：一律指向「那個點」本身，用地名＋座標組 /maps/place/ 網址，
+   打開就看得到店名或景點名，可以直接核對存的地點對不對。不再產生路線。 */
+function gm(key){
+  var c=P[key], n=PN[key]||key;
+  if(/^-?\d+\.\d+,-?\d+\.\d+$/.test(c))
+    return 'https://www.google.com/maps/search/'+encodeURIComponent(n)+'/@'+c+',18z';
+  return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(n);
+}
 function mapMode(url){
   if(url.indexOf('/maps/search/')>-1||url.indexOf('maps.app.goo.gl')>-1) return 'pin';
   if(url.indexOf('travelmode=walking')>-1) return 'walk';
@@ -1241,13 +1315,9 @@ function mapsHtml(m){
   if(!m) return '';
   var arr=(typeof m==='string')?[[null,m]]:m;
   var h='';
-  for(var i=0;i<arr.length;i++){
-    var url=arr[i][1], mode=mapMode(url);
-    var label=arr[i][0]||MAP_LABEL[mode];
-    var cls=(mode==='pin')?' pin':(mode==='drive'?'':' walk');
-    var ico=(mode==='pin')?MAP_ICON.pin:MAP_ICON.dir;
-    h+='<a class="tl-map'+cls+'" href="'+url+'" target="_blank" rel="noopener">'+ico+label+'</a>';
-  }
+  for(var i=0;i<arr.length;i++)
+    h+='<a class="tl-map pin" href="'+arr[i][1]+'" target="_blank" rel="noopener">'
+      +MAP_ICON.pin+(arr[i][0]||'在地圖上開啟')+'</a>';
   return h;
 }
 /* r.spots：[{zh, en, d, img, way}]，由上到下就是步行順序；way:true 表示沿路經過、不算一站 */
