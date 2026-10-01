@@ -601,6 +601,10 @@ var PN={
   stAntoine:'Sent Antuan Kilisesi',
   cicek:'Cicek Pasaji',
   kizil:'Kizilkayalar Taksim',
+  suleymaniye:'Suleymaniye Camii',
+  rustempasa:'Rustem Pasa Camii',
+  poika:'Poika Breakfast Cafe',
+  matbah:'Matbah Restaurant Istanbul',
   lunchA:'Blu MaCel Breakfast',
   lunchB:'Cuppa Espresso Bakery'
 };
@@ -683,7 +687,11 @@ var P={
   cicek:'41.034100,28.977921',      /* 花市拱廊 Çiçek Pasajı — İstiklal Cd. 上 */
   kizil:'41.036177,28.984678',      /* Kızılkayalar 濕漢堡 — Sıraselviler Cd. 2/C，塔克辛廣場旁 */      /* Tünel F2 纜車下站 — 獨立大街南端，加拉達塔旁 */
   turyol:'41.018738,28.970381',     /* Turyol 碼頭 — 博斯普魯斯遊船，加拉達橋西側 */
-  lunchA:'41.003864,28.978764',     /* 11/08 午餐主選 Blu Ma'Cel Breakfast */
+  suleymaniye:'41.016229,28.963955',/* 蘇萊曼尼耶清真寺 — 米馬爾·錫南 1557，伊斯坦堡最大，不是藍色清真寺 */
+  rustempasa:'41.017665,28.968699', /* 魯斯坦帕夏清真寺 — Hasırcılar Cd. 62，藏在市集街樓上 */
+  poika:'41.008427,28.975075',      /* Poiká Breakfast & Cafe — Hacı Tahsin Bey Sk. 9/A，⚠️ 週日只到 12:30 */
+  matbah:'41.009276,28.979114',     /* Matbah Restaurant — Caferiye Sk. 6/1，鄂圖曼宮廷菜 */
+  lunchA:'41.003864,28.978764',     /* 11/08 早餐備案 Blu Ma'Cel Breakfast */
   lunchB:'41.004331,28.975324'      /* 11/08 午餐備案 Cuppa Espresso Bakery */
 };
 
@@ -752,20 +760,19 @@ var DATA=[
   facts:['國內線轉機','辦理租車、還手續','跨城市移動，自駕約四小時'],
   rows:[
     {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行程出發需帶泳衣、盥洗用品等，體驗古董池。'},
-    {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分','⚠️ 部分區域須赤腳'], map:gm('pamEast'),
+    {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分'], map:gm('pamEast'),
      sight:{zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', side:true, d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。飯店走過來 870 公尺、爬升約 58 公尺。'},
     },
     {time:'10:10<br>–11:40', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 40 分','停留 50 分'], map:gm('hTheatre'),
      sight:{zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', side:true, d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。爬升約 135 公尺，是這段最累的一段。'},
     },
-    {time:'11:50<br>–12:40', act:'古董池咖啡座 午餐', note:'園區裡有兩間池畔咖啡座，供應輕食、土耳其茶與果汁。<strong>在這裡吃，省掉下山再上山的 2.6 公里。</strong>', tags:['car:🚶 8 分','eat:午餐'], map:gm('cleopatra')},
-    {time:'12:40<br>–14:30', act:'古董池 Cleopatra Antique Pools', note:'<strong>要帶泳衣與盥洗用品。</strong>吃完休息一下再下水。⚠️ 冬季 <strong>17:00 關門</strong>，這個時段很寬裕。', hi:true, tags:['停留 1h50','必排 · 不可刪'], map:gm('cleopatra'),
-     sight:{zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', side:true, d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'},
+    {time:'11:50<br>–14:30', act:'古董池 Cleopatra Antique Pools', hi:true, tags:['car:🚶 8 分','停留 1h50', 'eat:午餐'], map:gm('cleopatra'),
+     sight:{zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', side:true, d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。園區裡有兩間池畔咖啡座，供應輕食、土耳其茶與果汁。'},
     },
     {time:'14:30<br>–15:00', act:'走回飯店拿行李', note:'行李早上退房時就寄放在櫃台。', tags:['car:🚶 26 分'], map:gm('bella')},
-    {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'高速公路上，<strong>繞路 0 分鐘</strong>。有 Tuck Coffee 與 Köfteci Yusuf，想再吃一點也可以。⚠️ <strong>離開棉堡的硬性上限是 16:05</strong>，15:10 出發留了 55 分餘裕。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
-    {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'ADB 南側 2.4 公里，從南邊開上來會先經過。<strong>租車要還滿油</strong>，在這裡加完再進機場。', tags:['car:🚘 2h'], map:gm('shellAdb')},
-    {time:'18:20<br>–20:00', act:'伊茲密爾機場 ADB', note:'AVEC 還車驗車、托運、安檢。⚠️ 報到櫃台約 <strong>20:15 關閉</strong>，這段有 1 小時 40 分緩衝。晚餐在機場吃。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
+    {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'高速公路上，繞路 0 分鐘。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
+    {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'ADB 南側 2.4 公里，從南邊開上來會先經過。租車要還滿油，在這裡加完再進機場。', tags:['car:🚘 2h'], map:gm('shellAdb')},
+    {time:'18:20<br>–20:00', act:'伊茲密爾機場 ADB', note:'AVEC 還車驗車、托運、安檢。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
     {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', hi:true,},
     {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
   ]
@@ -1124,14 +1131,24 @@ var DATA=[
   facts:['⚠️ 13:00 送機不延後','不退稅','Şok 週日 09:00 開'],
   groups:[
     {label:'早上 · 早餐與採買', sub:'不排景點', rows:[
-      {time:'08:45<br>–10:00', act:'早餐二選一', note:'兩間都在 Sultanahmet，飯店走 12 分。不趕時間，慢慢吃。', hi:true, tags:['car:🚶 步行 12 分','eat:早餐'], map:[['在地圖上開啟 · '+PN.lunchA,gm('lunchA')],['在地圖上開啟 · '+PN.lunchB,gm('lunchB')]]},
-      {time:'10:00<br>–11:20', act:'Şok 超市伴手禮採買', note:'早餐往北走 <strong>20 分</strong>，穿過飯店一帶到 Sirkeci。<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['car:🚶 步行 20 分','停留 1h'], map:gm('sok')},
-      {time:'11:20<br>–11:30', act:'回飯店', tags:['car:🚶 步行 9 分'], map:gm('basil')},
+      {time:'08:00<br>–08:45', act:'飯店早餐、打包、退房', note:'⚠️ <strong>提早退房，行李寄放櫃台</strong>——這樣中午不用趕回來打包，最後一餐才吃得下。', tags:['eat:早餐']},
+      {time:'08:45<br>–10:00', act:'蘇萊曼尼耶清真寺 Süleymaniye', note:'飯店走 <strong>22 分</strong>，一路往上。免費，要脫鞋、女性包頭巾。', hi:true, tags:['car:🚶 22 分','停留 50 分','免費'], map:gm('suleymaniye'),
+       sight:{zh:'蘇萊曼尼耶清真寺', en:'Süleymaniye Camii · 1557', side:true, d:'<strong>米馬爾·錫南</strong>為蘇萊曼大帝蓋的，是<strong>伊斯坦堡最大的清真寺</strong>。蓋在第三座山丘上，中庭外緣就能俯瞰金角灣與對岸的加拉達塔。四根宣禮塔、十根陽台，代表他是鄂圖曼第四位、建國後第十位蘇丹。⚠️ 跟藍色清真寺是不同的兩座。'},
+      },
+      {time:'10:15<br>–10:45', act:'魯斯坦帕夏清真寺 Rüstem Paşa', note:'一路下坡 13 分。入口藏在市集街的樓梯上，很容易走過頭。', hi:true, tags:['car:🚶 13 分 · 下坡','停留 30 分','免費'], map:gm('rustempasa'),
+       sight:{zh:'魯斯坦帕夏清真寺', en:'Rüstem Paşa Camii · 1563', side:true, d:'錫南的小作品，藏在 Hasırcılar 市集街的二樓。裡面<strong>整面牆都是伊茲尼克磁磚</strong>，密度是全伊斯坦堡最高的，比藍色清真寺更集中。從街上看完全看不出來，要找樓梯上去。'},
+      },
+      {time:'10:45<br>–11:00', act:'Hasırcılar 街 · Tahtakale 市集街', note:'本地人的五金、咖啡磨豆、乾貨、廚具街，跟香料市集完全不同的氣味。順著走就到 Sirkeci。', tags:['car:🚶 13 分'], map:gm('rustempasa')},
+      {time:'11:00<br>–11:45', act:'Şok 超市伴手禮採買', note:'<strong>週日 09:00–21:00 照常營業。</strong>買 Çaykur 紅茶、Mehmet Efendi 咖啡粉、ÜLKER 餅乾、開心果、烤肉調味包。⚠️ <strong>買完還要塞行李，不要買到提不動。</strong>', hi:true, tags:['停留 45 分'], map:gm('sok')},
+      {time:'11:45<br>–11:55', act:'回飯店把戰利品塞進行李', tags:['car:🚶 9 分'], map:gm('basil')},
+      {time:'12:00<br>–12:50', act:'午餐二選一', note:'兩間都在飯店走路 5 分鐘內，<strong>當天想吃哪個再決定</strong>。⚠️ <strong>12:50 一定要走</strong>，送機免費等候只有 15 分鐘。', hi:true, tags:['car:🚶 4 分','eat:午餐','⚠️ 12:50 必須離開'], map:[['在地圖上開啟 · Matbah Restaurant',gm('matbah')],['在地圖上開啟 · Poiká Breakfast & Cafe',gm('poika')]],
+       sight:{zh:'Matbah / Poiká', en:'兩個選項', side:true, d:'<strong>Matbah Restaurant</strong>（Caferiye Sk. 6/1，飯店走 4 分）——鄂圖曼宮廷菜，從古文獻復原的菜色，每天 09:00–22:30，4.5 分／1,390 則。⚠️ 50 分鐘吃宮廷菜偏緊，<strong>建議先訂位並說 12:50 要走</strong>（+90 212 514 61 51）。<br><strong>Poiká Breakfast &amp; Cafe</strong>（Hacı Tahsin Bey Sk. 9/A，走 6 分）——專做早餐，4.6 分／2,131 則。⚠️ <strong>週日只開到 12:30</strong>，當午餐只剩 30 分鐘，想吃它就要把上午整個提前。'},
+      },
     ]},
     {label:'下午 · 回程', rows:[
-      {time:'11:30<br>–12:55', act:'把伴手禮塞進行李、準備出發', note:'昨晚已經整理過，今天只要把早上買的東西塞進預留的空位。護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>12:55 就要把行李搬到門口</strong>。'},
+      {time:'12:55', act:'回飯店拿行李到門口等車', note:'護照、錢、信用卡、手機、藥品隨身。⚠️ <strong>送機免費等候只有 15 分鐘。</strong>'},
       {time:'13:00<br>–14:00', act:'Basilissis Hotel → Istanbul Airport', book:'ride-out', hi:true, tags:['僅等候15分鐘']},
-      {time:'14:00<br>起', act:'機場吃午餐', note:'今天不排市區午餐——早餐吃到 10:00、13:00 就要出發。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時，在機場吃比較不趕。', tags:['eat:午餐']},
+      {time:'14:00<br>起', act:'機場候機', note:'午餐已在市區吃完。抵達機場約 14:00，離安安 17:15 起飛還有 3 小時——報到、安檢、免稅店。⚠️ <strong>不退稅。</strong>'},
       {time:'17:15', act:'回家', book:['fly-ann-back', 'fly-chu-back']},
     ]}
   ]
