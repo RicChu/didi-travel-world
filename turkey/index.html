@@ -638,8 +638,8 @@ var DATA=[
   lead:'雪白的天然鈣華梯田層層堆疊，搭配山頂希拉波利斯古城遺跡，是土耳其最夢幻的自然與文明交會之地。',
   facts:['國內線轉機','辦理租車、還手續','跨城市移動，自駕約四小時'],
   rows:[
-    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'<strong>行程出發需帶泳衣、盥洗用品等</strong>，體驗古董池。'},
-    {time:'09:00<br>–13:30', act:'棉堡 · Hierapolis 步行環線', hi:true,
+    {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行程出發需帶泳衣、盥洗用品等，體驗古董池。'},
+    {time:'09:00<br>–13:30', act:'Hierapolis 步行環線', hi:true,
      spots:[
        {zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。部分區域規定赤腳走。'},
        {zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。'},
@@ -655,9 +655,9 @@ var DATA=[
          ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
        ]},
      map:pin(P.teras)},
-    {time:'14:30<br>–20:00', act:'🚘 İzmir Adnan Menderes Airport 伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
+    {time:'14:30<br>–20:00', act:'🚘 伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
     {time:'21:00<br>–22:35', act:'✈️ 國內轉機', book:'fly-xq9238', tags:['XQ9238', 'lock:21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
-    {time:'22:35<br>–23:15', act:'🚘 跨城市移動，格雷梅飯店', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
+    {time:'22:35<br>–23:15', act:'🚘 跨城市移動，飯店Check in', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
   ]
 },
 
@@ -725,7 +725,6 @@ var DATA=[
            ['🥉','羊肉串 / 羊肉料理','兩人都吃羊就再加一份；不想重複改點牛肉'],
            ['４','每日自製甜點','現場問當天供應什麼，南瓜甜點或米布丁類都可以試']
          ]}},
-      {time:'20:15<br>以後', act:'走回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
   ]
 },
@@ -781,7 +780,7 @@ var DATA=[
       {time:'16:20<br>–17:50', act:'🚘 愛情谷觀景台 Love Valley Panorama', hi:true, tags:['car:🚘 5 分','停留 1h25','⚠️ 導航設公路邊觀景台'], map:[[null,drv(P.cavusin,P.lovevalley)],['在地圖上開啟 · 觀景台',pin(P.lovevalley)]],
      sight:{zh:'愛情谷觀景台', en:'Love Valley Panorama', img:'love-valley.jpg', d:'成片十幾公尺高的錐狀岩柱，是卡帕多奇亞最上鏡的地貌，<strong>駱駝走的紅谷與玫瑰谷都沒有</strong>。觀景台在 Göreme–Avanos 公路邊，可以往下走進谷裡的步道。⚠️ 導航設<strong>公路邊的觀景台</strong>，不要設谷地中心點——那個點在谷裡，會被帶到產業道路。'},
     },
-      {time:'17:50<br>–17:55', act:'🚘 回 Henna Hotel', hi:true, tags:['car:🚘 5 分'], map:drv(P.lovevalley,P.henna)},
+      {time:'17:50<br>–17:55', act:'🚘 回飯店附近停車', hi:true, tags:['car:🚘 5 分'], map:drv(P.lovevalley,P.henna)},
     ]},
     {label:'綠線自駕', sub:'補飛版 · 補眠到 11:30', alt:true, sc:'fly', rows:[
       {time:'11:40<br>–12:50', act:'🚘 Uçhisar Castle', hi:true, tags:['car:🚘 7 分','停留 1h'], map:drv(P.henna,P.uchisar),
@@ -803,7 +802,7 @@ var DATA=[
       {time:'16:00<br>–17:10', act:'🚘 鴿子谷觀景台 Pigeon Valley Viewpoint', hi:true, tags:['car:🚘 40 分','停留 30 分','⚠️ 導航設觀景台'], map:drv(P.kaymakli,P.pigeon),
      sight:{zh:'鴿子谷觀景台', en:'Pigeon Valley Viewpoint', img:'pigeon-valley.jpg', d:'谷壁上鑿滿一格格的鴿子洞，當地人以前養鴿取糞肥。'},
     },
-      {time:'17:10<br>–17:20', act:'🚘 回 Henna Hotel', hi:true, tags:['car:🚘 10 分'], map:drv(P.pigeon,P.henna)},
+      {time:'17:10<br>–17:20', act:'🚘 回飯店附近停車', hi:true, tags:['car:🚘 10 分'], map:drv(P.pigeon,P.henna)},
     ]},
     {label:'晚上 · Göreme 鎮上', rows:[
       {time:'18:15<br>起', act:'🍛 Seten Restaurant Cappadocia', tags:['car:🚶 步行 8 分','eat:晚餐','彈性 · 不接受訂位'], sc:'no',
@@ -876,7 +875,7 @@ var DATA=[
       {time:'13:45<br>–14:25', act:'🚘 Sarı Han 商隊驛站 Sarıhan Caravanserai', hi:true, tags:['car:🚘 8 分','停留 30 分', 'lock:⚠️ 15:00 前離開'], map:drv(P.mcdonalds,P.sarihan),
        sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。'},
       },
-      {time:'14:25<br>–16:15', act:'🚘 Kayseri Airport 開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:drv(P.sarihan,P.asr)},
+      {time:'14:25<br>–16:15', act:'🚘 開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:drv(P.sarihan,P.asr)},
       {time:'18:40<br>–20:20', act:'✈️ 國內轉機', book:'fly-tk2017', tags:['TK2017', 'lock:18:40 → 20:20','訂位代號 TB5RZM']},
       {time:'20:20<br>起', act:'🚖 → Basilissis Hotel', book:['ride-in','stay-basilissis'], hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
@@ -925,7 +924,6 @@ var DATA=[
     {time:'15:20<br>–17:30', act:'🚶 → 大巴札 Grand Bazaar', hi:true, tags:['car:🚶 步行 5 分','停留 2h10'], map:wlk(P.hafiz,P.grandBazaar),
      sight:{zh:'大巴札', en:'Kapalıçarşı / Grand Bazaar', img:'grand-bazaar.jpg', d:'十五世紀開始擴建的室內市集，六十幾條街、四千多家店，拱頂全部彩繪。偏工藝、金飾、地毯與觀光商品，人非常多，注意隨身物品。'},
     },
-    {time:'17:45<br>起', act:'🚶 → 自由時間'},
   ]
 },
 
@@ -959,7 +957,6 @@ var DATA=[
        {zh:'加拉達橋 Galata Köprüsü', en:'', img:'galata-bridge.jpg', d:'橫跨金角灣的雙層橋——<strong>上層走人與電車、橋欄邊整排釣客，下層是一整排亮著霓虹的餐廳與茶館</strong>。這個時間走過去，對岸舊城的清真寺剪影、橋下的燈與水面反光會同時出現。走到 Eminönü 搭 T1 回飯店。'}
      ],
      map:[['大眾運輸路線 · 奧塔科伊 → Kabataş',trn(P.ortakoy,P.kabatas)],['在地圖上開啟 · Kızılkayalar 濕漢堡',pin(P.kizil)],['步行路線 · Taksim → Tünel（獨立大街）',wlk(P.taksim,P.tunel,[P.cicek,P.stAntoine])],['步行路線 · Tünel → 加拉達塔 → Karaköy 魚捲',wlk(P.tunel,P.balik,[P.galata,P.karakoy])],['步行路線 · 過加拉達橋 → Eminönü',wlk(P.balik,P.eminonu,[P.gBridge])]]},
-    {time:'19:20<br>起', act:'🚌🚶 → 回飯店休息'},
   ]
 },
 
