@@ -549,6 +549,8 @@ var PN={
   bella:'Bellamaritimo Hotel',
   asteras:'As Teras Mantı Evi',
   teras:'Teras Restaurant Pamukkale',
+  saraykoy:'Saraykoy Dinlenme Tesisi Kuzey',
+  shellAdb:'Shell Gaziemir Izmir',
   pamEast:'Pamukkale Travertines',
   hTheatre:'Hierapolis Ancient Theatre',
   cleopatra:'Cleopatra Antique Pool',
@@ -616,7 +618,9 @@ var P={
   /* 棉堡 · Pamukkale（座標取自使用者 2026-08-20 提供的 Google Maps 路線） */
   bella:'37.918462,29.115503',      /* Bellamaritimo Hotel — 10/31 住宿，走得到全部景點 */
   asteras:'37.918310,29.119930',   /* As Teras Mantı Evi — 10/31 晚餐，Traverten Sokak */
-  teras:'37.9189881,29.1210713',    /* Teras restaurant — 露台面對石灰棚 */
+  teras:'37.9189881,29.1210713',    /* Teras restaurant — 露台面對石灰棚（11/01 已改在古董池旁吃，備案） */
+  saraykoy:'37.9093609,28.8554759', /* Sarayköy Dinlenme Tesisi（北側）— 棉堡→ADB 途中唯一零繞路的休息站，Tuck Coffee */
+  shellAdb:'38.270551,27.154391',   /* Shell Gaziemir — ADB 南側 2.4 km，還車前加油 */
   pamEast:'37.9260000,29.1180000',  /* 石灰棚東觀景台 Travertines East viewpoint */
   pamukkale:'37.924483,29.119012',  /* 石灰棚 Travertenleri */
   hierapolis:'37.930954,29.126363',
@@ -751,22 +755,17 @@ var DATA=[
     {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分','⚠️ 部分區域須赤腳'], map:gm('pamEast'),
      sight:{zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', side:true, d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。飯店走過來 870 公尺、爬升約 58 公尺。'},
     },
-    {time:'10:10<br>–11:20', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 20 分','停留 50 分'], map:gm('hTheatre'),
+    {time:'10:10<br>–11:40', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 40 分','停留 50 分'], map:gm('hTheatre'),
      sight:{zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', side:true, d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。爬升約 135 公尺，是這段最累的一段。'},
     },
-    {time:'11:20<br>–13:30', act:'古董池 Cleopatra Antique Pools', note:'<strong>要帶泳衣與盥洗用品。</strong>', hi:true, tags:['car:🚶 15 分','停留 1h55'], map:[['在地圖上開啟 · '+PN.cleopatra,gm('cleopatra')],['在地圖上開啟 · '+PN.bella,gm('bella')]],
+    {time:'11:50<br>–12:40', act:'古董池咖啡座 午餐', note:'園區裡有兩間池畔咖啡座，供應輕食、土耳其茶與果汁。<strong>在這裡吃，省掉下山再上山的 2.6 公里。</strong>', tags:['car:🚶 8 分','eat:午餐'], map:gm('cleopatra')},
+    {time:'12:40<br>–14:30', act:'古董池 Cleopatra Antique Pools', note:'<strong>要帶泳衣與盥洗用品。</strong>吃完休息一下再下水。⚠️ 冬季 <strong>17:00 關門</strong>，這個時段很寬裕。', hi:true, tags:['停留 1h50','必排 · 不可刪'], map:gm('cleopatra'),
      sight:{zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', side:true, d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。'},
     },
-    {time:'13:30<br>–14:30', act:'Teras restaurant', tags:['car:🚶 步行 7 分','eat:午餐'], hi:true,
-     eatery:{name:'Teras restaurant', en:'Memet Akif Ersoy Blv., Pamukkale', hours:'09:00–23:00', img:'teras-restaurant.jpg',
-       dishes:[
-         ['🥇','羊肉番茄燉菜 <b>Lamb &amp; tomato stew</b>','濃郁帶辣，配新鮮 oregano 與 thyme。近期評論最常提到的一道'],
-         ['🥈','烤鮭魚 <b>Salmon</b>','不想連吃兩份羊肉就點這個'],
-         ['🥉','葡萄葉包飯配優格 <b>Stuffed vine leaves + yogurt</b>','當前菜，兩人分一份'],
-         ['＋','鷹嘴豆泥 <b>Hummus</b>','配麵包一起吃']
-       ]},
-     map:gm('teras')},
-    {time:'14:30<br>–20:00', act:'伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:gm('adb')},
+    {time:'14:30<br>–15:00', act:'走回飯店拿行李', note:'行李早上退房時就寄放在櫃台。', tags:['car:🚶 26 分'], map:gm('bella')},
+    {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'高速公路上，<strong>繞路 0 分鐘</strong>。有 Tuck Coffee 與 Köfteci Yusuf，想再吃一點也可以。⚠️ <strong>離開棉堡的硬性上限是 16:05</strong>，15:10 出發留了 55 分餘裕。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
+    {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'ADB 南側 2.4 公里，從南邊開上來會先經過。<strong>租車要還滿油</strong>，在這裡加完再進機場。', tags:['car:🚘 2h'], map:gm('shellAdb')},
+    {time:'18:20<br>–20:00', act:'伊茲密爾機場 ADB', note:'AVEC 還車驗車、托運、安檢。⚠️ 報到櫃台約 <strong>20:15 關閉</strong>，這段有 1 小時 40 分緩衝。晚餐在機場吃。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
     {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', hi:true,},
     {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
   ]
