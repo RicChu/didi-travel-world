@@ -259,7 +259,9 @@ details[open] .chev{transform:rotate(180deg)}
 .tl-map.pin{color:var(--gold-ink);background:var(--gold-soft)}
 
 /* 住宿 */
-.stay{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:17px 19px;border-radius:18px;color:#fffaf1;background:var(--teal)}
+.stay{margin-top:26px;padding:17px 19px;border-radius:18px;color:#fffaf1;background:var(--teal)}
+.stay-row{display:flex;align-items:flex-start;gap:12px}
+.stay-fig{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:13px;margin-bottom:14px}
 .stay svg{flex:none;width:20px;height:20px;margin-top:2px;fill:none;stroke:#f2d7aa;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .stay small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.16em;color:#f2d7aa}
 .stay b{display:block;margin-top:3px;font-size:1.02rem;font-weight:600}
@@ -294,6 +296,9 @@ details[open] .chev{transform:rotate(180deg)}
 .booking-card h3{margin:14px 0 6px;font-size:1.05rem;line-height:1.35}
 .booking-card .ci{margin:0;font-size:.85rem;line-height:1.6;color:var(--ink)}
 .booking-card .ce{margin:8px 0 0;font-size:.78rem;line-height:1.6;color:var(--muted)}
+.booking-card .ce-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:4px 14px;margin:9px 0 0;padding:0;list-style:none}
+.booking-card .ce-list li{display:flex;align-items:flex-start;gap:6px;font-size:.78rem;line-height:1.5;color:var(--muted)}
+.booking-card .ce-list svg{flex:none;width:13px;height:13px;margin-top:3px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;opacity:.72}
 .booking-card em,.booking-card .ci em{font-style:normal;font-weight:700;color:var(--terra-ink)}
 .booking-card .cw{margin:8px 0 0;padding:7px 9px;border-radius:9px;font-size:.76rem;line-height:1.5;color:var(--terra-ink);background:var(--terra-soft)}
 
@@ -573,8 +578,8 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['TK025', 'lock:22:00 → 隔日05:40']},
-    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['TK055', 'lock:23:15 → 隔日05:50']}
+    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', tags:['lock:22:00 → 隔日05:40', 'TK025']},
+    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', tags:['lock:23:15 → 隔日05:50', 'TK055']}
   ],
   stay:{name:'機上', note:''}
 },
@@ -589,7 +594,7 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
-    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['TK2320', 'lock:11:00 → 12:10', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
+    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['lock:11:00 → 12:10', 'TK2320', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
     {time:'13:20<br>–16:30', act:'🚘 → 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
@@ -599,7 +604,7 @@ var DATA=[
        {zh:'克里特斯街', en:'Curetes Street', way:true, img:'ephesus-curetes-street.jpg', d:'串起上面幾個點的主街，兩旁是浴場、商店與噴泉遺跡。不用另外排時間，順著走就會經過。'}
      ],
      map:[[null,drv(P.adb,P.ephSite)],['步行環線 · 回到停車處',wlk(P.ephSite,P.ephSite,[P.eTheatre,P.celsus,P.hadrian,P.odeon])]]},
-    {time:'17:00<br>–19:30', act:'🚘 → 跨城市移動，棉堡飯店', note:'八成走高速公路。日落約 18:15，只有最後進村那段摸黑。', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
+    {time:'17:00<br>–19:30', act:'🚘 → 跨城市移動，棉堡飯店', hi:true, tags:['car:🚘 2h20'], map:drv(P.ephSite,P.bella)},
     {time:'19:30<br>–21:00', act:'🍛 As Teras Mantı Evi', tags:['eat:晚餐'], hi:true,
      eatery:{name:'As Teras Mantı Evi', en:'Traverten Sokak, Pamukkale', img:'asteras-manti.jpg',
        d:'位於棉堡的家庭式土耳其餐廳，以手工Mantı（土耳其餃子）和Gözleme（土耳其煎餅）聞名。餐點以傳統家常風味為主，能品嚐到土耳其經典料理，也很適合在逛完棉堡後來這裡享用一頓輕鬆的晚餐。',
@@ -611,7 +616,7 @@ var DATA=[
        ]},
      map:pin(P.asteras)}
   ],
-  stay:{name:'Bellamaritimo Hotel', note:'Agoda，入住 11:00／退房 11:00'}
+  stay:{name:'Bellamaritimo Hotel', note:'Agoda，入住 11:00／退房 11:00', img:'bellamaritimo.jpg'}
 },
 
 /* ========== DAY 03 · 11/01 ========== */
@@ -1032,7 +1037,7 @@ var PANELS={
     title:'3 段住宿', note:'全部已訂',
     rows:[
       {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'棉堡村 · 1 晚',
-       em:'Agoda · 雙人房 · 入住 11:00／退房 11:00'},
+       em:['Agoda · 雙人房','含早餐','免費停車場','24 小時櫃台','可寄放行李','外幣兌換','公共區域暖氣','全館禁菸（設吸菸區）','入住 11:00／退房 11:00']},
       {k:'11/01–11/04', b:'Henna Hotel', i:'Göreme 鎮中心 · 3 晚',
        em:'Trip.com · 豪華房 · 入住 14:00 起／退房 12:00 · 24 小時櫃台 · 早餐 08:00–10:30 · 熱氣球與駱駝都在這裡接送'},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'伊斯坦堡舊城 Alemdar／Gülhane · 4 晚',
@@ -1241,6 +1246,15 @@ function sightHtml(x){
     +'</div></div>';
   return h;
 }
+var TICK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
+/* em：字串照舊一行；給陣列就排成設施清單（每項一個勾） */
+function emHtml(em){
+  if(!em) return '';
+  if(typeof em==='string') return '<p class="ce">'+em+'</p>';
+  var h='<ul class="ce-list">';
+  for(var i=0;i<em.length;i++) h+='<li>'+TICK+'<span>'+em[i]+'</span></li>';
+  return h+'</ul>';
+}
 var CHEV='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 function rowHtml(r){
   var ks=kindsOf(r), pills='';
@@ -1320,8 +1334,11 @@ function panelHtml(d,idx){
   h+=inner;
 
   if(d.stay){
-    h+='<div class="stay"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg>'
-      +'<div><small>住宿</small><b>'+d.stay.name+'</b><span>'+d.stay.note+'</span></div></div>';
+    h+='<div class="stay">'
+      +(d.stay.img?'<img class="stay-fig" loading="lazy" decoding="async" src="'+IMG+d.stay.img
+        +'" alt="'+escAttr(d.stay.name)+'" onerror="this.style.display=\'none\'">':'')
+      +'<div class="stay-row"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg>'
+      +'<div><small>住宿</small><b>'+d.stay.name+'</b><span>'+d.stay.note+'</span></div></div></div>';
   }
   var prev=DATA[idx-1], next=DATA[idx+1];
   h+='<div class="dp-nav">'
@@ -1486,7 +1503,7 @@ addCards(PANELS.other.rows,'other','','c-other','✧');
       +'<p class="card-meta">'+c.meta+'</p>'
       +'<h3>'+c.title+'</h3>'
       +(c.i?'<p class="ci">'+c.i+'</p>':'')
-      +(c.em?'<p class="ce">'+c.em+'</p>':'')
+      +emHtml(c.em)
       +(c.w?'<p class="cw">⚠️ '+c.w+'</p>':'')
       +'</article>';
   }
