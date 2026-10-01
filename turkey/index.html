@@ -616,6 +616,7 @@ var PN={
   cicek:'Cicek Pasaji',
   kizil:'Kizilkayalar Taksim',
   gulhane:'Gulhane Parki',
+  topkapi:'Topkapi Sarayi Muzesi',
   suleymaniye:'Suleymaniye Camii',
   rustempasa:'Rustem Pasa Camii',
   poika:'Poika Breakfast Cafe',
@@ -719,7 +720,7 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'前往伊斯坦堡', book:['fly-ann-out', 'fly-chu-out']},
+    {time:'22:00', act:'出發', book:['fly-ann-out', 'fly-chu-out']},
   ]
 },
 
@@ -783,9 +784,9 @@ var DATA=[
      sight:{zh:'古董池', en:'Cleopatra Antique Pools', img:'cleopatra-pool.jpg', side:true, d:'溫泉池，水溫 36–57°C，池底沉著地震時倒下來的大理石柱。園區裡有兩間池畔咖啡座，供應輕食、土耳其茶與果汁。'},
     },
     {time:'14:30<br>–15:00', act:'走回飯店拿行李', note:'行李早上退房時就寄放在櫃台。', tags:['car:🚶 26 分'], map:gm('bella')},
-    {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'高速公路上，繞路 0 分鐘。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
-    {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'ADB 南側 2.4 公里，從南邊開上來會先經過。租車要還滿油，在這裡加完再進機場。', tags:['car:🚘 2h'], map:gm('shellAdb')},
-    {time:'18:20<br>–20:00', act:'伊茲密爾機場 ADB', note:'AVEC 還車驗車、托運、安檢。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
+    {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'短暫休息，高速公路上，繞路 0 分鐘。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
+    {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'機場且順路的加油站，租車要還滿油。', tags:['car:🚘 2h'], map:gm('shellAdb')},
+    {time:'18:20<br>–20:00', act:'伊茲密爾機場 İzmir Adnan Menderes Airport', note:'AVEC 還車驗車、托運、安檢。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
     {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', hi:true,},
     {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
   ]
@@ -1001,7 +1002,7 @@ var DATA=[
       {time:'13:45<br>–14:25', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai', hi:true, tags:['car:🚘 8 分','停留 30 分'], map:gm('sarihan'),
        sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。', side:true},
       },
-      {time:'14:25<br>–16:15', act:'開塞利機場', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:gm('asr')},
+      {time:'14:25<br>–16:15', act:'開塞利機場 Kayseri Erkilet Airport', note:'還車、辦理登機手續。', hi:true, tags:['car:🚘 1h05'], map:gm('asr')},
       {time:'18:40<br>–20:20', act:'國內轉機', book:'fly-tk2017'},
       {time:'20:20<br>起', act:'Basilissis Hotel', book:['ride-in','stay-basilissis'], hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
@@ -1188,7 +1189,7 @@ var DATA=[
            ['４','優格穀物碗 <b>Granola Bowl</b>','不想再吃麵包時的清爽選項'],
            ['＋','抹茶拿鐵 / 土耳其紅茶','想換口味就點抹茶拿鐵，店裡也有咖啡與果昔']
          ]}},
-      {time:'11:45<br>–12:45', act:'土耳其科夫塔肉丸', sc:'topkapi', sc2:'kofte', note:'這版不採買，所以可以晚一點吃、吃久一點。', hi:true, tags:['car:🚶 11 分','eat:午餐','停留 1h'], map:gm('kofteci'),
+      {time:'11:45<br>–12:40', act:'土耳其科夫塔肉丸', sc:'topkapi', sc2:'kofte', note:'這版不採買，所以可以晚一點吃、吃久一點。', hi:true, tags:['car:🚶 11 分','eat:午餐','停留 1h'], map:gm('kofteci'),
        eatery:{name:'Tarihi Sultanahmet Köftecisi Selim Usta', en:'Divanyolu Cd. No:12 · 科夫塔肉丸', img:'kofteci.jpg', price:'飯店走 6 分（427 m）', d:'1920 年開到現在的烤肉丸老店。',
          dishes:[
            ['🥇','烤肉丸 <b>Izgara Köfte</b>','招牌必點。炭烤肉丸配麵包或米飯，第一次來就點這個'],
