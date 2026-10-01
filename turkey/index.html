@@ -282,6 +282,11 @@ details[open] .chev{transform:rotate(180deg)}
 .filter.active{color:#fff;background:var(--teal)}
 .booking-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .booking-card{min-height:190px;padding:19px;border:1px solid var(--line);border-radius:18px;background:rgba(255,253,248,.82);transition:transform .2s ease}
+/* 嵌在行程列裡的訂單卡：不要最小高度、不要 hover 浮起 */
+.booking-card.inl{min-height:0;margin-top:13px;background:rgba(255,253,248,.95)}
+.booking-card.inl:hover{transform:none}
+.booking-card.inl .card-meta{margin-top:10px}
+.booking-card.inl h3{margin:9px 0 5px;font-size:.98rem}
 .booking-card:hover{transform:translateY(-3px)}
 .booking-card.hidden{display:none}
 .card-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
@@ -595,7 +600,7 @@ var DATA=[
   lead:'土耳其最震撼的古羅馬遺跡之一，漫步保存完整的古羅馬城市，親眼看見圖書館、大劇場與古老街道，感受兩千年前的繁華。',
   facts:['國內線轉機','辦理租車手續','跨城市移動，自駕約三小時'],
   rows:[
-    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['lock:11:00 → 12:10', 'TK2320', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續'},
+    {time:'05:50<br>–13:20', act:'✈️ 伊斯坦堡(IST) → 伊茲密爾(ADB)', tags:['lock:11:00 → 12:10', 'TK2320', '訂位代號 TB5RZM'], note:'轉機、領行李、辦理取車手續', book:'tk2320'},
     {time:'13:20<br>–16:30', act:'🚘 → 以弗所考古遺址 Ephesus Archaeological Site', note:'停車場在遺址入口旁。<strong>行李留在車上</strong>，停正式停車場、後車廂不外露。', hi:true, tags:['car:🚘 1h','停留 2h40'],
      spots:[
        {zh:'大劇院', en:'Great Theatre', img:'ephesus-great-theatre.jpg', d:'依山而建的羅馬劇場，可容納約 25,000 人，是全城規模最大的建築。原本演戲劇，羅馬時期也辦角鬥。'},
@@ -1054,7 +1059,7 @@ var PANELS={
       {k:'10/30', b:'豬豬去程 · 新加坡(SIN) → 伊斯坦堡(IST)',
        i:'Turkish Airlines · 23:15 → 05:50',
        em:['TK055', '托運 23kg', '手提 8kg', '個人物品 4kg']},
-      {k:'10/31', b:'伊斯坦堡(IST) → 伊茲密爾(ADB)', 
+      {k:'10/31', id:'tk2320', b:'伊斯坦堡(IST) → 伊茲密爾(ADB)', 
        i:'Turkish Airlines · 11:00 → 12:10',
        em:['TK2320', '訂位代號 TB5RZM', '托運 15kg', '手提 8kg']},
       {k:'11/01', b:'伊茲密爾(ADB) → 開塞利(ASR)', 
@@ -1270,6 +1275,36 @@ function emHtml(em){
   for(var i=0;i<em.length;i++) h+='<li>'+TICK+'<span>'+em[i]+'</span></li>';
   return h+'</ul>';
 }
+/* 訂單卡的 HTML：訂單看板與行程列共用同一份 */
+function bookingCardHtml(c,extraCls){
+  return '<article class="booking-card'+(extraCls?' '+extraCls:'')+'" data-cat="'+c.cat+'">'
+    +'<div class="card-top"><span class="card-tag '+c.cls+'">'+c.tag+'</span>'
+    +(c.todo?'<span class="card-todo">尚未預訂</span>':'')
+    +'<span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
+    +'<p class="card-meta">'+c.meta+'</p>'
+    +'<h3>'+c.title+'</h3>'
+    +(c.i?'<p class="ci">'+c.i+'</p>':'')
+    +emHtml(c.em)
+    +(c.w?'<p class="cw">⚠️ '+c.w+'</p>':'')
+    +'</article>';
+}
+/* 行程列寫 book:'<id>'，就去 PANELS 裡找同 id 的那筆訂單畫成卡片——資料只有一份 */
+var BOOK_SRC=[['stay','rows','住宿','c-stay','⌂'],['fly','rows','航班','c-fly','✦'],
+              ['fly','subRows','接送','c-ride','⇄'],['car','rows','租車','c-car','◈'],
+              ['other','rows','','c-other','✧']];
+function bookHtml(id){
+  if(!id||typeof PANELS==='undefined') return '';
+  for(var i=0;i<BOOK_SRC.length;i++){
+    var sdef=BOOK_SRC[i], rows=(PANELS[sdef[0]]||{})[sdef[1]]||[];
+    for(var j=0;j<rows.length;j++){
+      var r=rows[j];
+      if(r.id!==id) continue;
+      return bookingCardHtml({cat:sdef[0],tag:r.tag||sdef[2],cls:sdef[3],icon:sdef[4],
+        meta:r.k,title:r.b,i:r.i,em:r.em,w:r.w,todo:r.todo},'inl');
+    }
+  }
+  return '';
+}
 var CHEV='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 function rowHtml(r){
   var ks=kindsOf(r), pills='';
@@ -1282,7 +1317,8 @@ function rowHtml(r){
     +eateryHtml(r.eatery)
     +spotsHtml(r.spots)
     +sightHtml(r.sight)
-    +mapsHtml(r.map);
+    +mapsHtml(r.map)
+    +bookHtml(r.book);
   var sum='<span class="tl-head"><span class="tl-act">'+r.act+'</span>'+tagsHtml(r.tags)+'</span>'
     +'<span class="tl-side">'+pills+(body?CHEV:'')+'</span>';
   var kc=k?' k-'+k:'';
@@ -1511,16 +1547,7 @@ addCards(PANELS.other.rows,'other','','c-other','✧');
   var h='';
   for(var i=0;i<BOARD.length;i++){
     var c=BOARD[i];
-    h+='<article class="booking-card" data-cat="'+c.cat+'">'
-      +'<div class="card-top"><span class="card-tag '+c.cls+'">'+c.tag+'</span>'
-      +(c.todo?'<span class="card-todo">尚未預訂</span>':'')
-      +'<span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
-      +'<p class="card-meta">'+c.meta+'</p>'
-      +'<h3>'+c.title+'</h3>'
-      +(c.i?'<p class="ci">'+c.i+'</p>':'')
-      +emHtml(c.em)
-      +(c.w?'<p class="cw">⚠️ '+c.w+'</p>':'')
-      +'</article>';
+    h+=bookingCardHtml(c);
   }
   document.getElementById('bookingGrid').innerHTML=h;
 })();
