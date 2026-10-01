@@ -543,6 +543,7 @@ var P={
   blueMosque:'41.005384,28.976853',
   hagia:'41.008504,28.980011',
   cistern:'41.008479,28.978382',    /* Yerebatan Sarnıcı */
+  busforus:'41.007723,28.977940',   /* BUSFORUS Sultanahmet Meydanı Durağı — 地下水宮殿導覽集合點，紅色雙層觀光巴士站 */
   sevenHills:'41.006371,28.979714',
   arasta:'41.004927,28.977902',
   grandBazaar:'41.010967,28.968253',/* Kapalı Çarşı */
@@ -902,10 +903,10 @@ var DATA=[
          ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
        ]},
      map:wlk(P.blueMosque,P.sevenHills)},
-    {time:'11:05<br>–12:20', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。票是<strong>兌換期內皆適用</strong>、沒有時段限制——<strong>12:20 要走</strong>是為了提前 15 分鐘到地下水宮殿。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
+    {time:'11:05<br>–12:20', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。票是<strong>兌換期內皆適用</strong>、沒有時段限制——<strong>12:20 要走</strong>是為了提前 15 分鐘到地下水宮殿的集合點。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
      sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。'},
     },
-    {time:'12:30<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', note:'⚠️ <strong>12:30 到門口、12:45 入場</strong>——免排隊票是指定時段，提前 15 分鐘到。', hi:true, tags:['car:🚶 步行 2 分','lock:預訂 12:45','停留 1h05','Turkey Pass'], map:wlk(P.hagia,P.cistern),
+    {time:'12:30<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', note:'⚠️ <strong>集合點不在地下水宮殿門口</strong>——是聖索菲亞對面的 <strong>BUSFORUS Sultanahmet 站</strong>（紅色雙層觀光巴士站），聖索菲亞走過去 4 分。<strong>12:30 到、12:45 出發</strong>，導遊開始前 5 分鐘才會到，<strong>拿白橘色 Istanbul E-pass 旗子</strong>。⚠️ 這是<strong>導覽團，講解約 20–30 分</strong>，不是自己進去。', hi:true, tags:['car:🚶 步行 4 分','lock:12:45 集合出發','⚠️ 導覽團 20–30 分','Turkey Pass'], map:[['步行路線 · 聖索菲亞 → 集合點',wlk(P.hagia,P.busforus)],['在地圖上開啟 · BUSFORUS Sultanahmet 站',pin(P.busforus)],['在地圖上開啟 · 地下水宮殿',pin(P.cistern)]],
      sight:{zh:'地下水宮殿', en:'Basilica Cistern', img:'basilica-cistern.jpg', d:'六世紀查士丁尼時期的地下蓄水池，336 根柱子撐起整個空間，底部有兩顆倒置與側放的<strong>梅杜莎頭像</strong>。地面永遠濕、光線很暗。'},
     },
     {time:'13:50<br>–15:15', act:'🍛 🚶 → Hafız Mustafa 1864 Beyazıt', hi:true, tags:['car:🚶 步行 15 分','eat:甜點'],
@@ -1047,37 +1048,47 @@ var PANELS={
   fly:{
     title:'5 段航程', note:'全部已開票',
     rows:[
-      {k:'10/30', b:'去程 · 台北／新加坡 → 伊斯坦堡',
-       i:'安安 TK025 22:00 桃園 T2 → 10/31 05:40 IST<br>豬豬 TK055 23:15 樟宜 T1 → 10/31 05:50 IST',
-       em:'安安訂位代號 UQE3KZ · 國際線托運 23kg／手提 8kg／個人物品 4kg'},
-      {k:'10/31', b:'Turkish Airlines · IST → ADB', i:'TK2320 · 11:00 → 12:10，1h10',
-       em:'土耳其航空，訂位代號 TB5RZM · 托運 15kg／手提 8kg',
-       w:'入境、領行李、重新托運；報到櫃台 10:15 關'},
-      {k:'11/01', b:'SunExpress · ADB → ASR', i:'XQ9238 · 21:00 → 22:35，1h35',
-       em:'SunValue · 訂位代號 D438G7  · 每人托運 15kg ／ 手提 8kg'},
-      {k:'11/04', b:'Turkish Airlines · ASR → IST', i:'TK2017 · 18:40 → 20:20，1h40',
-       em:'土耳其航空，訂位代號 TB5RZM · 每人托運 15kg ／ 手提 8kg'},
-      {k:'11/08', b:'回程 · 伊斯坦堡 → 台北／新加坡',
-       i:'安安 TK124 17:15 IST → 11/09 08:45 桃園 T2<br>豬豬 TK208 18:30 IST → 樟宜',
-       em:'目標 14:30 前抵達 IST'}
+      {k:'10/30', b:'安安去程 · 台北(TPE) → 伊斯坦堡(IST)',
+       i:'Turkish Airlines · 22:00 → 05:40',
+       em:['TK025', '訂位代號 UQE3KZ', '托運 23kg', '手提 8kg', '個人物品 4kg']},
+      {k:'10/30', b:'豬豬去程 · 新加坡(SIN) → 伊斯坦堡(IST)',
+       i:'Turkish Airlines · 23:15 → 05:50',
+       em:['TK055', '托運 23kg', '手提 8kg', '個人物品 4kg']},
+      {k:'10/31', b:'伊斯坦堡(IST) → 伊茲密爾(ADB)', 
+       i:'Turkish Airlines · 11:00 → 12:10',
+       em:['TK2320', '訂位代號TB5RZM', '托運 15kg', '手提 8kg']},
+      {k:'11/01', b:'伊茲密爾(ADB) → 開塞利(ASR)', 
+       i:'SunExpress · 21:00 → 22:35',
+       em:['XQ9238', '訂位代號 D438G7', '托運 15kg', '手提 8kg']},
+      {k:'11/04', b:'開塞利(ASR) → 伊斯坦堡(IST)', 
+       i:'Turkish Airlines · 18:40 → 20:20',
+       em:['TK2017', '訂位代號 TB5RZM', '托運 15kg', '手提 8kg']},
+      {k:'11/08', b:'安安回程 · 伊斯坦堡(IST) → 台北(TPE)',
+       i:'Turkish Airlines · 17:15 → 08:45',
+       em:['TK124', '托運 23kg', '手提 8kg', '個人物品 4kg']},
+       {k:'11/08', b:'豬豬回程 · 伊斯坦堡 → 新加坡',
+       i:'Turkish Airlines · 18:30 → 10:00',
+       em:['TK208', '托運 23kg', '手提 8kg', '個人物品 4kg']}
     ],
     sub:'機場往返市區',
     subRows:[
-      {k:'11/04 · KLOOK', b:'IST → Basilissis Hotel', i:'20:20 抵達後出發，車程 45－90 分',
-       em:'經濟車型 4 人座（最多 3 人 / 2 件行李）· 已綁定 TK2017 · 加購舉牌服務 · 免費取消至 11/03 20:20',
+      {k:'11/04', b:'IST → Basilissis Hotel', i:'KLOOK',
+       em:['經濟車型 4 人座', '2件行李', '舉牌服務'],
        w:'司機自航班實際抵達時間起等候 60 分鐘；領完行李到接機大廳找舉牌'},
-      {k:'11/08 · TRIP.COM', b:'Basilissis Hotel → IST', i:'13:00 出發 · 51 公里、約 52 分 · 已綁定航班 TK124',
-       em:'Trip.com 訂單 1616334355549226 · 車行追蹤碼 88B5DYZ（UNITED INNOVATION）· 先乘後付 · 免費取消至 11/08 07:00',
-       w:'⚠️ 免費等候只有 15 分鐘——13:00 在飯店門口等車'}
+      {k:'11/08 · .COM', b:'Basilissis Hotel → IST', i:'TRIP.com',
+       em:['經濟車型 4 人座', '2件行李'],
+       w:'免費等候只有 15 分鐘，13:00 在飯店門口等車'}
     ]
   },
   car:{
     title:'2 段租車', note:'皆已訂 · 主駕駛豬豬',
     rows:[
-      {k:'10/31–11/01', b:'AVEC · Toyota Corolla 或相似車款', i:'10/31 13:00 ADB 取車 → 11/01 20:00 ADB 還車',
-       em:'Rentalcars 確認號 758471281 · +90 232 531 2832 · 5 座 4 門／2 大 1 小行李'},
-      {k:'11/01–11/04', b:'AVEC · Opel Crossland 或相似車款', i:'11/01 23:00 ASR 取車 → 11/04 16:30 ASR 還車',
-       em:'Rentalcars 確認號 637534354 · +90 352 353 3800 · 5 座 4 門／2 大行李',
+      {k:'10/31–11/01', b:'ADB機場取車',
+       i: '10/31 13:00 → 11/01 20:00',
+       em:['AVEC', 'Toyota Corolla', '5 座／2 大 1 小行李']},
+      {k:'11/01–11/04', b:'ASR機場取車',
+       i: '11/01 23:00 → 11/04 19:00',
+       em:['AVEC', 'Opel Crossland', '5 座／2 大行李'],
        w:'掀背車，取車當場確認有後車廂遮蔽板'}
     ]
   },
@@ -1085,28 +1096,25 @@ var PANELS={
   other:{
     rows:[
       {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Henna Hotel 接送',
+       em:'GetYourGuide',
        w:'停飛不會自動順延，當下要問業者隔天有沒有位子；客滿就是全額退款'},
-      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Konak Hotel 接送 · 騎乘約 60 分',
+      {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Hotel 接送',
        em:'GetYourGuide',
        w:'接送時間由業者於活動前 1–2 天聯絡；結束後送回原接送地點'},
       {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant', i:'2位，Anyi Hsieh'},
       {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge', i:'2位，Anyi Hsieh'},
-      {k:'11/03 18:15', tag:'餐廳', b:'Seten Restaurant Cappadocia', i:'<em>不接受訂位</em>',
-       em:'每天 12:30–22:30 · 米其林指南收錄'},
-      {k:'11/06 上午', tag:'門票', todo:true, b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
+      {k:'11/06 上午', tag:'門票', b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
        em:'門票只含 2 樓，1 樓為禮拜區',
        w:'週五中午禮拜時段不對非禮拜者開放；注意服裝規定'},
-      {k:'11/06 上午', tag:'門票', todo:true, b:'地下水宮殿 Basilica Cistern', i:'官方售票系統 · 日間場',
+      {k:'11/06 上午', tag:'門票', b:'地下水宮殿 Basilica Cistern', i:'官方售票系統 · 日間場',
        em:'夜間場 19:30–22:00 另計價，不需要'},
       {k:'11/06 13:00', tag:'餐廳', todo:true, b:'Seven Hills Restaurant', i:'屋頂拍照小點 · 只點飲料、甜點或小菜',
        em:'確認能否少量點餐、有無低消與訂位規則'},
-      {k:'11/07 12:00', tag:'體驗', todo:true, b:'Acemoglu 15 世紀土耳其浴', i:'Klook · <em>選半私人（兩人同室）</em>',
+      {k:'11/07 12:00', tag:'體驗', b:'Acemoglu 15 世紀土耳其浴', i:'Klook · <em>選半私人（兩人同室）</em>',
        em:'Şehzadebaşı Cd., Fatih · Vezneciler 地鐵站步行 1 分鐘 · 體驗約 45 分鐘',
        w:'需提前 10 分鐘抵達，遲到或未出席可能不退款'},
-      {k:'11/07 晚上', tag:'餐廳', todo:true, b:'Olden 1772', i:'2 人',
-       em:'Sirkeci／Fatih · 可能另加 10% 服務費與 cover charge'},
-      {k:'11/08 09:00', tag:'門票', todo:true, b:'托普卡匹皇宮 Topkapı Palace', i:'只走本館 · 開門即進、10:45 前離開',
-       em:'只買本館的票須現場購買；線上只能買本館＋後宮＋伊蓮娜教堂聯票'}
+      {k:'11/07 晚上', tag:'餐廳',  b:'Olden 1772', i:'2 人',
+       em:'Sirkeci／Fatih · 可能另加 10% 服務費與 cover charge'}
     ]
   }
 };
