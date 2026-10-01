@@ -260,7 +260,7 @@ details[open] .chev{transform:rotate(180deg)}
 .sightc.side .sightc-name{display:none}
 .sightc.side .sightc-body{order:1;flex:1 1 auto;min-width:0;align-self:center;padding:0}
 .sightc.side .sightc-d{margin-top:0;font-size:.86rem;line-height:1.7}
-.sightc.side .tags{margin-top:11px}
+.sightc.side+.tags{display:flex;margin-top:11px}
 .sightc.side .sightc-fig{order:2;flex:0 0 40%;width:40%;min-width:96px;max-width:240px;align-self:stretch;border:1px solid rgba(35,77,73,.28);border-radius:12px}
 .tl-spots{margin-top:12px;padding:12px;border-radius:13px;background:rgba(35,77,73,.05)}
 .spots-head{margin-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--teal)}
@@ -1537,17 +1537,18 @@ function rowHtml(r){
     pills+='<span class="tl-pill k-'+ks[n]+'">'+lab+'</span>';
   }
   var k=ks.length?ks[ks.length-1]:'';
-  /* 標籤與地圖連結排在同一列；若該列有 side 景點卡，就改排到卡片左欄的描述下方 */
+  /* 標籤與地圖連結排在同一列；若該列有 side 景點卡，就移到卡片下方整排 */
   var meta=tagsHtml(r.tags)+mapsHtml(r.map);
   var metaBox=meta?'<span class="tags">'+meta+'</span>':'';
-  var intoSight=!!(metaBox&&r.sight&&r.sight.side);
+  var underSight=!!(metaBox&&r.sight&&r.sight.side);
   var body=(r.note?'<div class="tl-note">'+r.note+'</div>':'')
     +eateryHtml(r.eatery)
     +spotsHtml(r.spots)
-    +sightHtml(r.sight,intoSight?metaBox:'')
+    +sightHtml(r.sight)
+    +(underSight?metaBox:'')
     +bookHtml(r.book);
   var sum='<span class="tl-head"><span class="tl-act">'+r.act+'</span>'
-    +(intoSight?'':metaBox)+'</span>'
+    +(underSight?'':metaBox)+'</span>'
     +'<span class="tl-side">'+pills+(body?CHEV:'')+'</span>';
   var kc=k?' k-'+k:'';
   var cardHtml=body
