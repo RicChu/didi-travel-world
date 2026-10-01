@@ -54,14 +54,14 @@ didi-travel-world/
 1. 在根目錄新增 `<trip-name>/index.html`
 2. 使用 `frontend-design` skill 建立頁面，設計風格對應目的地文化
 3. 頁面使用 `.app-topbar > .back-btn` 結構（嵌入 flex 流，非 fixed）返回 `../index.html`
-4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`
+4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`，並在根目錄 `img/` 放一張 `<trip>-cover.jpg`（長邊 1400px、jpeg 82），加上對應的 `.bg-<trip>` 規則
 5. 更新 CLAUDE.md 旅行狀態表
 
 ## 總覽頁風格規則
 
 `index.html` 的視覺風格**必須與最近一次新增的旅遊計劃頁面一致**：
 - 背景色、字型、色彩 token 需與最新子頁面對齊
-- 卡片 `.trip-card-hero-bg` 的漸層使用對應子頁面的主題色
+- 卡片 `.trip-card-hero-bg` 放**封面照片**（`img/<trip>-cover.jpg`），上面疊一層該趟旅行主題色的半透明色罩；最底層保留原本的純漸層當作照片載入失敗時的 fallback
 - 目前對齊花東縱谷風格：背景 `#ede8dd`、字型 `PingFang TC`、`Georgia serif`、forest green 系
 
 每次新增旅遊計劃後，若新計劃風格與現有總覽差異明顯，需同步更新總覽配色。

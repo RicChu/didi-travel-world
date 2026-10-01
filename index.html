@@ -122,17 +122,17 @@ body::after{
 }
 .trip-card:hover .trip-card-hero-bg{transform:scale(1.04)}
 
-/* Hero gradients — match each trip's colour tokens */
+/* Hero：封面照片 + 一層該趟旅行主題色的色罩（照片載入失敗時色罩本身就是原本的漸層底） */
 .bg-huadong{
   background:
-    radial-gradient(circle at 20% 65%,rgba(30,88,120,.5),transparent 50%),
-    radial-gradient(circle at 80% 25%,rgba(37,105,85,.45),transparent 50%),
+    linear-gradient(135deg,rgba(12,46,30,.26) 0%,rgba(21,69,53,.08) 45%,rgba(12,46,68,.26) 100%),
+    url('img/huadong-cover.jpg') center 58%/cover no-repeat,
     linear-gradient(135deg,#0c2e1e 0%,#154535 45%,#0c2e44 100%);
 }
 .bg-turkey{
   background:
-    radial-gradient(circle at 30% 40%,rgba(52,184,196,.35),transparent 55%),
-    radial-gradient(circle at 80% 70%,rgba(193,74,53,.3),transparent 50%),
+    linear-gradient(135deg,rgba(10,47,83,.38) 0%,rgba(13,59,102,.14) 50%,rgba(18,63,110,.38) 100%),
+    url('img/turkey-cover.jpg') center 52%/cover no-repeat,
     linear-gradient(135deg,#0a2f53 0%,#0d3b66 50%,#123f6e 100%);
 }
 
