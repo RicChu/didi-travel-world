@@ -588,10 +588,8 @@ var DATA=[
   fatigue:4, fatigueText:'高',
   lead:'長途夜航，沒有景點壓力。兩人分別從桃園與樟宜出發，10/31 清晨在伊斯坦堡入境後的公共區域會合。',
   rows:[
-    {time:'22:00', act:'✈️ 安安 桃園(TPE) → 伊斯坦堡(IST)', book:'fly-ann-out', tags:['lock:22:00 → 隔日05:40', 'TK025']},
-    {time:'23:15', act:'✈️ 豬豬 樟宜(SIN) → 伊斯坦堡(IST)', book:'fly-chu-out', tags:['lock:23:15 → 隔日05:50', 'TK055']}
-  ],
-  stay:{name:'機上', note:''}
+    {time:'22:00', act:'✈️ 前往伊斯坦堡', book:['fly-ann-out', 'fly-chu-out']},
+  ]
 },
 
 /* ========== DAY 02 · 10/31 ========== */
@@ -625,8 +623,7 @@ var DATA=[
          ['＋','葡萄葉包飯 <b>Yaprak Sarma</b>','還吃得下再加']
        ]},
      map:pin(P.asteras)}
-  ],
-  stay:{name:'Bellamaritimo Hotel', note:'', img:'bellamaritimo.jpg'}
+  ]
 },
 
 /* ========== DAY 03 · 11/01 ========== */
@@ -659,8 +656,7 @@ var DATA=[
     {time:'14:30<br>–20:00', act:'🚘 → İzmir Adnan Menderes Airport 伊茲密爾機場', tags:['car:🚘 2h30'], note:'還車、辦理登機手續、用餐', map:drv(P.bella,P.adb)},
     {time:'21:00<br>–22:35', act:'✈️ 伊茲密爾(ADB) → 開塞利(ASR)', book:'fly-xq9238', tags:['XQ9238', 'lock:21:00 → 22:35', '訂位代號 D438G7'], note:'領行李、辦理取車手續', hi:true,},
     {time:'22:35<br>–23:15', act:'🚘 → 跨城市移動，格雷梅飯店', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:drv(P.asr,P.henna)}
-  ],
-  stay:{name:'Henna Hotel', note:'', img:'henna-room.jpg'}
+  ]
 },
 
 /* ========== DAY 04 · 11/02 ========== */
@@ -729,8 +725,7 @@ var DATA=[
          ]}},
       {time:'20:15<br>以後', act:'走回飯店休息', map:wlk(P.topdeck,P.henna)},
     ]}
-  ],
-  stay:{name:'Henna Hotel', note:'續住第2晚'}
+  ]
 },
 
 /* ========== DAY 05 · 11/03 ========== */
@@ -834,8 +829,7 @@ var DATA=[
          ]},
        map:[['步行路線 · Henna → Seten',wlk(P.henna,P.seten)]]},
     ]}
-  ],
-  stay:{name:'Henna Hotel', note:'續住第3晚'}
+  ]
 },
 
 /* ========== DAY 06 · 11/04 ========== */
@@ -884,8 +878,7 @@ var DATA=[
       {time:'18:40<br>–20:20', act:'✈️ 開塞利(ASR) → 伊斯坦堡(IST)', book:'fly-tk2017', tags:['TK2017', 'lock:18:40 → 20:20','訂位代號 TB5RZM']},
       {time:'20:20<br>起', act:'🚖 → Basilissis Hotel', book:['ride-in','stay-basilissis'], hi:true, tags:['Klook 接機 · 舉牌']}
     ]}
-  ],
-  stay:{name:'Basilissis Hotel', note:'', img:'basilissis-room.jpg'}
+  ]
 },
 
 /* ========== DAY 07 · 11/05 ========== */
@@ -931,8 +924,7 @@ var DATA=[
      sight:{zh:'大巴札', en:'Kapalıçarşı / Grand Bazaar', img:'grand-bazaar.jpg', d:'十五世紀開始擴建的室內市集，六十幾條街、四千多家店，拱頂全部彩繪。偏工藝、金飾、地毯與觀光商品，人非常多，注意隨身物品。'},
     },
     {time:'17:45<br>起', act:'🚶 → 自由時間'},
-  ],
-  stay:{name:'Basilissis Hotel', note:'續住第2晚'}
+  ]
 },
 
 /* ========== DAY 08 · 11/06 ========== */
@@ -966,8 +958,7 @@ var DATA=[
      ],
      map:[['大眾運輸路線 · 奧塔科伊 → Kabataş',trn(P.ortakoy,P.kabatas)],['在地圖上開啟 · Kızılkayalar 濕漢堡',pin(P.kizil)],['步行路線 · Taksim → Tünel（獨立大街）',wlk(P.taksim,P.tunel,[P.cicek,P.stAntoine])],['步行路線 · Tünel → 加拉達塔 → Karaköy 魚捲',wlk(P.tunel,P.balik,[P.galata,P.karakoy])],['步行路線 · 過加拉達橋 → Eminönü',wlk(P.balik,P.eminonu,[P.gBridge])]]},
     {time:'19:20<br>起', act:'🚌🚶 → 回飯店休息'},
-  ],
-  stay:{name:'Basilissis Hotel', note:'續住第3晚'}
+  ]
 },
 
 /* ========== DAY 09 · 11/07 ========== */
@@ -997,8 +988,7 @@ var DATA=[
     {time:'20:00<br>–21:40', act:'🚶🍛 → Olden 1772 晚餐', book:'eat-olden', hi:true, tags:['car:🚶 步行 13 分', 'lock:訂位 20:00','eat:晚餐'],
      eatery:{name:'Olden 1772', en:'Sirkeci / Fatih', img:'olden-1772.jpg', hours:'約 09:00–01:00', price:'兩人約 ₺6,800（≈NT$4,400）＋10% 服務費', d:'1772 年的 Muhsinzade Han 客棧改建，挑高中庭配水晶吊燈。', dishes:[['🥇','<b>Kuzu Ön Kol</b> 慢烤羊肩','這道是兩人份，不用一人各點一份主餐'],['🥈','<b>Levrek Ceviche</b> 鱸魚醃生魚','冷前菜，鱸魚配紅洋蔥與石榴柑橘醬，兩人分一份'],['🥉','甜點現場看','菜單上的甜點不固定，點完主餐再問']]},
      map:pin(P.olden)},
-  ],
-  stay:{name:'Basilissis Hotel', note:'續住第4晚'}
+  ]
 },
 
 /* ========== DAY 10 · 11/08 ========== */
@@ -1022,8 +1012,7 @@ var DATA=[
       {time:'17:15', act:'✈️ 安安 伊斯坦堡(IST) → 桃園(TPE)', book:'fly-ann-back', tags:['TK124', 'lock:17:15 → 隔日08:45']},
       {time:'18:30', act:'✈️ 豬豬 伊斯坦堡(IST) → 樟宜(SIN)', book:'fly-chu-back', tags:['TK208', 'lock:18:30 → 隔日10:00']},
     ]}
-  ],
-  stay:{name:'機上', note:''}
+  ]
 },
 
 /* ========== DAY 11 · 11/09 ========== */
@@ -1036,8 +1025,7 @@ var DATA=[
   rows:[
     {time:'08:45', act:'安安抵達桃園'},
     {time:'10:00', act:'豬豬抵達樟宜'},
-  ],
-  stay:{name:'回家', note:''}
+  ]
 }
 ];
 
@@ -1057,10 +1045,10 @@ var PANELS={
   fly:{
     title:'7 段航程', note:'全部已開票',
     rows:[
-      {k:'10/30', id:'fly-ann-out', b:'安安去程 · 台北(TPE) → 伊斯坦堡(IST)',
+      {k:'10/30', id:'fly-ann-out', b:'安安 · 台北(TPE) → 伊斯坦堡(IST)',
        i:'Turkish Airlines · 22:00 → 05:40',
        em:['TK025', '訂位代號 UQE3KZ', '托運 23kg', '手提 8kg', '個人物品 4kg']},
-      {k:'10/30', id:'fly-chu-out', b:'豬豬去程 · 新加坡(SIN) → 伊斯坦堡(IST)',
+      {k:'10/30', id:'fly-chu-out', b:'豬豬 · 新加坡(SIN) → 伊斯坦堡(IST)',
        i:'Turkish Airlines · 23:15 → 05:50',
        em:['TK055', '托運 23kg', '手提 8kg', '個人物品 4kg']},
       {k:'10/31', id:'tk2320', b:'伊斯坦堡(IST) → 伊茲密爾(ADB)', 
@@ -1072,10 +1060,10 @@ var PANELS={
       {k:'11/04', id:'fly-tk2017', b:'開塞利(ASR) → 伊斯坦堡(IST)', 
        i:'Turkish Airlines · 18:40 → 20:20',
        em:['TK2017', '訂位代號 TB5RZM', '托運 15kg', '手提 8kg']},
-      {k:'11/08', id:'fly-ann-back', b:'安安回程 · 伊斯坦堡(IST) → 台北(TPE)',
+      {k:'11/08', id:'fly-ann-back', b:'安安 · 伊斯坦堡(IST) → 台北(TPE)',
        i:'Turkish Airlines · 17:15 → 08:45',
        em:['TK124', '托運 23kg', '手提 8kg', '個人物品 4kg']},
-       {k:'11/08', id:'fly-chu-back', b:'豬豬回程 · 伊斯坦堡 → 新加坡',
+       {k:'11/08', id:'fly-chu-back', b:'豬豬 · 伊斯坦堡 → 新加坡',
        i:'Turkish Airlines · 18:30 → 10:00',
        em:['TK208', '托運 23kg', '手提 8kg', '個人物品 4kg']}
     ],
