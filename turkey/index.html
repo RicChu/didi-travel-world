@@ -175,9 +175,6 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* 交通方式色條：疊在時間軸那條線上，顏色由 data-way 決定 */
 .tl-row[data-way]::before{content:"";position:absolute;left:61px;top:0;bottom:-12px;width:5px;border-radius:999px;
   box-shadow:0 0 0 1.5px var(--card),0 2px 5px rgba(28,40,38,.22)}
-/* 疊一層上亮下暗，讓色條看起來是圓柱而不是色塊 */
-.tl-row[data-way]::after{content:"";position:absolute;left:61px;top:0;bottom:-12px;width:5px;border-radius:999px;pointer-events:none;
-  background:linear-gradient(90deg,rgba(255,255,255,.5),rgba(255,255,255,.08) 45%,rgba(0,0,0,.2))}
 .tl-row[data-way="fly"]::before{background:#3f7fa6}
 .tl-row[data-way="drive"]::before{background:var(--terra)}
 .tl-row[data-way="walk"]::before{background:var(--gold)}
@@ -399,8 +396,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .day-hero{margin-top:18px;border-radius:14px}
   .grp-head{margin-left:68px}
   .tl::before{left:53px}
-  .tl-row[data-way]::before,
-  .tl-row[data-way]::after{left:51px}
+  .tl-row[data-way]::before{left:51px}
   .tl-row{grid-template-columns:42px minmax(0,1fr);gap:26px}
   .tl-card::before{left:-22px}
   .tl-row[data-way] .tl-card::before{left:-25px}
