@@ -87,5 +87,6 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `henna-room.jpg` | 11/01–11/04 Henna Hotel 住宿卡（Göreme 洞穴房） | 使用者於 2026-10-01 提供 |
 | `basilissis-room.jpg` | 11/04–11/08 Basilissis Hotel 住宿卡（伊斯坦堡雙床房） | 使用者於 2026-10-01 提供 |
 | `ephesus-terrace-houses.jpg` | 10/31 日卡主圖（以弗所坡上住宅 Yamaç Evler） | 使用者於 2026-10-01 提供 |
-
-⚠️ 待補圖片：`suleymaniye.jpg`（11/08 蘇萊曼尼耶清真寺）、`rustem-pasa.jpg`（11/08 魯斯坦帕夏清真寺）——景點卡目前只有文字。
+| `suleymaniye.jpg` | 11/08 蘇萊曼尼耶清真寺 | 使用者於 2026-10-01 提供 |
+| `rustem-pasa.jpg` | 11/08 魯斯坦帕夏清真寺 | 使用者於 2026-10-01 提供 |
+| `hasircilar.jpg` | 11/08 Hasırcılar 街 · Tahtakale 市集街 | 使用者於 2026-10-01 提供 |
