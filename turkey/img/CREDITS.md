@@ -93,4 +93,4 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `kofteci.jpg` | 11/08 Tarihi Sultanahmet Köftecisi Selim Usta | 使用者於 2026-10-01 提供 |
 | `poika.jpg` | 11/08 Poiká Breakfast & Cafe | 使用者於 2026-10-01 提供 |
 | `topkapi-palace.jpg` | 11/08 托卡匹皇宮（崇敬之門 Bâb-üs Selâm）— 2026-10-01 換圖 | 使用者於 2026-10-01 提供 |
-| `gulhane.jpg` | 11/08 居爾哈尼公園（照片為四月鬱金香季） | 使用者於 2026-10-01 提供 |
+| `gulhane.jpg` | 11/08 居爾哈尼公園（梧桐林蔭道） | 使用者於 2026-10-01 提供 |
