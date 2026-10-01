@@ -285,11 +285,15 @@ details[open] .chev{transform:rotate(180deg)}
 /* 嵌在行程列裡的訂單卡：不要最小高度、不要 hover 浮起 */
 .booking-card.inl{min-height:0;margin-top:13px;background:rgba(255,253,248,.95)}
 .booking-card.inl:hover{transform:none}
-.booking-card.inl .card-meta{margin-top:10px}
 .booking-card.inl h3{margin:9px 0 5px;font-size:.98rem}
 .booking-card:hover{transform:translateY(-3px)}
 .booking-card.hidden{display:none}
-.card-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.card-top{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px}
+/* 看板卡：日期獨佔一行（維持原本的直式版面）；嵌入版則三者並成一條 */
+.card-top .card-meta{order:3;flex-basis:100%;margin:6px 0 0}
+.card-top .card-icon{margin-left:auto}
+.booking-card.inl .card-top .card-meta{order:0;flex-basis:auto;margin:0}
+.booking-card.inl .card-top .card-icon{margin-left:auto}
 .card-tag{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:.67rem;font-weight:700}
 .card-tag.c-stay{color:var(--teal);background:var(--teal-soft)}
 .card-tag.c-fly,.card-tag.c-ride{color:var(--gold-ink);background:var(--gold-soft)}
@@ -1280,8 +1284,8 @@ function bookingCardHtml(c,extraCls){
   return '<article class="booking-card'+(extraCls?' '+extraCls:'')+'" data-cat="'+c.cat+'">'
     +'<div class="card-top"><span class="card-tag '+c.cls+'">'+c.tag+'</span>'
     +(c.todo?'<span class="card-todo">尚未預訂</span>':'')
-    +'<span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
     +'<p class="card-meta">'+c.meta+'</p>'
+    +'<span class="card-icon" aria-hidden="true">'+c.icon+'</span></div>'
     +'<h3>'+c.title+'</h3>'
     +(c.i?'<p class="ci">'+c.i+'</p>':'')
     +emHtml(c.em)
