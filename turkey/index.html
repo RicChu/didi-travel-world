@@ -690,7 +690,7 @@ var DATA=[
     ]},
     {label:'清晨 · 沒飛', sub:'睡飽', alt:true, sc:'no', rows:[
       {time:'09:30<br>–10:10', act:'飯店早餐', tags:['eat:早餐'],
-       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
+       sight:{zh:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%', side:true,
          d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'卡帕多奇亞紅線自駕', sub:'沒飛 · 10:10 出發', sc:'no', rows:[
@@ -752,7 +752,7 @@ var DATA=[
   groups:[
     {label:'清晨 · 今天沒飛', sub:'睡飽，08:30 早餐', sc:'no', rows:[
       {time:'08:30<br>–09:30', act:'飯店早餐', tags:['eat:早餐'],
-       eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
+       sight:{zh:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%', side:true,
          d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'清晨 · 飛了', sub:'04:00 起床', sc:'fly', rows:[
@@ -856,7 +856,7 @@ var DATA=[
   groups:[
     {label:'清晨 · 今天沒飛', sub:'睡飽，09:00 早餐', sc:'no', rows:[
       {time:'09:00<br>–10:00', act:'飯店早餐', tags:['eat:早餐'],
-         eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
+         sight:{zh:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%', side:true,
            d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'清晨 · 今天補飛', sub:'04:00 起床，白天照常走三個點', alt:true, sc:'fly', rows:[
@@ -864,7 +864,7 @@ var DATA=[
        sight:{zh:'格雷梅日出熱氣球', en:'Göreme Sunrise Balloon Flight', img:'balloon-ride.jpg', d:'日出前在谷地裡充氣起飛，升到岩柱群上方看整片卡帕多奇亞由暗轉亮——同一時段天上通常有上百顆球。飛行約 1 小時，高度隨氣流在谷底與數百公尺之間變化。', side:true},
       },
       {time:'08:30<br>–09:30', act:'飯店早餐', tags:['eat:早餐'],
-         eatery:{name:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%',
+         sight:{zh:'Henna Hotel 屋頂早餐', en:'Göreme 鎮中心', img:'henna-breakfast.jpg', pos:'50% 45%', side:true,
            d:'土耳其式早餐拼盤配屋頂露台：起司、橄欖、蜂蜜、果乾堅果、水果、現烤麵包與現榨果汁。清晨可以邊吃邊看整片熱氣球從谷地升上來。'}},
     ]},
     {label:'10:00 退房出發 · 往機場收尾', rows:[
@@ -1256,6 +1256,7 @@ function sightHtml(x,extra){
   if(!x) return '';
   var h='<div class="sightc'+(x.side?' side':'')+'">';
   if(x.img) h+='<img class="sightc-fig" loading="lazy" decoding="async" src="'+IMG+x.img
+    +(x.pos?'" style="object-position:'+x.pos:'')
     +'" alt="'+escAttr(x.zh)+'" onerror="this.style.display=\'none\'">';
   h+='<div class="sightc-body"><div class="sightc-name">'+x.zh
     +(x.en?'<span class="sightc-en">'+x.en+'</span>':'')+'</div>'
