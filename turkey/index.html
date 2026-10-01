@@ -402,7 +402,7 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
       <div class="hero-stats" aria-label="行程摘要">
         <button type="button" data-go="days"><strong>11</strong><span>天</span></button>
         <button type="button" data-go="stay"><strong>3</strong><span>段住宿</span></button>
-        <button type="button" data-go="fly"><strong>5</strong><span>段航程</span></button>
+        <button type="button" data-go="fly"><strong>7</strong><span>段航程</span></button>
         <button type="button" data-go="car"><strong>2</strong><span>段租車</span></button>
       </div>
     </div>
@@ -903,10 +903,10 @@ var DATA=[
          ['５','無限續杯紅茶 <b>Çay</b>','一口鹹點、一口甜抹醬，再一口熱紅茶']
        ]},
      map:wlk(P.blueMosque,P.sevenHills)},
-    {time:'11:05<br>–12:20', act:'🚶 → 聖索菲亞 Hagia Sophia', note:'⚠️ 1 樓為禮拜區不開放，<strong>門票僅含 2 樓</strong>。要包頭巾。票是<strong>兌換期內皆適用</strong>、沒有時段限制——<strong>12:20 要走</strong>是為了提前 15 分鐘到地下水宮殿的集合點。', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
+    {time:'11:05<br>–12:20', act:'🚶 → 聖索菲亞 Hagia Sophia', hi:true, tags:['car:🚶 步行 4 分','停留 1h30', 'Turkey Pass'], map:wlk(P.sevenHills,P.hagia),
      sight:{zh:'聖索菲亞', en:'Hagia Sophia', img:'hagia-sophia-rooftop.jpg', d:'西元 537 年落成，當了九百年教堂、五百年清真寺。重點是直徑 31 公尺的巨大穹頂，以及基督教馬賽克與伊斯蘭書法圓盤在同一個空間裡並存。'},
     },
-    {time:'12:30<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', note:'⚠️ <strong>集合點不在地下水宮殿門口</strong>——是聖索菲亞對面的 <strong>BUSFORUS Sultanahmet 站</strong>（紅色雙層觀光巴士站），聖索菲亞走過去 4 分。<strong>12:30 到、12:45 出發</strong>，導遊開始前 5 分鐘才會到，<strong>拿白橘色 Istanbul E-pass 旗子</strong>。⚠️ 這是<strong>導覽團，講解約 20–30 分</strong>，不是自己進去。', hi:true, tags:['car:🚶 步行 4 分','lock:12:45 集合出發','⚠️ 導覽團 20–30 分','Turkey Pass'], map:[['步行路線 · 聖索菲亞 → 集合點',wlk(P.hagia,P.busforus)],['在地圖上開啟 · BUSFORUS Sultanahmet 站',pin(P.busforus)],['在地圖上開啟 · 地下水宮殿',pin(P.cistern)]],
+    {time:'12:30<br>–13:50', act:'🚶 → 地下水宮殿 Basilica Cistern', hi:true, tags:['car:🚶 步行 4 分','lock:12:45 集合出發','Turkey Pass'], map:[['步行路線 · 聖索菲亞 → 集合點',wlk(P.hagia,P.busforus)],['在地圖上開啟 · BUSFORUS Sultanahmet 站',pin(P.busforus)],['在地圖上開啟 · 地下水宮殿',pin(P.cistern)]],
      sight:{zh:'地下水宮殿', en:'Basilica Cistern', img:'basilica-cistern.jpg', d:'六世紀查士丁尼時期的地下蓄水池，336 根柱子撐起整個空間，底部有兩顆倒置與側放的<strong>梅杜莎頭像</strong>。地面永遠濕、光線很暗。'},
     },
     {time:'13:50<br>–15:15', act:'🍛 🚶 → Hafız Mustafa 1864 Beyazıt', hi:true, tags:['car:🚶 步行 15 分','eat:甜點'],
@@ -1039,14 +1039,14 @@ var PANELS={
     rows:[
       {k:'10/31–11/01', b:'Bellamaritimo Hotel', i:'Agoda · 棉堡村 · 1 晚 · 入住 11:00／退房 11:00',
        em:['雙人房', '含早餐', '免費停車場', '24 小時櫃台']},
-      {k:'11/01–11/04', b:'Henna Hotel', i:'Trip.com · Göreme 鎮中心 · 3 晚 · 入住 14:00 起／退房 12:00 ',
-       em:['豪華房', '含早餐', '免費停車場', '24 小時櫃台']},
+      {k:'11/01–11/04', b:'Henna Hotel', i:'Trip.com · Göreme 鎮中心 · 3 晚 · 入住 14:00 起／退房 12:00',
+       em:['豪華房', '含早餐 08:00–10:30', '24 小時櫃台']},
       {k:'11/04–11/08', b:'Basilissis Hotel', i:'Hotels · 伊斯坦堡舊城 Alemdar／Gülhane · 4 晚 · 入住 14:00／退房 12:00',
        em:['雙床房', '含早餐', '24 小時櫃台']}
     ]
   },
   fly:{
-    title:'5 段航程', note:'全部已開票',
+    title:'7 段航程', note:'全部已開票',
     rows:[
       {k:'10/30', b:'安安去程 · 台北(TPE) → 伊斯坦堡(IST)',
        i:'Turkish Airlines · 22:00 → 05:40',
@@ -1056,7 +1056,7 @@ var PANELS={
        em:['TK055', '托運 23kg', '手提 8kg', '個人物品 4kg']},
       {k:'10/31', b:'伊斯坦堡(IST) → 伊茲密爾(ADB)', 
        i:'Turkish Airlines · 11:00 → 12:10',
-       em:['TK2320', '訂位代號TB5RZM', '托運 15kg', '手提 8kg']},
+       em:['TK2320', '訂位代號 TB5RZM', '托運 15kg', '手提 8kg']},
       {k:'11/01', b:'伊茲密爾(ADB) → 開塞利(ASR)', 
        i:'SunExpress · 21:00 → 22:35',
        em:['XQ9238', '訂位代號 D438G7', '托運 15kg', '手提 8kg']},
@@ -1073,9 +1073,9 @@ var PANELS={
     sub:'機場往返市區',
     subRows:[
       {k:'11/04', b:'IST → Basilissis Hotel', i:'KLOOK',
-       em:['經濟車型 4 人座', '2件行李', '舉牌服務'],
+       em:['經濟車型 4 人座', '2件行李', '舉牌服務', 'Whats App · United Tech'],
        w:'司機自航班實際抵達時間起等候 60 分鐘；領完行李到接機大廳找舉牌'},
-      {k:'11/08 · .COM', b:'Basilissis Hotel → IST', i:'TRIP.com',
+      {k:'11/08', b:'Basilissis Hotel → IST', i:'TRIP.com',
        em:['經濟車型 4 人座', '2件行李'],
        w:'免費等候只有 15 分鐘，13:00 在飯店門口等車'}
     ]
@@ -1096,25 +1096,32 @@ var PANELS={
   other:{
     rows:[
       {k:'11/02 06:00', tag:'體驗', b:'Cappadocia Discovery Balloons 日出熱氣球', i:'Henna Hotel 接送',
-       em:'GetYourGuide',
+       em:'Whats App · Disconvery Ballons',
        w:'停飛不會自動順延，當下要問業者隔天有沒有位子；客滿就是全額退款'},
       {k:'11/02 16:00', tag:'體驗', b:'Camel Safari in Cappadocia 駱駝騎乘', i:'Henna Hotel 接送',
-       em:'GetYourGuide',
+       em:'WhatsApp',
        w:'接送時間由業者於活動前 1–2 天聯絡；結束後送回原接送地點'},
-      {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant', i:'2位，Anyi Hsieh'},
-      {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge', i:'2位，Anyi Hsieh'},
-      {k:'11/06 上午', tag:'門票', b:'聖索菲亞大教堂 Hagia Sophia', i:'官方售票系統',
-       em:'門票只含 2 樓，1 樓為禮拜區',
-       w:'週五中午禮拜時段不對非禮拜者開放；注意服裝規定'},
-      {k:'11/06 上午', tag:'門票', b:'地下水宮殿 Basilica Cistern', i:'官方售票系統 · 日間場',
-       em:'夜間場 19:30–22:00 另計價，不需要'},
-      {k:'11/06 13:00', tag:'餐廳', todo:true, b:'Seven Hills Restaurant', i:'屋頂拍照小點 · 只點飲料、甜點或小菜',
-       em:'確認能否少量點餐、有無低消與訂位規則'},
-      {k:'11/07 12:00', tag:'體驗', b:'Acemoglu 15 世紀土耳其浴', i:'Klook · <em>選半私人（兩人同室）</em>',
-       em:'Şehzadebaşı Cd., Fatih · Vezneciler 地鐵站步行 1 分鐘 · 體驗約 45 分鐘',
-       w:'需提前 10 分鐘抵達，遲到或未出席可能不退款'},
-      {k:'11/07 晚上', tag:'餐廳',  b:'Olden 1772', i:'2 人',
-       em:'Sirkeci／Fatih · 可能另加 10% 服務費與 cover charge'}
+      {k:'11/02 18:30', tag:'餐廳', b:'Topdeck Cave Restaurant', 
+       i:'2位，Anyi Hsieh',
+       em:'WhatsApp'},
+      {k:'11/03 13:00', tag:'餐廳', b:'Seki Restaurant & Lounge', i:'2位，Anyi Hsieh',
+       em:'WhatsApp'},
+      {k:'11/05 09:30', tag:'餐廳', b:'Seven Hills Restaurant', i:'2位，Anyi Hsieh',
+       em:'WhatsApp'},
+      {k:'11/05', tag:'門票', b:'聖索菲亞大教堂 Hagia Sophia',
+       em:['Klook', 'Turkey Pass']},
+      {k:'11/05', tag:'門票', b:'地下水宮殿 Basilica Cistern', 
+       em:['Klook', 'Turkey Pass', 'Whats App · E-Pass Customer Support']},
+      {k:'11/06', tag:'門票', b:'多爾瑪巴切皇宮 Dolmabahçe Sarayı', 
+       em:['Klook', 'Turkey Pass'],
+       w:'憑證會於 11/05 寄送至電子信箱'},
+      {k:'11/07 12:00', tag:'體驗', b:'Acemoglu 15 世紀土耳其浴',
+       em:['Klook', 'Turkey Pass']},
+      {k:'11/07 17:00', tag:'體驗', b:'博斯普魯斯海峽觀光遊船',
+       em:['Klook', 'Turkey Pass']},
+      {k:'11/07 20:00', tag:'餐廳',  b:'Olden 1772', 
+       i:'2位，Anyi Hsieh',
+       em:'Whats App · Gen Restorn'},
     ]
   }
 };
