@@ -32,6 +32,7 @@
   --edge-gold:rgba(196,154,63,.42); --eatery-bg:rgba(247,237,212,.45);
   --line:rgba(46,26,31,.14);
   --shadow:0 20px 55px rgba(61,34,38,.12);
+  --row-display:grid;        /* 時間軸列的版型：手機版在 media query 裡改成 block */
   --safe-t:env(safe-area-inset-top,0px);
   --safe-b:env(safe-area-inset-bottom,0px);
   --serif:Georgia,"Noto Serif TC","Songti TC",serif;
@@ -174,7 +175,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* 第二層切換（sw2／data-sc2）：與第一層獨立，同樣要在下面登記鍵名 */
 .tl-row[data-sc2]{display:none}
 .dp[data-sc2="kofte"] .tl-row[data-sc2~="kofte"]:not([data-sc]),
-.dp[data-sc2="poika"] .tl-row[data-sc2~="poika"]:not([data-sc]){display:grid}
+.dp[data-sc2="poika"] .tl-row[data-sc2~="poika"]:not([data-sc]){display:var(--row-display)}
 /* 同時掛 sc 與 sc2 的列：兩層都要對上才顯示 */
 .tl-row[data-sc][data-sc2]{display:none}
 .dp[data-sc="sul"][data-sc2="kofte"] .tl-row[data-sc~="sul"][data-sc2~="kofte"],
@@ -182,12 +183,12 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .dp[data-sc="topkapi"][data-sc2="kofte"] .tl-row[data-sc~="topkapi"][data-sc2~="kofte"],
 .dp[data-sc="sul"][data-sc2="poika"] .tl-row[data-sc~="sul"][data-sc2~="poika"],
 .dp[data-sc="gulhane"][data-sc2="poika"] .tl-row[data-sc~="gulhane"][data-sc2~="poika"],
-.dp[data-sc="topkapi"][data-sc2="poika"] .tl-row[data-sc~="topkapi"][data-sc2~="poika"]{display:grid}
+.dp[data-sc="topkapi"][data-sc2="poika"] .tl-row[data-sc~="topkapi"][data-sc2~="poika"]{display:var(--row-display)}
 /* 情境鍵：新增 sw 選項時要同步加進下面兩行，否則該群組永遠不顯示 */
 .dp[data-sc="done"] .tl-row[data-sc~="done"]:not([data-sc2]),.dp[data-sc="fly"] .tl-row[data-sc~="fly"]:not([data-sc2]),.dp[data-sc="no"] .tl-row[data-sc~="no"]:not([data-sc2]),
 .dp[data-sc="go"] .tl-row[data-sc~="go"]:not([data-sc2]),.dp[data-sc="skip"] .tl-row[data-sc~="skip"]:not([data-sc2]),
 .dp[data-sc="sul"] .tl-row[data-sc~="sul"]:not([data-sc2]),.dp[data-sc="topkapi"] .tl-row[data-sc~="topkapi"]:not([data-sc2]),
-.dp[data-sc="gulhane"] .tl-row[data-sc~="gulhane"]:not([data-sc2]){display:grid}
+.dp[data-sc="gulhane"] .tl-row[data-sc~="gulhane"]:not([data-sc2]){display:var(--row-display)}
 .dp[data-sc="done"] .grp[data-sc~="done"],.dp[data-sc="fly"] .grp[data-sc~="fly"],.dp[data-sc="no"] .grp[data-sc~="no"],
 .dp[data-sc="go"] .grp[data-sc~="go"],.dp[data-sc="skip"] .grp[data-sc~="skip"],
 .dp[data-sc="sul"] .grp[data-sc~="sul"],.dp[data-sc="topkapi"] .grp[data-sc~="topkapi"],
@@ -321,9 +322,7 @@ details[open] .chev{transform:rotate(180deg)}
 .tl-map{display:inline-flex;align-items:center;gap:5px;padding:4px 9px 4px 7px;border-radius:999px;font-size:.72rem;font-weight:600;line-height:1.3;text-decoration:none;color:#fff;background:var(--teal)}
 .tl-map svg{width:12px;height:12px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tl-map.walk{color:var(--teal);background:var(--teal-soft)}
-/* 「在地圖上開啟」是這排裡唯一可以點的東西，所以用實心綠松石跟旁邊的
-   資訊標籤分開；原本的 gold-soft 跟 .tag.car（🚘／🚶 時間）完全同色。 */
-.tl-map.pin{color:#fff;background:var(--teal)}
+.tl-map.pin{color:var(--gold-ink);background:var(--gold-soft)}
 
 /* 住宿 */
 .stay{margin-top:26px;padding:17px 19px;border-radius:18px;color:var(--on-dark);background:var(--teal)}
@@ -437,14 +436,44 @@ footer button{flex:none;border:0;background:none;color:var(--teal);font-weight:7
   .day-hero{margin-top:18px;border-radius:14px}
   /* 時間軸左欄：時間 37px ＋ 20px 的線／圓章區，卡片從 57px 開始（桌機是 82px）。
      圓章縮到 17px 才塞得進那 20px，而且兩側都還留得出空隙。 */
-  .grp-head{margin-left:58px}
-  .tl::before{left:47px}
-  .tl-row[data-way]::before{left:45px}
-  .tl-row{grid-template-columns:37px minmax(0,1fr);gap:21px}
-  .tl-card::before{left:-15px}
+  /* 手機版：時間欄不再佔左邊一整欄，改成「交通圓章＋時間」一行放在卡片上方。
+     色條留在最左邊 4px 一路貫通（卡片只讓出這 10px），圓章騎在色條上，
+     線不會斷；卡片吃掉剩下的全部寬度。 */
+  .grp-head{margin-left:14px}
+  .tl::before{display:none}            /* 每一列都有色條，底下那條細線就多餘了 */
+  .tl-row{display:block;position:relative;padding-left:14px}
+  :root{--row-display:block}
+  .tl-row[data-way]::before{left:7px;top:0;bottom:-12px;width:4px}
+  .tl-time{
+    position:relative;padding:0 0 7px 10px;
+    text-align:left;font-size:.7rem;line-height:1.35;
+  }
+  .tl-time br{display:none}            /* 「05:50 / –13:20」併成一行 */
+  /* 圓章從卡片移到時間那一行；這三個選擇器要跟原本的規則同樣明確才蓋得掉 */
+  .tl-card::before,
   .tl-row[data-way]:not([data-way="stay"]) .tl-card::before,
-  .tl-row[data-mark] .tl-card::before{left:-18.5px;width:16px;height:16px;font-size:9px}
-  .tl-time{font-size:.62rem}
+  .tl-row[data-mark] .tl-card::before{display:none}
+  .tl-time::before{
+    content:"";position:absolute;left:-14px;top:-1.5px;
+    box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+    width:18px;height:18px;border:2px solid var(--card);border-radius:50%;
+    background:var(--card);font-size:10px;line-height:1;box-shadow:0 0 0 1.5px var(--dot);
+  }
+  .tl-row[data-way="fly"] .tl-time::before{content:"\2708\FE0F";box-shadow:0 0 0 1.5px var(--fly)}
+  .tl-row[data-way="drive"] .tl-time::before{content:"\1F698";box-shadow:0 0 0 1.5px var(--terra)}
+  .tl-row[data-way="walk"] .tl-time::before{content:"\1F6B6";box-shadow:0 0 0 1.5px var(--gold)}
+  .tl-row[data-way="transit"] .tl-time::before{content:"\1F68B";box-shadow:0 0 0 1.5px var(--teal)}
+  .tl-row[data-mark="hotel"] .tl-time::before{content:"\1F3E8"}
+  .tl-row[data-mark="eat"] .tl-time::before{content:"\1F37D\FE0F"}
+  .tl-row[data-mark="sight"] .tl-time::before{content:"\1F4CD"}
+  /* 「現在進行中」的圓章也跟著搬過來 */
+  .tl-row.now .tl-time::before{background:var(--terra);animation:ring 1.9s ease-out infinite}
+  .tl-row.now.up .tl-time::before{animation:none;background:var(--card)}
+  .tl-row.now .tl-time::after{display:inline;margin:0 0 0 7px}
+  /* 景點卡：手機改成上下排，順序是 圖片 → 說明 →（卡片外的）標籤 */
+  .sightc.side{display:block}
+  .sightc.side .sightc-fig{width:100%;min-width:0;max-width:none;margin-bottom:10px}
+  .sightc.side .sightc-d{margin-top:0}
   .tl-sum{padding:13px 12px}
   .tl-act{font-size:.93rem}
   .tl-note{font-size:.82rem}
@@ -796,7 +825,7 @@ var DATA=[
   rows:[
     {time:'08:00<br>–09:00', act:'飯店早餐、退房', note:'行程出發需帶泳衣、盥洗用品等，體驗古董池。'},
     {time:'09:00<br>–10:10', act:'石灰棚東觀景台 Travertines East', hi:true, tags:['car:🚶 15 分','停留 55 分'], map:gm('pamEast'),
-     sight:{zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', side:true, d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。飯店走過來 870 公尺、爬升約 58 公尺。'},
+     sight:{zh:'石灰棚東觀景台', en:'Travertines East Viewpoint', img:'pamukkale-travertines.jpg', side:true, d:'白色梯田是溫泉水裡的碳酸鈣長年沉積出來的，泉水 36–57°C，含碳酸氫鹽、硫酸鹽與鐵。'},
     },
     {time:'10:10<br>–11:40', act:'Hierapolis 古劇場 Ancient Theatre', hi:true, tags:['car:🚶 40 分','停留 50 分'], map:gm('hTheatre'),
      sight:{zh:'Hierapolis 古劇場', en:'Hierapolis Ancient Theatre', img:'hierapolis-theatre.jpg', side:true, d:'推測是西元 60 年大地震後、哈德良任內重建的。50 排座位分成七區，可容納約 15,000 人，舞台背牆的立柱與浮雕保存得很完整。爬升約 135 公尺，是這段最累的一段。'},

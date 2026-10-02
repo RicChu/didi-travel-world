@@ -32,7 +32,6 @@
 | `goreme-museum.jpg` | Göreme 露天博物館 | `Göreme Open Air Museum 01.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
 | `kaymakli.jpg` | Kaymaklı 地下城 | `Kaymaklı Underground City large room.JPG` | MusikAnimal | CC BY-SA 4.0 |
 | `pigeon-valley.jpg` | 鴿子谷 | `Güvercinlik Vadisi.jpg` | Cobija | CC0 |
-| `avanos.jpg` | Avanos 與紅河 | `Kızılırmak River in Avanos.jpg` | Bernard Gagnon | CC BY-SA 3.0 |
 
 CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行就是這份表的摘要，改圖時兩邊都要更新。
 
@@ -43,7 +42,6 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 
 | 檔案 | 用途 | 來源 |
 |------|------|------|
-| `teras-restaurant.jpg` | 11/01 Teras restaurant 餐廳卡片 | 使用者於 2026-08-20 提供 |
 | `pamukkale-travertines.jpg` | 11/01 日照 + 石灰棚東觀景台景點卡 | 使用者於 2026-08-20 提供（取代原本 Slyronit 的 CC BY-SA 4.0 照片） |
 | `cappadocia-balloons.jpg` | 11/02 日照 | 使用者於 2026-08-20 提供（取代原本 MusikAnimal 的 CC BY-SA 4.0 照片） |
 | `asteras-manti.jpg` | 10/31 As Teras Mantı Evi 餐廳卡片 | 使用者於 2026-08-22 提供 |
@@ -66,14 +64,12 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `grand-bazaar.jpg` | 11/05 大巴札說明卡 | 使用者於 2026-09-30 提供 |
 | `dolmabahce.jpg` | 11/06 多爾瑪巴切皇宮說明卡 | 使用者於 2026-09-30 提供 |
 | `ortakoy.jpg` | 11/06 奧塔科伊清真寺說明卡 | 使用者於 2026-09-30 提供 |
-| `kumpir.jpg` | 11/06 奧塔科伊 kumpir 餐廳卡 | 使用者於 2026-09-30 提供 |
 | `suat-usta.jpg` | 11/06 Suat Usta Mersin Tantuni 餐廳卡 | 使用者於 2026-09-30 提供 |
 | `balik-durum.jpg` | 11/06 Balık Dürümcü Mehmet Usta 餐廳卡 | 使用者於 2026-09-30 提供 |
 | `taksim.jpg` | 11/06 塔克辛廣場 | 使用者於 2026-09-30 提供 |
 | `istiklal.jpg` | 11/06 獨立大街 | 使用者於 2026-09-30 提供 |
 | `cicek-pasaji.jpg` | 11/06 花市拱廊 Çiçek Pasajı | 使用者於 2026-09-30 提供 |
 | `st-antoine.jpg` | 11/06 聖安東尼教堂 | 使用者於 2026-09-30 提供 |
-| `hafiz-istiklal.jpg` | 11/06 Hafız Mustafa 1864 İstiklal | 使用者於 2026-09-30 提供 |
 | `galata-tower-street.jpg` | 11/06 加拉達塔 | 使用者於 2026-09-30 提供 |
 | `kizilkayalar.jpg` | 11/06 Kızılkayalar 濕漢堡 | 使用者於 2026-09-30 提供 |
 | `galata-bridge.jpg` | 11/06 加拉達橋夜景 | 使用者於 2026-09-30 提供 |
@@ -83,9 +79,6 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `acemoglu-hamam.jpg` | 11/07 Acemoğlu 土耳其浴說明卡 | 使用者於 2026-10-01 提供 |
 | `olden-1772.jpg` | 11/07 Olden 1772 晚餐餐廳卡 | 使用者於 2026-10-01 提供 |
 | `bosphorus-sunset.jpg` | 11/07 日卡主圖（奧塔科伊、博斯普魯斯大橋、少女塔、多爾瑪巴切日落） | 使用者於 2026-10-01 提供 |
-| `bellamaritimo.jpg` | 10/31 Bellamaritimo Hotel 住宿卡（棉堡） | 使用者於 2026-10-01 提供 |
-| `henna-room.jpg` | 11/01–11/04 Henna Hotel 住宿卡（Göreme 洞穴房） | 使用者於 2026-10-01 提供 |
-| `basilissis-room.jpg` | 11/04–11/08 Basilissis Hotel 住宿卡（伊斯坦堡雙床房） | 使用者於 2026-10-01 提供 |
 | `ephesus-terrace-houses.jpg` | 10/31 日卡主圖（以弗所坡上住宅 Yamaç Evler） | 使用者於 2026-10-01 提供 |
 | `suleymaniye.jpg` | 11/08 蘇萊曼尼耶清真寺 | 使用者於 2026-10-01 提供 |
 | `rustem-pasa.jpg` | 11/08 魯斯坦帕夏清真寺 | 使用者於 2026-10-01 提供 |
