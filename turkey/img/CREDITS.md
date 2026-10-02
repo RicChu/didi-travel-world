@@ -94,3 +94,4 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `poika.jpg` | 11/08 Poiká Breakfast & Cafe | 使用者於 2026-10-01 提供 |
 | `topkapi-palace.jpg` | 11/08 托卡匹皇宮（崇敬之門 Bâb-üs Selâm）— 2026-10-01 換圖 | 使用者於 2026-10-01 提供 |
 | `gulhane.jpg` | 11/08 居爾哈尼公園（梧桐林蔭道） | 使用者於 2026-10-01 提供 |
+| `chez-galip.jpg` | 11/04 Chez Galip 頭髮博物館（地下室髮束與留言卡） | 使用者於 2026-10-02 提供 |

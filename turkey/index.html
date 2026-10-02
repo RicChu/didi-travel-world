@@ -283,6 +283,8 @@ details[open] .chev{transform:rotate(180deg)}
 .sightc.side .sightc-body{order:1;flex:1 1 auto;min-width:0;align-self:center;padding:0}
 .sightc.side .sightc-d{margin-top:0;font-size:.86rem;line-height:1.7}
 .sightc.side+.tags{display:flex;margin-top:11px}
+/* 卡片內容的第一個元素是標籤時（整列只有標籤），上面不用再留間距 */
+.tl-body>.tags:first-child{margin-top:0}
 .sightc.side .sightc-fig{order:2;flex:0 0 40%;width:40%;min-width:96px;max-width:240px;align-self:stretch;border:1px solid var(--edge);border-radius:12px}
 .tl-spots{margin-top:12px;padding:12px;border-radius:13px;background:var(--tint-soft)}
 .spots-head{margin-bottom:8px;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--teal)}
@@ -319,7 +321,9 @@ details[open] .chev{transform:rotate(180deg)}
 .tl-map{display:inline-flex;align-items:center;gap:5px;padding:4px 9px 4px 7px;border-radius:999px;font-size:.72rem;font-weight:600;line-height:1.3;text-decoration:none;color:#fff;background:var(--teal)}
 .tl-map svg{width:12px;height:12px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tl-map.walk{color:var(--teal);background:var(--teal-soft)}
-.tl-map.pin{color:var(--gold-ink);background:var(--gold-soft)}
+/* 「在地圖上開啟」是這排裡唯一可以點的東西，所以用實心綠松石跟旁邊的
+   資訊標籤分開；原本的 gold-soft 跟 .tag.car（🚘／🚶 時間）完全同色。 */
+.tl-map.pin{color:#fff;background:var(--teal)}
 
 /* 住宿 */
 .stay{margin-top:26px;padding:17px 19px;border-radius:18px;color:var(--on-dark);background:var(--teal)}
@@ -804,8 +808,8 @@ var DATA=[
     {time:'15:10<br>–16:20', act:'Sarayköy 休息站 · 咖啡', note:'短暫休息，高速公路上，繞路 0 分鐘。', tags:['car:🚘 40 分','停留 30 分'], map:gm('saraykoy')},
     {time:'16:20<br>–18:20', act:'Shell 加油站 · 還車前加滿', note:'機場且順路的加油站，租車要還滿油。', tags:['car:🚘 2h'], map:gm('shellAdb')},
     {time:'18:20<br>–20:00', act:'伊茲密爾機場 İzmir Adnan Menderes Airport', note:'AVEC 還車驗車、托運、安檢。', hi:true, tags:['eat:晚餐'], map:gm('adb')},
-    {time:'21:00<br>–22:35', act:'國內轉機', book:'fly-xq9238', hi:true,},
-    {time:'22:35<br>–23:15', act:'Henna Hotel', book:['car-asr','stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
+    {time:'21:00<br>–22:35', act:'國內轉機', book:['fly-xq9238','car-asr'], hi:true,},
+    {time:'22:35<br>–23:15', act:'Henna Hotel', book:['stay-henna'], tags:['car:🚘 1h30'], map:gm('henna')}
   ]
 },
 
@@ -846,9 +850,9 @@ var DATA=[
       {time:'14:10<br>–15:30', act:'Göreme 鎮上午餐及回飯店', note:'換保暖外套。', tags:['car:🚘 10 分', 'eat:午餐'], map:gm('henna')},
 
     ]},
-    {label:'卡帕多奇亞紅線自駕', sub:'飛了 · 睡飽再出門，景點壓縮 40 分', alt:true, sc:'fly', rows:[
+    {label:'卡帕多奇亞紅線自駕', sub:'飛了 · 睡飽再出門，景點壓縮', alt:true, sc:'fly', rows:[
       {time:'11:15<br>–12:00', act:'Göreme 鎮上簡單吃', tags:['car:🚶 步行','eat:早午餐']},
-      {time:'12:00<br>–12:45', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票買一次就好，與 Zelve 共用'], map:gm('pasabag'),
+      {time:'12:00<br>–12:45', act:'Paşabağ 蘑菇谷 Monks Valley', hi:true, tags:['car:🚘 15 分','停留 30 分', '⚠️ 票與 Zelve 共用'], map:gm('pasabag'),
      sight:{zh:'Paşabağ 蘑菇谷', en:'Monks Valley', img:'pasabag.jpg', d:'最經典的多頭精靈煙囪——一根石柱頂著兩三顆玄武岩帽子，是卡帕多奇亞最好認的地貌。平地好走。', side:true},
     },
       {time:'12:45<br>–13:20', act:'Zelve 露天博物館 Zelve Open Air Museum', hi:true, tags:['car:🚘 5 分','停留 30 分','彈性可刪減'], map:gm('zelve'),
@@ -861,7 +865,7 @@ var DATA=[
     ]},
     {label:'下午與晚上', rows:[
       {time:'15:30<br>–17:40', act:'駱駝騎乘之旅', book:'exp-camel',
-     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'飯店接送，騎乘約 60 分，路線含紅色山谷與玫瑰谷。結束後送回飯店。', side:true},
+     sight:{zh:'駱駝騎乘 · 日落場', en:'Cappadocia Camel Ride', img:'camel-ride.jpg', d:'路線含紅色山谷與玫瑰谷。', side:true},
     },
       {time:'18:30<br>–20:15', act:'Topdeck Cave', book:'eat-topdeck', hi:true, tags:['car:🚶 步行 4 分','eat:晚餐'], map:gm('topdeck'),
        eatery:{name:'Topdeck Cave Restaurant', en:'Hafız Abdullah Efendi Sk. No 15, Göreme', hours:'每日 17:00–23:30', img:'topdeck-cave.jpg', pos:'50% 85%',
@@ -1007,14 +1011,14 @@ var DATA=[
     ]},
     {label:'10:00 退房出發 · 往機場收尾', rows:[
       {time:'10:00<br>–11:20', act:'Mustafapaşa 希臘石屋村 Sinasos', hi:true, tags:['car:🚘 19 分','停留 1h'], map:gm('mustafapasa'),
-       sight:{zh:'Mustafapaşa 希臘石屋村', en:'Sinasos', img:'mustafapasa.jpg', d:'1924 人口交換前是希臘正教社區，當時叫 <strong>Sinasos</strong>。18–19 世紀在外經商致富的居民回鄉蓋了近 700 棟石造宅邸，雕花門面、拱窗、新古典立面——<strong>是「蓋」出來的，不是鑿出來的</strong>，跟前兩天看的洞穴系統完全不同。現存 93 棟登錄古蹟、約 30 座教堂與禮拜堂，看點是聖君士坦丁與海倫娜教堂與石雕宅邸街區。', side:true},
+       sight:{zh:'Mustafapaşa 希臘石屋村', en:'Sinasos', img:'mustafapasa.jpg', d:'1924 人口交換前是希臘正教社區，當時叫Sinasos。18–19 世紀在外經商致富的居民回鄉蓋了近 700 棟石造宅邸，雕花門面、拱窗、新古典立面——是「蓋」出來的，看點是聖君士坦丁與海倫娜教堂與石雕宅邸街區。', side:true},
       },
       {time:'11:20<br>–12:30', act:'Güray Müze 地下陶藝博物館', hi:true, tags:['car:🚘 24 分','停留 45 分'], map:gm('guray'),
-       sight:{zh:'Güray Müze 地下陶藝博物館', en:'Güray Müze', img:'guray-muze.jpg', side:true, d:'<strong>世界第一座地下陶藝博物館</strong>，鑿在地下 20 公尺、1,600 平方公尺。分古代館（含西臺時期陶器）、現代館與藝廊，現場有製陶示範。'},
+       sight:{zh:'Güray Müze 地下陶藝博物館', en:'Güray Müze', img:'guray-muze.jpg', side:true, d:'世界第一座地下陶藝博物館，分古代館（含西臺時期陶器）、現代館與藝廊，現場有製陶示範。'},
       },
       {time:'12:30<br>–13:05', act:'麥當勞 午餐', note:'Avanos 鎮中心。接下來還有驛站與機場，這餐求快。', tags:['car:🚘 8 分','eat:午餐'], map:gm('mcdonalds')},
-      {time:'13:05<br>–13:45', act:'Chez Galip 頭髮博物館', note:'鎮中心一帶都是陶藝工坊與石屋老街，走過去就會經過 <strong>Avanos 老街</strong>。', hi:true, tags:['car:🚶 10 分','停留 30 分'], map:gm('chezgalip'),
-       sight:{zh:'Chez Galip 頭髮博物館', en:'Hair Museum', side:true, d:'陶藝工坊的地下室掛滿超過 <strong>16,000 名女性的髮束</strong>，每束都附姓名地址，是卡帕多奇亞最有名的怪地方。樓上就是 Galip 的陶藝工坊，可以看拉坯。'},
+      {time:'13:05<br>–13:45', act:'Chez Galip 頭髮博物館', hi:true, tags:['car:🚶 10 分','停留 30 分'], map:gm('chezgalip'),
+       sight:{zh:'Chez Galip 頭髮博物館', en:'Hair Museum', img:'chez-galip.jpg', side:true, d:'陶藝工坊的地下室掛滿超過 16,000 名女性的髮束，每束都附姓名地址，是卡帕多奇亞最有名的怪地方。樓上就是 Galip 的陶藝工坊，可以看拉坯。'},
       },
       {time:'13:45<br>–14:25', act:'Sarı Han 商隊驛站 Sarıhan Caravanserai', hi:true, tags:['car:🚘 8 分','停留 30 分'], map:gm('sarihan'),
        sight:{zh:'Sarı Han 商隊驛站', en:'Sarıhan Caravanserai', img:'sarihan-caravanserai.jpg', d:'1249 年的塞爾柱商隊旅館，是這趟<strong>唯一的塞爾柱時期建築</strong>。', side:true},
@@ -1554,23 +1558,25 @@ function rowHtml(r){
     pills+='<span class="tl-pill k-'+ks[n]+'">'+lab+'</span>';
   }
   var k=ks.length?ks[ks.length-1]:'';
-  /* 標籤與地圖連結排在同一列；若該列有 side 景點卡，就移到卡片下方整排 */
+  /* 標籤與地圖連結一律排在說明／景點卡／餐廳卡的下面，所有列都一樣。
+     只有標籤、沒有其他內容的列不給收合箭頭，不然箭頭會只用來收合那排標籤。 */
   var meta=tagsHtml(r.tags)+mapsHtml(r.map);
   var metaBox=meta?'<span class="tags">'+meta+'</span>':'';
-  var underSight=!!(metaBox&&r.sight&&r.sight.side);
-  var body=(r.note?'<div class="tl-note">'+r.note+'</div>':'')
+  var rest=(r.note?'<div class="tl-note">'+r.note+'</div>':'')
     +eateryHtml(r.eatery)
     +spotsHtml(r.spots)
-    +sightHtml(r.sight)
-    +(underSight?metaBox:'')
-    +bookHtml(r.book);
-  var sum='<span class="tl-head"><span class="tl-act">'+r.act+'</span>'
-    +(underSight?'':metaBox)+'</span>'
-    +'<span class="tl-side">'+pills+(body?CHEV:'')+'</span>';
+    +sightHtml(r.sight);
+  var booking=bookHtml(r.book);
+  var body=rest+metaBox+booking;
+  var foldable=!!(rest||booking);
+  var sum='<span class="tl-head"><span class="tl-act">'+r.act+'</span></span>'
+    +'<span class="tl-side">'+pills+(foldable?CHEV:'')+'</span>';
   var kc=k?' k-'+k:'';
-  var cardHtml=body
+  var cardHtml=foldable
     ?'<details class="tl-card'+kc+'" open><summary class="tl-sum">'+sum+'</summary><div class="tl-body">'+body+'</div></details>'
-    :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>';
+    :(body
+      ?'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div><div class="tl-body">'+body+'</div></div>'
+      :'<div class="tl-card'+kc+'"><div class="tl-sum">'+sum+'</div></div>');
   var way=wayOf(r), mark=(way==='stay')?markOf(r):'';
   return '<li class="tl-row'+(r.hi?' hi':'')+'"'+(r.sc?' data-sc="'+r.sc+'"':'')+(r.sc2?' data-sc2="'+r.sc2+'"':'')
     +(way?' data-way="'+way+'"':'')+(mark?' data-mark="'+mark+'"':'')+'>'
