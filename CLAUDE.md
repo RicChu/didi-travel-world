@@ -7,12 +7,34 @@
 ```
 didi-travel-world/
 ├── index.html          # 旅行總覽首頁（深色風格，卡片列表）
+├── robots.txt          # Disallow: /　擋搜尋引擎
 ├── huadong/
 │   └── index.html      # 花東四日行程（2026/07/15–18）
 └── turkey/
-    ├── index.html      # 土耳其11日行程（2026/10/30–11/09）
-    └── *.md             # 行程、疲勞度、路線圖、各項預訂與待訂清單
+    ├── index.src.html  # ⚠️ 明文母檔。改這個。**已 gitignore，只存在本機**
+    ├── index.html      # 加密發佈檔，由 scripts/lock.js 產生。**不要手改**
+    ├── scripts/lock.js # 加密建置腳本
+    └── *.md            # 行程、疲勞度、路線圖、各項預訂與待訂清單
+                        # ⚠️ **已 gitignore，只存在本機**（含訂單編號、電話、姓名）
 ```
+
+## 🔒 密碼鎖（2026-10-05 起）
+
+`turkey/index.html` 是**公開網站上的加密檔**：整個 `<body>`（版面＋全部 JS＋全部行程資料）
+序列化成 JSON，用 PBKDF2-SHA256（60 萬次）從密碼導出 AES-256-GCM 金鑰加密，
+發佈檔裡只有 base64 密文。沒有密碼的人看原始碼拿不到任何明文，連標題都是「行程」。
+
+**改內容的流程變成兩步：**
+
+```
+1. 編輯 turkey/index.src.html        （dev.py 預設就是開這個）
+2. node turkey/scripts/lock.js <密碼>  （重新產生 turkey/index.html）
+```
+
+- **絕對不要直接改 `turkey/index.html`**，下次 build 會整個蓋掉
+- `index.src.html` 與 `turkey/*.md` 都已 gitignore，**只存在本機，請自行備份**
+- 換密碼就是換一個參數重跑 lock.js，不用改程式
+- 解密用 Web Crypto，需要 https 或 localhost（GitHub Pages 與 dev.py 都符合）
 
 ## 技術規範
 
@@ -88,8 +110,12 @@ didi-travel-world/
 
 | 畫面 | 內容 |
 |------|------|
-| `/__edit?f=turkey/index.html` | **主要工作畫面**：左邊原始碼、右邊即時預覽，`Cmd+S` 存檔 |
-| `/turkey/index.html` | 只有預覽，左下角 `LIVE` 標記 |
+| `/__edit?f=turkey/index.src.html` | **主要工作畫面**：左邊原始碼、右邊即時預覽，`Cmd+S` 存檔 |
+| `/turkey/index.src.html` | 只有預覽（明文母檔，沒有密碼鎖），左下角 `LIVE` 標記 |
+| `/turkey/index.html` | 加密後的實際發佈檔，要輸入密碼 |
+
+⚠️ **dev.py 預設開的是 `index.src.html`**。存檔後記得跑 `node turkey/scripts/lock.js <密碼>`
+重新產生 `index.html`，不然 push 出去的還是舊內容。
 
 `/__edit` 的三個關鍵操作：**點右邊預覽的任何文字，左邊會自動跳到原始碼對應位置並選取**
 （文字被 `<strong>` 切開時退讓成找得到的最長片段）；右上搜尋框 Enter 找下一個；

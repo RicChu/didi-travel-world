@@ -14,7 +14,7 @@
 兩個頁面：
 
     /__edit                左邊原始碼、右邊即時預覽，Cmd+S 存檔（**主要工作畫面**）
-    /turkey/index.html     只有預覽
+    /turkey/index.src.html 只有預覽（明文母檔，不含密碼鎖）
 
 改任何 .html / .md / 圖片存檔後預覽會自動重新載入，並保留原本展開的日卡與捲動位置。
 重新載入用的程式碼是這支腳本即時注入的，**不會寫進檔案**，隨時可以直接 commit。
@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WATCH_SUFFIX = {".html", ".md", ".css", ".js", ".json", ".jpg", ".jpeg", ".png", ".webp", ".svg"}
 EDITABLE_SUFFIX = {".html", ".htm", ".md", ".css", ".js", ".json", ".txt"}
 SKIP_DIR = {".git", "node_modules", ".playwright-mcp", "__pycache__"}
-DEFAULT_FILE = "turkey/index.html"
+DEFAULT_FILE = "turkey/index.src.html"   # 明文母檔；改完要跑 lock.js 重新產生 index.html
 
 # ───────────────────────── 注入到預覽頁的程式碼 ─────────────────────────
 
