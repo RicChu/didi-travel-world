@@ -356,6 +356,15 @@ body::after{
   .section-wrap,.trips-grid{padding-inline:24px}
   .header-title{font-size:64px}
 }
+/* 大螢幕：旅程卡排成 2～3 欄，寬度跟足跡地圖對齊 */
+@media(min-width:760px){
+  .section-wrap,.trips-grid{max-width:880px}
+  .trips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+}
+@media(min-width:1180px){
+  .section-wrap,.trips-grid,.atlas{max-width:1180px}
+  .trips-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
