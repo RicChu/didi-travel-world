@@ -84,7 +84,10 @@ didi-travel-world/
 2. 使用 `frontend-design` skill 建立頁面，設計風格對應目的地文化
 3. 頁面使用 `.app-topbar > .back-btn` 結構（嵌入 flex 流，非 fixed）返回 `../index.html`
 4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`，並在根目錄 `img/` 放一張 `<trip>-cover.jpg`（長邊 1400px、jpeg 82），加上對應的 `.bg-<trip>` 規則
-5. 更新 CLAUDE.md 旅行狀態表
+5. 在根目錄 `index.html` 足跡地圖的 `COUNTRIES` 補上國家（國旗、城市經緯度、行程連結；還沒出發加 `status:'plan'`）。
+   若是新國家，地圖色塊要重新產生：國界來自 world-atlas `countries-110m.json`（Natural Earth 投影、寬 1000），
+   `data-c` 對應 `COUNTRIES[].code`
+6. 更新 CLAUDE.md 旅行狀態表
 
 ## 總覽頁風格規則
 
