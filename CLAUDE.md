@@ -8,10 +8,8 @@
 didi-travel-world/
 ├── index.html          # 旅行總覽首頁（深色風格，卡片列表）
 ├── robots.txt          # Disallow: /　擋搜尋引擎
-├── huadong/
-│   └── index.html      # 花東四日行程（2026/07/15–18）
-├── kyushu/ bali/ thailand/ kansai/ perth/
-│   ├── index.html      # 已完成的旅行（整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
+├── huadong/ kyushu/ bali/ thailand/ kansai/ perth/
+│   ├── index.html      # 已完成的旅行（花東整理自舊版頁面，其餘整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
 │   └── img/dN.jpg      # 每日照片（Wikimedia Commons，來源見各自的 img/CREDITS.md）
 │                       # ⚠️ 不放任何出現我們臉的照片；放上去前縮到 1400px、移除 EXIF
 └── turkey/
