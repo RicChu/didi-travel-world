@@ -38,6 +38,21 @@ didi-travel-world/
 - 換密碼就是換一個參數重跑 lock.js，不用改程式
 - 解密用 Web Crypto，需要 https 或 localhost（GitHub Pages 與 dev.py 都符合）
 
+## 📱 手機「今天」畫面與旅行回憶（2026-10-08 起，土耳其頁）
+
+底部固定分頁：🧭 今天 / 🗺️ 地圖 / 📋 行程 / ❤️ 回憶。旅途中用手機（寬 < 760px）打開會直接進「今天」。
+
+- **今天**：從當天面板裡目前看得到的列（已套用熱氣球等切換）算出已走完／現在／下一站；
+  開定位後顯示「在 X 附近」與到下一站的距離，座標取自各列地圖連結。手動打勾存在 `localStorage` 的 `tv.done`
+- **地圖**：把今天還沒走的點串成 Google Maps 路線
+- **回憶**：每天每支手機一則（分數、最喜歡什麼、一句話、最多 5 張照片），照片縮到 1600px 並重新編碼（EXIF／GPS 會被拿掉）。
+  用**行程頁密碼**經 PBKDF2 導出金鑰、AES-GCM 加密後，以 GitHub API commit 到 `turkey/memories/*.bin`，
+  repo 裡只有密文。沒網路時先存在手機的 IndexedDB，有網路再補傳
+  - 每支手機要在「回憶 → 設定」填 GitHub fine-grained token（只開這個 repo 的 Contents 讀寫），token 只存在那支手機
+  - ⚠️ **換行程密碼後，舊的回憶就解不開了**（金鑰由密碼導出）。要換密碼得先把回憶用舊密碼解出來重新加密
+  - ⚠️ 旅途中手機會直接 commit 到 `main`，**本機 push 前先 `git pull --rebase`**
+  - 預覽：`index.src.html?now=1103-1215` 可假裝是某個時刻
+
 ## 技術規範
 
 - 每個旅行計劃為**單一 HTML 檔案**，無外部 JS 依賴（Google Fonts 除外）
