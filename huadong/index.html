@@ -132,6 +132,13 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
 .day-sub{font-size:12px;color:var(--mist);letter-spacing:.04em}
 .day-bar{width:32px;height:3px;border-radius:2px;margin-top:12px}
 
+/* ── 每日照片 ── */
+.day-photo{position:relative;margin-top:14px;border-radius:14px;overflow:hidden;background:rgba(122,158,142,.12)}
+.day-photo img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.day-photo span{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:999px;font-size:11px;color:#fff;background:rgba(20,40,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+.day-photo a{position:absolute;right:8px;bottom:8px;font-size:9px;color:rgba(255,255,255,.8);text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+
 /* ── Map Toggle ── */
 .map-toggle-btn{
   display:inline-flex;align-items:center;gap:6px;
@@ -358,6 +365,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">楊梅 → 花蓮</div>
         <div class="day-sub">夜宿藍屋民宿 · 老時光晚餐</div>
         <div class="day-bar"></div>
+        <div class="day-photo"><img loading="lazy" decoding="async" src="img/d1.jpg" alt="花蓮市區" onerror="this.parentNode.style.display='none'"><span>花蓮市區</span><a href="https://commons.wikimedia.org/wiki/File:Hualien_Taiwan_Cityscape-02.jpg" target="_blank" rel="noopener">© CEphoto, Uwe Aranas · CC BY-SA 3.0</a></div>
         <button class="map-toggle-btn" onclick="toggleMap('map1',this)">
           <span class="map-icon">🗺</span> 查看路線地圖
         </button>
@@ -407,6 +415,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">花蓮 → 台東</div>
         <div class="day-sub">初鹿牧場 · 15:00 鹿野高台（PC 已訂）</div>
         <div class="day-bar"></div>
+        <div class="day-photo"><img loading="lazy" decoding="async" src="img/d2.jpg" alt="鹿野高台" onerror="this.parentNode.style.display='none'"><span>鹿野高台</span><a href="https://commons.wikimedia.org/wiki/File:%E9%B9%BF%E9%87%8E%E9%AB%98%E5%8F%B0_Luye_Gaotai_-_panoramio.jpg" target="_blank" rel="noopener">© lienyuan lee · CC BY 3.0</a></div>
         <button class="map-toggle-btn" onclick="toggleMap('map2',this)">
           <span class="map-icon">🗺</span> 查看路線地圖
         </button>
@@ -471,6 +480,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">台東 → 太麻里 → 池上 → 花蓮</div>
         <div class="day-sub">招財貓土地公 · 大池豆皮 · 夜宿東大門旁</div>
         <div class="day-bar"></div>
+        <div class="day-photo"><img loading="lazy" decoding="async" src="img/d3.jpg" alt="池上的稻田" onerror="this.parentNode.style.display='none'"><span>池上的稻田</span><a href="https://commons.wikimedia.org/wiki/File:Rice_field_with_mountain_background_in_Chishang.jpg" target="_blank" rel="noopener">© Bevis Chen · CC BY-SA 2.0</a></div>
         <button class="map-toggle-btn" onclick="toggleMap('map3',this)">
           <span class="map-icon">🗺</span> 查看路線地圖
         </button>
@@ -550,6 +560,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;co
         <div class="day-title">花蓮 → 崇德 → 宜蘭 → 土城</div>
         <div class="day-sub">七星潭 · 崇德海灘 · 奕順軒</div>
         <div class="day-bar"></div>
+        <div class="day-photo"><img loading="lazy" decoding="async" src="img/d4.jpg" alt="七星潭" onerror="this.parentNode.style.display='none'"><span>七星潭</span><a href="https://commons.wikimedia.org/wiki/File:Qixingtan_Beach,_Taiwan.jpg" target="_blank" rel="noopener">© Artemas Liu · CC BY-SA 2.0</a></div>
         <button class="map-toggle-btn" onclick="toggleMap('map4',this)">
           <span class="map-icon">🗺</span> 查看路線地圖
         </button>

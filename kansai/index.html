@@ -38,6 +38,7 @@
   --wash-a:rgba(162,62,88,0.1);
   --wash-b:rgba(61,92,74,0.08);
   --focus:rgba(162,62,88,0.38);
+  --scrim:rgba(59,42,58,0.64);
   --tint:rgba(61,92,74,0.08);
   --edge-gold:rgba(185,138,60,0.42);
   --eatery-bg:rgba(245,234,214,0.45);
@@ -155,6 +156,12 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .fact{padding:5px 10px;border-radius:999px;font-size:.75rem;font-weight:600;color:var(--teal);background:var(--teal-soft)}
 .fact.warn{color:var(--terra);background:var(--terra-soft)}
 
+/* 每日照片 */
+.day-hero{position:relative;margin-top:22px;border-radius:18px;overflow:hidden;background:var(--paper-strong)}
+.day-hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero-cap{position:absolute;left:12px;bottom:12px;padding:5px 10px;border-radius:999px;font-size:.72rem;color:var(--on-dark);background:var(--scrim);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@media (min-width:821px){.day-hero img{aspect-ratio:21/9}}
+
 /* ---------- 時間軸 ---------- */
 .tl{position:relative;display:grid;gap:12px;margin:22px 0 0;padding:0;list-style:none}
 .tl::before{content:"";position:absolute;left:63px;top:20px;bottom:20px;width:1px;background:var(--line)}
@@ -243,6 +250,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* ---------- footer ---------- */
 footer{padding:28px 0 calc(var(--safe-b) + 42px);border-top:1px solid var(--line);color:var(--muted);font-size:.75rem;line-height:1.7}
 footer p{margin:0;max-width:720px}
+footer p+p{margin-top:8px}
 footer b{color:var(--teal);letter-spacing:.14em}
 
 @media (max-width:820px){
@@ -359,7 +367,8 @@ footer b{color:var(--teal);letter-spacing:.14em}
   </main>
 
   <footer>
-    <p><b>DIDI TRAVEL WORLD</b>　行程整理自出發前的規劃表，訂單編號與付款資訊不放在公開頁面。</p>
+    <p><b>DIDI TRAVEL WORLD</b>　行程整理自出發前的規劃表。</p>
+    <p>每日照片來自 Wikimedia Commons：<a href="https://commons.wikimedia.org/wiki/File:Byodoin_Phoenix_Hall_Uji_2009.jpg" target="_blank" rel="noopener">663highland</a>（CC BY 2.5）、<a href="https://commons.wikimedia.org/wiki/File:Ine_Bay_and_Mt.Mukujibutai_2017-04_ac.jpg" target="_blank" rel="noopener">Asturio Cantabrio</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Arashiyama-Bamboo-Grove-Sunset.jpg" target="_blank" rel="noopener">Bjørn Christian Tørrissen</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg" target="_blank" rel="noopener">Martin Falbisoner</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Shinsekai_Tsutenkaku_at_night_2022-04-23.jpg" target="_blank" rel="noopener">Dick Thomas Johnson</a>（CC BY 2.0）、<a href="https://commons.wikimedia.org/wiki/File:Universal_Studios_in_Japan.jpg" target="_blank" rel="noopener">Leeyj0401</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Osaka-Castle-cherry-blossom-2018-Luka-Peternel.jpg" target="_blank" rel="noopener">Luka Peternel</a>（CC BY-SA 4.0）</p>
   </footer>
 
 </div>
@@ -372,7 +381,7 @@ function pin(q){return 'https://www.google.com/maps/search/?api=1&query='+encode
 var DATA=[
 /* ========== DAY 01 · 03/21 ========== */
 {
-  day:1, date:'03/21', week:'六',
+  day:1, img:'d1.jpg', cap:'宇治 · 平等院鳳凰堂', date:'03/21', week:'六',
   title:'🍵 宇治・伏見稻荷 Uji｜落地直奔抹茶之鄉',
   lead:'中午落地關西，行李交給 Airporter 直送飯店，搭 HARUKA 到京都，下午宇治、傍晚伏見稻荷。',
   facts:['JR Pass','行李直送'],
@@ -399,7 +408,7 @@ var DATA=[
 
 /* ========== DAY 02 · 03/22 ========== */
 {
-  day:2, date:'03/22', week:'日',
+  day:2, img:'d2.jpg', cap:'伊根灣與舟屋', date:'03/22', week:'日',
   title:'🌊 天橋立・伊根 Amanohashidate｜海之京都一日',
   lead:'特急轉丹後鐵道到天橋立，搭觀光船、巴士繞到伊根看舟屋，回程坐纜車上傘松公園，再搭丹後黑松號到西舞鶴。',
   facts:['天橋立二日遊通票','⚠️船與巴士班次少'],
@@ -430,7 +439,7 @@ var DATA=[
 
 /* ========== DAY 03 · 03/23 ========== */
 {
-  day:3, date:'03/23', week:'一',
+  day:3, img:'d3.jpg', cap:'嵐山竹林小徑', date:'03/23', week:'一',
   title:'🎋 嵐山 Arashiyama｜小火車、保津川與夜櫻二條城',
   lead:'早上竹林，坐嵯峨野小火車到龜岡，再乘保津川遊船漂回嵐山。下午吃五木茶屋，晚上看二條城夜櫻。',
   facts:['小火車','保津川遊船','夜櫻'],
@@ -456,7 +465,7 @@ var DATA=[
 
 /* ========== DAY 04 · 03/24 ========== */
 {
-  day:4, date:'03/24', week:'二',
+  day:4, img:'d4.jpg', cap:'清水寺', date:'03/24', week:'二',
   title:'👘 京都東山 → 大阪｜和服攝影、清水寺、道頓堀',
   lead:'行李寄在河原町，穿和服走清水寺、二三年坂、八坂神社並拍照。傍晚搭阪急到大阪，晚上道頓堀。',
   facts:['和服攝影','移動到大阪'],
@@ -494,7 +503,7 @@ var DATA=[
 
 /* ========== DAY 05 · 03/25 ========== */
 {
-  day:5, date:'03/25', week:'三',
+  day:5, img:'d5.jpg', cap:'新世界 · 通天閣', date:'03/25', week:'三',
   title:'🗼 大阪南區 Minami｜黑門市場、通天閣、HARUKAS',
   lead:'早上黑門市場吃鰻魚飯，下午上通天閣溜滑梯、走戶外步道，傍晚到阿倍野 HARUKAS 300 看夜景。',
   rows:[
@@ -510,7 +519,7 @@ var DATA=[
 
 /* ========== DAY 06 · 03/26 ========== */
 {
-  day:6, date:'03/26', week:'四',
+  day:6, img:'d6.jpg', cap:'日本環球影城', date:'03/26', week:'四',
   title:'🎢 環球影城 USJ｜大阪環球影城',
   lead:'下午進環球影城，晚上回心齋橋吃牛舌，最後去唐吉訶德買伴手禮。',
   rows:[
@@ -524,7 +533,7 @@ var DATA=[
 
 /* ========== DAY 07 · 03/27 ========== */
 {
-  day:7, date:'03/27', week:'五',
+  day:7, img:'d7.jpg', cap:'大阪城與櫻花', date:'03/27', week:'五',
   title:'🏯 大阪城 Osaka Castle｜梅田下午茶與回程',
   lead:'上午大阪城，中午到梅田吃下午茶與甜點，傍晚搭 HARUKA 到關西機場。',
   rows:[
@@ -650,7 +659,10 @@ function panelHtml(d,idx){
       h+='<span class="fact'+(d.facts[i].indexOf('⚠')===0?' warn':'')+'">'+d.facts[i]+'</span>';
     h+='</div>';
   }
-  h+='</div><ul class="tl">';
+  h+='</div>';
+  if(d.img) h+='<div class="day-hero"><img loading="lazy" decoding="async" src="img/'+d.img+'" alt="'+escAttr(d.cap||t.main)+'"'
+    +' onerror="this.parentNode.style.display=\'none\'">'+(d.cap?'<span class="hero-cap">'+d.cap+'</span>':'')+'</div>';
+  h+='<ul class="tl">';
   for(var j=0;j<d.rows.length;j++) h+=rowHtml(d.rows[j]);
   h+='</ul>';
   if(d.stay){

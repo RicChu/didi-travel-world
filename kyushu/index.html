@@ -38,6 +38,7 @@
   --wash-a:rgba(176,58,46,0.1);
   --wash-b:rgba(45,74,107,0.08);
   --focus:rgba(176,58,46,0.38);
+  --scrim:rgba(38,53,79,0.64);
   --tint:rgba(45,74,107,0.08);
   --edge-gold:rgba(199,151,63,0.42);
   --eatery-bg:rgba(246,236,213,0.45);
@@ -155,6 +156,12 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 .fact{padding:5px 10px;border-radius:999px;font-size:.75rem;font-weight:600;color:var(--teal);background:var(--teal-soft)}
 .fact.warn{color:var(--terra);background:var(--terra-soft)}
 
+/* 每日照片 */
+.day-hero{position:relative;margin-top:22px;border-radius:18px;overflow:hidden;background:var(--paper-strong)}
+.day-hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero-cap{position:absolute;left:12px;bottom:12px;padding:5px 10px;border-radius:999px;font-size:.72rem;color:var(--on-dark);background:var(--scrim);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@media (min-width:821px){.day-hero img{aspect-ratio:21/9}}
+
 /* ---------- 時間軸 ---------- */
 .tl{position:relative;display:grid;gap:12px;margin:22px 0 0;padding:0;list-style:none}
 .tl::before{content:"";position:absolute;left:63px;top:20px;bottom:20px;width:1px;background:var(--line)}
@@ -243,6 +250,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* ---------- footer ---------- */
 footer{padding:28px 0 calc(var(--safe-b) + 42px);border-top:1px solid var(--line);color:var(--muted);font-size:.75rem;line-height:1.7}
 footer p{margin:0;max-width:720px}
+footer p+p{margin-top:8px}
 footer b{color:var(--teal);letter-spacing:.14em}
 
 @media (max-width:820px){
@@ -359,7 +367,8 @@ footer b{color:var(--teal);letter-spacing:.14em}
   </main>
 
   <footer>
-    <p><b>DIDI TRAVEL WORLD</b>　行程整理自出發前的規劃表，訂單編號與付款資訊不放在公開頁面。</p>
+    <p><b>DIDI TRAVEL WORLD</b>　行程整理自出發前的規劃表。</p>
+    <p>每日照片來自 Wikimedia Commons：<a href="https://commons.wikimedia.org/wiki/File:JRK_Yufuin-no-Mori_Kiha71_Kiha72.jpg" target="_blank" rel="noopener">MaedaAkihiko</a>（CC0）、<a href="https://commons.wikimedia.org/wiki/File:Mount_Yufudake_from_Yunotsubo_Street.JPG" target="_blank" rel="noopener">そらみみ</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Kumamoto_Castle_Keep_Tower_20230103.jpg" target="_blank" rel="noopener">Suicasmo</a>（CC BY-SA 4.0）、<a href="https://commons.wikimedia.org/wiki/File:Aso_Kusasenri_horses_(52133462269).jpg" target="_blank" rel="noopener">Raita Futo from Tokyo, Japan</a>（CC BY 2.0）、<a href="https://commons.wikimedia.org/wiki/File:Huis_ten_bosch.jpg" target="_blank" rel="noopener">Ruben de Rijcke</a>（CC BY-SA 3.0）、<a href="https://commons.wikimedia.org/wiki/File:Waterfall_-_%E7%9C%9F%E5%90%8D%E4%BA%95%E3%81%AE%E6%BB%9D(%E3%81%BE%E3%81%AA%E3%81%84%E3%81%AE%E3%81%9F%E3%81%8D).jpg" target="_blank" rel="noopener">TANAKA Juuyoh (田中十洋)</a>（CC BY 2.0）、<a href="https://commons.wikimedia.org/wiki/File:JR_Hakata_City_2011_Jan.jpg" target="_blank" rel="noopener">ぱちょぴ</a>（CC BY-SA 3.0）</p>
   </footer>
 
 </div>
@@ -372,7 +381,7 @@ function pin(q){return 'https://www.google.com/maps/search/?api=1&query='+encode
 var DATA=[
 /* ========== DAY 01 · 04/25 ========== */
 {
-  day:1, date:'04/25', week:'五',
+  day:1, img:'d1.jpg', cap:'由布院之森', date:'04/25', week:'五',
   title:'♨️ 由布院 Yufuin｜搭由布院之森進溫泉鄉',
   lead:'上午落地福岡，在博多領好指定席，下午搭觀光列車「由布院之森」進山，晚上住湯布院。',
   facts:['JR 九州周遊券','由布院之森'],
@@ -396,7 +405,7 @@ var DATA=[
 
 /* ========== DAY 02 · 04/26 ========== */
 {
-  day:2, date:'04/26', week:'六',
+  day:2, img:'d2.jpg', cap:'湯布院 · 由布岳', date:'04/26', week:'六',
   title:'🌸 湯之坪街道 Yunotsubo｜金鱗湖晨霧與甜點散步',
   lead:'一早去金鱗湖，沿湯之坪街道一路吃過去。傍晚搭由布院之森到久留米，轉新幹線到熊本。',
   facts:['排隊名店','新幹線'],
@@ -425,7 +434,7 @@ var DATA=[
 
 /* ========== DAY 03 · 04/27 ========== */
 {
-  day:3, date:'04/27', week:'日',
+  day:3, img:'d3.jpg', cap:'熊本城天守', date:'04/27', week:'日',
   title:'🏯 熊本城 Kumamoto｜城下散步與水前寺和服',
   lead:'上午繞熊本城一圈，下午在水前寺換和服逛成趣園，晚上去熊本熊廣場和屋台村。',
   facts:['和服體驗','熊本市電'],
@@ -450,7 +459,7 @@ var DATA=[
 
 /* ========== DAY 04 · 04/28 ========== */
 {
-  day:4, date:'04/28', week:'一',
+  day:4, img:'d4.jpg', cap:'阿蘇 · 草千里', date:'04/28', week:'一',
   title:'🌋 阿蘇 Aso｜自駕上火山口與草千里',
   lead:'熊本站取車，一天繞完阿蘇：大觀峰、阿蘇神社、中岳火山口、草千里。晚上還車後搭新幹線回博多。',
   facts:['自駕','⚠️還車前加滿油'],
@@ -474,7 +483,7 @@ var DATA=[
 
 /* ========== DAY 05 · 04/29 ========== */
 {
-  day:5, date:'04/29', week:'二',
+  day:5, img:'d5.jpg', cap:'豪斯登堡', date:'04/29', week:'二',
   title:'🌷 豪斯登堡 Huis Ten Bosch｜一整天的荷蘭小鎮',
   lead:'搭特急豪斯登堡號來回，白天整天待在園區，晚上回中洲吃屋台。',
   facts:['特急豪斯登堡號'],
@@ -490,7 +499,7 @@ var DATA=[
 
 /* ========== DAY 06 · 04/30 ========== */
 {
-  day:6, date:'04/30', week:'三',
+  day:6, img:'d6.jpg', cap:'高千穗峽 · 真名井瀑布', date:'04/30', week:'三',
   title:'⛩️ 高千穗 Takachiho｜一日團：神社、千本櫻與峽谷',
   lead:'跟一日團從福岡出發，走上色見熊野座神社、高森千本櫻、天岩戶神社，最後到高千穗峽。',
   facts:['一日團'],
@@ -509,7 +518,7 @@ var DATA=[
 
 /* ========== DAY 07 · 05/01 ========== */
 {
-  day:7, date:'05/01', week:'四',
+  day:7, img:'d7.jpg', cap:'JR 博多站', date:'05/01', week:'四',
   title:'✈️ 回程｜福岡空港',
   lead:'早上搭地鐵到機場，上午的航班回桃園。',
   rows:[
@@ -625,7 +634,10 @@ function panelHtml(d,idx){
       h+='<span class="fact'+(d.facts[i].indexOf('⚠')===0?' warn':'')+'">'+d.facts[i]+'</span>';
     h+='</div>';
   }
-  h+='</div><ul class="tl">';
+  h+='</div>';
+  if(d.img) h+='<div class="day-hero"><img loading="lazy" decoding="async" src="img/'+d.img+'" alt="'+escAttr(d.cap||t.main)+'"'
+    +' onerror="this.parentNode.style.display=\'none\'">'+(d.cap?'<span class="hero-cap">'+d.cap+'</span>':'')+'</div>';
+  h+='<ul class="tl">';
   for(var j=0;j<d.rows.length;j++) h+=rowHtml(d.rows[j]);
   h+='</ul>';
   if(d.stay){

@@ -11,7 +11,9 @@ didi-travel-world/
 ├── huadong/
 │   └── index.html      # 花東四日行程（2026/07/15–18）
 ├── kyushu/ bali/ thailand/ kansai/ perth/
-│   └── index.html      # 已完成的旅行（整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
+│   ├── index.html      # 已完成的旅行（整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
+│   └── img/dN.jpg      # 每日照片（Wikimedia Commons，來源見各自的 img/CREDITS.md）
+│                       # ⚠️ 不放任何出現我們臉的照片；放上去前縮到 1400px、移除 EXIF
 └── turkey/
     ├── index.src.html  # ⚠️ 明文母檔。改這個。**已 gitignore，只存在本機**
     ├── index.html      # 加密發佈檔，由 scripts/lock.js 產生。**不要手改**
