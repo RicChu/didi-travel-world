@@ -279,6 +279,14 @@ body::after{
 .atlas-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
 .atlas-legend .lg-on{background:var(--forest-mid)}
 .atlas-legend .lg-plan{background:var(--coral);opacity:.72}
+.atlas-legend .lg-route{width:16px;height:0;border-radius:0;border-top:1.5px dashed var(--forest)}
+.atlas-map .route{fill:none;stroke:var(--forest);stroke-width:1.3;vector-effect:non-scaling-stroke;stroke-dasharray:4 3;opacity:.45;pointer-events:none;transition:opacity .2s ease}
+.atlas-map .route.plan{stroke:var(--coral);opacity:.8;animation:route-dash 1.2s linear infinite}
+.atlas-map .route.hl{opacity:1;stroke-width:2}
+.atlas-map .plane{pointer-events:none}
+.atlas-map .plane path{fill:var(--coral);stroke:#fff;stroke-width:.8;vector-effect:non-scaling-stroke}
+@keyframes route-dash{to{stroke-dashoffset:-7}}
+@media (prefers-reduced-motion: reduce){.atlas-map .route.plan{animation:none}}
 /* 國家護照章：一排精簡的國旗章，點了才展開該國的城市與行程 */
 .atlas-stamps{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px 4px}
 .stamp{
@@ -381,7 +389,7 @@ body::after{
   <div class="atlas-card">
     <div class="atlas-head">
       <div>
-        <div class="atlas-kicker">Our Footprints</div>
+        <div class="atlas-kicker">Our World</div>
         <h2 class="atlas-title" id="atlas-title">我們去過的地方</h2>
       </div>
       <div class="atlas-stats" id="atlasStats"></div>
@@ -402,12 +410,14 @@ body::after{
 <path class="c-on" data-c="TW" d="M828.8,171.4L828.4,176.6L827.8,179.3L825.8,176.5L824.9,174.1L825.8,170.9L827.3,168.5L828.8,169.5L828.8,171.4Z"/>
 <path class="c-on" data-c="JP" d="M864.8,123.6L864,126.9L865.6,130.2L865.8,132.8L866.9,134.4L866.5,136.7L863.8,138.2L859.3,138.4L857,142.1L854.8,140.8L853.7,138.4L849.4,139.1L846.9,140.6L843.9,140.7L847.4,143.1L847.6,148.6L846.4,149.9L844.7,148.7L844.3,145.8L842.3,144.8L840.4,142.6L842.5,141.6L843.2,139.6L845.1,137.9L846.2,135.7L851,134.7L854,135.4L854.3,129.7L856.7,131.2L859.1,128L860,126.7L859.7,122.8L857.5,119.2L857.6,117.2L860,116.6L863.7,121L864.8,123.6ZM863.7,108.3L864.8,107L867.4,110.6L864.1,111.4L863.6,114.6L858.4,112.4L858.9,115.9L856.1,116L854.1,112.8L854,110.3L856.6,110.2L854.9,105.8L854.2,103.3L859.1,106.6L861.6,107.7L863.7,108.3ZM848,142.1L848.7,140.1L850.4,140.5L850.9,139.2L853.1,139.9L853.9,141L853.2,142.9L851.7,141.9L850.6,142.6L850.6,144.5L848.6,143.6L848,142.1Z"/>
         </g>
+        <g id="atlasRoutes"></g>
         <g id="atlasMarks"></g>
       </svg>
     </div>
     <div class="atlas-legend">
       <span><i class="lg-on"></i>去過了</span>
       <span><i class="lg-plan"></i>即將出發</span>
+      <span><i class="lg-route"></i>從台灣起飛</span>
     </div>
     <div class="atlas-stamps" id="atlasStamps" role="group" aria-label="國家"></div>
     <div class="atlas-detail" id="atlasDetail" aria-live="polite"></div>
@@ -660,27 +670,29 @@ body::after{
 <script>
 /* ── 足跡地圖 ──
    新增旅行時：在 COUNTRIES 補國家（code 對應地圖 path 的 data-c）與城市座標，
-   trips 是 [名稱, 出發年月, 行程頁]；status:'plan' 表示還沒出發。 */
+   trips 是 [名稱, 出發年月, 行程頁, 天數, 降落機場經緯度]；國內旅行不填機場就不畫航線。
+   status:'plan' 表示還沒出發。航線、統計數字都從這裡自動算出來。 */
+var HOME=[121.23,25.08];   /* 桃園機場：所有航線的起點 */
 var COUNTRIES=[
   {code:'TW', flag:'🇹🇼', name:'台灣', en:'Taiwan', at:[121.0,23.7], pin:[34,6],
    cities:[['花蓮',121.60,23.99],['池上',121.22,23.10],['台東',121.15,22.76]],
-   trips:[['花東縱谷','2026.07','./huadong/index.html']]},
+   trips:[['花東縱谷','2026.07','./huadong/index.html',4]]},
   {code:'JP', flag:'🇯🇵', name:'日本', en:'Japan', at:[136.5,35.5], pin:[30,-26],
    cities:[['福岡',130.40,33.59],['由布院',131.37,33.26],['熊本',130.71,32.80],['阿蘇',131.08,32.88],['高千穗',131.31,32.71],
            ['京都',135.77,35.01],['宇治',135.80,34.89],['天橋立',135.19,35.57],['大阪',135.50,34.69]],
-   trips:[['九州','2025.04','./kyushu/index.html'],['京都・大阪','2026.03','./kansai/index.html']]},
+   trips:[['九州','2025.04','./kyushu/index.html',7,[130.45,33.59]],['京都・大阪','2026.03','./kansai/index.html',7,[135.24,34.43]]]},
   {code:'TH', flag:'🇹🇭', name:'泰國', en:'Thailand', at:[100.9,13.8], pin:[-30,-16],
    cities:[['曼谷',100.50,13.76],['芭達雅',100.88,12.93]],
-   trips:[['曼谷・芭達雅','2025.10','./thailand/index.html']]},
+   trips:[['曼谷・芭達雅','2025.10','./thailand/index.html',6,[100.75,13.69]]]},
   {code:'ID', flag:'🇮🇩', name:'印尼', en:'Indonesia · Bali', at:[115.2,-8.5], pin:[30,8],
    cities:[['烏布',115.26,-8.51],['努沙佩尼達',115.51,-8.73]],
-   trips:[['峇里島','2025.06','./bali/index.html']]},
+   trips:[['峇里島','2025.06','./bali/index.html',8,[115.17,-8.75]]]},
   {code:'AU', flag:'🇦🇺', name:'澳洲', en:'Australia', at:[115.9,-31.9], pin:[-30,16],
    cities:[['珀斯',115.86,-31.95],['弗里曼特爾',115.75,-32.06],['瑪格麗特河',115.07,-33.95],['卡爾巴里',114.16,-27.71],['尖峰石陣',115.16,-30.60]],
-   trips:[['西澳珀斯','2026.05','./perth/index.html']]},
+   trips:[['西澳珀斯','2026.05','./perth/index.html',8,[115.97,-31.94]]]},
   {code:'TR', flag:'🇹🇷', name:'土耳其', en:'Türkiye', status:'plan', at:[32.5,39.0], pin:[-34,-10],
    cities:[['伊斯坦堡',28.98,41.01],['以弗所',27.34,37.94],['棉堡',29.12,37.92],['卡帕多奇亞',34.83,38.64]],
-   trips:[['土耳其之旅','2026.10','./turkey/index.html']]}
+   trips:[['土耳其之旅','2026.10','./turkey/index.html',10,[28.75,41.26]]]}
 ];
 
 (function(){
@@ -702,10 +714,41 @@ var COUNTRIES=[
   function el(tag,attrs){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e;}
 
   /* 統計 */
-  var nC=0,nCity=0,nTrip=0;
-  COUNTRIES.forEach(function(c){ if(c.status!=='plan'){nC++;nCity+=c.cities.length;nTrip+=c.trips.length;} });
+  var nC=0,nCity=0,nTrip=0,nDay=0;
+  COUNTRIES.forEach(function(c){ if(c.status!=='plan'){
+    nC++; nCity+=c.cities.length; nTrip+=c.trips.length;
+    c.trips.forEach(function(t){ nDay+=t[3]||0; });
+  } });
   document.getElementById('atlasStats').innerHTML=
-    '<div><b>'+nC+'</b><span>個國家</span></div><div><b>'+nCity+'</b><span>座城市</span></div><div><b>'+nTrip+'</b><span>趟旅程</span></div>';
+    '<div><b>'+nC+'</b><span>個國家</span></div><div><b>'+nCity+'</b><span>座城市</span></div>'
+    +'<div><b>'+nTrip+'</b><span>趟旅程</span></div><div><b>'+nDay+'</b><span>天在路上</span></div>';
+
+  /* 航線：桃園 → 每趟旅行降落的機場，往北彎的弧線；即將出發的那條有一架飛機在飛 */
+  var routes=document.getElementById('atlasRoutes'), planes=[];
+  var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var h0=proj(HOME[0],HOME[1]);
+  COUNTRIES.forEach(function(c){
+    var plan=c.status==='plan';
+    c.trips.forEach(function(t){
+      if(!t[4]) return;
+      var b=proj(t[4][0],t[4][1]), dx=b[0]-h0[0], dy=b[1]-h0[1], L=Math.sqrt(dx*dx+dy*dy);
+      var nx=-dy/L, ny=dx/L; if(ny>0){nx=-nx;ny=-ny;}
+      var bend=Math.min(L*.22,60), cx=(h0[0]+b[0])/2+nx*bend, cy=(h0[1]+b[1])/2+ny*bend;
+      var d='M'+h0[0]+','+h0[1]+' Q'+cx+','+cy+' '+b[0]+','+b[1];
+      var r=el('path',{'class':'route'+(plan?' plan':''),'data-c':c.code,d:d});
+      r.appendChild(el('title',{})).textContent='台灣 → '+t[0];
+      routes.appendChild(r);
+      if(!plan) return;
+      var g=el('g',{'class':'plane'}), inner=el('g',{});
+      inner.appendChild(el('path',{d:'M7,0C7,-.8 6,-1 5,-1L1.5,-1L-2,-6L-3.5,-6L-1.5,-1L-4.5,-1L-6,-3L-7,-3L-6,0L-7,3L-6,3L-4.5,1L-1.5,1L-3.5,6L-2,6L1.5,1L5,1C6,1 7,.8 7,0Z'}));
+      g.appendChild(inner); routes.appendChild(g); planes.push(inner);
+      if(RM){ var m=r.getPointAtLength(r.getTotalLength()*.55);
+              g.setAttribute('transform','translate('+m.x+','+m.y+') rotate(200)'); return; }
+      var am=el('animateMotion',{dur:'7s',repeatCount:'indefinite',rotate:'auto',path:d,
+                                 keyPoints:'0;1',keyTimes:'0;1',calcMode:'spline',keySplines:'.45 0 .55 1'});
+      g.appendChild(am);
+    });
+  });
 
   /* 標記：城市小圓點＋國旗圖釘（圖釘與點的大小固定為螢幕像素，縮放時不會跟著變大） */
   var items=[];
@@ -762,6 +805,7 @@ var COUNTRIES=[
       it.lead.setAttribute('x2',px); it.lead.setAttribute('y2',py);
       it.dots.forEach(function(d){ d.setAttribute('r',2.6*k*z); });
     });
+    planes.forEach(function(p){ p.setAttribute('transform','scale('+k*z*1.1+')'); });
   }
   function setView(v){ view=v; svg.setAttribute('viewBox',v.join(' ')); layout(); }
   var ANIM=0;
