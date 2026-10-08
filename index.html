@@ -279,27 +279,70 @@ body::after{
 .atlas-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
 .atlas-legend .lg-on{background:var(--forest-mid)}
 .atlas-legend .lg-plan{background:var(--coral);opacity:.72}
-.atlas-list{list-style:none;padding:8px 12px 14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
-.atlas-list li{
-  display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:12px;cursor:pointer;
-  border:1px solid transparent;transition:background .18s ease,border-color .18s ease;
+/* 國家護照章：一排精簡的國旗章，點了才展開該國的城市與行程 */
+.atlas-stamps{display:flex;flex-wrap:wrap;gap:8px;padding:10px 20px 4px}
+.stamp{
+  display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:999px;cursor:pointer;
+  font:inherit;color:var(--ink);background:var(--white);border:1px solid rgba(122,158,142,.28);
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
 }
-.atlas-list li.hl{background:rgba(58,107,85,.08);border-color:rgba(58,107,85,.25)}
-.atlas-list li.plan.hl{background:rgba(191,80,56,.07);border-color:rgba(191,80,56,.25)}
-.atlas-flag{font-size:22px;line-height:1}
-.atlas-name{font-size:13px;font-weight:600;color:var(--ink)}
-.atlas-name small{margin-left:6px;font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--forest-mid)}
-.atlas-list li.plan .atlas-name small{color:var(--coral)}
-.atlas-cities{margin-top:2px;font-size:11px;line-height:1.55;color:var(--mist)}
-.atlas-trips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
-.atlas-trips a{font-size:10px;padding:2px 8px;border-radius:9px;text-decoration:none;color:var(--forest-mid);background:rgba(122,158,142,.12)}
-.atlas-list li.plan .atlas-trips a{color:var(--coral);background:rgba(191,80,56,.09)}
+.stamp-flag{
+  display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  font-size:16px;line-height:1;background:rgba(122,158,142,.1);
+}
+.stamp b{font-size:12px;font-weight:600}
+.stamp small{font-size:10px;color:var(--mist);letter-spacing:.04em}
+.stamp.plan{border-style:dashed;border-color:rgba(191,80,56,.45)}
+.stamp.plan small{color:var(--coral)}
+.stamp:hover{border-color:rgba(37,69,58,.4)}
+.stamp.hl{background:var(--forest);border-color:var(--forest);color:#fff;box-shadow:0 4px 12px rgba(37,69,58,.22)}
+.stamp.hl small{color:rgba(255,255,255,.7)}
+.stamp.hl .stamp-flag{background:rgba(255,255,255,.92)}
+.stamp.plan.hl{background:var(--coral);border-color:var(--coral);box-shadow:0 4px 12px rgba(191,80,56,.22)}
+
+.atlas-detail{margin:10px 20px 18px}
+.atlas-hint{padding:14px 0 2px;font-size:11px;letter-spacing:.06em;color:var(--mist-light);text-align:center}
+.atlas-panel{
+  padding:16px 16px 14px;border-radius:16px;background:var(--white);
+  border:1px solid rgba(122,158,142,.2);box-shadow:0 2px 10px rgba(26,40,32,.05);
+  animation:panelIn .25s ease;
+}
+.atlas-panel.plan{border-color:rgba(191,80,56,.25)}
+@keyframes panelIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.panel-head{display:flex;align-items:center;gap:12px}
+.panel-flag{font-size:30px;line-height:1}
+.panel-name{font-family:Georgia,"Noto Serif TC",serif;font-size:20px;color:var(--ink)}
+.panel-sub{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.atlas-panel.plan .panel-sub{color:var(--coral)}
+.panel-label{margin:14px 0 7px;font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--mist)}
+.panel-cities{display:flex;flex-wrap:wrap;gap:6px}
+.panel-cities span{
+  display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
+  font-size:12px;color:var(--forest);background:rgba(122,158,142,.1);
+}
+.panel-cities span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--forest-mid)}
+.atlas-panel.plan .panel-cities span{color:var(--coral);background:rgba(191,80,56,.07)}
+.atlas-panel.plan .panel-cities span::before{background:var(--coral)}
+.panel-trips{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.panel-trips a{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:12px;
+  text-decoration:none;color:var(--ink);border:1px solid rgba(122,158,142,.25);transition:border-color .18s ease,background .18s ease;
+}
+.panel-trips a:hover{border-color:var(--forest);background:rgba(58,107,85,.05)}
+.panel-trips b{display:block;font-size:13px;font-weight:600}
+.panel-trips small{font-size:10px;letter-spacing:.06em;color:var(--mist)}
+.panel-trips i{font-style:normal;font-size:14px;color:var(--forest)}
+.atlas-panel.plan .panel-trips a{border-color:rgba(191,80,56,.3)}
+.atlas-panel.plan .panel-trips i{color:var(--coral)}
 @media(max-width:519px){
   .atlas{padding-inline:12px}
   .atlas-head{flex-direction:column;align-items:flex-start;padding:16px 16px 4px}
   .atlas-stats{text-align:left}
   .atlas-tools,.atlas-legend{padding-inline:16px}
-  .atlas-list{grid-template-columns:1fr;padding-inline:8px}
+  .atlas-stamps{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-inline:16px}
+  .atlas-stamps::-webkit-scrollbar{display:none}
+  .stamp{flex:none}
+  .atlas-detail{margin-inline:12px}
 }
 
 /* ── Footer ── */
@@ -357,7 +400,8 @@ body::after{
       <span><i class="lg-on"></i>去過了</span>
       <span><i class="lg-plan"></i>即將出發</span>
     </div>
-    <ul class="atlas-list" id="atlasList"></ul>
+    <div class="atlas-stamps" id="atlasStamps" role="group" aria-label="國家"></div>
+    <div class="atlas-detail" id="atlasDetail" aria-live="polite"></div>
   </div>
 </section>
 
@@ -607,33 +651,34 @@ body::after{
 <script>
 /* ── 足跡地圖 ──
    新增旅行時：在 COUNTRIES 補國家（code 對應地圖 path 的 data-c）與城市座標，
-   trips 連到該趟行程頁；status:'plan' 表示還沒出發。 */
+   trips 是 [名稱, 出發年月, 行程頁]；status:'plan' 表示還沒出發。 */
 var COUNTRIES=[
-  {code:'TW', flag:'🇹🇼', name:'台灣', at:[121.0,23.7], pin:[34,6],
+  {code:'TW', flag:'🇹🇼', name:'台灣', en:'Taiwan', at:[121.0,23.7], pin:[34,6],
    cities:[['花蓮',121.60,23.99],['池上',121.22,23.10],['台東',121.15,22.76]],
-   trips:[['花東縱谷 2026','./huadong/index.html']]},
-  {code:'JP', flag:'🇯🇵', name:'日本', at:[136.5,35.5], pin:[30,-26],
+   trips:[['花東縱谷','2026.07','./huadong/index.html']]},
+  {code:'JP', flag:'🇯🇵', name:'日本', en:'Japan', at:[136.5,35.5], pin:[30,-26],
    cities:[['福岡',130.40,33.59],['由布院',131.37,33.26],['熊本',130.71,32.80],['阿蘇',131.08,32.88],['高千穗',131.31,32.71],
            ['京都',135.77,35.01],['宇治',135.80,34.89],['天橋立',135.19,35.57],['大阪',135.50,34.69]],
-   trips:[['九州 2025','./kyushu/index.html'],['京都・大阪 2026','./kansai/index.html']]},
-  {code:'TH', flag:'🇹🇭', name:'泰國', at:[100.9,13.8], pin:[-30,-16],
+   trips:[['九州','2025.04','./kyushu/index.html'],['京都・大阪','2026.03','./kansai/index.html']]},
+  {code:'TH', flag:'🇹🇭', name:'泰國', en:'Thailand', at:[100.9,13.8], pin:[-30,-16],
    cities:[['曼谷',100.50,13.76],['芭達雅',100.88,12.93]],
-   trips:[['曼谷・芭達雅 2025','./thailand/index.html']]},
-  {code:'ID', flag:'🇮🇩', name:'印尼', at:[115.2,-8.5], pin:[30,8],
-   cities:[['峇里島 · 烏布',115.26,-8.51],['努沙佩尼達',115.51,-8.73]],
-   trips:[['峇里島 2025','./bali/index.html']]},
-  {code:'AU', flag:'🇦🇺', name:'澳洲', at:[115.9,-31.9], pin:[-30,16],
+   trips:[['曼谷・芭達雅','2025.10','./thailand/index.html']]},
+  {code:'ID', flag:'🇮🇩', name:'印尼', en:'Indonesia · Bali', at:[115.2,-8.5], pin:[30,8],
+   cities:[['烏布',115.26,-8.51],['努沙佩尼達',115.51,-8.73]],
+   trips:[['峇里島','2025.06','./bali/index.html']]},
+  {code:'AU', flag:'🇦🇺', name:'澳洲', en:'Australia', at:[115.9,-31.9], pin:[-30,16],
    cities:[['珀斯',115.86,-31.95],['弗里曼特爾',115.75,-32.06],['瑪格麗特河',115.07,-33.95],['卡爾巴里',114.16,-27.71],['尖峰石陣',115.16,-30.60]],
-   trips:[['西澳珀斯 2026','./perth/index.html']]},
-  {code:'TR', flag:'🇹🇷', name:'土耳其', status:'plan', at:[32.5,39.0], pin:[-34,-10],
+   trips:[['西澳珀斯','2026.05','./perth/index.html']]},
+  {code:'TR', flag:'🇹🇷', name:'土耳其', en:'Türkiye', status:'plan', at:[32.5,39.0], pin:[-34,-10],
    cities:[['伊斯坦堡',28.98,41.01],['以弗所',27.34,37.94],['棉堡',29.12,37.92],['卡帕多奇亞',34.83,38.64]],
-   trips:[['土耳其 2026.10','./turkey/index.html']]}
+   trips:[['土耳其之旅','2026.10','./turkey/index.html']]}
 ];
 
 (function(){
   var NS='http://www.w3.org/2000/svg';
   var svg=document.getElementById('atlasSvg'), marks=document.getElementById('atlasMarks');
-  var list=document.getElementById('atlasList');
+  var stamps=document.getElementById('atlasStamps'), detail=document.getElementById('atlasDetail');
+  var HINT='<p class="atlas-hint">點國旗或地圖上的國家，看看去過哪些城市</p>';
   var VIEWS={world:[0,18,1000,420], asia:[536,86,372,306]};
   var view=VIEWS.world.slice();
 
@@ -668,16 +713,34 @@ var COUNTRIES=[
     g.appendChild(el('circle',{r:13}));
     var t=el('text',{}); t.textContent=c.flag; g.appendChild(t);
     marks.appendChild(lead); marks.appendChild(g);
-    items.push({c:c,a:a,dots:dots,lead:lead,pin:g});
+    /* 放大到這個國家用的範圍：城市點＋圖釘錨點 */
+    var pts=c.cities.map(function(ct){return proj(ct[1],ct[2]);}).concat([a]);
+    var xs=pts.map(function(q){return q[0];}), ys=pts.map(function(q){return q[1];});
+    var x0=Math.min.apply(0,xs), x1=Math.max.apply(0,xs), y0=Math.min.apply(0,ys), y1=Math.max.apply(0,ys);
+    var R=VIEWS.world[2]/VIEWS.world[3], w=Math.max((x1-x0)*3,(y1-y0)*3*R,130), h=w/R;
+    items.push({c:c,a:a,dots:dots,lead:lead,pin:g,box:[(x0+x1)/2-w/2,(y0+y1)/2-h/2,w,h]});
 
-    var li=document.createElement('li');
-    li.className=plan.trim(); li.setAttribute('data-c',c.code);
-    li.innerHTML='<span class="atlas-flag">'+c.flag+'</span><div><div class="atlas-name">'+c.name
-      +'<small>'+(plan?'即將出發':c.trips.length+' 趟')+'</small></div>'
-      +'<div class="atlas-cities">'+c.cities.map(function(x){return x[0];}).join('、')+'</div>'
-      +'<div class="atlas-trips">'+c.trips.map(function(x){return '<a href="'+x[1]+'">'+x[0]+' →</a>';}).join('')+'</div></div>';
-    list.appendChild(li);
+    var st=document.createElement('button');
+    st.type='button'; st.className='stamp'+plan; st.setAttribute('data-c',c.code);
+    st.innerHTML='<span class="stamp-flag">'+c.flag+'</span><span><b>'+c.name+'</b> <small>'
+      +(plan?'即將出發':c.trips.length+' 趟')+'</small></span>';
+    stamps.appendChild(st);
   });
+  detail.innerHTML=HINT;
+
+  function panelHtml(c){
+    var plan=c.status==='plan';
+    return '<div class="atlas-panel'+(plan?' plan':'')+'">'
+      +'<div class="panel-head"><span class="panel-flag">'+c.flag+'</span><div>'
+      +'<div class="panel-sub">'+c.en+(plan?' · 即將出發':'')+'</div>'
+      +'<div class="panel-name">'+c.name+'</div></div></div>'
+      +'<div class="panel-label">'+(plan?'要去的城市':'去過的城市')+' · '+c.cities.length+'</div>'
+      +'<div class="panel-cities">'+c.cities.map(function(x){return '<span>'+x[0]+'</span>';}).join('')+'</div>'
+      +'<div class="panel-label">行程</div>'
+      +'<div class="panel-trips">'+c.trips.map(function(x){
+          return '<a href="'+x[2]+'"><span><b>'+x[0]+'</b><small>'+x[1]+'</small></span><i>→</i></a>';
+        }).join('')+'</div></div>';
+  }
 
   function layout(){
     var w=svg.getBoundingClientRect().width||1;
@@ -692,9 +755,11 @@ var COUNTRIES=[
     });
   }
   function setView(v){ view=v; svg.setAttribute('viewBox',v.join(' ')); layout(); }
+  var ANIM=0;
   function animate(to){
-    var from=view.slice(), t0=null;
+    var from=view.slice(), t0=null, id=++ANIM;
     function step(ts){
+      if(id!==ANIM) return;
       if(!t0) t0=ts;
       var u=Math.min(1,(ts-t0)/450), e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
       setView(from.map(function(f,i){return f+(to[i]-f)*e;}));
@@ -703,27 +768,36 @@ var COUNTRIES=[
     requestAnimationFrame(step);
   }
 
-  /* 高亮：國家色塊、圖釘、清單互相連動 */
-  function hl(code){
+  /* 選國家：色塊、圖釘、護照章一起高亮，地圖放大到該國，下方展開城市與行程 */
+  var CUR=null;
+  function setTool(name){
+    var bs=document.querySelectorAll('.atlas-tools button');
+    for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on',bs[i].getAttribute('data-view')===name);
+  }
+  function mark(code){
+    CUR=code;
     var nodes=document.querySelectorAll('.atlas [data-c]');
-    for(var i=0;i<nodes.length;i++) nodes[i].classList.toggle('hl',nodes[i].getAttribute('data-c')===code);
+    for(var i=0;i<nodes.length;i++) nodes[i].classList.toggle('hl',nodes[i].getAttribute('data-c')===CUR);
+  }
+  function pick(code){
+    mark((code===CUR)?null:code);           /* 再點一次同一國＝取消 */
+    var it=null;
+    for(var j=0;j<items.length;j++) if(items[j].c.code===CUR) it=items[j];
+    if(it){ setTool(null); animate(it.box); detail.innerHTML=panelHtml(it.c); }
+    else { setTool('world'); animate(VIEWS.world); detail.innerHTML=HINT; }
+    var st=stamps.querySelector('[data-c="'+CUR+'"]');
+    if(st&&stamps.scrollWidth>stamps.clientWidth)
+      stamps.scrollTo({left:st.offsetLeft-(stamps.clientWidth-st.offsetWidth)/2,behavior:'smooth'});
   }
   document.querySelector('.atlas').addEventListener('click',function(e){
     var b=e.target.closest('[data-view]');
     if(b){
-      var bs=document.querySelectorAll('.atlas-tools button');
-      for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on',bs[i]===b);
-      animate(VIEWS[b.getAttribute('data-view')]); return;
+      mark(null); detail.innerHTML=HINT;
+      setTool(b.getAttribute('data-view')); animate(VIEWS[b.getAttribute('data-view')]); return;
     }
     if(e.target.closest('a')) return;
     var c=e.target.closest('[data-c]');
-    if(!c) return;
-    var code=c.getAttribute('data-c');
-    hl(code);
-    if(c.tagName!=='LI'){
-      var li=list.querySelector('li[data-c="'+code+'"]');
-      if(li&&li.getBoundingClientRect().bottom>window.innerHeight) li.scrollIntoView({behavior:'smooth',block:'nearest'});
-    }
+    if(c) pick(c.getAttribute('data-c'));
   });
   window.addEventListener('resize',layout);
   layout();
