@@ -72,6 +72,8 @@ CC BY-SA 要求標示作者與授權：頁面 footer 的〈每日照片〉那行
 | `st-antoine.jpg` | 11/06 聖安東尼教堂 | 使用者於 2026-09-30 提供 |
 | `galata-tower-street.jpg` | 11/06 加拉達塔 | 使用者於 2026-09-30 提供 |
 | `kizilkayalar.jpg` | 11/06 Kızılkayalar 濕漢堡 | 使用者於 2026-09-30 提供 |
+| `zubeyir-ocakbasi.jpg` | 11/06 Zübeyir Ocakbaşı 炭火烤肉餐廳卡 | 使用者於 2026-10-16 提供 |
+| `ozsut-1915.jpg` | 11/06 Hasan Fehmi Özsüt 1915 甜點卡 | 使用者於 2026-10-16 提供 |
 | `galata-bridge.jpg` | 11/06 加拉達橋夜景 | 使用者於 2026-09-30 提供 |
 | `boris-kahvalti.jpg` | 11/07 Boris'in Yeri 早餐卡（水牛奶 kaymak 淋蜂蜜） | 使用者於 2026-10-01 提供 |
 | `vefa-bozacisi.jpg` | 11/07 Vefa Bozacısı 1876 餐廳卡 | 使用者於 2026-10-01 提供 |
