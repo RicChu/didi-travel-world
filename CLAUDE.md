@@ -8,6 +8,8 @@
 didi-travel-world/
 ├── index.html          # 旅行總覽首頁（深色風格，卡片列表）
 ├── robots.txt          # Disallow: /　擋搜尋引擎
+├── nantou/             # 日月潭・中部（2026-12，計劃中）：沿用花東頁版型，12/25 有晴天／雨天切換（data-sc）
+│   └── img/            # 每日照片，來源見 img/CREDITS.md；住宿只寫「伊達邵民宿」，路線連結用地址
 ├── huadong/ kyushu/ bali/ thailand/ kansai/ perth/
 │   ├── index.html      # 已完成的旅行（花東整理自舊版頁面，其餘整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
 │   └── img/dN.jpg      # 每日照片（Wikimedia Commons，來源見各自的 img/CREDITS.md）
@@ -83,6 +85,7 @@ didi-travel-world/
 | 西澳珀斯 | 2026-05-23 | 2026-05-30 | 已完成 |
 | 花東縱谷 | 2026-07-15 | 2026-07-18 | 已完成 |
 | 土耳其之旅 | 2026-10-30 | 2026-11-08 | 計劃中 |（班機 11/09 落地）
+| 日月潭・中部 | 2026-12-23 | 2026-12-25 | 計劃中 |（國內旅行；回程後再加進足跡地圖 `COUNTRIES` 的台灣 trips，避免統計提前算進去）
 
 ### 土耳其行程規劃狀態（分段）
 

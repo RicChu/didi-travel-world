@@ -9,3 +9,4 @@
 | `thailand-cover.jpg` | 總覽頁「曼谷・芭達雅」卡片封面（芭達雅真理寺） | Wikimedia Commons · Rolf H. · CC BY 3.0 |
 | `kansai-cover.jpg` | 總覽頁「京都・大阪」卡片封面（伏見稻荷千本鳥居） | Wikimedia Commons · Balon Greyjoy · CC0 |
 | `perth-cover.jpg` | 總覽頁「西澳珀斯」卡片封面（尖峰石陣） | Wikimedia Commons · -wuppertaler · CC BY 4.0 |
+| `nantou-cover.jpg` | 總覽頁「日月潭・中部」卡片封面（日月潭湖景） | Wikimedia Commons · lienyuan lee · CC BY 3.0 |
