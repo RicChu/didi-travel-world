@@ -417,7 +417,7 @@ function pin(q){return 'https://www.google.com/maps/search/?api=1&query='+enc(q)
 var P={
   home:'桃園市楊梅區',
   dajia:'台中市大甲區',
-  qingshui:'國道3號 清水服務區',
+  market:'大甲蔣公路夜市',
   lodge:'南投縣魚池鄉日月街20號',
   itaPier:'伊達邵碼頭',
   shuishe:'水社碼頭',
@@ -447,17 +447,16 @@ var DATA=[
 {
   day:1, img:'d1.jpg', cap:'伊達邵的夜晚', date:'12/23', week:'三',
   title:'🚗 楊梅 → 大甲 → 伊達邵｜下班出發，夜宿日月潭',
-  lead:'傍晚從楊梅出發，19:30 在大甲回診，接著走國 3、國 6 進埔里，晚上十點左右到伊達邵入住。',
-  facts:['自駕','⚠️約 22:10 才到民宿'],
+  lead:'傍晚從楊梅出發，19:30 在大甲回診，看完在蔣公路夜市隨便吃晚餐，再走國 3、國 6 進埔里，晚上十點半左右到伊達邵入住。',
+  facts:['自駕','⚠️約 22:30 才到民宿'],
   rows:[
-    {time:'17:30', act:'桃園楊梅出發', tags:['car:🚘 車程約 1 小時 40 分'],
-     note:'出發前先吃點東西，或在車上備好輕食。', map:drv(P.home,P.dajia)},
+    {time:'17:30', act:'桃園楊梅出發', tags:['car:🚘 車程約 1 小時 40 分'], map:drv(P.home,P.dajia)},
     {time:'19:30', act:'大甲 · 牙醫回診', note:'約 45 分鐘。'},
-    {time:'20:15', act:'清水服務區', tags:['car:🚘 國 3 南下 · 約 20 分','eat:晚餐'],
-     eatery:{name:'清水服務區', en:'國道 3 號 · 南下', d:'美食街店家營業時間不一，便利商店 24 小時。'}, map:drv(P.dajia,P.qingshui)},
-    {time:'21:00', act:'國 3 → 國 6 → 埔里 → 台 21 線 → 伊達邵', tags:['car:🚘 約 1 小時 10 分','⚠️埔里之後山路彎、路燈少'],
-     note:'在埔里市區加滿油。', map:drv(P.qingshui,P.lodge)},
-    {time:'22:10', act:'伊達邵民宿入住', note:'入住方式照民宿傳來的訊息。'}
+    {time:'20:15', act:'大甲蔣公路夜市', tags:['car:🚘 約 5 分','eat:晚餐'],
+     eatery:{name:'大甲蔣公路夜市', en:'鎮瀾宮旁', d:'隨便吃，21:00 前出發。'}, map:drv(P.dajia,P.market)},
+    {time:'21:00', act:'國 3 → 國 6 → 埔里 → 台 21 線 → 伊達邵', tags:['car:🚘 約 1 小時 25 分','⚠️埔里之後山路彎、路燈少'],
+     note:'在埔里市區加滿油。', map:drv(P.market,P.lodge)},
+    {time:'22:30', act:'伊達邵民宿入住', note:'入住方式照民宿傳來的訊息。'}
   ],
   stay:{name:'伊達邵民宿', note:'連住兩晚 · 免費停車'}
 },
