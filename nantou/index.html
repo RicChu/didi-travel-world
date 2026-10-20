@@ -221,6 +221,7 @@ h2{margin:0;font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weig
 /* 餐廳卡片 */
 .eatery{margin-top:12px;overflow:hidden;border:1px solid var(--edge-gold);border-radius:14px;background:var(--eatery-bg)}
 .tl-body>.eatery:first-child{margin-top:0}
+.eatery-fig{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--paper-strong)}
 .eatery-body{padding:13px 14px 14px}
 .eatery-name{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--ink)}
 .eatery-en{display:block;margin-top:2px;font-family:"DM Sans","Noto Sans TC",sans-serif;font-size:.74rem;color:var(--muted)}
@@ -514,7 +515,7 @@ var DATA=[
       {time:'11:30', act:'清境小瑞士花園', tags:['car:🚘 約 10 分'], hi:true,
        note:'湖邊散步。', map:drv(P.skywalk,P.swiss)},
       {time:'12:20', act:'Mountain Bica Cafe', tags:['car:🚘 下山方向約 20 分','eat:午餐','⚠️低消每人一杯飲料'],
-       eatery:{name:'Mountain Bica Cafe', en:'仁愛鄉 · 台 14 甲線上', hours:'10:00–18:00', d:'山谷景觀咖啡廳，就在下山的路上。'},
+       eatery:{name:'Mountain Bica Cafe', en:'仁愛鄉 · 台 14 甲線上', hours:'10:00–18:00', img:'mountain-bica.jpg', d:'山谷景觀咖啡廳，就在下山的路上。'},
        map:[['自駕路線',drv(P.swiss,P.bica)],['店家位置',P.bicaPin]]},
       {time:'14:00', act:'下山 → 埔里 → 國 6 → 國 3 北上', tags:['car:🚘 全程約 3 小時'],
        map:drv(P.bica,P.home)},
@@ -609,10 +610,12 @@ function mapsHtml(m){
     h+='<a class="tl-map" href="'+arr[i][1]+'" target="_blank" rel="noopener">'+PIN_ICON+(arr[i][0]||mapLabel(arr[i][1]))+'</a>';
   return h;
 }
-/* r.eatery：{name, en, price, hours, d} */
+/* r.eatery：{name, en, price, hours, img, d} */
 function eateryHtml(e){
   if(!e) return '';
-  var h='<div class="eatery"><div class="eatery-body"><div class="eatery-name">'+e.name
+  var h='<div class="eatery">'
+    +(e.img?'<img class="eatery-fig" loading="lazy" decoding="async" src="img/'+e.img+'" alt="'+escAttr(e.name)+'" onerror="this.style.display=\'none\'">':'')
+    +'<div class="eatery-body"><div class="eatery-name">'+e.name
     +(e.en?'<span class="eatery-en">'+e.en+'</span>':'')+'</div>';
   if(e.price||e.hours){
     h+='<div class="eatery-meta">';
