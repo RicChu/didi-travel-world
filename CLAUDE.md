@@ -8,7 +8,7 @@
 didi-travel-world/
 ├── index.html          # 旅行總覽首頁（深色風格，卡片列表）
 ├── robots.txt          # Disallow: /　擋搜尋引擎
-├── nantou/             # 日月潭・中部（2026-12，計劃中）：沿用花東頁版型，12/25 有晴天／雨天切換（data-sc）
+├── nantou/             # 日月潭・中部（2026-12，**已取消**）：頁面保留但總覽與足跡地圖都已拿掉；沿用花東頁版型，12/25 有晴天／雨天切換（data-sc）
 │   └── img/            # 每日照片，來源見 img/CREDITS.md；住宿只寫「伊達邵民宿」，路線連結用地址
 ├── huadong/ kyushu/ bali/ thailand/ kansai/ perth/
 │   ├── index.html      # 已完成的旅行（花東整理自舊版頁面，其餘整理自 DIDI_integration.xlsx），版型沿用土耳其頁、無密碼鎖
@@ -84,8 +84,8 @@ didi-travel-world/
 | 京都・大阪 | 2026-03-21 | 2026-03-27 | 已完成 |
 | 西澳珀斯 | 2026-05-23 | 2026-05-30 | 已完成 |
 | 花東縱谷 | 2026-07-15 | 2026-07-18 | 已完成 |
-| 土耳其之旅 | 2026-10-30 | 2026-11-08 | 計劃中 |（班機 11/09 落地）
-| 日月潭・中部 | 2026-12-23 | 2026-12-25 | 計劃中 |（國內旅行，已列進足跡地圖台灣的 trips）
+| 土耳其之旅 | 2026-10-30 | 2026-11-08 | 已完成 |（班機 11/09 落地）
+| 日月潭・中部 | 2026-12-23 | 2026-12-25 | 已取消 |（總覽卡片與足跡地圖都已移除，`nantou/` 頁面保留）
 
 ### 土耳其行程規劃狀態（分段）
 
@@ -104,7 +104,7 @@ didi-travel-world/
 1. 在根目錄新增 `<trip-name>/index.html`
 2. 使用 `frontend-design` skill 建立頁面，設計風格對應目的地文化
 3. 頁面使用 `.app-topbar > .back-btn` 結構（嵌入 flex 流，非 fixed）返回 `../index.html`
-4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`，並在根目錄 `img/` 放一張 `<trip>-cover.jpg`（長邊 1400px、jpeg 82），加上對應的 `.bg-<trip>` 規則
+4. 在根目錄 `index.html` 的「即將出發」`.trips-grid` 新增對應 `.trip-card`（目前沒有即將出發的旅行，這個區塊已拿掉，要照「已完成」的 `.section-wrap` + `.trips-grid` 結構加回來，放在已完成前面），並在根目錄 `img/` 放一張 `<trip>-cover.jpg`（長邊 1400px、jpeg 82），加上對應的 `.bg-<trip>` 規則
 5. 在根目錄 `index.html` 足跡地圖的 `COUNTRIES` 補上國家（國旗、城市經緯度；`trips` 填 `[名稱, 出發年月, 行程頁, 天數, 降落機場經緯度]`，
    國內旅行不填機場；還沒出發加 `status:'plan'`）。從桃園出發的航線與「國家／城市／旅程／天數」統計都會自動算出來。
    若是新國家，地圖色塊要重新產生：國界來自 world-atlas `countries-110m.json`（Natural Earth 投影、寬 1000），
